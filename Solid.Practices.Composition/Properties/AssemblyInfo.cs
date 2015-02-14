@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Solid.Practices.IoC")]
+[assembly: AssemblyTitle("Solid.Practices.Composition")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Solid.Practices.IoC")]
+[assembly: AssemblyProduct("Solid.Practices.Composition")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("42bb20c9-d0e1-4465-a606-109179e02784")]
+[assembly: Guid("995154dd-2781-46ec-9bc0-0a036462cbc2")]
 
 // Version information for an assembly consists of the following four values:
 //
