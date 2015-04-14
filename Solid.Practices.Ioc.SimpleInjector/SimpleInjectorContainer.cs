@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using SimpleInjector;
-using Solid.Practices.IoC;
 
-namespace Solid.Practices.Ioc.SimpleInjector
+namespace Solid.Practices.IoC.SimpleInjector
 {
     public class SimpleInjectorContainer : IIocContainer, IServiceLocator
     {

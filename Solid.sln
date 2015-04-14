@@ -35,7 +35,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solid.Fake.FakeItEasy", "So
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solid.Middleware", "Solid.Middleware\Solid.Middleware.csproj", "{6CE28FCB-0523-476C-94FB-92ABF2B3849C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solid.Practices.Ioc.SimpleInjector", "Solid.Practices.Ioc.SimpleInjector\Solid.Practices.Ioc.SimpleInjector.csproj", "{88F4F12C-38FD-4D1C-8625-17357475727D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solid.Practices.IoC.SimpleInjector", "Solid.Practices.IoC.SimpleInjector\Solid.Practices.IoC.SimpleInjector.csproj", "{88F4F12C-38FD-4D1C-8625-17357475727D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

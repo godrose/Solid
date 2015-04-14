@@ -7,8 +7,8 @@
     <ProjectGuid>{88F4F12C-38FD-4D1C-8625-17357475727D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Solid.Practices.Ioc.SimpleInjector</RootNamespace>
-    <AssemblyName>Solid.Practices.Ioc.SimpleInjector</AssemblyName>
+    <RootNamespace>Solid.Practices.IoC.SimpleInjector</RootNamespace>
+    <AssemblyName>Solid.Practices.IoC.SimpleInjector</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
