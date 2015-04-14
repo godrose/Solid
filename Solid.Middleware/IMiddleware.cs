@@ -1,6 +1,6 @@
 ﻿using Solid.Practices.IoC;
 
-namespace Middleware
+namespace Solid.Middleware
 {
     public interface IMiddleware
     {

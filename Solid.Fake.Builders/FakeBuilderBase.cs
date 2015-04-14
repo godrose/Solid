@@ -4,13 +4,11 @@ namespace Solid.Fake.Builders
 {
     public abstract class FakeBuilderBase<TService> where TService : class
     {
-        private readonly IFakeFactory _fakeFactory;
         protected readonly IFake<TService> FakeService;
 
-        public FakeBuilderBase(IFakeFactory fakeFactory)
+        protected FakeBuilderBase(IFakeFactory fakeFactory)
         {
-            _fakeFactory = fakeFactory;
-            FakeService = _fakeFactory.CreateFake<TService>();
+            FakeService = fakeFactory.CreateFake<TService>();
         }
 
         protected abstract void SetupFake();

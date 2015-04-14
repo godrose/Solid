@@ -43,10 +43,6 @@
     <Compile Include="TestBootstrapper.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Middleware\Middleware.csproj">
-      <Project>{6CE28FCB-0523-476C-94FB-92ABF2B3849C}</Project>
-      <Name>Middleware</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Solid.Fake.Builders\Solid.Fake.Builders.csproj">
       <Project>{66FB1045-8D8A-4F9C-A75C-2ED2D8A61D6C}</Project>
       <Name>Solid.Fake.Builders</Name>
@@ -54,6 +50,10 @@
     <ProjectReference Include="..\Solid.Fake.Core\Solid.Fake.Core.csproj">
       <Project>{FBBEA4D0-392A-4AB2-910D-65F18BF8C4DD}</Project>
       <Name>Solid.Fake.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Solid.Middleware\Solid.Middleware.csproj">
+      <Project>{6CE28FCB-0523-476C-94FB-92ABF2B3849C}</Project>
+      <Name>Solid.Middleware</Name>
     </ProjectReference>
     <ProjectReference Include="..\Solid.Practices.IoC\Solid.Practices.IoC.csproj">
       <Project>{49E02767-C502-48EE-B735-DAE41DDB3167}</Project>

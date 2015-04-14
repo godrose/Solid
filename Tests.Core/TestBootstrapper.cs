@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Middleware;
+using Solid.Middleware;
 using Solid.Practices.IoC;
 
 namespace Tests.Core
