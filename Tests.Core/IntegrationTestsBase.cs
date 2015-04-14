@@ -10,7 +10,7 @@ namespace Tests.Core
         where TFakeFactory : IFakeFactory, new()
     {
         protected TContainer IocContainer;
-        protected TFakeFactory FakeFactory;
+        protected readonly TFakeFactory FakeFactory;
 
         public IntegrationTestsBase()
         {
@@ -37,7 +37,7 @@ namespace Tests.Core
             RegisterService(fake.Object);
         }
 
-        protected TService Resolve<TService>()
+        protected TService Resolve<TService>() where TService : class
         {
             return IocContainer.Resolve<TService>();
         }
@@ -46,7 +46,7 @@ namespace Tests.Core
     public abstract class IntegrationTestsBase<TContainer, TFakeFactory, TRootObject> : 
         IntegrationTestsBase<TContainer, TFakeFactory> 
         where TContainer : IIocContainer, new()
-        where TFakeFactory : IFakeFactory, new()
+        where TFakeFactory : IFakeFactory, new() where TRootObject : class
     {
         protected TRootObject CreateRootObject()
         {

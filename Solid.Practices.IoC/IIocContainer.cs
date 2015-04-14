@@ -18,6 +18,6 @@ namespace Solid.Practices.IoC
 
     public interface IIoContainerResolver
     {
-        TService Resolve<TService>();
+        TService Resolve<TService>() where TService : class;
     }
 }
