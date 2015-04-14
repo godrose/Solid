@@ -37,6 +37,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solid.Middleware", "Solid.M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solid.Practices.IoC.SimpleInjector", "Solid.Practices.IoC.SimpleInjector\Solid.Practices.IoC.SimpleInjector.csproj", "{88F4F12C-38FD-4D1C-8625-17357475727D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solid.Practices.IoC.Unity", "Solid.Practices.IoC.Unity\Solid.Practices.IoC.Unity.csproj", "{22CCFF73-1118-43D8-BD95-10FF0DD020F6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{88F4F12C-38FD-4D1C-8625-17357475727D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88F4F12C-38FD-4D1C-8625-17357475727D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88F4F12C-38FD-4D1C-8625-17357475727D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22CCFF73-1118-43D8-BD95-10FF0DD020F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22CCFF73-1118-43D8-BD95-10FF0DD020F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22CCFF73-1118-43D8-BD95-10FF0DD020F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22CCFF73-1118-43D8-BD95-10FF0DD020F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -105,5 +111,6 @@ Global
 		{ECDD22D2-021E-415E-9995-CA32A9032832} = {C11A8DCC-483F-474D-8ABE-5507213CB427}
 		{6CE28FCB-0523-476C-94FB-92ABF2B3849C} = {610EF90F-874A-4FB1-898A-D9E42EAA8599}
 		{88F4F12C-38FD-4D1C-8625-17357475727D} = {C55CA8FA-D249-4EF0-BDA4-CB408A20256D}
+		{22CCFF73-1118-43D8-BD95-10FF0DD020F6} = {C55CA8FA-D249-4EF0-BDA4-CB408A20256D}
 	EndGlobalSection
 EndGlobal
