@@ -33,6 +33,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Middleware", "Middleware", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Middleware", "Middleware\Middleware.csproj", "{6CE28FCB-0523-476C-94FB-92ABF2B3849C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solid.Fake.FakeItEasy", "Solid.Fake.FakeItEasy\Solid.Fake.FakeItEasy.csproj", "{ECDD22D2-021E-415E-9995-CA32A9032832}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{6CE28FCB-0523-476C-94FB-92ABF2B3849C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6CE28FCB-0523-476C-94FB-92ABF2B3849C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6CE28FCB-0523-476C-94FB-92ABF2B3849C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECDD22D2-021E-415E-9995-CA32A9032832}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECDD22D2-021E-415E-9995-CA32A9032832}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECDD22D2-021E-415E-9995-CA32A9032832}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECDD22D2-021E-415E-9995-CA32A9032832}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -91,5 +97,6 @@ Global
 		{66FB1045-8D8A-4F9C-A75C-2ED2D8A61D6C} = {C11A8DCC-483F-474D-8ABE-5507213CB427}
 		{CA530825-0F66-41C4-9623-2B54985E1E46} = {AAB11DA6-1A57-441C-B7B5-6607BC59BC68}
 		{6CE28FCB-0523-476C-94FB-92ABF2B3849C} = {610EF90F-874A-4FB1-898A-D9E42EAA8599}
+		{ECDD22D2-021E-415E-9995-CA32A9032832} = {C11A8DCC-483F-474D-8ABE-5507213CB427}
 	EndGlobalSection
 EndGlobal
