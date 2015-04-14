@@ -7,8 +7,8 @@
     <ProjectGuid>{FBBEA4D0-392A-4AB2-910D-65F18BF8C4DD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Solid.Data.Fake.Core</RootNamespace>
-    <AssemblyName>Solid.Data.Fake.Core</AssemblyName>
+    <RootNamespace>Solid.Fake.Core</RootNamespace>
+    <AssemblyName>Solid.Fake.Core</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -32,11 +32,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IFake.cs" />

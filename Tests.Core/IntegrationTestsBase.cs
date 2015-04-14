@@ -1,14 +1,21 @@
 ﻿using NUnit.Framework;
 using Solid.Data.Fake.Core;
 using Solid.Fake.Builders;
-using Solid.Fake.Moq;
 using Solid.Practices.IoC;
 
 namespace Tests.Core
 {
-    public abstract class IntegrationTestsBase<TContainer> where TContainer : IIocContainer
+    public abstract class IntegrationTestsBase<TContainer, TFakeFactory> 
+        where TContainer : IIocContainer 
+        where TFakeFactory : IFakeFactory, new()
     {
         protected TContainer IocContainer;
+        protected TFakeFactory FakeFactory;
+
+        public IntegrationTestsBase()
+        {
+            FakeFactory = new TFakeFactory();
+        }
 
         protected void RegisterService<TService>(TService service) where TService : class
         {
@@ -22,7 +29,7 @@ namespace Tests.Core
 
         protected void RegisterStub<TService>() where TService : class
         {
-            RegisterFake(FakeProvider.CreateFake<TService>());
+            RegisterFake(FakeFactory.CreateFake<TService>());
         }
 
         protected void RegisterFake<TService>(IFake<TService> fake) where TService : class
@@ -36,7 +43,10 @@ namespace Tests.Core
         }
     }
 
-    public abstract class IntegrationTestsBase<TContainer, TRootObject> : IntegrationTestsBase<TContainer> where TContainer : IIocContainer, new()
+    public abstract class IntegrationTestsBase<TContainer, TFakeFactory, TRootObject> : 
+        IntegrationTestsBase<TContainer, TFakeFactory> 
+        where TContainer : IIocContainer, new()
+        where TFakeFactory : IFakeFactory, new()
     {
         protected TRootObject CreateRootObject()
         {

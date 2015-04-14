@@ -32,11 +32,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FakeBuilderBase.cs" />
@@ -47,10 +42,6 @@
     <ProjectReference Include="..\Solid.Fake.Core\Solid.Fake.Core.csproj">
       <Project>{FBBEA4D0-392A-4AB2-910D-65F18BF8C4DD}</Project>
       <Name>Solid.Fake.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Solid.Fake.Moq\Solid.Fake.Moq.csproj">
-      <Project>{257C1B0E-BD8D-4DDB-AC94-7494382D2C5F}</Project>
-      <Name>Solid.Fake.Moq</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

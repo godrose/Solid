@@ -1,9 +1,11 @@
-﻿using Moq;
+﻿using System;
+using Moq;
 using Solid.Data.Fake.Core;
 
 namespace Solid.Fake.Moq
 {
-    public static class FakeProvider
+    [Obsolete]
+    internal static class FakeProvider
     {
         public static IFake<TFaked> CreateFake<TFaked>() where TFaked : class
         {
