@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq.Expressions;
 
-namespace Solid.Data.Fake.Core
+namespace Solid.Fake.Core
 {
     public interface IFake<TFaked> : IMock<TFaked> where TFaked: class
     {

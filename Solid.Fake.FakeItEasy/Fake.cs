@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq.Expressions;
 using FakeItEasy;
-using Solid.Data.Fake.Core;
+using Solid.Fake.Core;
 
 namespace Solid.Fake.FakeItEasy
 {

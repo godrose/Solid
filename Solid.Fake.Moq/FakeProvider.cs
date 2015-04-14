@@ -1,6 +1,6 @@
 ﻿using System;
 using Moq;
-using Solid.Data.Fake.Core;
+using Solid.Fake.Core;
 
 namespace Solid.Fake.Moq
 {

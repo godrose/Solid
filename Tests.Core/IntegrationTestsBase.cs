@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
-using Solid.Data.Fake.Core;
 using Solid.Fake.Builders;
+using Solid.Fake.Core;
 using Solid.Practices.IoC;
 
 namespace Tests.Core
