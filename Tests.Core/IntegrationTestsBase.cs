@@ -50,7 +50,18 @@ namespace Tests.Core
     {
         protected TRootObject CreateRootObject()
         {
+            var rootObject = CreateRootObjectCore();
+            return CreateRootObjectOverride(rootObject);
+        }        
+
+        private TRootObject CreateRootObjectCore()
+        {
             return Resolve<TRootObject>();
+        }
+
+        protected virtual TRootObject CreateRootObjectOverride(TRootObject rootObject)
+        {
+            return rootObject;
         }
 
         [SetUp]
@@ -87,7 +98,5 @@ namespace Tests.Core
         {
             
         }
-
-
     }
 }
