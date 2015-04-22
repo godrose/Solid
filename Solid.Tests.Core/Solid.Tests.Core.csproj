@@ -7,8 +7,8 @@
     <ProjectGuid>{CA530825-0F66-41C4-9623-2B54985E1E46}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Tests.Core</RootNamespace>
-    <AssemblyName>Tests.Core</AssemblyName>
+    <RootNamespace>Solid.Tests.Core</RootNamespace>
+    <AssemblyName>Solid.Tests.Core</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

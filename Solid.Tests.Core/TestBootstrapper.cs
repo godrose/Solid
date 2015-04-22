@@ -2,7 +2,7 @@
 using Solid.Middleware;
 using Solid.Practices.IoC;
 
-namespace Tests.Core
+namespace Solid.Tests.Core
 {
     internal class TestBootstrapper<TContainer> where TContainer : IIocContainer
     {

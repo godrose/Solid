@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Tests.Core
+namespace Solid.Tests.Core
 {
     class SameThreadTaskScheduler : TaskScheduler
     {

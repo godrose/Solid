@@ -3,7 +3,7 @@ using Solid.Fake.Builders;
 using Solid.Fake.Core;
 using Solid.Practices.IoC;
 
-namespace Tests.Core
+namespace Solid.Tests.Core
 {
     public abstract class IntegrationTestsBase<TContainer, TFakeFactory> 
         where TContainer : IIocContainer 
