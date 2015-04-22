@@ -4,7 +4,7 @@ using Solid.Practices.IoC;
 
 namespace Solid.Tests.Core
 {
-    internal class TestBootstrapper<TContainer> where TContainer : IIocContainer
+    public class TestBootstrapper<TContainer> where TContainer : IIocContainer
     {
         public TestBootstrapper(TContainer iocContainer)
         {
