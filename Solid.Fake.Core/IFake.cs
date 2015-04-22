@@ -9,9 +9,4 @@ namespace Solid.Fake.Core
         IFake<TFaked> SetupWithException<TResult>(Expression<Func<TFaked, TResult>> expression, Exception exception);
         TFaked Object { get; }
     }
-
-    public interface IFakeFactory
-    {
-        IFake<TFaked> CreateFake<TFaked>() where TFaked : class;
-    }
 }

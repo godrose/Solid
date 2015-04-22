@@ -35,6 +35,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IFake.cs" />
+    <Compile Include="IFakeFactory.cs" />
     <Compile Include="IMock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
