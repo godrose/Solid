@@ -3,12 +3,12 @@ using Solid.Practices.IoC;
 
 namespace Solid.Practices.Composition
 {
-    public abstract class BootstrapperInitializationFacadeBase : IBootstrapperInitializationFacade
+    public abstract class BootstrapperInitializationFacadeBase<TIocContainer> : IBootstrapperInitializationFacade where TIocContainer : IIocContainer
     {
-        private readonly IIocContainer _iocContainer;
+        private readonly TIocContainer _iocContainer;
         protected ICompositionContainer CompositionContainer;
 
-        protected BootstrapperInitializationFacadeBase(IIocContainer iocContainer)
+        protected BootstrapperInitializationFacadeBase(TIocContainer iocContainer)
         {
             _iocContainer = iocContainer;
         }
@@ -37,7 +37,7 @@ namespace Solid.Practices.Composition
 
         private void RegisterModules()
         {
-            var moduleRegistrator = new ModuleRegistrator(_iocContainer, CompositionContainer);
+            var moduleRegistrator = new ModuleRegistrator<TIocContainer>(_iocContainer, CompositionContainer);
             moduleRegistrator.RegisterModules();
         }
     }

@@ -3,11 +3,11 @@ using Solid.Practices.IoC;
 
 namespace Solid.Practices.Composition.Desktop
 {
-    public class BootstrapperInitializationFacade : BootstrapperInitializationFacadeBase
+    public class BootstrapperInitializationFacade<TIocContainer> : BootstrapperInitializationFacadeBase<TIocContainer> where TIocContainer : IIocContainer
     {
         private readonly Type _entryType;        
 
-        public BootstrapperInitializationFacade(Type entryType, IIocContainer iocContainer) : base(iocContainer)
+        public BootstrapperInitializationFacade(Type entryType, TIocContainer iocContainer) : base(iocContainer)
         {
             _entryType = entryType;
         }

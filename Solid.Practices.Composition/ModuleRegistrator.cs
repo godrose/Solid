@@ -1,4 +1,5 @@
-﻿using Solid.Practices.IoC;
+﻿using System.Linq;
+using Solid.Practices.IoC;
 
 namespace Solid.Practices.Composition
 {
@@ -7,12 +8,12 @@ namespace Solid.Practices.Composition
         void RegisterModules();
     }
 
-    public class ModuleRegistrator : IModuleRegistrator
+    public class ModuleRegistrator<TIocContainer> : IModuleRegistrator where TIocContainer : IIocContainer
     {
-        private readonly IIocContainer _iocContainer;
+        private readonly TIocContainer _iocContainer;
         private readonly ICompositionContainer _compositionContainer;
 
-        public ModuleRegistrator(IIocContainer iocContainer, ICompositionContainer compositionContainer)
+        public ModuleRegistrator(TIocContainer iocContainer, ICompositionContainer compositionContainer)
         {
             _iocContainer = iocContainer;
             _compositionContainer = compositionContainer;
@@ -22,12 +23,11 @@ namespace Solid.Practices.Composition
         {
             if (_compositionContainer.Modules != null)
             {
-                foreach (var compositionModule in _compositionContainer.Modules)
+                foreach (var compositionModule in _compositionContainer.Modules.OfType<ICompositionModule<TIocContainer>>())
                 {
                     compositionModule.RegisterModule(_iocContainer);
                 }                
-            }
-                
+            }                
         }
     }
 }

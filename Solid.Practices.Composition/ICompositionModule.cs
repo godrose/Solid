@@ -4,6 +4,11 @@ namespace Solid.Practices.Composition
 {
     public interface ICompositionModule
     {
-        void RegisterModule(IIocContainer container);
+        
+    }
+
+    public interface ICompositionModule<TIocContainer> : ICompositionModule where TIocContainer : IIocContainer
+    {
+        void RegisterModule(TIocContainer iocContainer);
     }
 }

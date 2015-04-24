@@ -2,9 +2,11 @@
 
 namespace Solid.Practices.Composition.Web
 {
-    public class BootstrapperInitializationFacade : BootstrapperInitializationFacadeBase
+    public class BootstrapperInitializationFacade<TIocContainer> : BootstrapperInitializationFacadeBase<TIocContainer> 
+        where TIocContainer : IIocContainer
     {
-        public BootstrapperInitializationFacade(IIocContainer iocContainer) : base(iocContainer)
+        public BootstrapperInitializationFacade(TIocContainer iocContainer)
+            : base(iocContainer)
         {
         }
 
