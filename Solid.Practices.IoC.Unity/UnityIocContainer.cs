@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.Practices.Unity;
 
 namespace Solid.Practices.IoC.Unity
 {
-    class UnityIocContainer : IIocContainer
+    public class UnityIocContainer : IIocContainer, IServiceLocator
     {
         private readonly UnityContainer _container = new UnityContainer();
 
@@ -35,6 +36,31 @@ namespace Solid.Practices.IoC.Unity
         public TService Resolve<TService>() where TService : class
         {
             return _container.Resolve<TService>();
+        }
+
+        public TService GetInstance<TService>(Type serviceType) where TService : class
+        {
+            return (TService)_container.Resolve(serviceType);
+        }
+
+        public TService GetInstance<TService>() where TService : class
+        {
+            return _container.Resolve<TService>();
+        }
+
+        public object GetInstance(Type serviceType)
+        {
+            return _container.Resolve(serviceType);
+        }
+
+        public IEnumerable<object> GetAllInstances(Type serviceType)
+        {
+            return _container.ResolveAll(serviceType);
+        }
+
+        public void BuildUp(object instance)
+        {
+            _container.BuildUp(instance);
         }
     }
 }
