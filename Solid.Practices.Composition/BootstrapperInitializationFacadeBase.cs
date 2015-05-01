@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using Solid.Practices.IoC;
 
 namespace Solid.Practices.Composition
@@ -14,6 +15,7 @@ namespace Solid.Practices.Composition
         }
 
         public IAssembliesReadOnlyResolver AssembliesResolver { get; private set; }
+        public IEnumerable<ICompositionModule> Modules { get { return CompositionContainer.Modules; } }
 
         public void Initialize(string rootPath)
         {
