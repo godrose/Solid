@@ -19,6 +19,7 @@ namespace Solid.Practices.Composition
     public class CompositionContainer : ICompositionContainer
     {
         private readonly string _rootPath;
+        private static readonly string[] AllowedModulePatterns = new[] {"*.dll", "*.exe"};
 
         public CompositionContainer(string rootPath)
         {
@@ -35,8 +36,11 @@ namespace Solid.Practices.Composition
             {
                 return;
             }
-            DirectoryCatalog directoryCatalog = new DirectoryCatalog(_rootPath);
-            catalog.Catalogs.Add(directoryCatalog);
+            foreach (var modulePattern in AllowedModulePatterns)
+            {
+                DirectoryCatalog dllCatalog = new DirectoryCatalog(_rootPath, modulePattern);
+                catalog.Catalogs.Add(dllCatalog);   
+            }            
             var container = new System.ComponentModel.Composition.Hosting.CompositionContainer(catalog);
 
             try

@@ -21,7 +21,7 @@ namespace Solid.Practices.Composition
             return
                 assemblies.Concat(_compositionModulesProvider.Modules != null
                     ? _compositionModulesProvider.Modules.Select(t => t.GetType().Assembly)
-                    : new Assembly[] {});
+                    : new Assembly[] {}).Distinct();
         }
     }
 }
