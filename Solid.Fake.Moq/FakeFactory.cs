@@ -3,7 +3,7 @@ using Solid.Fake.Core;
 
 namespace Solid.Fake.Moq
 {
-    class FakeFactory : IFakeFactory
+    public class FakeFactory : IFakeFactory
     {
         public IFake<TFaked> CreateFake<TFaked>() where TFaked : class
         {

@@ -16,7 +16,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\bin\Fake\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -39,7 +39,6 @@
   <ItemGroup>
     <Compile Include="Fake.cs" />
     <Compile Include="FakeFactory.cs" />
-    <Compile Include="FakeProvider.cs" />
     <Compile Include="It.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
