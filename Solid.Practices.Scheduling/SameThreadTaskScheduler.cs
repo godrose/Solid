@@ -2,9 +2,9 @@
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Solid.Tests.Core
+namespace Solid.Practices.Scheduling
 {
-    class SameThreadTaskScheduler : TaskScheduler
+    public class SameThreadTaskScheduler : System.Threading.Tasks.TaskScheduler
     {
         public override int MaximumConcurrencyLevel
         {

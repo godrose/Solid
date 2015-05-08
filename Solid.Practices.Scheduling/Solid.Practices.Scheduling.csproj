@@ -41,6 +41,8 @@
   <ItemGroup>
     <Compile Include="AsyncProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SameThreadTaskScheduler.cs" />
+    <Compile Include="TaskFactoryFactory.cs" />
     <Compile Include="TaskScheduler.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
