@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using Solid.Practices.IoC;
+using Solid.Practices.Modularity;
 
 namespace Solid.Practices.Composition
 {

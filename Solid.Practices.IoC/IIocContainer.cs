@@ -2,7 +2,7 @@
 
 namespace Solid.Practices.IoC
 {
-    public interface IIocContainer : IIocContainerRegistrator, IIoContainerResolver
+    public interface IIocContainer : IIocContainerRegistrator, IIocContainerResolver
     {      
           
     }
@@ -16,7 +16,7 @@ namespace Solid.Practices.IoC
         void RegisterInstance<TService>(TService instance) where TService : class;
     }
 
-    public interface IIoContainerResolver
+    public interface IIocContainerResolver
     {
         TService Resolve<TService>() where TService : class;
     }

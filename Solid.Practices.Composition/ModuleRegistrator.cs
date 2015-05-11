@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Solid.Practices.IoC;
+using Solid.Practices.Modularity;
 
 namespace Solid.Practices.Composition
 {

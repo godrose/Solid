@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 using System.IO;
+using Solid.Practices.Modularity;
 
 namespace Solid.Practices.Composition
 {

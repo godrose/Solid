@@ -1,6 +1,6 @@
 ﻿using Solid.Practices.IoC;
 
-namespace Solid.Practices.Composition
+namespace Solid.Practices.Modularity
 {
     public interface ICompositionModule
     {

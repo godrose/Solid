@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Solid.Practices.Modularity;
 
 namespace Solid.Practices.Composition
 {
