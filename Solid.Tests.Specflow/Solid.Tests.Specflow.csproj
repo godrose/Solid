@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CA530825-0F66-41C4-9623-2B54985E1E46}</ProjectGuid>
+    <ProjectGuid>{A1CE31BC-5326-41FD-96D8-6481A011301B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Solid.Tests.Core</RootNamespace>
-    <AssemblyName>Solid.Tests.Core</AssemblyName>
+    <RootNamespace>Solid.Tests.Specflow</RootNamespace>
+    <AssemblyName>Solid.Tests.Specflow</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -32,11 +32,13 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="TechTalk.SpecFlow">
+      <HintPath>..\packages\SpecFlow.1.9.0\lib\net35\TechTalk.SpecFlow.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IntegrationTestsHelper.cs" />
+    <Compile Include="IntegrationTestsBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestBootstrapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Solid.Fake.Builders\Solid.Fake.Builders.csproj">
@@ -47,14 +49,18 @@
       <Project>{FBBEA4D0-392A-4AB2-910D-65F18BF8C4DD}</Project>
       <Name>Solid.Fake.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Solid.Middleware\Solid.Middleware.csproj">
-      <Project>{6CE28FCB-0523-476C-94FB-92ABF2B3849C}</Project>
-      <Name>Solid.Middleware</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Solid.Practices.IoC\Solid.Practices.IoC.csproj">
       <Project>{49E02767-C502-48EE-B735-DAE41DDB3167}</Project>
       <Name>Solid.Practices.IoC</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Solid.Tests.Core\Solid.Tests.Core.csproj">
+      <Project>{CA530825-0F66-41C4-9623-2B54985E1E46}</Project>
+      <Name>Solid.Tests.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

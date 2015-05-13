@@ -2,52 +2,16 @@
 using Solid.Fake.Builders;
 using Solid.Fake.Core;
 using Solid.Practices.IoC;
+using Solid.Tests.Core;
 
-namespace Solid.Tests.Core
+namespace Solid.Tests.NUnit
 {
-    public abstract class IntegrationTestsBase<TContainer, TFakeFactory> 
-        where TContainer : IIocContainer 
-        where TFakeFactory : IFakeFactory, new()
-    {
-        protected TContainer IocContainer;
-        protected readonly TFakeFactory FakeFactory;
-
-        public IntegrationTestsBase()
-        {
-            FakeFactory = new TFakeFactory();
-        }
-
-        protected void RegisterService<TService>(TService service) where TService : class
-        {
-            IocContainer.RegisterInstance(service);
-        }
-
-        protected void RegisterBuilder<TService>(FakeBuilderBase<TService> builder) where TService : class
-        {
-            RegisterService(builder.GetService());
-        }
-
-        protected void RegisterStub<TService>() where TService : class
-        {
-            RegisterFake(FakeFactory.CreateFake<TService>());
-        }
-
-        protected void RegisterFake<TService>(IFake<TService> fake) where TService : class
-        {
-            RegisterService(fake.Object);
-        }
-
-        protected TService Resolve<TService>() where TService : class
-        {
-            return IocContainer.Resolve<TService>();
-        }
-    }
-
-    public abstract class IntegrationTestsBase<TContainer, TFakeFactory, TRootObject> : 
-        IntegrationTestsBase<TContainer, TFakeFactory> 
+    public abstract class IntegrationTestsBase<TContainer, TFakeFactory, TRootObject>       
         where TContainer : IIocContainer, new()
         where TFakeFactory : IFakeFactory, new() where TRootObject : class
     {
+        protected TContainer IocContainer;                
+
         protected TRootObject CreateRootObject()
         {
             var rootObject = CreateRootObjectCore();
@@ -97,6 +61,31 @@ namespace Solid.Tests.Core
         protected virtual void TearDownOverride()
         {
             
+        }
+
+        protected void RegisterService<TService>(TService service) where TService : class
+        {
+            IntegrationTestsHelper<TFakeFactory>.RegisterService(IocContainer,service);
+        }
+
+        protected void RegisterBuilder<TService>(FakeBuilderBase<TService> builder) where TService : class
+        {
+            IntegrationTestsHelper<TFakeFactory>.RegisterBuilder(IocContainer, builder);
+        }
+
+        protected void RegisterStub<TService>() where TService : class
+        {
+            IntegrationTestsHelper<TFakeFactory>.RegisterStub<TService>(IocContainer);
+        }
+
+        protected void RegisterFake<TService>(IFake<TService> fake) where TService : class
+        {
+            IntegrationTestsHelper<TFakeFactory>.RegisterFake(IocContainer, fake);
+        }
+
+        protected TService Resolve<TService>() where TService : class
+        {
+            return IntegrationTestsHelper<TFakeFactory>.Resolve<TService>(IocContainer);
         }
     }
 }

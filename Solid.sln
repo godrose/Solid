@@ -43,6 +43,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modularity", "Modularity", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solid.Practices.Modularity", "Solid.Practices.Modularity\Solid.Practices.Modularity.csproj", "{82BB5DF3-82AC-466D-BDDF-C65A9ECDB8A4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solid.Tests.NUnit", "Solid.Tests.NUnit\Solid.Tests.NUnit.csproj", "{9FF05651-87CC-49B9-A054-626FC33D819E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solid.Tests.Specflow", "Solid.Tests.Specflow\Solid.Tests.Specflow.csproj", "{A1CE31BC-5326-41FD-96D8-6481A011301B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -97,6 +101,14 @@ Global
 		{82BB5DF3-82AC-466D-BDDF-C65A9ECDB8A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82BB5DF3-82AC-466D-BDDF-C65A9ECDB8A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82BB5DF3-82AC-466D-BDDF-C65A9ECDB8A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FF05651-87CC-49B9-A054-626FC33D819E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FF05651-87CC-49B9-A054-626FC33D819E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FF05651-87CC-49B9-A054-626FC33D819E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FF05651-87CC-49B9-A054-626FC33D819E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1CE31BC-5326-41FD-96D8-6481A011301B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1CE31BC-5326-41FD-96D8-6481A011301B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1CE31BC-5326-41FD-96D8-6481A011301B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1CE31BC-5326-41FD-96D8-6481A011301B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -118,5 +130,7 @@ Global
 		{CA530825-0F66-41C4-9623-2B54985E1E46} = {AAB11DA6-1A57-441C-B7B5-6607BC59BC68}
 		{9184EF3D-A5A8-491B-A2A6-DBD41946D54A} = {11556FBE-83BE-4B8F-8DC1-17D2B4ED73BE}
 		{82BB5DF3-82AC-466D-BDDF-C65A9ECDB8A4} = {9184EF3D-A5A8-491B-A2A6-DBD41946D54A}
+		{9FF05651-87CC-49B9-A054-626FC33D819E} = {AAB11DA6-1A57-441C-B7B5-6607BC59BC68}
+		{A1CE31BC-5326-41FD-96D8-6481A011301B} = {AAB11DA6-1A57-441C-B7B5-6607BC59BC68}
 	EndGlobalSection
 EndGlobal
