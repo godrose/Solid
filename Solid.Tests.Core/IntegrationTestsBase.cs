@@ -9,7 +9,8 @@ namespace Solid.Tests.Core
         where TFakeFactory : IFakeFactory, new()
         where TRootObject : class
     {
-        protected TContainer IocContainer;
+        //defensive initialization
+        protected TContainer IocContainer = new TContainer();
 
         protected TRootObject CreateRootObject()
         {

@@ -7,13 +7,11 @@ using TechTalk.SpecFlow;
 namespace Solid.Tests.Specflow
 {
     public abstract class IntegrationTestsBase<TContainer, TFakeFactory, TRootObject> :
-        Solid.Tests.Core.IntegrationTestsBase<TContainer, TFakeFactory, TRootObject>
+        Core.IntegrationTestsBase<TContainer, TFakeFactory, TRootObject>
         where TContainer : IIocContainer, new()
         where TFakeFactory : IFakeFactory, new()
         where TRootObject : class
-    {
-        protected TContainer IocContainer;
-
+    {        
         [BeforeScenario]
         protected override void Setup()
         {

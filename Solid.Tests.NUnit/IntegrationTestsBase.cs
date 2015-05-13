@@ -7,12 +7,10 @@ using Solid.Tests.Core;
 namespace Solid.Tests.NUnit
 {
     public abstract class IntegrationTestsBase<TContainer, TFakeFactory, TRootObject> : 
-        Solid.Tests.Core.IntegrationTestsBase<TContainer, TFakeFactory, TRootObject>     
+        Core.IntegrationTestsBase<TContainer, TFakeFactory, TRootObject>     
         where TContainer : IIocContainer, new()
         where TFakeFactory : IFakeFactory, new() where TRootObject : class
-    {
-        protected TContainer IocContainer;                        
-
+    {        
         [SetUp]
         protected override void Setup()
         {
