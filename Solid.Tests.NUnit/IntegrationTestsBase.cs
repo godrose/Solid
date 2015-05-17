@@ -1,11 +1,11 @@
-﻿using NUnit.Framework;
+﻿using System;
+using NUnit.Framework;
 using Solid.Fake.Core;
 using Solid.Practices.IoC;
-using Solid.Tests.Core;
 
 namespace Solid.Tests.NUnit
 {
-    public abstract class IntegrationTestsBase<TContainer, TFakeFactory, TRootObject> : 
+    public abstract class IntegrationTestsBase<TContainer, TFakeFactory, TRootObject, TBootstrapper> : 
         Core.IntegrationTestsBase<TContainer, TFakeFactory, TRootObject>     
         where TContainer : IIocContainer, new()
         where TFakeFactory : IFakeFactory, new() where TRootObject : class
@@ -27,7 +27,7 @@ namespace Solid.Tests.NUnit
         private void SetupCore()
         {
             IocContainer = new TContainer();
-            new TestBootstrapper<TContainer>(IocContainer);
+            Activator.CreateInstance(typeof (TBootstrapper), IocContainer);            
         }
 
         protected virtual void SetupOverride()
