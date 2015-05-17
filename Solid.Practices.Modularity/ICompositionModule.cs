@@ -7,7 +7,7 @@ namespace Solid.Practices.Modularity
         
     }
 
-    public interface ICompositionModule<TIocContainer> : ICompositionModule where TIocContainer : IIocContainer
+    public interface ICompositionModule<in TIocContainer> : ICompositionModule where TIocContainer : IIocContainer
     {
         void RegisterModule(TIocContainer iocContainer);
     }
