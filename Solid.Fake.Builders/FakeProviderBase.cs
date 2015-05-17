@@ -2,7 +2,7 @@
 
 namespace Solid.Fake.Builders
 {
-    public abstract class FakeDataAgentBase<TBuilder, TService>
+    public abstract class FakeProviderBase<TBuilder, TService>
         where TService : class
         where TBuilder : FakeBuilderBase<TService>
     {

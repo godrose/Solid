@@ -7,5 +7,6 @@ namespace Solid.Fake.Core
     {
         void VerifyCall(Expression<Action<TFaked>> expression);
         void VerifyNoCall(Expression<Action<TFaked>> expression);
+        void VerifySingleCall(Expression<Action<TFaked>> expression);
     }
 }

@@ -1,8 +1,10 @@
-﻿using Solid.Fake.Core;
+﻿using System;
+using System.Linq.Expressions;
+using Solid.Fake.Core;
 
 namespace Solid.Fake.Builders
 {
-    public abstract class FakeBuilderBase<TService> where TService : class
+    public abstract class FakeBuilderBase<TService> : IMock<TService> where TService : class
     {
         protected readonly IFake<TService> FakeService;
 
@@ -17,6 +19,21 @@ namespace Solid.Fake.Builders
         {
             SetupFake();
             return FakeService.Object;
+        }
+
+        public void VerifyCall(Expression<Action<TService>> expression)
+        {
+            FakeService.VerifyCall(expression);
+        }
+
+        public void VerifyNoCall(Expression<Action<TService>> expression)
+        {
+            FakeService.VerifyNoCall(expression);
+        }
+
+        public void VerifySingleCall(Expression<Action<TService>> expression)
+        {
+            FakeService.VerifySingleCall(expression);
         }
     }
 }

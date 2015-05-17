@@ -35,7 +35,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FakeBuilderBase.cs" />
-    <Compile Include="FakeDataAgentBase.cs" />
+    <Compile Include="FakeProviderBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

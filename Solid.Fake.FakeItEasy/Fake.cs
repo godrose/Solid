@@ -19,6 +19,11 @@ namespace Solid.Fake.FakeItEasy
             A.CallTo(expression).MustNotHaveHappened();
         }
 
+        public void VerifySingleCall(Expression<Action<TFaked>> expression)
+        {
+            A.CallTo(expression).MustHaveHappened(Repeated.Exactly.Once);
+        }
+
         public IFake<TFaked> SetupWithResult<TResult>(Expression<Func<TFaked, TResult>> expression, TResult result)
         {
             A.CallTo(() =>expression.Compile().Invoke(_fake)).Returns(result);

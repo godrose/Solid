@@ -14,7 +14,6 @@ namespace Solid.Fake.Moq
             _mock = mock;
         }
         
-
         public IFake<TFaked> SetupWithResult<TResult>(Expression<Func<TFaked, TResult>> expression, TResult result)
         {
             _mock.Setup(expression).Returns(result);
@@ -40,6 +39,11 @@ namespace Solid.Fake.Moq
         public void VerifyNoCall(Expression<Action<TFaked>> expression)
         {
             _mock.Verify(expression, Times.Never);
+        }
+
+        public void VerifySingleCall(Expression<Action<TFaked>> expression)
+        {
+            _mock.Verify(expression, Times.Once);
         }
     }
 }
