@@ -39,6 +39,7 @@
   <ItemGroup>
     <Compile Include="Fake.cs" />
     <Compile Include="FakeFactory.cs" />
+    <Compile Include="It.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
