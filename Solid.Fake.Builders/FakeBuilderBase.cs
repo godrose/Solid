@@ -35,5 +35,10 @@ namespace Solid.Fake.Builders
         {
             FakeService.VerifySingleCall(expression);
         }
+
+        public TService Object
+        {
+            get { return FakeService.Object; }
+        }
     }
 }
