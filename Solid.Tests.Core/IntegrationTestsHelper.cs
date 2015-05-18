@@ -25,6 +25,16 @@ namespace Solid.Tests.Core
 
         public static void RegisterFake<TService>(IIocContainer container, IFake<TService> fake) where TService : class
         {
+            RegisterHaveFake(container, fake);
+        }
+
+        public static void RegisterMock<TService>(IIocContainer container, IMock<TService> fake) where TService : class
+        {
+            RegisterHaveFake(container, fake);
+        }
+
+        private static void RegisterHaveFake<TService>(IIocContainer container, IHaveFake<TService> fake) where TService : class
+        {
             RegisterService(container, fake.Object);
         }
 

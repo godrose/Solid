@@ -51,6 +51,11 @@ namespace Solid.Tests.Core
             IntegrationTestsHelper<TFakeFactory>.RegisterFake(IocContainer, fake);
         }
 
+        protected void RegisterMock<TService>(IMock<TService> fake) where TService : class
+        {
+            IntegrationTestsHelper<TFakeFactory>.RegisterMock(IocContainer, fake);
+        }
+
         protected TService Resolve<TService>() where TService : class
         {
             return IntegrationTestsHelper<TFakeFactory>.Resolve<TService>(IocContainer);
