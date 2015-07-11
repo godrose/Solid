@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
+using System.ComponentModel.Composition.Primitives;
 using System.IO;
+using System.Linq;
 using Solid.Practices.Modularity;
 
 namespace Solid.Practices.Composition
@@ -20,7 +22,7 @@ namespace Solid.Practices.Composition
     public class CompositionContainer : ICompositionContainer
     {
         private readonly string _rootPath;
-        private static readonly string[] AllowedModulePatterns = new[] {"*.dll", "*.exe"};
+        private static readonly string[] AllowedModulePatterns = {"*.dll", "*.exe"};
 
         public CompositionContainer(string rootPath)
         {
@@ -32,16 +34,32 @@ namespace Solid.Practices.Composition
 
         public void Compose()
         {
-            AggregateCatalog catalog = new AggregateCatalog();
             if (Directory.Exists(_rootPath) == false)
             {
                 return;
-            }
-            foreach (var modulePattern in AllowedModulePatterns)
+            }                       
+            var directoryCatalogs = GetDirectoryCatalogs();
+            var catalog = GetAggregateCatalog(directoryCatalogs);             
+            ComposeFromCatalog(catalog);
+        }
+
+        private IEnumerable<DirectoryCatalog> GetDirectoryCatalogs()
+        {
+            return AllowedModulePatterns.Select(modulePattern => new DirectoryCatalog(_rootPath, modulePattern));
+        }
+
+        private static AggregateCatalog GetAggregateCatalog(IEnumerable<DirectoryCatalog> directoryCatalogs)
+        {
+            var catalog = new AggregateCatalog();
+            foreach (var directoryCatalog in directoryCatalogs)
             {
-                DirectoryCatalog dllCatalog = new DirectoryCatalog(_rootPath, modulePattern);
-                catalog.Catalogs.Add(dllCatalog);   
-            }            
+                catalog.Catalogs.Add(directoryCatalog);
+            }
+            return catalog;
+        }
+
+        private void ComposeFromCatalog(ComposablePartCatalog catalog)
+        {
             var container = new System.ComponentModel.Composition.Hosting.CompositionContainer(catalog);
 
             try

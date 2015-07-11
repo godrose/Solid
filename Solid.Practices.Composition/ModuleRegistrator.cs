@@ -9,7 +9,7 @@ namespace Solid.Practices.Composition
         void RegisterModules();
     }
 
-    public class ModuleRegistrator<TIocContainer> : IModuleRegistrator where TIocContainer : IIocContainer
+    class ModuleRegistrator<TIocContainer> : IModuleRegistrator where TIocContainer : IIocContainer
     {
         private readonly TIocContainer _iocContainer;
         private readonly ICompositionContainer _compositionContainer;
