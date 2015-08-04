@@ -9,17 +9,26 @@ using Solid.Practices.Modularity;
 
 namespace Solid.Practices.Composition
 {
-    public interface ICompositionModulesProvider
-    {
-        IEnumerable<ICompositionModule> Modules { get; }
+    public interface ICompositionModulesProvider : ICompositionModulesProvider<ICompositionModule>
+    {        
     }
 
-    public interface ICompositionContainer : ICompositionModulesProvider
+    public interface ICompositionModulesProvider<TModule>
+    {
+        IEnumerable<TModule> Modules { get; }
+    }
+
+    public interface ICompositionContainer : ICompositionContainer<ICompositionModule>, ICompositionModulesProvider
     {        
+        
+    }
+
+    public interface ICompositionContainer<TModule> : ICompositionModulesProvider<TModule>
+    {
         void Compose();
     }
 
-    public class CompositionContainer : ICompositionContainer
+    public class CompositionContainer<TModule> : ICompositionContainer<TModule>
     {
         private readonly string _rootPath;
         private static readonly string[] AllowedModulePatterns = {"*.dll", "*.exe"};
@@ -29,8 +38,8 @@ namespace Solid.Practices.Composition
             _rootPath = rootPath;
         }
 
-        [ImportMany(typeof(ICompositionModule))]
-        public IEnumerable<ICompositionModule> Modules { get; private set; }
+        [ImportMany]
+        public IEnumerable<TModule> Modules { get; private set; }
 
         public void Compose()
         {
@@ -71,6 +80,14 @@ namespace Solid.Practices.Composition
                 Console.WriteLine(compositionException.ToString());
                 throw;
             }
+        }
+    }
+
+    public class CompositionContainer : CompositionContainer<ICompositionModule>, ICompositionContainer
+    {
+        public CompositionContainer(string rootPath) 
+            : base(rootPath)
+        {
         }
     }
 }
