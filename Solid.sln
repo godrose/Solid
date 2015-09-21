@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solid.Practices.IoC", "Solid.Practices.IoC\Solid.Practices.IoC.csproj", "{49E02767-C502-48EE-B735-DAE41DDB3167}"
 EndProject
@@ -28,6 +28,12 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{F9CDFCC0-F3AD-4C78-BA2D-2775A0BE12FC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solid.Practices.Composition.Tests", "Solid.Practices.Composition.Tests\Solid.Practices.Composition.Tests.csproj", "{23021A96-0949-4DC0-AB80-6AD9367F30F8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Patterns", "Patterns", "{C373E7A9-7FDD-4D6B-828A-FA4D9FE88469}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Visitor", "Visitor", "{38248994-793E-4801-AFEC-E4C5DA117427}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solid.Patterns.Visitor", "Solid.Patterns.Visitor\Solid.Patterns.Visitor.csproj", "{06ACFB8D-30ED-4A01-A47A-C15B067A8322}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +69,10 @@ Global
 		{23021A96-0949-4DC0-AB80-6AD9367F30F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23021A96-0949-4DC0-AB80-6AD9367F30F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23021A96-0949-4DC0-AB80-6AD9367F30F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06ACFB8D-30ED-4A01-A47A-C15B067A8322}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06ACFB8D-30ED-4A01-A47A-C15B067A8322}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06ACFB8D-30ED-4A01-A47A-C15B067A8322}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06ACFB8D-30ED-4A01-A47A-C15B067A8322}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -80,5 +90,7 @@ Global
 		{82BB5DF3-82AC-466D-BDDF-C65A9ECDB8A4} = {9184EF3D-A5A8-491B-A2A6-DBD41946D54A}
 		{F9CDFCC0-F3AD-4C78-BA2D-2775A0BE12FC} = {A9647145-00FC-4FC9-BFD8-8AC179BF4A36}
 		{23021A96-0949-4DC0-AB80-6AD9367F30F8} = {F9CDFCC0-F3AD-4C78-BA2D-2775A0BE12FC}
+		{38248994-793E-4801-AFEC-E4C5DA117427} = {C373E7A9-7FDD-4D6B-828A-FA4D9FE88469}
+		{06ACFB8D-30ED-4A01-A47A-C15B067A8322} = {38248994-793E-4801-AFEC-E4C5DA117427}
 	EndGlobalSection
 EndGlobal
