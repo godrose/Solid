@@ -4,6 +4,9 @@ using System.Threading.Tasks;
 
 namespace Solid.Practices.Scheduling
 {
+    /// <summary>
+    /// Custom task scheduler that runs all tasks in one thread
+    /// </summary>
     public class SameThreadTaskScheduler : System.Threading.Tasks.TaskScheduler
     {
         public override int MaximumConcurrencyLevel
