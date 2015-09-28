@@ -6,6 +6,9 @@ using System.Web.Http.Dispatcher;
 
 namespace Solid.Practices.Composition.Web
 {
+    /// <summary>
+    /// Assemblies resolver for server part of web applications
+    /// </summary>
     public class AssembliesResolver : AssembliesResolverBase, IAssembliesResolver
     {
         public AssembliesResolver(ICompositionModulesProvider compositionModulesProvider) : base(compositionModulesProvider)

@@ -16,6 +16,10 @@ namespace Solid.Practices.Composition
             _compositionModulesProvider = compositionModulesProvider;
         }
 
+        /// <summary>
+        /// Override this method to retrieve platform-specific root assemblies
+        /// </summary>
+        /// <returns>Collection of assemblies</returns>
         protected abstract IEnumerable<Assembly> GetRootAssemblies();
 
         public IEnumerable<Assembly> GetAssemblies()

@@ -5,6 +5,9 @@ using System.Reflection;
 
 namespace Solid.Practices.Composition.Desktop
 {
+    /// <summary>
+    /// Assemblies resolver for client part of desktop applications
+    /// </summary>
     public class AssembliesResolver : AssembliesResolverBase
     {
         private readonly Type _entryType;
