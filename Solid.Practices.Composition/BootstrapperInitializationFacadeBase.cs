@@ -5,6 +5,10 @@ using Solid.Practices.Modularity;
 
 namespace Solid.Practices.Composition
 {
+    /// <summary>
+    /// Base class for bootstrapper initialization objects
+    /// </summary>
+    /// <typeparam name="TIocContainer">Type of IoC container</typeparam>
     public abstract class BootstrapperInitializationFacadeBase<TIocContainer> : IBootstrapperInitializationFacade where TIocContainer : IIocContainer
     {
         private readonly TIocContainer _iocContainer;

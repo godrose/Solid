@@ -4,6 +4,9 @@ using System.Reflection;
 
 namespace Solid.Practices.Composition
 {
+    /// <summary>
+    /// Base class for assembly resolvers
+    /// </summary>
     public abstract class AssembliesResolverBase : IAssembliesReadOnlyResolver
     {
         private readonly ICompositionModulesProvider _compositionModulesProvider;

@@ -4,8 +4,14 @@ using Solid.Practices.Modularity;
 
 namespace Solid.Practices.Composition
 {
+    /// <summary>
+    /// Allows registering composition modules into IoC container
+    /// </summary>
     public interface IModuleRegistrator
     {
+        /// <summary>
+        /// Registers composition modules into IoC container
+        /// </summary>
         void RegisterModules();
     }
 
