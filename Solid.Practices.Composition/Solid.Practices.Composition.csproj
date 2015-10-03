@@ -36,18 +36,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssembliesResolverBase.cs" />
-    <Compile Include="BootstrapperInitializationFacadeBase.cs" />
+    <Compile Include="CompositionInitializationFacadeBase.cs" />
     <Compile Include="CompositionContainer.cs" />
     <Compile Include="IAssembliesReadOnlyResolver.cs" />
-    <Compile Include="IBootstrapperInitializationFacade.cs" />
-    <Compile Include="ModuleRegistrator.cs" />
+    <Compile Include="ICompositionInitializationFacade.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Solid.Practices.IoC\Solid.Practices.IoC.csproj">
-      <Project>{49E02767-C502-48EE-B735-DAE41DDB3167}</Project>
-      <Name>Solid.Practices.IoC</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Solid.Practices.Modularity\Solid.Practices.Modularity.csproj">
       <Project>{82bb5df3-82ac-466d-bddf-c65a9ecdb8a4}</Project>
       <Name>Solid.Practices.Modularity</Name>

@@ -40,17 +40,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssembliesResolver.cs" />
-    <Compile Include="BootstrapperInitializationFacade.cs" />
+    <Compile Include="CompositionInitializationFacade.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Solid.Practices.Composition\Solid.Practices.Composition.csproj">
       <Project>{9658D9AE-A2C3-4457-BC28-8DA8A42702B1}</Project>
       <Name>Solid.Practices.Composition</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Solid.Practices.IoC\Solid.Practices.IoC.csproj">
-      <Project>{49E02767-C502-48EE-B735-DAE41DDB3167}</Project>
-      <Name>Solid.Practices.IoC</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

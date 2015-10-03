@@ -4,9 +4,9 @@ using Solid.Practices.Modularity;
 namespace Solid.Practices.Composition
 {
     /// <summary>
-    /// Represents means of initializing bootstrapper from the given path
+    /// Represents means of initializing composition from the given path
     /// </summary>
-    public interface IBootstrapperInitializationFacade
+    public interface ICompositionInitializationFacade
     {
         /// <summary>
         /// Assemblies resolver
@@ -19,7 +19,7 @@ namespace Solid.Practices.Composition
         IEnumerable<ICompositionModule> Modules { get; }
 
         /// <summary>
-        /// Initialized bootstrapper from the provided path
+        /// Initializes composition modules from the provided path
         /// </summary>
         /// <param name="rootPath">Root path</param>
         /// <param name="prefixes">Optional file name prefixes; 

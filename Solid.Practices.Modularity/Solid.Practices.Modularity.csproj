@@ -35,12 +35,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ICompositionModule.cs" />
+    <Compile Include="ModuleRegistrator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Solid.Practices.IoC\Solid.Practices.IoC.csproj">
       <Project>{49e02767-c502-48ee-b735-dae41ddb3167}</Project>
       <Name>Solid.Practices.IoC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Solid.Practices.Middleware\Solid.Practices.Middleware.csproj">
+      <Project>{4B92CF65-EDD3-4041-B3BF-AF79058AB2A6}</Project>
+      <Name>Solid.Practices.Middleware</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

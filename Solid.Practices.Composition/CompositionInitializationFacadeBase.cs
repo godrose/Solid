@@ -1,23 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using Solid.Practices.IoC;
 using Solid.Practices.Modularity;
 
 namespace Solid.Practices.Composition
 {
     /// <summary>
-    /// Base class for bootstrapper initialization objects
+    /// Base class for composition initialization objects
     /// </summary>
-    /// <typeparam name="TIocContainer">Type of IoC container</typeparam>
-    public abstract class BootstrapperInitializationFacadeBase<TIocContainer> : IBootstrapperInitializationFacade where TIocContainer : IIocContainer
+    public abstract class CompositionInitializationFacadeBase : ICompositionInitializationFacade
     {
-        private readonly TIocContainer _iocContainer;
         protected ICompositionContainer CompositionContainer;
-
-        protected BootstrapperInitializationFacadeBase(TIocContainer iocContainer)
-        {
-            _iocContainer = iocContainer;
-        }
 
         public IAssembliesReadOnlyResolver AssembliesResolver { get; private set; }
         public IEnumerable<ICompositionModule> Modules { get { return CompositionContainer.Modules; } }
@@ -25,8 +17,7 @@ namespace Solid.Practices.Composition
         public void Initialize(string rootPath, string[] prefixes = null)
         {
             InitializeComposition(rootPath, prefixes);
-            AssembliesResolver = CreateAssembliesResolver();
-            RegisterModules();
+            AssembliesResolver = CreateAssembliesResolver();            
         }
 
         protected abstract IAssembliesReadOnlyResolver CreateAssembliesResolver();
@@ -40,12 +31,6 @@ namespace Solid.Practices.Composition
 
             CompositionContainer = new CompositionContainer(rootPath, prefixes);
             CompositionContainer.Compose();
-        }
-
-        private void RegisterModules()
-        {
-            var moduleRegistrator = new ModuleRegistrator<TIocContainer>(_iocContainer, CompositionContainer);
-            moduleRegistrator.RegisterModules();
         }
     }
 }
