@@ -51,11 +51,13 @@ namespace Solid.Practices.Composition
     public class CompositionContainer<TModule> : ICompositionContainer<TModule>
     {
         private readonly string _rootPath;
+        private readonly string[] _prefixes;
         private static readonly string[] AllowedModulePatterns = {"*.dll", "*.exe"};
 
-        public CompositionContainer(string rootPath)
+        public CompositionContainer(string rootPath, string[] prefixes = null)
         {
             _rootPath = rootPath;
+            _prefixes = prefixes;
         }
 
         [ImportMany]
@@ -74,7 +76,13 @@ namespace Solid.Practices.Composition
 
         private IEnumerable<DirectoryCatalog> GetDirectoryCatalogs()
         {
-            return AllowedModulePatterns.Select(modulePattern => new DirectoryCatalog(_rootPath, modulePattern));
+            return
+                AllowedModulePatterns.Select(modulePattern =>
+                {
+                    return _prefixes == null || _prefixes.Length == 0
+                        ? new[] {new DirectoryCatalog(_rootPath, modulePattern)}
+                        : _prefixes.Select(k => new DirectoryCatalog(_rootPath, k + modulePattern));
+                }).SelectMany(t => t.ToArray());
         }
 
         private static AggregateCatalog GetAggregateCatalog(IEnumerable<DirectoryCatalog> directoryCatalogs)
@@ -105,8 +113,8 @@ namespace Solid.Practices.Composition
 
     public class CompositionContainer : CompositionContainer<ICompositionModule>, ICompositionContainer
     {
-        public CompositionContainer(string rootPath) 
-            : base(rootPath)
+        public CompositionContainer(string rootPath, string[] prefixes = null) 
+            : base(rootPath, prefixes)
         {
         }
     }

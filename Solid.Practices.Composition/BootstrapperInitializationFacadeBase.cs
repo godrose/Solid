@@ -22,23 +22,23 @@ namespace Solid.Practices.Composition
         public IAssembliesReadOnlyResolver AssembliesResolver { get; private set; }
         public IEnumerable<ICompositionModule> Modules { get { return CompositionContainer.Modules; } }
 
-        public void Initialize(string rootPath)
+        public void Initialize(string rootPath, string[] prefixes = null)
         {
-            InitializeComposition(rootPath);
+            InitializeComposition(rootPath, prefixes);
             AssembliesResolver = CreateAssembliesResolver();
             RegisterModules();
         }
 
         protected abstract IAssembliesReadOnlyResolver CreateAssembliesResolver();
 
-        private void InitializeComposition(string rootPath)
+        private void InitializeComposition(string rootPath, string[] prefixes = null)
         {
             if (Directory.Exists(rootPath) == false)
             {
                 Directory.CreateDirectory(rootPath);
             }
 
-            CompositionContainer = new CompositionContainer(rootPath);
+            CompositionContainer = new CompositionContainer(rootPath, prefixes);
             CompositionContainer.Compose();
         }
 

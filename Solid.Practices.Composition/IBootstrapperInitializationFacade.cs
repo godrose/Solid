@@ -22,6 +22,8 @@ namespace Solid.Practices.Composition
         /// Initialized bootstrapper from the provided path
         /// </summary>
         /// <param name="rootPath">Root path</param>
-        void Initialize(string rootPath);
+        /// <param name="prefixes">Optional file name prefixes; 
+        /// used for filtering potential assembly candidates</param>
+        void Initialize(string rootPath, string[] prefixes = null);
     }
 }
