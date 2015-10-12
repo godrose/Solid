@@ -36,6 +36,7 @@
   <ItemGroup>
     <Compile Include="ChainElementAsyncBase.cs" />
     <Compile Include="ChainElementBase.cs" />
+    <Compile Include="ICanSetSuccessor.cs" />
     <Compile Include="IChainElement.cs" />
     <Compile Include="IChainElementAsync.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -8,19 +8,19 @@
         protected abstract bool HandleData(TData data);
         protected abstract bool IsMine(TData data);
 
-        public void Execute(TData request)
+        public void Handle(TData request)
         {
             if (IsMine(request))
             {
                 var isHandled = HandleData(request);
                 if (isHandled == false)
                 {
-                    _successor.Execute(request);
+                    _successor.Handle(request);
                 }
             }
         }
 
-        public IChainElement<TData> SetNext(IChainElement<TData> successor)
+        public IChainElement<TData> SetSuccessor(IChainElement<TData> successor)
         {
             _successor = successor;
             return _successor;
@@ -35,13 +35,13 @@
 
         protected abstract TResult HandleData(TData data);
 
-        public TResult Execute(TData data)
+        public TResult Handle(TData data)
         {
             //deliberately throw an exception if no successor is set
-            return IsMine(data) ? HandleData(data) : _successor.Execute(data);
+            return IsMine(data) ? HandleData(data) : _successor.Handle(data);
         }
 
-        public IChainElement<TData, TResult> SetNext(IChainElement<TData, TResult> successor)
+        public IChainElement<TData, TResult> SetSuccessor(IChainElement<TData, TResult> successor)
         {
             _successor = successor;
             return _successor;

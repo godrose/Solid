@@ -10,19 +10,19 @@ namespace Solid.Patterns.ChainOfResponsibility
         protected abstract Task<bool> HandleDataAsync(TData data);
         protected abstract bool IsMine(TData data);
 
-        public async Task ExecuteAsync(TData request)
+        public async Task HandleAsync(TData request)
         {
             if (IsMine(request))
             {
                 var isHandled = await HandleDataAsync(request);
                 if (isHandled == false)
                 {
-                    await _successor.ExecuteAsync(request);
+                    await _successor.HandleAsync(request);
                 }
             }
         }
 
-        public IChainElementAsync<TData> SetNext(IChainElementAsync<TData> successor)
+        public IChainElementAsync<TData> SetSuccessor(IChainElementAsync<TData> successor)
         {
             _successor = successor;
             return _successor;
@@ -37,13 +37,13 @@ namespace Solid.Patterns.ChainOfResponsibility
 
         protected abstract Task<TResult> HandleDataAsync(TData data);
 
-        public async Task<TResult> ExecuteAsync(TData data)
+        public async Task<TResult> HandleAsync(TData data)
         {
             //deliberately throw an exception if no successor is set
-            return IsMine(data) ? await HandleDataAsync(data) : await _successor.ExecuteAsync(data);
+            return IsMine(data) ? await HandleDataAsync(data) : await _successor.HandleAsync(data);
         }
 
-        public IChainElementAsync<TData, TResult> SetNext(IChainElementAsync<TData, TResult> successor)
+        public IChainElementAsync<TData, TResult> SetSuccessor(IChainElementAsync<TData, TResult> successor)
         {
             _successor = successor;
             return _successor;
