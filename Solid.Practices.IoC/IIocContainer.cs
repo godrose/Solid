@@ -5,7 +5,7 @@ namespace Solid.Practices.IoC
     /// <summary>
     /// Represents Inversion-Of-Control container
     /// </summary>
-    public interface IIocContainer : IIocContainerRegistrator, IIocContainerResolver
+    public interface IIocContainer : IIocContainerRegistrator, IIocContainerResolver, IDisposable
     {      
           
     }
