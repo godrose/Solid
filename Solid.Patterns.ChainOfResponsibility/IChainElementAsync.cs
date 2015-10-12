@@ -2,15 +2,13 @@
 
 namespace Solid.Patterns.ChainOfResponsibility
 {
-    public interface IChainElementAsync<TData>
+    public interface IChainElementAsync<TData> : ICanSetSuccessor<IChainElementAsync<TData>>
     {
-        Task ExecuteAsync(TData data);
-        IChainElementAsync<TData> SetNext(IChainElementAsync<TData> successor);
+        Task HandleAsync(TData data);        
     }
 
-    public interface IChainElementAsync<TData, TResult>
+    public interface IChainElementAsync<TData, TResult> : ICanSetSuccessor<IChainElementAsync<TData, TResult>>
     {
-        Task<TResult> ExecuteAsync(TData data);
-        IChainElementAsync<TData, TResult> SetNext(IChainElementAsync<TData, TResult> successor);
+        Task<TResult> HandleAsync(TData data);        
     }
 }
