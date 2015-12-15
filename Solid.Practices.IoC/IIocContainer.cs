@@ -53,5 +53,6 @@ namespace Solid.Practices.IoC
     public interface IIocContainerResolver
     {
         TService Resolve<TService>() where TService : class;
+        object Resolve(Type serviceType);
     }
 }
