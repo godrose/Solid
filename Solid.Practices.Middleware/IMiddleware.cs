@@ -4,6 +4,6 @@ namespace Solid.Practices.Middleware
 {
     public interface IMiddleware
     {
-        TIocContainer Apply<TIocContainer>(TIocContainer iocContainer) where TIocContainer : IIocContainer;
+        TIocContainer Apply<TIocContainer>(TIocContainer iocContainer) where TIocContainer : class, IIocContainer;
     }
 }
