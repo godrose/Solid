@@ -50,9 +50,23 @@ namespace Solid.Practices.IoC
         void RegisterInstance<TService>(TService instance) where TService : class;
     }
 
+    /// <summary>
+    /// Represents object that is capable of resolving services from the IoC container
+    /// </summary>
     public interface IIocContainerResolver
     {
+        /// <summary>
+        /// Resolves an instance of service.
+        /// </summary>
+        /// <typeparam name="TService">The type of the service.</typeparam>
+        /// <returns></returns>
         TService Resolve<TService>() where TService : class;
+
+        /// <summary>
+        /// Resolves an instance of service according to the service type.
+        /// </summary>
+        /// <param name="serviceType">The type of the service.</param>
+        /// <returns></returns>
         object Resolve(Type serviceType);
     }
 }
