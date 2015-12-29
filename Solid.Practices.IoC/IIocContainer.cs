@@ -43,11 +43,25 @@ namespace Solid.Practices.IoC
         void RegisterSingleton<TService, TImplementation>() where TImplementation : class, TService;
 
         /// <summary>
+        /// Registers dependency as a singleton
+        /// </summary>
+        /// <param name="serviceType">Type of dependency declaration</param>
+        /// <param name="implementationType">Type of dependency implementation</param>        
+        void RegisterSingleton(Type serviceType, Type implementationType);
+
+        /// <summary>
         /// Registers an instance of dependency
         /// </summary>
         /// <typeparam name="TService">Type of dependency</typeparam>
         /// <param name="instance">Instance of dependency</param>
         void RegisterInstance<TService>(TService instance) where TService : class;
+
+        /// <summary>
+        /// Registers an instance of dependency
+        /// </summary>
+        /// <param name="dependencyType">Type of dependency</param>
+        /// <param name="instance">Instance of dependency</param>
+        void RegisterInstance(Type dependencyType, object instance);
     }
 
     /// <summary>
