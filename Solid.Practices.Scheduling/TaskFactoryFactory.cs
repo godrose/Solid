@@ -3,7 +3,7 @@
 namespace Solid.Practices.Scheduling
 {
     /// <summary>
-    /// Factory for creating instances of <see cref="TaskFactory"/>>
+    /// Factory for creating instances of <see cref="TaskFactory"/> that uses <see cref="TaskScheduler.Current"/> as its scheduler
     /// </summary>
     public class TaskFactoryFactory
     {
