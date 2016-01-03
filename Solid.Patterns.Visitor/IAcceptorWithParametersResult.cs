@@ -8,6 +8,12 @@
     /// <typeparam name="TResult">Type of return value</typeparam>
     public interface IAcceptorWithParametersResult<in TVisitor, in T, out TResult>
     {
+        /// <summary>
+        /// Accepts the specified visitor.
+        /// </summary>
+        /// <param name="visitor">The visitor.</param>
+        /// <param name="arg">The argument.</param>
+        /// <returns></returns>
         TResult Accept(TVisitor visitor, T arg);
     }
 
@@ -20,6 +26,13 @@
     /// <typeparam name="TResult">Type of return value</typeparam>
     public interface IAcceptorWithParametersResult<in TVisitor, in T1, in T2, out TResult>
     {
+        /// <summary>
+        /// Accepts the specified visitor.
+        /// </summary>
+        /// <param name="visitor">The visitor.</param>
+        /// <param name="arg1">The first argument.</param>
+        /// <param name="arg2">The second argument.</param>       
+        /// <returns></returns>
         TResult Accept(TVisitor visitor, T1 arg1, T2 arg2);
     }
 
@@ -33,6 +46,14 @@
     /// <typeparam name="TResult">Type of return value</typeparam>
     public interface IAcceptorWithParametersResult<in TVisitor, in T1, in T2, in T3, out TResult>
     {
+        /// <summary>
+        /// Accepts the specified visitor.
+        /// </summary>
+        /// <param name="visitor">The visitor.</param>
+        /// <param name="arg1">The first argument.</param>
+        /// <param name="arg2">The second argument.</param>
+        /// <param name="arg3">The third argument.</param>        
+        /// <returns></returns>
         TResult Accept(TVisitor visitor, T1 arg1, T2 arg2, T3 arg3);
     }
 
@@ -47,6 +68,15 @@
     /// <typeparam name="TResult">Type of return value</typeparam>    
     public interface IAcceptorWithParametersResult<in TVisitor, in T1, in T2, in T3, in T4, out TResult>
     {
+        /// <summary>
+        /// Accepts the specified visitor.
+        /// </summary>
+        /// <param name="visitor">The visitor.</param>
+        /// <param name="arg1">The first argument.</param>
+        /// <param name="arg2">The second argument.</param>
+        /// <param name="arg3">The third argument.</param>
+        /// <param name="arg4">The fourth argument.</param>        
+        /// <returns></returns>
         TResult Accept(TVisitor visitor, T1 arg1, T2 arg2, T3 arg3, T4 arg4);
     }
 
@@ -62,6 +92,16 @@
     /// <typeparam name="TResult">Type of return value</typeparam>
     public interface IAcceptorWithParametersResult<in TVisitor, in T1, in T2, in T3, in T4, in T5, out TResult>
     {
+        /// <summary>
+        /// Accepts the specified visitor.
+        /// </summary>
+        /// <param name="visitor">The visitor.</param>
+        /// <param name="arg1">The first argument.</param>
+        /// <param name="arg2">The second argument.</param>
+        /// <param name="arg3">The third argument.</param>
+        /// <param name="arg4">The fourth argument.</param>
+        /// <param name="arg5">The fifth argument.</param>
+        /// <returns></returns>
         TResult Accept(TVisitor visitor, T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5);
     }
 }

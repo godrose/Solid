@@ -6,6 +6,10 @@
     /// <typeparam name="TVisitor">Type of visitor</typeparam>
     public interface IAcceptor<in TVisitor>
     {
+        /// <summary>
+        /// Accepts the specified visitor.
+        /// </summary>
+        /// <param name="visitor">The visitor.</param>
         void Accept(TVisitor visitor);
     }
 
@@ -16,6 +20,11 @@
     /// <typeparam name="TResult">Type of return value</typeparam>
     public interface IAcceptor<in TVisitor, out TResult>
     {
+        /// <summary>
+        /// Accepts the specified visitor.
+        /// </summary>
+        /// <param name="visitor">The visitor.</param>
+        /// <returns></returns>
         TResult Accept(TVisitor visitor);
     }    
 }
