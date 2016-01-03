@@ -40,7 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Solid.Practices.IoC\Solid.Practices.IoC.csproj">
-      <Project>{49e02767-c502-48ee-b735-dae41ddb3167}</Project>
+      <Project>{3583B84F-B883-4DB5-BC23-25C90B4C1567}</Project>
       <Name>Solid.Practices.IoC</Name>
     </ProjectReference>
     <ProjectReference Include="..\Solid.Practices.Middleware\Solid.Practices.Middleware.csproj">
