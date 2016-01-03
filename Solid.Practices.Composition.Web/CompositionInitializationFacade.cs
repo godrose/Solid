@@ -5,6 +5,10 @@
     /// </summary>
     public class CompositionInitializationFacade : CompositionInitializationFacadeBase
     {
+        /// <summary>
+        /// Creates the assemblies resolver.
+        /// </summary>
+        /// <returns></returns>
         protected override IAssembliesReadOnlyResolver CreateAssembliesResolver()
         {
             return new AssembliesResolver(CompositionContainer);

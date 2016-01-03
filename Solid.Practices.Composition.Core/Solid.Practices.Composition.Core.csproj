@@ -1,24 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
+    <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{57E1CA7C-3A0E-4C72-BEE8-EA07F9456716}</ProjectGuid>
+    <ProjectGuid>{FA9056E5-FA5A-43A0-BB88-4CD9BC4537E6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Solid.Practices.Composition.Desktop</RootNamespace>
-    <AssemblyName>Solid.Practices.Composition.Desktop</AssemblyName>
+    <RootNamespace>Solid.Practices.Composition</RootNamespace>
+    <AssemblyName>Solid.Practices.Composition.Core</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TargetFrameworkProfile>Profile111</TargetFrameworkProfile>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\bin\Practices\Composition\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -30,23 +32,21 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\Bin\Release\Practices\Solid.Practices.Composition.Core.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
+    <!-- A reference to the entire .NET Framework is automatically included -->
+    <ProjectReference Include="..\Solid.Practices.Modularity\Solid.Practices.Modularity.csproj">
+      <Project>{82BB5DF3-82AC-466D-BDDF-C65A9ECDB8A4}</Project>
+      <Name>Solid.Practices.Modularity</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssembliesResolverBase.cs" />
+    <Compile Include="IAssembliesReadOnlyResolver.cs" />
+    <Compile Include="ICompositionInitializationFacade.cs" />
+    <Compile Include="ICompositionModulesProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Solid.Practices.Composition.Core\Solid.Practices.Composition.Core.csproj">
-      <Project>{FA9056E5-FA5A-43A0-BB88-4CD9BC4537E6}</Project>
-      <Name>Solid.Practices.Composition.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Solid.Practices.Composition\Solid.Practices.Composition.csproj">
-      <Project>{9658D9AE-A2C3-4457-BC28-8DA8A42702B1}</Project>
-      <Name>Solid.Practices.Composition</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
