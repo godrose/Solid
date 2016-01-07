@@ -1,6 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using NUnit.Framework;
-using PCLStorage;
 
 namespace Solid.Practices.Composition.Tests
 {
@@ -10,7 +10,7 @@ namespace Solid.Practices.Composition.Tests
         [Test]
         public void RootPathContainsCompositionModules_CompositionModulesAreImported()
         {
-            var rootPath = GetRootPath();
+            var rootPath = Environment.CurrentDirectory;
 
             var compositionContainer = new CompositionContainer(rootPath);
             compositionContainer.Compose();
@@ -23,7 +23,7 @@ namespace Solid.Practices.Composition.Tests
         [Test]
         public void RootPathContainsCustomModules_CustomModulesAreImported()
         {
-            var rootPath = GetRootPath();
+            var rootPath = Environment.CurrentDirectory;
 
             var compositionContainer = new CompositionContainer<ICustomModule>(rootPath);
             compositionContainer.Compose();
@@ -36,7 +36,7 @@ namespace Solid.Practices.Composition.Tests
         [Test]
         public void RootPathContainsCustomModulesAndCorrectPrefixIsUsed_CustomModulesAreImported()
         {
-            var rootPath = GetRootPath();
+            var rootPath = Environment.CurrentDirectory;
 
             var compositionContainer = new CompositionContainer<ICustomModule>(rootPath, new[] { "Solid" });
             compositionContainer.Compose();
@@ -49,7 +49,7 @@ namespace Solid.Practices.Composition.Tests
         [Test]
         public void RootPathContainsCustomModulesAndIncorrectPrefixIsUsed_CustomModulesAreImported()
         {
-            var rootPath = GetRootPath();
+            var rootPath = Environment.CurrentDirectory;
 
             var compositionContainer = new CompositionContainer<ICustomModule>(rootPath, new[] { "Incorrect" });
             compositionContainer.Compose();
@@ -62,7 +62,7 @@ namespace Solid.Practices.Composition.Tests
         [Test]
         public void RootPathContainsCustomModulesAndNoPrefixIsUsed_CustomModulesAreImported()
         {
-            var rootPath = GetRootPath();
+            var rootPath = Environment.CurrentDirectory;
 
             var compositionContainer = new CompositionContainer<ICustomModule>(rootPath);
             compositionContainer.Compose();
@@ -70,11 +70,6 @@ namespace Solid.Practices.Composition.Tests
             var modules = compositionContainer.Modules;
             var modulesCount = modules.Count();
             Assert.AreEqual(2, modulesCount);
-        }
-
-        private string GetRootPath()
-        {            
-            return FileSystem.Current.LocalStorage.Path;            
         }
     }
 }

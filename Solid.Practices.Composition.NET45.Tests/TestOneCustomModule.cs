@@ -1,4 +1,4 @@
-﻿using System.Composition;
+﻿using System.ComponentModel.Composition;
 
 namespace Solid.Practices.Composition.Tests
 {

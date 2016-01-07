@@ -43,10 +43,6 @@
       <Project>{FA9056E5-FA5A-43A0-BB88-4CD9BC4537E6}</Project>
       <Name>Solid.Practices.Composition.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Solid.Practices.Composition\Solid.Practices.Composition.csproj">
-      <Project>{9658D9AE-A2C3-4457-BC28-8DA8A42702B1}</Project>
-      <Name>Solid.Practices.Composition</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
