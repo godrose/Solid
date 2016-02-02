@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.Composition;
-using System.ComponentModel.Composition.Hosting;
-using System.ComponentModel.Composition.Primitives;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using Solid.Practices.Modularity;
 
 namespace Solid.Practices.Composition
-{       
+{
     /// <summary>
     /// Represents composition container which allows composing the composition modules
     /// while specifying various configuration options.
@@ -18,7 +15,7 @@ namespace Solid.Practices.Composition
     {
         private readonly string _rootPath;
         private readonly string[] _prefixes;
-        private static readonly string[] AllowedModulePatterns = {"*.dll", "*.exe"};
+        private static readonly string[] AllowedModulePatterns = { "*.dll", "*.exe" };
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CompositionContainer{TModule}"/> class.
@@ -33,58 +30,26 @@ namespace Solid.Practices.Composition
 
         /// <summary>
         /// Collection of composition modules.
-        /// </summary>
-        [ImportMany]
+        /// </summary>        
         public IEnumerable<TModule> Modules { get; private set; }
 
-        /// <summary>
-        /// Composes the composition modules
-        /// </summary>
-        public void Compose()
+        void ICompositionContainer<TModule>.Compose()
         {
-            if (Directory.Exists(_rootPath) == false)
-            {
-                return;
-            }                       
-            var directoryCatalogs = GetDirectoryCatalogs();
-            var catalog = GetAggregateCatalog(directoryCatalogs);             
-            ComposeFromCatalog(catalog);
-        }
-
-        private IEnumerable<DirectoryCatalog> GetDirectoryCatalogs()
-        {
-            return
-                AllowedModulePatterns.Select(modulePattern =>
+            var assemblies =
+                AllowedModulePatterns.Select(searchPattern =>
                 {
                     return _prefixes == null || _prefixes.Length == 0
-                        ? new[] {new DirectoryCatalog(_rootPath, modulePattern)}
-                        : _prefixes.Select(k => new DirectoryCatalog(_rootPath, k + modulePattern));
-                }).SelectMany(t => t.ToArray());
-        }
-
-        private static AggregateCatalog GetAggregateCatalog(IEnumerable<DirectoryCatalog> directoryCatalogs)
-        {
-            var catalog = new AggregateCatalog();
-            foreach (var directoryCatalog in directoryCatalogs)
-            {
-                catalog.Catalogs.Add(directoryCatalog);
-            }
-            return catalog;
-        }
-
-        private void ComposeFromCatalog(ComposablePartCatalog catalog)
-        {
-            var container = new System.ComponentModel.Composition.Hosting.CompositionContainer(catalog);
-
-            try
-            {
-                container.ComposeParts(this);
-            }
-            catch (CompositionException compositionException)
-            {
-                Console.WriteLine(compositionException.ToString());
-                throw;
-            }
+                        ? Directory.GetFiles(_rootPath, searchPattern)
+                        : _prefixes.Select(prefix => Directory.GetFiles(_rootPath, prefix + searchPattern))
+                            .SelectMany(t => t)
+                            .ToArray();
+                })
+                    .SelectMany(k => k)
+                    .Select(Assembly.LoadFrom)
+                    .ToArray();
+            ICompositionContainer<TModule> innerContainer = new PortableCompositionContainer<TModule>(assemblies);
+            innerContainer.Compose();
+            Modules = innerContainer.Modules;
         }
     }
 
@@ -92,7 +57,7 @@ namespace Solid.Practices.Composition
     /// Represents strongly-typed composition container which allows composing the composition modules
     /// while specifying various configuration options
     /// </summary>
-    /// <seealso cref="Solid.Practices.Composition.ICompositionContainer{TModule}" />
+    /// <seealso cref="Composition.ICompositionContainer{TModule}" />
     public class CompositionContainer : CompositionContainer<ICompositionModule>, ICompositionContainer
     {
         /// <summary>
@@ -100,7 +65,7 @@ namespace Solid.Practices.Composition
         /// </summary>
         /// <param name="rootPath">The root path.</param>
         /// <param name="prefixes">The prefixes.</param>
-        public CompositionContainer(string rootPath, string[] prefixes = null) 
+        public CompositionContainer(string rootPath, string[] prefixes = null)
             : base(rootPath, prefixes)
         {
         }

@@ -12,7 +12,7 @@ namespace Solid.Practices.Composition.Tests
         {
             var rootPath = Environment.CurrentDirectory;
 
-            var compositionContainer = new CompositionContainer(rootPath);
+            ICompositionContainer compositionContainer = new CompositionContainer(rootPath);
             compositionContainer.Compose();
 
             var modules = compositionContainer.Modules;
@@ -25,7 +25,7 @@ namespace Solid.Practices.Composition.Tests
         {
             var rootPath = Environment.CurrentDirectory;
 
-            var compositionContainer = new CompositionContainer<ICustomModule>(rootPath);
+            ICompositionContainer<ICustomModule> compositionContainer = new CompositionContainer<ICustomModule>(rootPath);
             compositionContainer.Compose();
 
             var modules = compositionContainer.Modules;
@@ -38,7 +38,7 @@ namespace Solid.Practices.Composition.Tests
         {
             var rootPath = Environment.CurrentDirectory;
 
-            var compositionContainer = new CompositionContainer<ICustomModule>(rootPath, new[] { "Solid" });
+            ICompositionContainer<ICustomModule> compositionContainer = new CompositionContainer<ICustomModule>(rootPath, new[] { "Solid" });
             compositionContainer.Compose();
 
             var modules = compositionContainer.Modules;
@@ -51,7 +51,7 @@ namespace Solid.Practices.Composition.Tests
         {
             var rootPath = Environment.CurrentDirectory;
 
-            var compositionContainer = new CompositionContainer<ICustomModule>(rootPath, new[] { "Incorrect" });
+            ICompositionContainer<ICustomModule> compositionContainer = new CompositionContainer<ICustomModule>(rootPath, new[] { "Incorrect" });
             compositionContainer.Compose();
 
             var modules = compositionContainer.Modules;
@@ -64,7 +64,7 @@ namespace Solid.Practices.Composition.Tests
         {
             var rootPath = Environment.CurrentDirectory;
 
-            var compositionContainer = new CompositionContainer<ICustomModule>(rootPath);
+            ICompositionContainer<ICustomModule> compositionContainer = new CompositionContainer<ICustomModule>(rootPath);
             compositionContainer.Compose();
 
             var modules = compositionContainer.Modules;
