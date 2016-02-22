@@ -24,4 +24,16 @@ namespace Solid.Practices.Modularity
         /// <param name="iocContainer">IoC container</param>
         void RegisterModule(TIocContainer iocContainer);
     }
+
+    /// <summary>
+    /// Represents a composition module which contains logic that is
+    /// executed upon registration.
+    /// </summary>
+    public interface IPlainCompositionModule : ICompositionModule
+    {
+        /// <summary>
+        /// Registers the composition module.
+        /// </summary>
+        void RegisterModule();
+    }
 }

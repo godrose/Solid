@@ -60,6 +60,11 @@ namespace Solid.Practices.Modularity
                 {
                     compositionModule.RegisterModule(iocContainer);
                 }
+
+                foreach (var compositionModule in _modules.OfType<IPlainCompositionModule>())
+                {
+                    compositionModule.RegisterModule();
+                }
             }
         }
     }
