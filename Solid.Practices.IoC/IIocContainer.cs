@@ -62,6 +62,19 @@ namespace Solid.Practices.IoC
         /// <param name="dependencyType">Type of dependency</param>
         /// <param name="instance">Instance of dependency</param>
         void RegisterInstance(Type dependencyType, object instance);
+
+        /// <summary>
+        /// Registers the dependency via the handler.
+        /// </summary>
+        /// <param name="dependencyType">Type of the dependency.</param>
+        /// <param name="handler">The handler.</param>
+        void RegisterHandler(Type dependencyType, Func<object> handler);
+
+        /// <summary>
+        /// Registers the dependency via the handler.
+        /// </summary>
+        /// <param name="handler">The handler.</param>
+        void RegisterHandler<TService>(Func<TService> handler) where TService : class;
     }
 
     /// <summary>
