@@ -33,7 +33,7 @@
     <DocumentationFile>..\bin\Release\Practices\Solid.Practices.Scheduling.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="AsyncProvider.cs" />
+    <Compile Include="TaskRunner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SameThreadTaskScheduler.cs" />
     <Compile Include="TaskFactoryFactory.cs" />
