@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -44,8 +45,20 @@ namespace Solid.Practices.Composition
                             .SelectMany(t => t)
                             .ToArray();
                 })
-                    .SelectMany(k => k)
-                    .Select(Assembly.LoadFrom)
+                    .SelectMany(k => k)                    
+                    .Select(k =>
+                    {
+                        try
+                        {
+                            return Assembly.LoadFrom(k);
+                        }
+                        catch (Exception)
+                        {
+
+                            return null;
+                        }                        
+                    })
+                    .Where(k =>  k != null)
                     .ToArray();
             ICompositionContainer<TModule> innerContainer = new PortableCompositionContainer<TModule>(assemblies);
             innerContainer.Compose();
