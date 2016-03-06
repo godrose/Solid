@@ -36,33 +36,38 @@ namespace Solid.Practices.Composition
 
         void ICompositionContainer<TModule>.Compose()
         {
-            var assemblies =
-                AllowedModulePatterns.Select(searchPattern =>
-                {
-                    return _prefixes == null || _prefixes.Length == 0
-                        ? Directory.GetFiles(_rootPath, searchPattern)
-                        : _prefixes.Select(prefix => Directory.GetFiles(_rootPath, prefix + searchPattern))
-                            .SelectMany(t => t)
-                            .ToArray();
-                })
-                    .SelectMany(k => k)                    
-                    .Select(k =>
-                    {
-                        try
-                        {
-                            return Assembly.LoadFrom(k);
-                        }
-                        catch (Exception)
-                        {
-
-                            return null;
-                        }                        
-                    })
-                    .Where(k =>  k != null)
-                    .ToArray();
+            var assemblies = LoadAssembliesFromPaths(DiscoverFilePaths());                
             ICompositionContainer<TModule> innerContainer = new PortableCompositionContainer<TModule>(assemblies);
             innerContainer.Compose();
             Modules = innerContainer.Modules;
+        }
+
+        private IEnumerable<string> DiscoverFilePaths()
+        {
+            return AllowedModulePatterns.Select(searchPattern =>
+            {
+                return _prefixes == null || _prefixes.Length == 0
+                    ? Directory.GetFiles(_rootPath, searchPattern)
+                    : _prefixes.Select(prefix => Directory.GetFiles(_rootPath, prefix + searchPattern))
+                        .SelectMany(t => t)
+                        .ToArray();
+            }).SelectMany(k => k);
+        }
+
+        private IEnumerable<Assembly> LoadAssembliesFromPaths(IEnumerable<string> paths)
+        {
+            return paths.Select(k =>
+            {
+                try
+                {
+                    return Assembly.LoadFrom(k);
+                }
+                catch (Exception)
+                {
+
+                    return null;
+                }
+            }).Where(k => k != null);
         }
     }
 
