@@ -45,7 +45,6 @@
     <Compile Include="AssembliesResolverBase.cs" />
     <Compile Include="AssemblyLoadingManager.cs" />
     <Compile Include="IAssemblySourceProvider.cs" />
-    <Compile Include="ICompositionInitializationInfo.cs" />
     <Compile Include="PortableCompositionContainer.cs" />
     <Compile Include="IAssembliesReadOnlyResolver.cs" />
     <Compile Include="ICompositionContainer.cs" />

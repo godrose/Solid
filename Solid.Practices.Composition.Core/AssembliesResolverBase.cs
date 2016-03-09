@@ -5,7 +5,7 @@ using System.Reflection;
 namespace Solid.Practices.Composition
 {
     /// <summary>
-    /// Base class for assembly resolvers
+    /// Base class for assembly resolvers.
     /// </summary>
     public abstract class AssembliesResolverBase : IAssembliesReadOnlyResolver
     {
@@ -20,16 +20,16 @@ namespace Solid.Practices.Composition
         }
 
         /// <summary>
-        /// Override this method to retrieve platform-specific root assemblies
+        /// Override this method to retrieve platform-specific root assemblies.
         /// </summary>
         /// <returns>Collection of assemblies</returns>
         protected abstract IEnumerable<Assembly> GetRootAssemblies();
 
         /// <summary>
-        /// Gets available assemblies
+        /// Gets available assemblies.
         /// </summary>
-        /// <returns>Collection of assemblies</returns>
-        public IEnumerable<Assembly> GetAssemblies()
+        /// <returns>Collection of assemblies.</returns>
+        IEnumerable<Assembly> IAssembliesReadOnlyResolver.GetAssemblies()
         {
             var assemblies = GetRootAssemblies();
             return assemblies.Concat(_assemblySourceProvider.InspectedAssemblies).Distinct();

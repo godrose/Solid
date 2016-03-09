@@ -3,7 +3,7 @@
 namespace Solid.Practices.Composition
 {
     /// <summary>
-    /// Represents strongly-typed composition container
+    /// Represents strongly-typed composition container.
     /// </summary>
     public interface ICompositionContainer : ICompositionContainer<ICompositionModule>, ICompositionModulesProvider
     {
@@ -11,13 +11,13 @@ namespace Solid.Practices.Composition
     }
 
     /// <summary>
-    /// Represents composition container which allows composing the composition modules
+    /// Represents composition container which allows composing the composition modules.
     /// </summary>
     /// <typeparam name="TModule">Type of composition module</typeparam>
     public interface ICompositionContainer<TModule> : ICompositionModulesProvider<TModule>
     {
         /// <summary>
-        /// Composes the composition modules
+        /// Composes the composition modules.
         /// </summary>
         void Compose();
     }

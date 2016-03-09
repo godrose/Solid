@@ -34,7 +34,7 @@ namespace Solid.Practices.Composition.Web
 
         ICollection<Assembly> IAssembliesResolver.GetAssemblies()
         {
-            return GetAssemblies().ToList();
+            return ((IAssembliesReadOnlyResolver) this).GetAssemblies().ToList();
         }
 
         static private Assembly GetEntryAssembly()
