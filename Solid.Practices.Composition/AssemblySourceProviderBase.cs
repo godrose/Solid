@@ -14,6 +14,10 @@ namespace Solid.Practices.Composition
     {
         private readonly string _rootPath;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AssemblySourceProviderBase"/> class.
+        /// </summary>
+        /// <param name="rootPath">The root path.</param>
         protected AssemblySourceProviderBase(string rootPath)
         {
             _rootPath = rootPath;
@@ -21,11 +25,21 @@ namespace Solid.Practices.Composition
 
         private List<Assembly> _inspectedAssemblies;
 
+        /// <summary>
+        /// Gets the assemblies to be inspected.
+        /// </summary>
+        /// <value>
+        /// The assemblies to be inspected.
+        /// </value>
         public IEnumerable<Assembly> InspectedAssemblies
         {
             get { return _inspectedAssemblies ?? (_inspectedAssemblies = CreateAssemblies()); }
         }
 
+        /// <summary>
+        /// Returns the list of namespaces to be looked for during assembly discovery.
+        /// </summary>
+        /// <returns></returns>
         protected abstract string[] ResolveNamespaces();
 
         private List<Assembly> CreateAssemblies()

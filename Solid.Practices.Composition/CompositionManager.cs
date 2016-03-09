@@ -5,7 +5,7 @@ using Solid.Practices.Modularity;
 namespace Solid.Practices.Composition
 {
     /// <summary>
-    /// Base class for composition initialization objects
+    /// Allows initializing composition from the given path.
     /// </summary>
     public class CompositionManager : ICompositionManager
     {

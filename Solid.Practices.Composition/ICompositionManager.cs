@@ -1,7 +1,7 @@
 ﻿namespace Solid.Practices.Composition
 {    
     /// <summary>
-    /// Represents means of initializing composition from the given path
+    /// Allows initializing composition from the given path.
     /// </summary>
     public interface ICompositionManager : ICompositionModulesProvider
     {        
