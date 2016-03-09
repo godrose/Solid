@@ -46,8 +46,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssembliesResolver.cs" />
-    <Compile Include="CompositionInitializationFacade.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServerAssemblySourceProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Solid.Practices.Composition.Core\Solid.Practices.Composition.Core.csproj">

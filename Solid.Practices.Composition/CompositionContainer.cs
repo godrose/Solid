@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using Solid.Practices.Modularity;
 
 namespace Solid.Practices.Composition
@@ -36,7 +34,7 @@ namespace Solid.Practices.Composition
 
         void ICompositionContainer<TModule>.Compose()
         {
-            var assemblies = LoadAssembliesFromPaths(DiscoverFilePaths());                
+            var assemblies = SafeAssemblyLoader.LoadAssembliesFromPaths(DiscoverFilePaths());                
             ICompositionContainer<TModule> innerContainer = new PortableCompositionContainer<TModule>(assemblies);
             innerContainer.Compose();
             Modules = innerContainer.Modules;
@@ -52,22 +50,6 @@ namespace Solid.Practices.Composition
                         .SelectMany(t => t)
                         .ToArray();
             }).SelectMany(k => k);
-        }
-
-        private IEnumerable<Assembly> LoadAssembliesFromPaths(IEnumerable<string> paths)
-        {
-            return paths.Select(k =>
-            {
-                try
-                {
-                    return Assembly.LoadFrom(k);
-                }
-                catch (Exception)
-                {
-
-                    return null;
-                }
-            }).Where(k => k != null);
         }
     }
 

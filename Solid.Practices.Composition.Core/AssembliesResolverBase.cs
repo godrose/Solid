@@ -9,15 +9,14 @@ namespace Solid.Practices.Composition
     /// </summary>
     public abstract class AssembliesResolverBase : IAssembliesReadOnlyResolver
     {
-        private readonly ICompositionModulesProvider _compositionModulesProvider;
-
+        private readonly IAssemblySourceProvider _assemblySourceProvider;
+                
         /// <summary>
         /// Initializes a new instance of the <see cref="AssembliesResolverBase"/> class.
         /// </summary>
-        /// <param name="compositionModulesProvider">The composition modules provider.</param>
-        protected AssembliesResolverBase(ICompositionModulesProvider compositionModulesProvider)
+        protected AssembliesResolverBase(IAssemblySourceProvider assemblySourceProvider)
         {
-            _compositionModulesProvider = compositionModulesProvider;
+            _assemblySourceProvider = assemblySourceProvider;            
         }
 
         /// <summary>
@@ -33,10 +32,7 @@ namespace Solid.Practices.Composition
         public IEnumerable<Assembly> GetAssemblies()
         {
             var assemblies = GetRootAssemblies();
-            return
-                assemblies.Concat(_compositionModulesProvider.Modules != null
-                    ? _compositionModulesProvider.Modules.Select(t => t.GetType().GetTypeInfo().Assembly)
-                    : new Assembly[] {}).Distinct();
+            return assemblies.Concat(_assemblySourceProvider.InspectedAssemblies).Distinct();
         }
     }
 }

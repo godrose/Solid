@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssembliesResolver.cs" />
-    <Compile Include="CompositionInitializationFacade.cs" />
+    <Compile Include="ClientAssemblySourceProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -13,10 +13,11 @@ namespace Solid.Practices.Composition.Web
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="AssembliesResolver"/> class.
-        /// </summary>
-        /// <param name="compositionModulesProvider"></param>
-        public AssembliesResolver(ICompositionModulesProvider compositionModulesProvider) : base(compositionModulesProvider)
-        {
+        /// </summary>        
+        /// <param name="assemblySourceProvider">The assembly source provider.</param>
+        public AssembliesResolver(
+            IAssemblySourceProvider assemblySourceProvider) : base(assemblySourceProvider)
+        {           
         }
 
         /// <summary>

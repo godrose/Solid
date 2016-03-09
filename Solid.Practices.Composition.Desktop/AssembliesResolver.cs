@@ -16,9 +16,9 @@ namespace Solid.Practices.Composition.Desktop
         /// Initializes a new instance of the <see cref="AssembliesResolver"/> class.
         /// </summary>
         /// <param name="entryType">Type of the entry.</param>
-        /// <param name="compositionModulesProvider">The composition modules provider.</param>
+        /// <param name="assemblySourceProvider">The assembly source provider.</param>
         public AssembliesResolver(Type entryType,
-            ICompositionModulesProvider compositionModulesProvider) : base(compositionModulesProvider)
+            IAssemblySourceProvider assemblySourceProvider) : base(assemblySourceProvider)
         {
             _entryType = entryType;
         }
@@ -29,11 +29,7 @@ namespace Solid.Practices.Composition.Desktop
         /// <returns>Collection of assemblies</returns>
         protected override IEnumerable<Assembly> GetRootAssemblies()
         {
-            return _entryType.Assembly
-                .GetReferencedAssemblies()
-                .Select(Assembly.Load)
-                .Concat(new[] { _entryType.Assembly })
-                .Distinct();
+            return Enumerable.Repeat(_entryType.Assembly, 1);
         }
     }
 }
