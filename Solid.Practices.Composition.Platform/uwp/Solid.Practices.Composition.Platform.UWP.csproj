@@ -31,11 +31,11 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\bin\uwp\Release\Practices\</OutputPath>
+    <OutputPath>..\..\bin\uwp\Release\Practices\</OutputPath>
     <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\bin\uwp\Release\Practices\Solid.Practices.Composition.Platform.XML</DocumentationFile>
+    <DocumentationFile>..\..\bin\uwp\Release\Practices\Solid.Practices.Composition.Platform.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <PlatformTarget>x86</PlatformTarget>
@@ -108,20 +108,30 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AssemblySourceProviderBase.cs" />
-    <Compile Include="CompositionContainer.cs" />
-    <Compile Include="CompositionManager.cs" />
-    <Compile Include="ICompositionManager.cs" />
+    <Compile Include="..\src\AssemblySourceProviderBase.cs">
+      <Link>AssemblySourceProviderBase.cs</Link>
+    </Compile>
+    <Compile Include="..\src\CompositionContainer.cs">
+      <Link>CompositionContainer.cs</Link>
+    </Compile>
+    <Compile Include="..\src\CompositionManager.cs">
+      <Link>CompositionManager.cs</Link>
+    </Compile>
+    <Compile Include="..\src\ICompositionManager.cs">
+      <Link>ICompositionManager.cs</Link>
+    </Compile>
+    <Compile Include="..\src\SafeAssemblyLoader.cs">
+      <Link>SafeAssemblyLoader.cs</Link>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SafeAssemblyLoader.cs" />
     <EmbeddedResource Include="Properties\Solid.Practices.Composition.Platform.UWP.rd.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Solid.Practices.Composition.Core\Solid.Practices.Composition.Core.csproj">
+    <ProjectReference Include="..\..\Solid.Practices.Composition.Core\Solid.Practices.Composition.Core.csproj">
       <Project>{FA9056E5-FA5A-43A0-BB88-4CD9BC4537E6}</Project>
       <Name>Solid.Practices.Composition.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Solid.Practices.Modularity\Solid.Practices.Modularity.csproj">
+    <ProjectReference Include="..\..\Solid.Practices.Modularity\Solid.Practices.Modularity.csproj">
       <Project>{82BB5DF3-82AC-466D-BDDF-C65A9ECDB8A4}</Project>
       <Name>Solid.Practices.Modularity</Name>
     </ProjectReference>

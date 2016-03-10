@@ -47,9 +47,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solid.Practices.Composition
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solid.Practices.Composition.NET45.Tests", "Solid.Practices.Composition.NET45.Tests\Solid.Practices.Composition.NET45.Tests.csproj", "{A7428F9E-2B46-4BB4-8329-CD86EA4A961E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solid.Practices.Composition.Platform.NET45", "Solid.Practices.Composition.Platform\Solid.Practices.Composition.Platform.NET45.csproj", "{705DFE80-50DD-453D-A515-DEDB877C8699}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solid.Practices.Composition.Platform.NET45", "Solid.Practices.Composition.Platform\net45\Solid.Practices.Composition.Platform.NET45.csproj", "{705DFE80-50DD-453D-A515-DEDB877C8699}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solid.Practices.Composition.Platform.UWP", "Solid.Practices.Composition.Platform\Solid.Practices.Composition.Platform.UWP.csproj", "{8E66C48C-7DD2-4374-9737-F4945C17C9B7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solid.Practices.Composition.Platform.UWP", "Solid.Practices.Composition.Platform\uwp\Solid.Practices.Composition.Platform.UWP.csproj", "{8E66C48C-7DD2-4374-9737-F4945C17C9B7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
