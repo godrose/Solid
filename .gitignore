@@ -184,3 +184,5 @@ FakesAssemblies/
 
 Tests/*.dll
 Tests*/
+/Solid.Practices.Composition.Platform/project.lock.json
+/Solid.Practices.Composition.Platform.UWP/project.lock.json
