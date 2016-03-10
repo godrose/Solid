@@ -50,9 +50,9 @@
       <Project>{fa9056e5-fa5a-43a0-bb88-4cd9bc4537e6}</Project>
       <Name>Solid.Practices.Composition.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Solid.Practices.Composition\Solid.Practices.Composition.NET45.csproj">
+    <ProjectReference Include="..\Solid.Practices.Composition.Platform\Solid.Practices.Composition.Platform.NET45.csproj">
       <Project>{705DFE80-50DD-453D-A515-DEDB877C8699}</Project>
-      <Name>Solid.Practices.Composition.NET45</Name>
+      <Name>Solid.Practices.Composition.Platform.NET45</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

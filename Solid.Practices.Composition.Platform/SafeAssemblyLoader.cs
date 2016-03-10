@@ -13,7 +13,15 @@ namespace Solid.Practices.Composition
             {
                 try
                 {
-                    return Assembly.LoadFrom(k);
+#if NET
+                        return Assembly.LoadFrom(k);
+#endif
+#if NETFX_CORE || WINDOWS_UWP
+                    //must implement loading assembly from path
+                                        
+                    return (Assembly)null;
+#endif
+
                 }
                 catch (Exception)
                 {
