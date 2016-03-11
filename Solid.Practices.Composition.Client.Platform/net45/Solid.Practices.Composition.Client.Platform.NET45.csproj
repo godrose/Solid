@@ -25,11 +25,11 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\Bin\net45\Release\Practices\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <OutputPath>..\..\Bin\net45\Release\Practices\</OutputPath>
+    <DefineConstants>TRACE;NET</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\Bin\net45\Release\Practices\Solid.Practices.Composition.Client.Platform.xml</DocumentationFile>
+    <DocumentationFile>..\..\Bin\net45\Release\Practices\Solid.Practices.Composition.Client.Platform.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -41,16 +41,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AssembliesResolver.cs" />
-    <Compile Include="ClientAssemblySourceProvider.cs" />
+    <Compile Include="..\src\AssembliesResolver.cs">
+      <Link>AssembliesResolver.cs</Link>
+    </Compile>
+    <Compile Include="..\src\ClientAssemblySourceProvider.cs">
+      <Link>ClientAssemblySourceProvider.cs</Link>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Solid.Practices.Composition.Core\Solid.Practices.Composition.Core.csproj">
+    <ProjectReference Include="..\..\Solid.Practices.Composition.Core\Solid.Practices.Composition.Core.csproj">
       <Project>{fa9056e5-fa5a-43a0-bb88-4cd9bc4537e6}</Project>
       <Name>Solid.Practices.Composition.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Solid.Practices.Composition.Platform\net45\Solid.Practices.Composition.Platform.NET45.csproj">
+    <ProjectReference Include="..\..\Solid.Practices.Composition.Platform\net45\Solid.Practices.Composition.Platform.NET45.csproj">
       <Project>{705DFE80-50DD-453D-A515-DEDB877C8699}</Project>
       <Name>Solid.Practices.Composition.Platform.NET45</Name>
     </ProjectReference>

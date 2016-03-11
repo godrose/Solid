@@ -7,8 +7,8 @@
     <ProjectGuid>{15A3B23C-FF3D-4A8F-B791-E5557F44F2C6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Solid.Practices.Composition.Client.Platform.UWP</RootNamespace>
-    <AssemblyName>Solid.Practices.Composition.Client.Platform.UWP</AssemblyName>
+    <RootNamespace>Solid.Practices.Composition.Client</RootNamespace>
+    <AssemblyName>Solid.Practices.Composition.Client.Platform</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.10586.0</TargetPlatformVersion>
@@ -31,10 +31,11 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\..\Bin\uwp\Release\Practices\</OutputPath>
     <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\..\Bin\uwp\Release\Practices\Solid.Practices.Composition.Client.Platform.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <PlatformTarget>x86</PlatformTarget>
@@ -107,8 +108,24 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\src\AssembliesResolver.cs">
+      <Link>AssembliesResolver.cs</Link>
+    </Compile>
+    <Compile Include="..\src\ClientAssemblySourceProvider.cs">
+      <Link>ClientAssemblySourceProvider.cs</Link>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Solid.Practices.Composition.Client.Platform.UWP.rd.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Solid.Practices.Composition.Core\Solid.Practices.Composition.Core.csproj">
+      <Project>{FA9056E5-FA5A-43A0-BB88-4CD9BC4537E6}</Project>
+      <Name>Solid.Practices.Composition.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Solid.Practices.Composition.Platform\uwp\Solid.Practices.Composition.Platform.UWP.csproj">
+      <Project>{8E66C48C-7DD2-4374-9737-F4945C17C9B7}</Project>
+      <Name>Solid.Practices.Composition.Platform.UWP</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

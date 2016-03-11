@@ -49,9 +49,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solid.Practices.Composition
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solid.Practices.Composition.Platform.UWP", "Solid.Practices.Composition.Platform\uwp\Solid.Practices.Composition.Platform.UWP.csproj", "{8E66C48C-7DD2-4374-9737-F4945C17C9B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solid.Practices.Composition.Client.Platform.NET45", "Solid.Practices.Composition.Client.Platform\Solid.Practices.Composition.Client.Platform.NET45.csproj", "{B43A112D-9AF3-4B5B-A966-1BC91F0759F3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solid.Practices.Composition.Client.Platform.NET45", "Solid.Practices.Composition.Client.Platform\net45\Solid.Practices.Composition.Client.Platform.NET45.csproj", "{B43A112D-9AF3-4B5B-A966-1BC91F0759F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solid.Practices.Composition.Client.Platform.UWP", "Solid.Practices.Composition.Client.Platform.UWP\Solid.Practices.Composition.Client.Platform.UWP.csproj", "{15A3B23C-FF3D-4A8F-B791-E5557F44F2C6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solid.Practices.Composition.Client.Platform.UWP", "Solid.Practices.Composition.Client.Platform\uwp\Solid.Practices.Composition.Client.Platform.UWP.csproj", "{15A3B23C-FF3D-4A8F-B791-E5557F44F2C6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

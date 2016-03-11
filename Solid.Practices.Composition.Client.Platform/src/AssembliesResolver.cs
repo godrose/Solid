@@ -29,7 +29,12 @@ namespace Solid.Practices.Composition.Desktop
         /// <returns>Collection of assemblies</returns>
         protected override IEnumerable<Assembly> GetRootAssemblies()
         {
-            return Enumerable.Repeat(_entryType.Assembly, 1);
+            return Enumerable.Repeat(
+                _entryType
+#if NETFX_CORE || WINDOWS_UWP
+                .GetTypeInfo()
+#endif
+                .Assembly, 1);
         }
     }
 }
