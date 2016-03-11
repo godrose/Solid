@@ -189,3 +189,4 @@ Tests*/
 /.vs/config
 /Solid.Practices.Composition.Client.Platform.UWP
 /Solid.Practices.Composition.Platform/uwp
+/Solid.Practices.Composition.Client.Platform/uwp

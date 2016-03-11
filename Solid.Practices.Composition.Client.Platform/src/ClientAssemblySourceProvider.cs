@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace Solid.Practices.Composition.Desktop
+namespace Solid.Practices.Composition.Client
 {
     /// <summary>
     /// Retrieves list of the assemblies to be 

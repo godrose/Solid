@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace Solid.Practices.Composition.Desktop
+namespace Solid.Practices.Composition.Client
 {
     /// <summary>
     /// Assemblies resolver for client part of desktop applications.
