@@ -34,7 +34,7 @@ namespace Solid.Practices.Composition
 
         void ICompositionContainer<TModule>.Compose()
         {
-            var assemblies = SafeAssemblyLoader.LoadAssembliesFromPaths(DiscoverFilePaths());                
+            var assemblies = SafeAssemblyLoader.LoadAssembliesFromNames(DiscoverFilePaths());                
             ICompositionContainer<TModule> innerContainer = new PortableCompositionContainer<TModule>(assemblies);
             innerContainer.Compose();
             Modules = innerContainer.Modules;

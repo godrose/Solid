@@ -44,12 +44,12 @@ namespace Solid.Practices.Composition
 
         private List<Assembly> CreateAssemblies()
         {
-            return SafeAssemblyLoader.LoadAssembliesFromPaths(DiscoverFilePaths()).ToList();
+            return SafeAssemblyLoader.LoadAssembliesFromNames(DiscoverAssemblyNames()).ToList();
         }
 
-        private IEnumerable<string> DiscoverFilePaths()
-        {            
-            return DiscoverFilePathsFromNamespaces(ResolveNamespaces());
+        private IEnumerable<string> DiscoverAssemblyNames()
+        {
+            return DiscoverFilePathsFromNamespaces(ResolveNamespaces()).Select(Path.GetFileNameWithoutExtension);
         }
 
         private IEnumerable<string> DiscoverFilePathsFromNamespaces(string[] namespaces)

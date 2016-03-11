@@ -7,21 +7,13 @@ namespace Solid.Practices.Composition
 {
     static class SafeAssemblyLoader
     {
-        internal static IEnumerable<Assembly> LoadAssembliesFromPaths(IEnumerable<string> paths)
+        internal static IEnumerable<Assembly> LoadAssembliesFromNames(IEnumerable<string> names)
         {
-            return paths.Select(k =>
+            return names.Select(k =>
             {
                 try
                 {
-#if NET
-                        return Assembly.LoadFrom(k);
-#endif
-#if NETFX_CORE || WINDOWS_UWP
-                    //must implement loading assembly from path
-                                        
-                    return (Assembly)null;
-#endif
-
+                    return Assembly.Load(new AssemblyName(k));
                 }
                 catch (Exception)
                 {
