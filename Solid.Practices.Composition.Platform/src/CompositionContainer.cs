@@ -34,10 +34,16 @@ namespace Solid.Practices.Composition
 
         void ICompositionContainer<TModule>.Compose()
         {
-            var assemblies = SafeAssemblyLoader.LoadAssembliesFromNames(DiscoverFilePaths());                
+            var assemblies = SafeAssemblyLoader.LoadAssembliesFromNames(DiscoverAssemblyNames());            
             ICompositionContainer<TModule> innerContainer = new PortableCompositionContainer<TModule>(assemblies);
+            //throws ex
             innerContainer.Compose();
             Modules = innerContainer.Modules;
+        }
+
+        private IEnumerable<string> DiscoverAssemblyNames()
+        {
+            return DiscoverFilePaths().Select(Path.GetFileNameWithoutExtension);
         }
 
         private IEnumerable<string> DiscoverFilePaths()

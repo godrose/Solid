@@ -32,7 +32,7 @@ namespace Solid.Practices.Composition
         void ICompositionContainer<TModule>.Compose()
         {
             var containerConfiguration = new ContainerConfiguration();
-            containerConfiguration.WithAssemblies(_assemblies);
+            containerConfiguration.WithAssemblies(_assemblies);            
             using (var compostionHost = containerConfiguration.CreateContainer())
             {
                 compostionHost.SatisfyImports(this);                

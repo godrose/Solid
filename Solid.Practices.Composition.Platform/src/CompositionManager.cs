@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+#if !NETFX_CORE && !WINDOWS_UWP
 using System.IO;
+#endif
 using Solid.Practices.Modularity;
 
 namespace Solid.Practices.Composition
@@ -32,11 +34,12 @@ namespace Solid.Practices.Composition
 
         private void InitializeComposition(string rootPath, string[] prefixes = null)
         {
+#if !NETFX_CORE && !WINDOWS_UWP
             if (Directory.Exists(rootPath) == false)
             {
                 Directory.CreateDirectory(rootPath);
             }
-
+#endif
             CompositionContainer = new CompositionContainer(rootPath, prefixes);
             CompositionContainer.Compose();
         }

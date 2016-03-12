@@ -10,7 +10,7 @@ namespace Solid.Practices.Composition.Tests
         [Test]
         public void RootPathContainsCompositionModules_CompositionModulesAreImported()
         {
-            var rootPath = Environment.CurrentDirectory;
+            var rootPath = GetCurrentDirectory();
 
             ICompositionContainer compositionContainer = new CompositionContainer(rootPath);
             compositionContainer.Compose();
@@ -18,12 +18,12 @@ namespace Solid.Practices.Composition.Tests
             var modules = compositionContainer.Modules;
             var modulesCount = modules.Count();
             Assert.AreEqual(1, modulesCount);
-        }
+        }        
 
         [Test]
         public void RootPathContainsCustomModules_CustomModulesAreImported()
         {
-            var rootPath = Environment.CurrentDirectory;
+            var rootPath = GetCurrentDirectory();
 
             ICompositionContainer<ICustomModule> compositionContainer = new CompositionContainer<ICustomModule>(rootPath);
             compositionContainer.Compose();
@@ -36,7 +36,7 @@ namespace Solid.Practices.Composition.Tests
         [Test]
         public void RootPathContainsCustomModulesAndCorrectPrefixIsUsed_CustomModulesAreImported()
         {
-            var rootPath = Environment.CurrentDirectory;
+            var rootPath = GetCurrentDirectory();
 
             ICompositionContainer<ICustomModule> compositionContainer = new CompositionContainer<ICustomModule>(rootPath, new[] { "Solid" });
             compositionContainer.Compose();
@@ -62,7 +62,7 @@ namespace Solid.Practices.Composition.Tests
         [Test]
         public void RootPathContainsCustomModulesAndNoPrefixIsUsed_CustomModulesAreImported()
         {
-            var rootPath = Environment.CurrentDirectory;
+            var rootPath = GetCurrentDirectory();
 
             ICompositionContainer<ICustomModule> compositionContainer = new CompositionContainer<ICustomModule>(rootPath);
             compositionContainer.Compose();
@@ -71,5 +71,15 @@ namespace Solid.Practices.Composition.Tests
             var modulesCount = modules.Count();
             Assert.AreEqual(2, modulesCount);
         }
+
+        //TODO: Removed the hardcoded path
+        private static string GetCurrentDirectory()
+        {
+#if DEBUG
+            return @"C:\Workspace\Solid\Solid.Practices.Composition.NET45.Tests\bin\Debug";
+#endif
+            return @"C:\Workspace\Solid\Solid.Practices.Composition.NET45.Tests\bin\Release";
+        }
     }
+
 }
