@@ -1,8 +1,8 @@
 ﻿using System.Linq;
 using NUnit.Framework;
 
-namespace Solid.Practices.Composition.Tests
-{
+namespace Solid.Practices.Composition.Platform.UWP.Tests
+{    
     [TestFixture]
     class CompositionContainerTests
     {
@@ -17,7 +17,7 @@ namespace Solid.Practices.Composition.Tests
             var modules = compositionContainer.Modules;
             var modulesCount = modules.Count();
             Assert.AreEqual(1, modulesCount);
-        }        
+        }
 
         [Test]
         public void RootPathContainsCustomModules_CustomModulesAreImported()
@@ -75,10 +75,9 @@ namespace Solid.Practices.Composition.Tests
         private static string GetCurrentDirectory()
         {
 #if DEBUG
-            return @"C:\Workspace\Solid\Solid.Practices.Composition.NET45.Tests\bin\Debug";
+            return @"C:\Workspace\Solid\Solid.Practices.Composition.Platform.UWP.Tests\bin\Debug";
 #endif
-            return @"C:\Workspace\Solid\Solid.Practices.Composition.NET45.Tests\bin\Release";
+            return @"C:\Workspace\Solid\Solid.Practices.Composition.Platform.UWP.Tests\bin\Release";
         }
     }
-
 }
