@@ -191,3 +191,4 @@ Tests*/
 /Solid.Practices.Composition.Platform/uwp
 /Solid.Practices.Composition.Client.Platform/uwp
 /Solid.Practices.Composition.Platform.UWP.Tests/project.lock.json
+/Solid.Practices.Composition.Container.Platform.UWP/project.lock.json
