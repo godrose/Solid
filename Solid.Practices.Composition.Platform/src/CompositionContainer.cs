@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+#if NETFX_CORE || WINDOWS_UWP
+using Solid.Practices.Composition.Container;
+#endif
 using Solid.Practices.Modularity;
 
 namespace Solid.Practices.Composition
@@ -11,6 +14,9 @@ namespace Solid.Practices.Composition
     /// </summary>
     /// <typeparam name="TModule">The type of composition module.</typeparam>
     public class CompositionContainer<TModule> : ICompositionContainer<TModule>
+#if NETFX_CORE || WINDOWS_UWP
+        where TModule : ICompositionModule
+#endif
     {
         private readonly string _rootPath;
         private readonly string[] _prefixes;
@@ -34,8 +40,15 @@ namespace Solid.Practices.Composition
 
         void ICompositionContainer<TModule>.Compose()
         {
-            var assemblies = SafeAssemblyLoader.LoadAssembliesFromNames(DiscoverAssemblyNames());            
-            ICompositionContainer<TModule> innerContainer = new PortableCompositionContainer<TModule>(assemblies);
+            var assemblies = SafeAssemblyLoader.LoadAssembliesFromNames(DiscoverAssemblyNames());
+
+            ICompositionContainer<TModule> innerContainer =
+#if NET
+                new PortableCompositionContainer<TModule>(assemblies);
+#endif
+#if NETFX_CORE || WINDOWS_UWP
+                new SimpleCompositionContainer<TModule>(assemblies);
+#endif
             //throws ex
             innerContainer.Compose();
             Modules = innerContainer.Modules;

@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8E66C48C-7DD2-4374-9737-F4945C17C9B7}</ProjectGuid>
+    <ProjectGuid>{3B7FBA01-B87E-4590-9A33-CA48D05A4E97}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Solid.Practices.Composition</RootNamespace>
-    <AssemblyName>Solid.Practices.Composition.Platform</AssemblyName>
+    <RootNamespace>Solid.Practices.Composition.Container</RootNamespace>
+    <AssemblyName>Solid.Practices.Composition.Container.Platform</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.10586.0</TargetPlatformVersion>
@@ -31,11 +31,11 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\bin\uwp\Release\Practices\</OutputPath>
+    <OutputPath>..\Bin\uwp\Release\Practices\</OutputPath>
     <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\..\bin\uwp\Release\Practices\Solid.Practices.Composition.Platform.XML</DocumentationFile>
+    <DocumentationFile>..\Bin\uwp\Release\Practices\Solid.Practices.Composition.Container.Platform.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <PlatformTarget>x86</PlatformTarget>
@@ -108,34 +108,16 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\src\AssemblySourceProviderBase.cs">
-      <Link>AssemblySourceProviderBase.cs</Link>
-    </Compile>
-    <Compile Include="..\src\CompositionContainer.cs">
-      <Link>CompositionContainer.cs</Link>
-    </Compile>
-    <Compile Include="..\src\CompositionManager.cs">
-      <Link>CompositionManager.cs</Link>
-    </Compile>
-    <Compile Include="..\src\ICompositionManager.cs">
-      <Link>ICompositionManager.cs</Link>
-    </Compile>
-    <Compile Include="..\src\SafeAssemblyLoader.cs">
-      <Link>SafeAssemblyLoader.cs</Link>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Properties\Solid.Practices.Composition.Platform.UWP.rd.xml" />
+    <Compile Include="SimpleCompositionContainer.cs" />
+    <EmbeddedResource Include="Properties\Solid.Practices.Composition.Container.Platform.UWP.rd.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Solid.Practices.Composition.Container.Platform.UWP\Solid.Practices.Composition.Container.Platform.UWP.csproj">
-      <Project>{3B7FBA01-B87E-4590-9A33-CA48D05A4E97}</Project>
-      <Name>Solid.Practices.Composition.Container.Platform.UWP</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Solid.Practices.Composition.Core\Solid.Practices.Composition.Core.csproj">
+    <ProjectReference Include="..\Solid.Practices.Composition.Core\Solid.Practices.Composition.Core.csproj">
       <Project>{FA9056E5-FA5A-43A0-BB88-4CD9BC4537E6}</Project>
       <Name>Solid.Practices.Composition.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Solid.Practices.Modularity\Solid.Practices.Modularity.csproj">
+    <ProjectReference Include="..\Solid.Practices.Modularity\Solid.Practices.Modularity.csproj">
       <Project>{82BB5DF3-82AC-466D-BDDF-C65A9ECDB8A4}</Project>
       <Name>Solid.Practices.Modularity</Name>
     </ProjectReference>
