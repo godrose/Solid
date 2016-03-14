@@ -5,11 +5,11 @@
     <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FA9056E5-FA5A-43A0-BB88-4CD9BC4537E6}</ProjectGuid>
+    <ProjectGuid>{CD8C55DE-EF22-4B4D-9DD3-8F0B336244B4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Solid.Practices.Composition</RootNamespace>
-    <AssemblyName>Solid.Practices.Composition</AssemblyName>
+    <RootNamespace>Solid.Practices.Composition.Container.Platform</RootNamespace>
+    <AssemblyName>Solid.Practices.Composition.Container.Platform</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -32,22 +32,17 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\Bin\Release\Practices\Solid.Practices.Composition.xml</DocumentationFile>
+    <DocumentationFile>..\Bin\Release\Practices\Solid.Practices.Composition.Container.Platform.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->
-    <ProjectReference Include="..\Solid.Practices.Modularity\Solid.Practices.Modularity.csproj">
-      <Project>{82BB5DF3-82AC-466D-BDDF-C65A9ECDB8A4}</Project>
-      <Name>Solid.Practices.Modularity</Name>
+    <ProjectReference Include="..\Solid.Practices.Composition.Core\Solid.Practices.Composition.Core.csproj">
+      <Project>{FA9056E5-FA5A-43A0-BB88-4CD9BC4537E6}</Project>
+      <Name>Solid.Practices.Composition.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AssembliesResolverBase.cs" />
-    <Compile Include="AssemblyLoadingManager.cs" />
-    <Compile Include="IAssemblySourceProvider.cs" />
-    <Compile Include="IAssembliesReadOnlyResolver.cs" />
-    <Compile Include="ICompositionContainer.cs" />
-    <Compile Include="ICompositionModulesProvider.cs" />
+    <Compile Include="PortableCompositionContainer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
