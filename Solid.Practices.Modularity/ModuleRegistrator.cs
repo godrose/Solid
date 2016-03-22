@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Solid.Practices.IoC;
 using Solid.Practices.Middleware;
@@ -6,16 +7,31 @@ using Solid.Practices.Middleware;
 namespace Solid.Practices.Modularity
 {
     /// <summary>
-    /// Allows registering composition modules into IoC container
+    /// Allows registering composition modules into IoC container.
     /// </summary>
-    public interface IModuleRegistrator : IMiddleware
+    /// <typeparam name="TIocContainerConstraint">Type of IoC container constraint.</typeparam>
+    public interface IModuleRegistrator<in TIocContainerConstraint>
     {
         /// <summary>
-        /// Registers composition modules into IoC container
+        /// Registers composition modules into IoC container.
         /// </summary>
-        /// <typeparam name="TIocContainer">Type of IoC container</typeparam>
-        /// <param name="iocContainer">IoC container</param>
-        void RegisterModules<TIocContainer>(TIocContainer iocContainer) where TIocContainer : IIocContainer;
+        /// <typeparam name="TIocContainer">Type of IoC container.</typeparam>
+        /// <param name="iocContainer">IoC container.</param>
+        void RegisterModules<TIocContainer>(TIocContainer iocContainer) where TIocContainer : TIocContainerConstraint;
+    }
+
+    /// <summary>
+    /// Allows registering composition modules into IoC container.
+    /// </summary>
+    public interface IModuleRegistrator : IModuleRegistrator<IIocContainer>, IMiddleware
+    {        
+    }
+
+    /// <summary>
+    /// Allows registering composition modules into IoC container using lifetime scope provider.
+    /// </summary>
+    public interface IScopedModuleRegistrator : IModuleRegistrator<IIocContainerScoped>
+    {       
     }
 
     /// <summary>
@@ -61,9 +77,55 @@ namespace Solid.Practices.Modularity
                     compositionModule.RegisterModule(iocContainer);
                 }
 
-                foreach (var compositionModule in _modules.OfType<IPlainCompositionModule>())
+                foreach (var plainCompositionModule in _modules.OfType<IPlainCompositionModule>())
                 {
-                    compositionModule.RegisterModule();
+                    plainCompositionModule.RegisterModule();
+                }                
+            }
+        }        
+    }
+
+    /// <summary>
+    /// Allows registering composition modules into IoC container using lifetime scope provider.
+    /// </summary>
+    public class ScopedModuleRegistrator : IScopedModuleRegistrator
+    {       
+        private readonly IEnumerable<ICompositionModule> _modules;
+        private readonly Func<object> _lifetimeScopeProvider;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ModuleRegistrator"/> class.
+        /// </summary>
+        /// <param name="modules">The modules.</param>
+        /// <param name="lifetimeScopeProvider">The lifetime scope provider.</param>
+        public ScopedModuleRegistrator(
+            IEnumerable<ICompositionModule> modules, 
+            Func<object> lifetimeScopeProvider)
+        {
+            _modules = modules;
+            _lifetimeScopeProvider = lifetimeScopeProvider;
+        }
+
+        /// <summary>
+        /// Registers composition modules into IoC container
+        /// </summary>
+        /// <typeparam name="TIocContainer">Type of IoC container</typeparam>
+        /// <param name="iocContainer">IoC container</param>
+        
+        public void RegisterModules<TIocContainer>(TIocContainer iocContainer) 
+            where TIocContainer : IIocContainerScoped
+        {
+            RegisterModulesInternal(iocContainer, _lifetimeScopeProvider);
+        }       
+
+        private void RegisterModulesInternal<TIocContainer>(TIocContainer iocContainer, Func<object> lifetimeScopeProvider)
+            where TIocContainer : IIocContainerScoped
+        {
+            if (_modules != null)
+            {
+                foreach (var scopedModule in _modules.OfType<IScopedCompositionModule>())
+                {
+                    scopedModule.RegisterModule(iocContainer, lifetimeScopeProvider);
                 }
             }
         }

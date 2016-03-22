@@ -1,4 +1,5 @@
-﻿using Solid.Practices.IoC;
+﻿using System;
+using Solid.Practices.IoC;
 
 namespace Solid.Practices.Modularity
 {
@@ -35,5 +36,19 @@ namespace Solid.Practices.Modularity
         /// Registers the composition module.
         /// </summary>
         void RegisterModule();
+    }
+
+    /// <summary>
+    /// Represents a composition module, which  may register dependencies
+    /// that are dependent on the lifetime of another object.
+    /// </summary>
+    public interface IScopedCompositionModule : ICompositionModule
+    {
+        /// <summary>
+        /// Registers the composition module into the ioc container
+        /// </summary>
+        /// <param name="container">The simple container.</param>
+        /// <param name="lifetimeScopeProvider">The lifetime scope provider.</param>
+        void RegisterModule(IIocContainerScoped container, Func<object> lifetimeScopeProvider);
     }
 }

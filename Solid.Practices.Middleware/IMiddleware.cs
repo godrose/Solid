@@ -14,5 +14,5 @@ namespace Solid.Practices.Middleware
         /// <param name="iocContainer">The IoC container.</param>
         /// <returns></returns>
         TIocContainer Apply<TIocContainer>(TIocContainer iocContainer) where TIocContainer : class, IIocContainer;
-    }
+    }    
 }
