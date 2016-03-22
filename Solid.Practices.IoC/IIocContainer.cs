@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Solid.Practices.IoC
 {
@@ -75,6 +76,20 @@ namespace Solid.Practices.IoC
         /// </summary>
         /// <param name="handler">The handler.</param>
         void RegisterHandler<TService>(Func<TService> handler) where TService : class;
+
+        /// <summary>
+        /// Registers the collection of the dependencies.
+        /// </summary>
+        /// <typeparam name="TService">The type of the service.</typeparam>
+        /// <param name="dependencyTypes">The dependency types.</param>
+        void RegisterCollection<TService>(IEnumerable<Type> dependencyTypes) where TService : class;
+
+        /// <summary>
+        /// Registers the collection of the dependencies.
+        /// </summary>        
+        /// <param name="dependencyType">The dependency type.</param>
+        /// <param name="dependencyTypes">The dependency types.</param>
+        void RegisterCollection(Type dependencyType, IEnumerable<Type> dependencyTypes);
     }
 
     /// <summary>
