@@ -1,12 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using Solid.Practices.IoC;
 
 namespace Solid.Practices.Modularity
 {
     /// <summary>
     /// Represents a composistion module.
-    /// It is a marker interface, meant to be used via MEF
-    /// Import and Export attributes
+    /// It is a marker interface.
     /// </summary>
     public interface ICompositionModule
     {
@@ -50,5 +50,20 @@ namespace Solid.Practices.Modularity
         /// <param name="container">The simple container.</param>
         /// <param name="lifetimeScopeProvider">The lifetime scope provider.</param>
         void RegisterModule(IIocContainerScoped container, Func<object> lifetimeScopeProvider);
+    }
+
+    /// <summary>
+    /// Represents a composition module, which is able to
+    /// register collections of other modules into the container.
+    /// </summary>
+    /// <seealso cref="ICompositionModule" />
+    public interface IHierarchicalCompositionModule : ICompositionModule
+    {
+        /// <summary>
+        /// Registers the modules into the container.
+        /// </summary>
+        /// <param name="container">The container.</param>
+        /// <param name="modules">The modules.</param>
+        void RegisterModules(IIocContainer container, IEnumerable<ICompositionModule> modules);
     }
 }

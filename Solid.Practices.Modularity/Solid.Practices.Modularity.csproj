@@ -36,6 +36,7 @@
     <Compile Include="ICompositionModule.cs" />
     <Compile Include="ModuleRegistrator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegistrationHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Solid.Practices.IoC\Solid.Practices.IoC.csproj">
