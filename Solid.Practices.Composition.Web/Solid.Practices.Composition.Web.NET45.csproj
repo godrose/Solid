@@ -50,13 +50,13 @@
     <Compile Include="ServerAssemblySourceProvider.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Solid.Practices.Composition.Core\Solid.Practices.Composition.Core.csproj">
-      <Project>{FA9056E5-FA5A-43A0-BB88-4CD9BC4537E6}</Project>
-      <Name>Solid.Practices.Composition.Core</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Solid.Practices.Composition.Platform\net45\Solid.Practices.Composition.Platform.NET45.csproj">
       <Project>{705DFE80-50DD-453D-A515-DEDB877C8699}</Project>
       <Name>Solid.Practices.Composition.Platform.NET45</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Solid.Practices.Composition\Solid.Practices.Composition.csproj">
+      <Project>{FA9056E5-FA5A-43A0-BB88-4CD9BC4537E6}</Project>
+      <Name>Solid.Practices.Composition</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

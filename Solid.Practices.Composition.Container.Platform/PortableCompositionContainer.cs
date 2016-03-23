@@ -3,7 +3,7 @@ using System.Composition;
 using System.Composition.Hosting;
 using System.Reflection;
 
-namespace Solid.Practices.Composition
+namespace Solid.Practices.Composition.Container
 {
     /// <summary>
     /// Represents composition container which allows composing the composition modules

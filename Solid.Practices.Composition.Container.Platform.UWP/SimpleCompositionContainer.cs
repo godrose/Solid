@@ -52,7 +52,8 @@ namespace Solid.Practices.Composition.Container
             var types = assembly.DefinedTypes;
             foreach (var typeInfo in types)
             {                
-                if (typeInfo.IsClass && typeInfo.ImplementedInterfaces.Contains(typeof(ICompositionModule)))
+                if (typeInfo.IsClass && typeInfo.IsAbstract == false
+                    && typeInfo.ImplementedInterfaces.Contains(typeof(ICompositionModule)))
                 {                    
                     Modules.Add((TModule)Activator.CreateInstance(typeInfo.AsType()));
                 }

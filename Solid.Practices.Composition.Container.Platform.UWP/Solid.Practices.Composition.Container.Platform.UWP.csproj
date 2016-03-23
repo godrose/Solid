@@ -113,9 +113,9 @@
     <EmbeddedResource Include="Properties\Solid.Practices.Composition.Container.Platform.UWP.rd.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Solid.Practices.Composition.Core\Solid.Practices.Composition.Core.csproj">
+    <ProjectReference Include="..\Solid.Practices.Composition\Solid.Practices.Composition.csproj">
       <Project>{FA9056E5-FA5A-43A0-BB88-4CD9BC4537E6}</Project>
-      <Name>Solid.Practices.Composition.Core</Name>
+      <Name>Solid.Practices.Composition</Name>
     </ProjectReference>
     <ProjectReference Include="..\Solid.Practices.Modularity\Solid.Practices.Modularity.csproj">
       <Project>{82BB5DF3-82AC-466D-BDDF-C65A9ECDB8A4}</Project>
