@@ -2,6 +2,8 @@
 using System.Composition;
 using System.Composition.Hosting;
 using System.Reflection;
+using Solid.Practices.Composition.Contracts;
+using Solid.Practices.Modularity;
 
 namespace Solid.Practices.Composition.Container
 {
@@ -10,15 +12,16 @@ namespace Solid.Practices.Composition.Container
     /// from the provided list of assemblies.
     /// </summary>
     /// <typeparam name="TModule">The type of composition module.</typeparam>
-    public class PortableCompositionContainer<TModule> : ICompositionContainer<TModule>
+    public class MefCompositionContainer<TModule> : ICompositionContainer<TModule>
+        where TModule : ICompositionModule
     {
         private readonly IEnumerable<Assembly> _assemblies;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PortableCompositionContainer{TModule}"/> class.
+        /// Initializes a new instance of the <see cref="MefCompositionContainer{TModule}"/> class.
         /// </summary>
         /// <param name="assemblies">The assemblies.</param>        
-        public PortableCompositionContainer(IEnumerable<Assembly> assemblies)
+        public MefCompositionContainer(IEnumerable<Assembly> assemblies)
         {
             _assemblies = assemblies;            
         }

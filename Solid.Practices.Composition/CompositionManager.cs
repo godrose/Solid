@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.IO;
+using Solid.Practices.Composition.Contracts;
 using Solid.Practices.Modularity;
 
 namespace Solid.Practices.Composition
@@ -31,11 +31,7 @@ namespace Solid.Practices.Composition
         }       
 
         private void InitializeComposition(string rootPath, string[] prefixes = null)
-        {
-            if (Directory.Exists(rootPath) == false)
-            {
-                Directory.CreateDirectory(rootPath);
-            }
+        {            
             CompositionContainer = new CompositionContainer(rootPath, prefixes);
             CompositionContainer.Compose();
         }

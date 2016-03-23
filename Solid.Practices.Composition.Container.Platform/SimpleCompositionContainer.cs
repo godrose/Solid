@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using Solid.Practices.Composition.Contracts;
 using Solid.Practices.Modularity;
 
 namespace Solid.Practices.Composition.Container
@@ -10,7 +11,7 @@ namespace Solid.Practices.Composition.Container
     /// Represents a basic implementation of composition container with export feature only.
     /// </summary>
     /// <typeparam name="TModule">The type of the module.</typeparam>
-    /// <seealso cref="Composition.ICompositionContainer{TModule}" />
+    /// <seealso cref="ICompositionContainer" />
     public class SimpleCompositionContainer<TModule> : ICompositionContainer<TModule>   
         where TModule : ICompositionModule     
     {
@@ -38,7 +39,10 @@ namespace Solid.Practices.Composition.Container
             get { return Modules; }
         }
 
-        void ICompositionContainer<TModule>.Compose()
+        /// <summary>
+        /// Composes the composition modules.
+        /// </summary>
+        public void Compose()
         {
             Modules = new List<TModule>();
             foreach (var assembly in _assemblies)
@@ -53,7 +57,7 @@ namespace Solid.Practices.Composition.Container
             foreach (var typeInfo in types)
             {                
                 if (typeInfo.IsClass && typeInfo.IsAbstract == false
-                    && typeInfo.ImplementedInterfaces.Contains(typeof(ICompositionModule)))
+                    && typeInfo.ImplementedInterfaces.Contains(typeof(TModule)))
                 {                    
                     Modules.Add((TModule)Activator.CreateInstance(typeInfo.AsType()));
                 }

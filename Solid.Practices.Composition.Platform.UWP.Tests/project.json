@@ -1,6 +1,5 @@
 ﻿{
   "dependencies": {
-    "Microsoft.Composition": "1.0.30",
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0",
     "NUnit": "3.2.0"
   },

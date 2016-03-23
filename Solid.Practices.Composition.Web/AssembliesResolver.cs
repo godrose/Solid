@@ -3,6 +3,7 @@ using System.Linq;
 using System.Reflection;
 using System.Web;
 using System.Web.Http.Dispatcher;
+using Solid.Practices.Composition.Contracts;
 
 namespace Solid.Practices.Composition.Web
 {

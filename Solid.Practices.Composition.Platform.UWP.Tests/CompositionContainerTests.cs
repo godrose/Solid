@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using NUnit.Framework;
+using Solid.Practices.Composition.Contracts;
 
 namespace Solid.Practices.Composition.Platform.UWP.Tests
 {    

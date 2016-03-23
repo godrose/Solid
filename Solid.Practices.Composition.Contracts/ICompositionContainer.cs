@@ -1,6 +1,6 @@
 ﻿using Solid.Practices.Modularity;
 
-namespace Solid.Practices.Composition
+namespace Solid.Practices.Composition.Contracts
 {
     /// <summary>
     /// Represents strongly-typed composition container.

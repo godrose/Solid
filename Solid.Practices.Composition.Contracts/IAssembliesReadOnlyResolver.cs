@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Reflection;
 
-namespace Solid.Practices.Composition
+namespace Solid.Practices.Composition.Contracts
 {
     /// <summary>
     /// Represents assemblies resolver.

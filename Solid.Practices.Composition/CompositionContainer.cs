@@ -2,9 +2,7 @@
 using System.IO;
 using System.Linq;
 using Solid.Practices.Composition.Container;
-#if NETFX_CORE || WINDOWS_UWP
-using Solid.Practices.Composition.Container;
-#endif
+using Solid.Practices.Composition.Contracts;
 using Solid.Practices.Modularity;
 
 namespace Solid.Practices.Composition
@@ -14,10 +12,7 @@ namespace Solid.Practices.Composition
     /// while specifying various configuration options.
     /// </summary>
     /// <typeparam name="TModule">The type of composition module.</typeparam>
-    public class CompositionContainer<TModule> : ICompositionContainer<TModule>
-#if NETFX_CORE || WINDOWS_UWP
-        where TModule : ICompositionModule
-#endif
+    public class CompositionContainer<TModule> : ICompositionContainer<TModule> where TModule : ICompositionModule
     {
         private readonly string _rootPath;
         private readonly string[] _prefixes;
@@ -43,14 +38,7 @@ namespace Solid.Practices.Composition
         {
             var assemblies = SafeAssemblyLoader.LoadAssembliesFromNames(DiscoverAssemblyNames());
 
-            ICompositionContainer<TModule> innerContainer =
-#if NET
-                new PortableCompositionContainer<TModule>(assemblies);
-#endif
-#if NETFX_CORE || WINDOWS_UWP
-                new SimpleCompositionContainer<TModule>(assemblies);
-#endif
-            //throws ex
+            ICompositionContainer<TModule> innerContainer = new SimpleCompositionContainer<TModule>(assemblies);            
             innerContainer.Compose();
             Modules = innerContainer.Modules;
         }
@@ -65,8 +53,8 @@ namespace Solid.Practices.Composition
             return AllowedModulePatterns.Select(searchPattern =>
             {
                 return _prefixes == null || _prefixes.Length == 0
-                    ? Directory.GetFiles(_rootPath, searchPattern)
-                    : _prefixes.Select(prefix => Directory.GetFiles(_rootPath, prefix + searchPattern))
+                    ? PlatformProvider.Current.GetFiles(_rootPath, searchPattern)
+                    : _prefixes.Select(prefix => PlatformProvider.Current.GetFiles(_rootPath, prefix + searchPattern))
                         .SelectMany(t => t)
                         .ToArray();
             }).SelectMany(k => k);
@@ -77,7 +65,7 @@ namespace Solid.Practices.Composition
     /// Represents strongly-typed composition container which allows composing the composition modules
     /// while specifying various configuration options
     /// </summary>
-    /// <seealso cref="Composition.ICompositionContainer{TModule}" />
+    /// <seealso cref="ICompositionContainer" />
     public class CompositionContainer : CompositionContainer<ICompositionModule>, ICompositionContainer
     {
         /// <summary>

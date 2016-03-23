@@ -1,4 +1,4 @@
-﻿namespace Solid.Practices.Composition
+﻿namespace Solid.Practices.Composition.Contracts
 {    
     /// <summary>
     /// Allows initializing composition from the given path.

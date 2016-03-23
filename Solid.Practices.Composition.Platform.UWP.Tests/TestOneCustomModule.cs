@@ -1,4 +1,3 @@
-using System.Composition;
 using Solid.Practices.Modularity;
 
 namespace Solid.Practices.Composition.Platform.UWP.Tests
@@ -7,13 +6,11 @@ namespace Solid.Practices.Composition.Platform.UWP.Tests
     {
 
     }   
-
-    [Export(typeof(ICustomModule))]
+    
     class TestOneCustomModule : ICustomModule
     {
     }
-
-    [Export(typeof(ICustomModule))]
+    
     class TestTwoCustomModule : ICustomModule
     {
     }

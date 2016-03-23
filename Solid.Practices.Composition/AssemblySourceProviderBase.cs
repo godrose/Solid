@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using Solid.Practices.Composition.Contracts;
 
 namespace Solid.Practices.Composition
 {
@@ -57,10 +58,10 @@ namespace Solid.Practices.Composition
             return AssemblyLoadingManager.Extensions().Select(searchPattern =>
             {
                 return namespaces.Length == 0
-                    ? Directory.GetFiles(_rootPath, searchPattern)
+                    ? PlatformProvider.Current.GetFiles(_rootPath, searchPattern)
                     : namespaces.Select(
                         @namespace =>
-                            Directory.GetFiles(_rootPath).Select(t => t.ToUpper())
+                            PlatformProvider.Current.GetFiles(_rootPath).Select(t => t.ToUpper())
                                 .Where(t => t.Contains(@namespace.ToUpper()) && t.EndsWith(searchPattern.ToUpper())))
                         .SelectMany(t => t.ToArray())                        
                         .ToArray();

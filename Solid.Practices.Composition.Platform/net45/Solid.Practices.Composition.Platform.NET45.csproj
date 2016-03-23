@@ -26,7 +26,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>..\..\bin\net45\Release\Practices\</OutputPath>
-    <DefineConstants>TRACE;NET</DefineConstants>
+    <DefineConstants>TRACE;NET45</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>..\..\bin\net45\Release\Practices\Solid.Practices.Composition.Platform.XML</DocumentationFile>
@@ -41,27 +41,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\src\AssemblySourceProviderBase.cs">
-      <Link>AssemblySourceProviderBase.cs</Link>
-    </Compile>
-    <Compile Include="..\src\CompositionContainer.cs">
-      <Link>CompositionContainer.cs</Link>
-    </Compile>
-    <Compile Include="..\src\CompositionManager.cs">
-      <Link>CompositionManager.cs</Link>
-    </Compile>
-    <Compile Include="..\src\ICompositionManager.cs">
-      <Link>ICompositionManager.cs</Link>
-    </Compile>
-    <Compile Include="..\src\SafeAssemblyLoader.cs">
-      <Link>SafeAssemblyLoader.cs</Link>
+    <Compile Include="..\src\PlatformProvider.cs">
+      <Link>PlatformProvider.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Solid.Practices.Composition.Container.Platform\Solid.Practices.Composition.Container.Platform.csproj">
+    <ProjectReference Include="..\..\Solid.Practices.Composition.Container.Platform\Solid.Practices.Composition.Container.csproj">
       <Project>{CD8C55DE-EF22-4B4D-9DD3-8F0B336244B4}</Project>
-      <Name>Solid.Practices.Composition.Container.Platform</Name>
+      <Name>Solid.Practices.Composition.Container</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Solid.Practices.Composition.Contracts\Solid.Practices.Composition.Contracts.csproj">
+      <Project>{0688E6E1-40E1-4625-B10B-E8F36F6D7690}</Project>
+      <Name>Solid.Practices.Composition.Contracts</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Solid.Practices.Composition\Solid.Practices.Composition.csproj">
       <Project>{FA9056E5-FA5A-43A0-BB88-4CD9BC4537E6}</Project>

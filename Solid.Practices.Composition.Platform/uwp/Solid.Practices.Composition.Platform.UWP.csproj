@@ -108,28 +108,16 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\src\AssemblySourceProviderBase.cs">
-      <Link>AssemblySourceProviderBase.cs</Link>
-    </Compile>
-    <Compile Include="..\src\CompositionContainer.cs">
-      <Link>CompositionContainer.cs</Link>
-    </Compile>
-    <Compile Include="..\src\CompositionManager.cs">
-      <Link>CompositionManager.cs</Link>
-    </Compile>
-    <Compile Include="..\src\ICompositionManager.cs">
-      <Link>ICompositionManager.cs</Link>
-    </Compile>
-    <Compile Include="..\src\SafeAssemblyLoader.cs">
-      <Link>SafeAssemblyLoader.cs</Link>
+    <Compile Include="..\src\PlatformProvider.cs">
+      <Link>PlatformProvider.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Solid.Practices.Composition.Platform.UWP.rd.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Solid.Practices.Composition.Container.Platform.UWP\Solid.Practices.Composition.Container.Platform.UWP.csproj">
-      <Project>{3B7FBA01-B87E-4590-9A33-CA48D05A4E97}</Project>
-      <Name>Solid.Practices.Composition.Container.Platform.UWP</Name>
+    <ProjectReference Include="..\..\Solid.Practices.Composition.Contracts\Solid.Practices.Composition.Contracts.csproj">
+      <Project>{0688E6E1-40E1-4625-B10B-E8F36F6D7690}</Project>
+      <Name>Solid.Practices.Composition.Contracts</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Solid.Practices.Composition\Solid.Practices.Composition.csproj">
       <Project>{FA9056E5-FA5A-43A0-BB88-4CD9BC4537E6}</Project>

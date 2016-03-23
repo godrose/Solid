@@ -109,7 +109,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SimpleCompositionContainer.cs" />
     <EmbeddedResource Include="Properties\Solid.Practices.Composition.Container.Platform.UWP.rd.xml" />
   </ItemGroup>
   <ItemGroup>

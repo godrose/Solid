@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using Solid.Practices.Composition.Contracts;
 
 namespace Solid.Practices.Composition
 {
