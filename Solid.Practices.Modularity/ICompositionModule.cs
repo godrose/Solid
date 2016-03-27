@@ -17,14 +17,14 @@ namespace Solid.Practices.Modularity
     /// Represents a composition module, which may be registered into IoC container
     /// </summary>
     /// <typeparam name="TIocContainer">Type of IoC container</typeparam>
-    public interface ICompositionModule<in TIocContainer> : ICompositionModule where TIocContainer : IIocContainer
+    public interface ICompositionModule<in TIocContainer> : ICompositionModule
     {
         /// <summary>
         /// Registers composition module into IoC container
         /// </summary>
         /// <param name="iocContainer">IoC container</param>
         void RegisterModule(TIocContainer iocContainer);
-    }
+    }    
 
     /// <summary>
     /// Represents a composition module which contains logic that is
@@ -57,13 +57,22 @@ namespace Solid.Practices.Modularity
     /// register collections of other modules into the container.
     /// </summary>
     /// <seealso cref="ICompositionModule" />
-    public interface IHierarchicalCompositionModule : ICompositionModule
+    public interface IHierarchicalCompositionModule<in TIocContainer> : ICompositionModule
     {
         /// <summary>
         /// Registers the modules into the container.
         /// </summary>
         /// <param name="container">The container.</param>
         /// <param name="modules">The modules.</param>
-        void RegisterModules(IIocContainer container, IEnumerable<ICompositionModule> modules);
+        void RegisterModules(TIocContainer container, IEnumerable<ICompositionModule> modules);
+    }
+
+    /// <summary>
+    /// Represents a composition module, which is able to
+    /// register collections of other modules into the container adapter to the <see cref="IIocContainer"/>.
+    /// </summary>
+    public interface IHierarchicalCompositionModule : IHierarchicalCompositionModule<IIocContainer>
+    {
+        
     }
 }

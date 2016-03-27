@@ -34,7 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ICompositionModule.cs" />
-    <Compile Include="ModuleRegistrator.cs" />
+    <Compile Include="RegistrationMiddleware.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistrationHelper.cs" />
   </ItemGroup>

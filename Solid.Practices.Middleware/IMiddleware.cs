@@ -3,16 +3,26 @@
 namespace Solid.Practices.Middleware
 {
     /// <summary>
-    /// Represents an interface for middleware that is applied to an IoC container.
+    /// Represents an interface for middleware that is applied to an object.
+    /// <typeparam name="T">The type of the object.</typeparam>
+    /// 
     /// </summary>
-    public interface IMiddleware
+    public interface IMiddleware<T> where T : class
     {
         /// <summary>
-        /// Applies the middleware on the specified IoC container.
-        /// </summary>
-        /// <typeparam name="TIocContainer">The type of the IoC container.</typeparam>
-        /// <param name="iocContainer">The IoC container.</param>
+        /// Applies the middleware on the specified object.
+        /// </summary>        
+        /// <param name="object">The object.</param>
         /// <returns></returns>
-        TIocContainer Apply<TIocContainer>(TIocContainer iocContainer) where TIocContainer : class, IIocContainer;
-    }    
+        T Apply(T @object);
+    }
+
+    /// <summary>
+    /// Represents an interface for middleware that is applied
+    /// on an implementation of <see cref="IIocContainer"/>
+    /// </summary>
+    public interface IMiddleware : IMiddleware<IIocContainer>
+    {
+        
+    }
 }

@@ -86,10 +86,24 @@ namespace Solid.Practices.IoC
 
         /// <summary>
         /// Registers the collection of the dependencies.
+        /// </summary>
+        /// <typeparam name="TService">The type of the service.</typeparam>
+        /// <param name="dependencies">The dependencies.</param>
+        void RegisterCollection<TService>(IEnumerable<TService> dependencies) where TService : class;
+
+        /// <summary>
+        /// Registers the collection of the dependencies.
         /// </summary>        
         /// <param name="dependencyType">The dependency type.</param>
         /// <param name="dependencyTypes">The dependency types.</param>
         void RegisterCollection(Type dependencyType, IEnumerable<Type> dependencyTypes);
+
+        /// <summary>
+        /// Registers the collection of the dependencies.
+        /// </summary>        
+        /// <param name="dependencyType">The dependency type.</param>
+        /// <param name="dependencies">The dependencies.</param>
+        void RegisterCollection(Type dependencyType, IEnumerable<object> dependencies);
     }
 
     /// <summary>
@@ -140,5 +154,24 @@ namespace Solid.Practices.IoC
         /// <typeparam name="TService">The type of the service.</typeparam>
         /// <param name="lifetimeProvider">The lifetime provider.</param>
         void RegisterScoped<TService>(Func<object> lifetimeProvider);
+    }
+
+    /// <summary>
+    /// Represents an adapter to an Inversion-Of-Control container.
+    /// This is a marker interface.
+    /// </summary>
+    public interface IIocContainerAdapter
+    {
+        
+    }
+
+    /// <summary>
+    /// Represents an adapter to the concrete Inversion-Of-Control container.
+    /// This is a marker interface.
+    /// </summary>
+    /// <typeparam name="TContainer">The type of the concrete Inversion-Of-Control container.</typeparam>
+    public interface IIocContainerAdapter<TContainer> : IIocContainerAdapter
+    {
+        
     }
 }
