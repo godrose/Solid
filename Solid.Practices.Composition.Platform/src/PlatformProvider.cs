@@ -1,4 +1,13 @@
-﻿using Solid.Practices.Composition.Contracts;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+#if WIN81
+using Windows.Foundation;
+using Windows.Storage;
+#endif
+using Solid.Practices.Composition.Contracts;
 
 namespace Solid.Practices.Composition
 {
@@ -12,6 +21,9 @@ namespace Solid.Practices.Composition
 #if NETFX_CORE || WINDOWS_UWP
         UniversalPlatformProvider
 #endif
+#if WIN81
+        Win81PlatformProvider
+#endif
         : IPlatformProvider
     {
         /// <summary>
@@ -21,7 +33,12 @@ namespace Solid.Practices.Composition
         /// <returns></returns>
         public string[] GetFiles(string path)
         {
+#if WIN81
+            var taskResult = GetFilesInternal(path);
+            return taskResult.Result;
+#else
             return System.IO.Directory.GetFiles(path);
+#endif
         }
 
         /// <summary>
@@ -32,7 +49,94 @@ namespace Solid.Practices.Composition
         /// <returns></returns>
         public string[] GetFiles(string path, string searchPattern)
         {
+#if WIN81
+            var taskResult = GetFilesInternal(path);
+            return taskResult.Result.Where(t => IsMatch(t, searchPattern)).ToArray();
+#else      
             return System.IO.Directory.GetFiles(path, searchPattern);
+#endif
+
         }
+
+#if WIN81
+
+        private const int Delay = 50;
+
+        private static async Task<string[]> GetFilesInternal(string path)
+        {
+            var folderOperation = StorageFolder.GetFolderFromPathAsync(path);
+            while (folderOperation.Status == AsyncStatus.Started)
+            {
+                await Task.Delay(Delay);                
+            }
+            if (folderOperation.Status == AsyncStatus.Error)
+            {
+                throw folderOperation.ErrorCode;
+            }
+            var folder = folderOperation.GetResults();
+            var filesOperation = folder.GetFilesAsync();
+            while (filesOperation.Status == AsyncStatus.Started)
+            {
+                await Task.Delay(Delay);
+            }
+            if (filesOperation.Status == AsyncStatus.Error)
+            {
+                throw filesOperation.ErrorCode;
+            }
+            var files = filesOperation.GetResults();
+            return files.Select(t => t.Name).ToArray();
+        }
+
+        private bool IsMatch(string name, string pattern)
+        {            
+            Regex regex = FindFilesPatternToRegex.Convert(pattern);
+            var isMatch = regex.IsMatch(name);
+            return isMatch;
+        }
+
+        internal static class FindFilesPatternToRegex
+        {
+            private static Regex HasQuestionMarkRegEx = new Regex(@"\?", RegexOptions.None);
+            private static Regex IllegalCharactersRegex = new Regex("[" + @"\/:<>|" + "\"]", RegexOptions.None);
+            private static Regex CatchExtensionRegex = new Regex(@"^\s*.+\.([^\.]+)\s*$", RegexOptions.None);
+            private static string NonDotCharacters = @"[^.]*";
+            public static Regex Convert(string pattern)
+            {
+                if (pattern == null)
+                {
+                    throw new ArgumentNullException();
+                }
+                pattern = pattern.Trim();
+                if (pattern.Length == 0)
+                {
+                    throw new ArgumentException("Pattern is empty.");
+                }
+                if (IllegalCharactersRegex.IsMatch(pattern))
+                {
+                    throw new ArgumentException("Pattern contains illegal characters.");
+                }
+                bool hasExtension = CatchExtensionRegex.IsMatch(pattern);
+                bool matchExact = false;
+                if (HasQuestionMarkRegEx.IsMatch(pattern))
+                {
+                    matchExact = true;
+                }
+                else if (hasExtension)
+                {
+                    matchExact = CatchExtensionRegex.Match(pattern).Groups[1].Length != 3;
+                }
+                string regexString = Regex.Escape(pattern);
+                regexString = "^" + Regex.Replace(regexString, @"\\\*", ".*");
+                regexString = Regex.Replace(regexString, @"\\\?", ".");
+                if (!matchExact && hasExtension)
+                {
+                    regexString += NonDotCharacters;
+                }
+                regexString += "$";
+                Regex regex = new Regex(regexString, RegexOptions.None | RegexOptions.IgnoreCase);
+                return regex;
+            }
+        }
+#endif
     }
 }

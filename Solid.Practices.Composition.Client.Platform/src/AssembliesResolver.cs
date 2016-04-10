@@ -32,7 +32,7 @@ namespace Solid.Practices.Composition.Client
         {
             return Enumerable.Repeat(
                 _entryType
-#if NETFX_CORE || WINDOWS_UWP
+#if NETFX_CORE || WINDOWS_UWP || WIN81
                 .GetTypeInfo()
 #endif
                 .Assembly, 1);

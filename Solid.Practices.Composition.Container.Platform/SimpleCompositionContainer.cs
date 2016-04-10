@@ -53,15 +53,22 @@ namespace Solid.Practices.Composition.Container
 
         private void InspectAssembly(Assembly assembly)
         {
-            var types = assembly.DefinedTypes;
-            foreach (var typeInfo in types)
-            {                
-                if (typeInfo.IsClass && typeInfo.IsAbstract == false
-                    && typeInfo.ImplementedInterfaces.Contains(typeof(TModule)))
-                {                    
-                    Modules.Add((TModule)Activator.CreateInstance(typeInfo.AsType()));
+            try
+            {
+                var types = assembly.DefinedTypes;
+                foreach (var typeInfo in types)
+                {
+                    if (typeInfo.IsClass && typeInfo.IsAbstract == false
+                        && typeInfo.ImplementedInterfaces.Contains(typeof(TModule)))
+                    {
+                        Modules.Add((TModule)Activator.CreateInstance(typeInfo.AsType()));
+                    }
                 }
             }
+            //TODO: proper exception handling
+            catch (Exception)
+            {                
+            }            
         }
     }
 }
