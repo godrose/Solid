@@ -2,6 +2,7 @@
 using System.IO;
 #endif
 #if WINRT
+using Windows.ApplicationModel;
 using Windows.Foundation;
 using Windows.Storage;
 using System;
@@ -66,7 +67,7 @@ namespace Solid.Practices.Composition
         public string GetCurrentDirectory()
         {
 #if WINRT
-            return ApplicationData.Current.LocalFolder.Path;            
+            return Package.Current.InstalledLocation.Path;            
 #else
             return Directory.GetCurrentDirectory();
 #endif
@@ -77,6 +78,7 @@ namespace Solid.Practices.Composition
 
         private static async Task<string[]> GetFilesInternal(string path)
         {
+            path = path.TrimEnd('.');
             var folderOperation = StorageFolder.GetFolderFromPathAsync(path);
             while (folderOperation.Status == AsyncStatus.Started)
             {
