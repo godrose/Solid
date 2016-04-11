@@ -1,6 +1,6 @@
 ﻿using Solid.Practices.Modularity;
 
-namespace Solid.Practices.Composition.WIN81.Tests
+namespace Solid.Practices.Composition.WINRT.Tests
 {
     interface IAnotherModule : ICompositionModule
     {

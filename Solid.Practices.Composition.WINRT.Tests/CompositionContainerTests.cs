@@ -1,9 +1,8 @@
 ﻿using System.Linq;
-using Windows.Storage;
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 using Solid.Practices.Composition.Contracts;
 
-namespace Solid.Practices.Composition.WIN81.Tests
+namespace Solid.Practices.Composition.WINRT.Tests
 {
     [TestClass]
     public class CompositionContainerTests
@@ -11,7 +10,7 @@ namespace Solid.Practices.Composition.WIN81.Tests
         [TestInitialize]
         public void OneTimeSetUp()
         {           
-            PlatformProvider.Current = new Win81PlatformProvider();
+            PlatformProvider.Current = new WinRTPlatformProvider();
         }
 
         [TestMethod]
@@ -96,9 +95,9 @@ namespace Solid.Practices.Composition.WIN81.Tests
         private static string GetCurrentDirectory()
         {
 #if DEBUG
-            return @"C:\Workspace\Solid\Solid.Practices.Composition.WIN81.Tests\bin\Debug\AppX";
+            return @"C:\Workspace\Solid\Solid.Practices.Composition.WINRT.Tests\bin\Debug\AppX";
 #else
-            return @"C:\Workspace\Solid\Solid.Practices.Composition.WIN81.Tests\bin\Release\AppX";
+            return @"C:\Workspace\Solid\Solid.Practices.Composition.WINRT.Tests\bin\Release\AppX";
 #endif
         }
     }

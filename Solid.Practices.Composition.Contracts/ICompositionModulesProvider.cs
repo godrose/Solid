@@ -41,5 +41,11 @@ namespace Solid.Practices.Composition.Contracts
         /// <param name="searchPattern">The search pattern.</param>
         /// <returns></returns>
         string[] GetFiles(string path, string searchPattern);
+
+        /// <summary>
+        /// Gets the current directory.
+        /// </summary>
+        /// <returns></returns>
+        string GetCurrentDirectory();
     }
 }

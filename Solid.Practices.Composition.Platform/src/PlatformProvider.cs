@@ -1,11 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-#if WIN81
+﻿#if NET45 || WINDOWS_UWP
+using System.IO;
+#endif
+#if WINRT
 using Windows.Foundation;
 using Windows.Storage;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 #endif
 using Solid.Practices.Composition.Contracts;
 
@@ -18,11 +20,11 @@ namespace Solid.Practices.Composition
 #if NET45
         NetPlatformProvider
 #endif
-#if NETFX_CORE || WINDOWS_UWP
+#if WINDOWS_UWP
         UniversalPlatformProvider
 #endif
-#if WIN81
-        Win81PlatformProvider
+#if WINRT
+        WinRTPlatformProvider
 #endif
         : IPlatformProvider
     {
@@ -33,7 +35,7 @@ namespace Solid.Practices.Composition
         /// <returns></returns>
         public string[] GetFiles(string path)
         {
-#if WIN81
+#if WINRT
             var taskResult = GetFilesInternal(path);
             return taskResult.Result;
 #else
@@ -49,16 +51,27 @@ namespace Solid.Practices.Composition
         /// <returns></returns>
         public string[] GetFiles(string path, string searchPattern)
         {
-#if WIN81
+#if WINRT
             var taskResult = GetFilesInternal(path);
             return taskResult.Result.Where(t => IsMatch(t, searchPattern)).ToArray();
 #else      
             return System.IO.Directory.GetFiles(path, searchPattern);
 #endif
-
         }
 
-#if WIN81
+        /// <summary>
+        /// Gets the current directory.
+        /// </summary>
+        /// <returns></returns>
+        public string GetCurrentDirectory()
+        {
+#if WINRT
+            return ApplicationData.Current.LocalFolder.Path;            
+#else
+            return Directory.GetCurrentDirectory();
+#endif
+        }
+#if WINRT
 
         private const int Delay = 50;
 
@@ -94,7 +107,7 @@ namespace Solid.Practices.Composition
             return isMatch;
         }
 
-        internal static class FindFilesPatternToRegex
+        private static class FindFilesPatternToRegex
         {
             private static Regex HasQuestionMarkRegEx = new Regex(@"\?", RegexOptions.None);
             private static Regex IllegalCharactersRegex = new Regex("[" + @"\/:<>|" + "\"]", RegexOptions.None);

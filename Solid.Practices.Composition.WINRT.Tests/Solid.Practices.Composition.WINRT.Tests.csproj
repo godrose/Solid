@@ -9,8 +9,8 @@
     <ProjectGuid>{89FDED0C-98F3-47A1-9834-C147C0396C68}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Solid.Practices.Composition.WIN81.Tests</RootNamespace>
-    <AssemblyName>Solid.Practices.Composition.WIN81.Tests</AssemblyName>
+    <RootNamespace>Solid.Practices.Composition.WINRT.Tests</RootNamespace>
+    <AssemblyName>Solid.Practices.Composition.WINRT.Tests</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformVersion>8.1</TargetPlatformVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
@@ -35,7 +35,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <DefineConstants>TRACE;NETFX_CORE;WINRT</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -145,9 +145,9 @@
       <Project>{0688E6E1-40E1-4625-B10B-E8F36F6D7690}</Project>
       <Name>Solid.Practices.Composition.Contracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Solid.Practices.Composition.Platform\win81\Solid.Practices.Composition.Platform.WIN81.csproj">
-      <Project>{a8131c16-5eb2-4cc5-bbce-6f5e401ee7df}</Project>
-      <Name>Solid.Practices.Composition.Platform.WIN81</Name>
+    <ProjectReference Include="..\Solid.Practices.Composition.Platform\winrt\Solid.Practices.Composition.Platform.WINRT.csproj">
+      <Project>{A8131C16-5EB2-4CC5-BBCE-6F5E401EE7DF}</Project>
+      <Name>Solid.Practices.Composition.Platform.WINRT</Name>
     </ProjectReference>
     <ProjectReference Include="..\Solid.Practices.Composition\Solid.Practices.Composition.csproj">
       <Project>{FA9056E5-FA5A-43A0-BB88-4CD9BC4537E6}</Project>

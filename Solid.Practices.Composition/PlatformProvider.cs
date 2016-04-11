@@ -48,5 +48,14 @@ namespace Solid.Practices.Composition
         {
             return new string[] { };
         }
+
+        /// <summary>
+        /// Gets the current directory.
+        /// </summary>
+        /// <returns></returns>
+        public string GetCurrentDirectory()
+        {
+            return string.Empty;
+        }
     }
 }

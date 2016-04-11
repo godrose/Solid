@@ -36,8 +36,8 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->
-    <ProjectReference Include="..\Solid.Practices.Composition.Container.Platform\Solid.Practices.Composition.Container.csproj">
-      <Project>{CD8C55DE-EF22-4B4D-9DD3-8F0B336244B4}</Project>
+    <ProjectReference Include="..\Solid.Practices.Composition.Container\Solid.Practices.Composition.Container.csproj">
+      <Project>{cd8c55de-ef22-4b4d-9dd3-8f0b336244b4}</Project>
       <Name>Solid.Practices.Composition.Container</Name>
     </ProjectReference>
     <ProjectReference Include="..\Solid.Practices.Composition.Contracts\Solid.Practices.Composition.Contracts.csproj">
