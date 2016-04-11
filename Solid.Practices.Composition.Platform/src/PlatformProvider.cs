@@ -15,7 +15,7 @@ using Solid.Practices.Composition.Contracts;
 namespace Solid.Practices.Composition
 {
     /// <summary>
-    /// Platform-specific implementation of <see cref="IPlatformProvider"/>
+    /// Platform-specific implementation of <see cref="IPlatformProvider"/>.
     /// </summary>    
     public class
 #if NET45
@@ -40,7 +40,7 @@ namespace Solid.Practices.Composition
             var taskResult = GetFilesInternal(path);
             return taskResult.Result;
 #else
-            return System.IO.Directory.GetFiles(path);
+            return Directory.GetFiles(path);
 #endif
         }
 
@@ -61,10 +61,10 @@ namespace Solid.Practices.Composition
         }
 
         /// <summary>
-        /// Gets the current directory.
+        /// Gets the root path.
         /// </summary>
         /// <returns></returns>
-        public string GetCurrentDirectory()
+        public string GetRootPath()
         {
 #if WINRT
             return Package.Current.InstalledLocation.Path;            

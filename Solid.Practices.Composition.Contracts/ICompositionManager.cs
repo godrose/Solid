@@ -8,9 +8,9 @@
         /// <summary>
         /// Initializes composition modules from the provided path.
         /// </summary>
-        /// <param name="modulesPath">Modules path</param>
+        /// <param name="rootPath">Root path.</param>
         /// <param name="prefixes">Optional file name prefixes; 
-        /// used for filtering potential assembly candidates</param>
-        void Initialize(string modulesPath, string[] prefixes = null);
+        /// used for filtering potential assembly candidates.</param>
+        void Initialize(string rootPath, string[] prefixes = null);
     }
 }

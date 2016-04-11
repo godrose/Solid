@@ -43,9 +43,9 @@ namespace Solid.Practices.Composition.Contracts
         string[] GetFiles(string path, string searchPattern);
 
         /// <summary>
-        /// Gets the current directory.
+        /// Gets the root path.
         /// </summary>
         /// <returns></returns>
-        string GetCurrentDirectory();
+        string GetRootPath();
     }
 }

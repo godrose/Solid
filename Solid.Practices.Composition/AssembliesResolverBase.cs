@@ -23,7 +23,7 @@ namespace Solid.Practices.Composition
         /// <summary>
         /// Override this method to retrieve platform-specific root assemblies.
         /// </summary>
-        /// <returns>Collection of assemblies</returns>
+        /// <returns>Collection of assemblies.</returns>
         protected abstract IEnumerable<Assembly> GetRootAssemblies();
 
         /// <summary>

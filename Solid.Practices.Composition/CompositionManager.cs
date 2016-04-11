@@ -22,12 +22,12 @@ namespace Solid.Practices.Composition
         /// <summary>
         /// Initializes composition modules from the provided path.
         /// </summary>
-        /// <param name="modulesPath">Root path</param>
+        /// <param name="rootPath">Root path.</param>
         /// <param name="prefixes">Optional file name prefixes; 
-        /// used for filtering potential assembly candidates</param>
-        public void Initialize(string modulesPath, string[] prefixes = null)
+        /// used for filtering potential assembly candidates.</param>
+        public void Initialize(string rootPath, string[] prefixes = null)
         {
-            InitializeComposition(modulesPath, prefixes);            
+            InitializeComposition(rootPath, prefixes);            
         }       
 
         private void InitializeComposition(string rootPath, string[] prefixes = null)

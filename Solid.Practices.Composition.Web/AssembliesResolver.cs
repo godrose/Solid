@@ -8,7 +8,7 @@ using Solid.Practices.Composition.Contracts;
 namespace Solid.Practices.Composition.Web
 {
     /// <summary>
-    /// Assemblies resolver for server part of web applications
+    /// Assemblies resolver for server part of web applications.
     /// </summary>
     public class AssembliesResolver : AssembliesResolverBase, IAssembliesResolver
     {
@@ -38,7 +38,7 @@ namespace Solid.Practices.Composition.Web
             return ((IAssembliesReadOnlyResolver) this).GetAssemblies().ToList();
         }
 
-        static private Assembly GetEntryAssembly()
+        private static Assembly GetEntryAssembly()
         {
             if (HttpContext.Current == null ||
                 HttpContext.Current.ApplicationInstance == null)

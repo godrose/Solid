@@ -3,7 +3,7 @@
 namespace Solid.Practices.Composition
 {
     /// <summary>
-    /// Ambient context that holds current value for <see cref="IPlatformProvider"/>
+    /// Ambient context that holds current value for <see cref="IPlatformProvider"/>.
     /// </summary>
     public class PlatformProvider
     {
@@ -23,9 +23,9 @@ namespace Solid.Practices.Composition
     }
 
     /// <summary>
-    /// Default implementation of <see cref="IPlatformProvider"/>
+    /// Default implementation of <see cref="IPlatformProvider"/>.
     /// </summary>
-    /// <seealso cref="Solid.Practices.Composition.Contracts.IPlatformProvider" />
+    /// <seealso cref="IPlatformProvider" />
     public class DefaultPlatformProvider : IPlatformProvider
     {
         /// <summary>
@@ -50,10 +50,10 @@ namespace Solid.Practices.Composition
         }
 
         /// <summary>
-        /// Gets the current directory.
+        /// Gets the root directory.
         /// </summary>
         /// <returns></returns>
-        public string GetCurrentDirectory()
+        public string GetRootPath()
         {
             return string.Empty;
         }
