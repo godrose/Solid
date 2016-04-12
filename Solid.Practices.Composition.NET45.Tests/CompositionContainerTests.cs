@@ -1,6 +1,8 @@
 ﻿using System.Linq;
+using LogoFX.Client.Bootstrapping.Adapters.SimpleContainer;
 using NUnit.Framework;
 using Solid.Practices.Composition.Contracts;
+using Solid.Practices.Modularity;
 
 namespace Solid.Practices.Composition.Tests
 {
@@ -18,20 +20,20 @@ namespace Solid.Practices.Composition.Tests
         {
             var rootPath = GetCurrentDirectory();
             
-            ICompositionContainer compositionContainer = new CompositionContainer(rootPath);
+            ICompositionContainer<ICompositionModule> compositionContainer = CreateCompositionContainer<ICompositionModule>(rootPath);
             compositionContainer.Compose();
 
             var modules = compositionContainer.Modules;
             var modulesCount = modules.Count();
             Assert.AreEqual(3, modulesCount);
-        }        
+        }
 
         [Test]
         public void RootPathContainsCustomModules_CustomModulesAreImported()
         {
             var rootPath = GetCurrentDirectory();
 
-            ICompositionContainer<ICustomModule> compositionContainer = new CompositionContainer<ICustomModule>(rootPath);
+            ICompositionContainer<ICustomModule> compositionContainer = CreateCompositionContainer<ICustomModule>(rootPath);
             compositionContainer.Compose();
 
             var modules = compositionContainer.Modules;
@@ -44,7 +46,7 @@ namespace Solid.Practices.Composition.Tests
         {
             var rootPath = GetCurrentDirectory();
 
-            ICompositionContainer<ICustomModule> compositionContainer = new CompositionContainer<ICustomModule>(rootPath, new[] { "Solid" });
+            ICompositionContainer<ICustomModule> compositionContainer = CreateCompositionContainer<ICustomModule>(rootPath, new[] { "Solid" });
             compositionContainer.Compose();
 
             var modules = compositionContainer.Modules;
@@ -57,7 +59,7 @@ namespace Solid.Practices.Composition.Tests
         {
             var rootPath = GetCurrentDirectory();
 
-            ICompositionContainer<ICustomModule> compositionContainer = new CompositionContainer<ICustomModule>(rootPath, new[] { "Incorrect" });
+            ICompositionContainer<ICustomModule> compositionContainer = CreateCompositionContainer<ICustomModule>(rootPath, new[] { "Incorrect" });
             compositionContainer.Compose();
 
             var modules = compositionContainer.Modules;
@@ -70,7 +72,7 @@ namespace Solid.Practices.Composition.Tests
         {
             var rootPath = GetCurrentDirectory();
 
-            ICompositionContainer<ICustomModule> compositionContainer = new CompositionContainer<ICustomModule>(rootPath);
+            ICompositionContainer<ICustomModule> compositionContainer = CreateCompositionContainer<ICustomModule>(rootPath);
             compositionContainer.Compose();
 
             var modules = compositionContainer.Modules;
@@ -83,7 +85,7 @@ namespace Solid.Practices.Composition.Tests
         {
             var rootPath = GetCurrentDirectory();
 
-            ICompositionContainer<IAnotherModule> compositionContainer = new CompositionContainer<IAnotherModule>(rootPath);
+            ICompositionContainer<IAnotherModule> compositionContainer = CreateCompositionContainer<IAnotherModule>(rootPath);
             compositionContainer.Compose();
 
             var modules = compositionContainer.Modules;
@@ -92,12 +94,31 @@ namespace Solid.Practices.Composition.Tests
         }
 
         //TODO: Removed the hardcoded path
+
         private static string GetCurrentDirectory()
         {
 #if DEBUG
             return @"C:\Workspace\Solid\Solid.Practices.Composition.NET45.Tests\bin\Debug";
 #endif
             return @"C:\Workspace\Solid\Solid.Practices.Composition.NET45.Tests\bin\Release";
+        }
+
+        private static CompositionContainer<TModule> CreateCompositionContainer<TModule>(string rootPath) 
+            where TModule : ICompositionModule
+        {
+            return new CompositionContainer<TModule>(CreateModuleCreationStrategy(), rootPath);
+        }
+
+        private static CompositionContainer<TModule> CreateCompositionContainer<TModule>(string rootPath, string[] prefixes)
+            where TModule : ICompositionModule
+        {
+            return new CompositionContainer<TModule>(CreateModuleCreationStrategy(), rootPath, prefixes);
+        }
+
+        private static IModuleCreationStrategy CreateModuleCreationStrategy()
+        {
+            //return new ActivatorCreationStrategy();
+            return new ContainerResolutionStrategy(new ExtendedSimpleContainerAdapter());
         }
     }
 

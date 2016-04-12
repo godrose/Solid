@@ -16,14 +16,19 @@ namespace Solid.Practices.Composition.Container
         where TModule : ICompositionModule     
     {
         private readonly IEnumerable<Assembly> _assemblies;
+        private readonly IModuleCreationStrategy _moduleCreationStrategy;        
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SimpleCompositionContainer{TModule}"/> class.
         /// </summary>
         /// <param name="assemblies">The assemblies.</param>        
-        public SimpleCompositionContainer(IEnumerable<Assembly> assemblies)
+        /// <param name="moduleCreationStrategy">The module creation strategy.</param>        
+        public SimpleCompositionContainer(
+            IEnumerable<Assembly> assemblies, 
+            IModuleCreationStrategy moduleCreationStrategy)
         {
             _assemblies = assemblies;
+            _moduleCreationStrategy = moduleCreationStrategy;            
         }
 
         /// <summary>
@@ -61,7 +66,7 @@ namespace Solid.Practices.Composition.Container
                     if (typeInfo.IsClass && typeInfo.IsAbstract == false
                         && typeInfo.ImplementedInterfaces.Contains(typeof(TModule)))
                     {
-                        Modules.Add((TModule)Activator.CreateInstance(typeInfo.AsType()));
+                        Modules.Add((TModule)_moduleCreationStrategy.CreateModule(typeInfo.AsType()));
                     }
                 }
             }

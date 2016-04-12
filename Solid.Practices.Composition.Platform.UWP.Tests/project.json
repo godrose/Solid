@@ -1,5 +1,6 @@
 ﻿{
   "dependencies": {
+    "LogoFX.Client.Bootstrapping.Adapters.SimpleContainer": "1.1.0",
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0",
     "NUnit": "3.2.0"
   },
