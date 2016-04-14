@@ -24,7 +24,7 @@ namespace Solid.Practices.Composition
             }
         }
 
-        private readonly IModuleCreationStrategy _moduleCreationStrategy;
+        private readonly ICompositionModuleCreationStrategy _compositionModuleCreationStrategy;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CompositionManager"/> class.
@@ -38,10 +38,10 @@ namespace Solid.Practices.Composition
         /// <summary>
         /// Initializes a new instance of the <see cref="CompositionManager"/> class.
         /// </summary>
-        /// <param name="moduleCreationStrategy">The module creation strategy.</param>
-        protected internal CompositionManager(IModuleCreationStrategy moduleCreationStrategy)
+        /// <param name="compositionModuleCreationStrategy">The module creation strategy.</param>
+        protected internal CompositionManager(ICompositionModuleCreationStrategy compositionModuleCreationStrategy)
         {
-            _moduleCreationStrategy = moduleCreationStrategy;
+            _compositionModuleCreationStrategy = compositionModuleCreationStrategy;
         }
 
         /// <summary>
@@ -67,7 +67,7 @@ namespace Solid.Practices.Composition
 
         private void InitializeComposition(string rootPath, string[] prefixes = null)
         {            
-            CompositionContainer = new CompositionContainer(_moduleCreationStrategy, rootPath, prefixes);
+            CompositionContainer = new CompositionContainer(_compositionModuleCreationStrategy, rootPath, prefixes);
             CompositionContainer.Compose();
         }
     }

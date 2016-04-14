@@ -7,15 +7,15 @@ namespace Solid.Practices.Composition
     /// <summary>
     /// Uses <see cref="Activator"/> for creating composition modules.
     /// </summary>
-    /// <seealso cref="IModuleCreationStrategy" />
-    public class ActivatorCreationStrategy : IModuleCreationStrategy
+    /// <seealso cref="ICompositionModuleCreationStrategy" />
+    public class ActivatorCreationStrategy : ICompositionModuleCreationStrategy
     {
         /// <summary>
-        /// Creates module from its type.
+        /// Creates composition module from its type.
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
-        public object CreateModule(Type type)
+        public object CreateCompositionModule(Type type)
         {
             return Activator.CreateInstance(type);
         }
@@ -24,8 +24,8 @@ namespace Solid.Practices.Composition
     /// <summary>
     /// Uses <see cref="IIocContainer"/> for creating composition modules.
     /// </summary>
-    /// <seealso cref="IModuleCreationStrategy" />
-    public class ContainerResolutionStrategy : IModuleCreationStrategy
+    /// <seealso cref="ICompositionModuleCreationStrategy" />
+    public class ContainerResolutionStrategy : ICompositionModuleCreationStrategy
     {
         private readonly IIocContainer _iocContainer;
 
@@ -39,11 +39,11 @@ namespace Solid.Practices.Composition
         }
 
         /// <summary>
-        /// Creates module from its type.
+        /// Creates composition module from its type.
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
-        public object CreateModule(Type type)
+        public object CreateCompositionModule(Type type)
         {
             _iocContainer.RegisterSingleton(type, type);
             return _iocContainer.Resolve(type);

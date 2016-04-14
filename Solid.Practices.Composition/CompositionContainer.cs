@@ -14,7 +14,7 @@ namespace Solid.Practices.Composition
     /// <typeparam name="TModule">The type of composition module.</typeparam>
     public class CompositionContainer<TModule> : ICompositionContainer<TModule> where TModule : ICompositionModule
     {
-        private readonly IModuleCreationStrategy _moduleCreationStrategy;
+        private readonly ICompositionModuleCreationStrategy _compositionModuleCreationStrategy;
         private readonly string _rootPath;
         private readonly string[] _prefixes;
         private static readonly string[] AllowedModulePatterns = { "*.dll", "*.exe" };
@@ -22,15 +22,15 @@ namespace Solid.Practices.Composition
         /// <summary>
         /// Initializes a new instance of the <see cref="CompositionContainer{TModule}"/> class.
         /// </summary>
-        /// <param name="moduleCreationStrategy">The module creation strategy.</param>
+        /// <param name="compositionModuleCreationStrategy">The module creation strategy.</param>
         /// <param name="rootPath">The root path.</param>
         /// <param name="prefixes">The prefixes.</param>
         public CompositionContainer(
-            IModuleCreationStrategy moduleCreationStrategy, 
+            ICompositionModuleCreationStrategy compositionModuleCreationStrategy, 
             string rootPath, 
             string[] prefixes = null)
         {
-            _moduleCreationStrategy = moduleCreationStrategy;
+            _compositionModuleCreationStrategy = compositionModuleCreationStrategy;
             _rootPath = rootPath;
             _prefixes = prefixes;
         }
@@ -46,7 +46,7 @@ namespace Solid.Practices.Composition
 
             ICompositionContainer<TModule> innerContainer = new SimpleCompositionContainer<TModule>(
                 assemblies,
-                _moduleCreationStrategy);
+                _compositionModuleCreationStrategy);
             innerContainer.Compose();
             Modules = innerContainer.Modules;
         }
@@ -79,14 +79,14 @@ namespace Solid.Practices.Composition
         /// <summary>
         /// Initializes a new instance of the <see cref="CompositionContainer"/> class.
         /// </summary>
-        /// <param name="moduleCreationStrategy">The module creation strategy.</param>
+        /// <param name="compositionModuleCreationStrategy">The module creation strategy.</param>
         /// <param name="rootPath">The root path.</param>
         /// <param name="prefixes">The prefixes.</param>
         public CompositionContainer(
-            IModuleCreationStrategy moduleCreationStrategy, 
+            ICompositionModuleCreationStrategy compositionModuleCreationStrategy, 
             string rootPath, 
             string[] prefixes = null)
-            : base(moduleCreationStrategy, rootPath, prefixes)
+            : base(compositionModuleCreationStrategy, rootPath, prefixes)
         {
         }
     }

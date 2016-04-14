@@ -5,8 +5,19 @@ using Solid.Practices.IoC;
 namespace Solid.Practices.Modularity
 {
     /// <summary>
-    /// Represents a composistion module.
-    /// It is a marker interface.
+    /// Represents a module, i.e. an encapsulated decoupled
+    /// piece of application that is not referenced explicitly
+    /// and gets discovered in the run time instead.
+    /// </summary>
+    public interface IModule
+    {
+        
+    }
+
+    /// <summary>
+    /// Represents a composition module, i.e. a module which 
+    /// can be discovered and created during the application composition.
+    /// It is a marker interface.    
     /// </summary>
     public interface ICompositionModule
     {
@@ -14,9 +25,9 @@ namespace Solid.Practices.Modularity
     }
 
     /// <summary>
-    /// Represents a composition module, which may be registered into IoC container
+    /// Represents a composition module, which may be registered into IoC container.
     /// </summary>
-    /// <typeparam name="TIocContainer">Type of IoC container</typeparam>
+    /// <typeparam name="TIocContainer">Type of IoC container.</typeparam>
     public interface ICompositionModule<in TIocContainer> : ICompositionModule
     {
         /// <summary>
@@ -39,7 +50,7 @@ namespace Solid.Practices.Modularity
     }
 
     /// <summary>
-    /// Represents a composition module, which  may register dependencies
+    /// Represents a composition module, which may register dependencies
     /// that are dependent on the lifetime of another object.
     /// </summary>
     public interface IScopedCompositionModule : ICompositionModule

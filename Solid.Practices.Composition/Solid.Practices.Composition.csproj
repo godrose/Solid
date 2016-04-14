@@ -54,7 +54,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ModuleCreationStrategy.cs" />
+    <Compile Include="CompositionModuleCreationStrategy.cs" />
     <Compile Include="AssembliesResolverBase.cs" />
     <Compile Include="AssemblyLoadingManager.cs" />
     <Compile Include="AssemblySourceProviderBase.cs" />

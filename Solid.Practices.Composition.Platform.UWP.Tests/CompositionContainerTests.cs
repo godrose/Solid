@@ -95,7 +95,7 @@ namespace Solid.Practices.Composition.Platform.UWP.Tests
             return new CompositionContainer<TModule>(CreateModuleCreationStrategy(), rootPath, prefixes);
         }
 
-        private static IModuleCreationStrategy CreateModuleCreationStrategy()
+        private static ICompositionModuleCreationStrategy CreateModuleCreationStrategy()
         {
             //return new ActivatorCreationStrategy();
             return new ContainerResolutionStrategy(new ExtendedSimpleContainerAdapter());
