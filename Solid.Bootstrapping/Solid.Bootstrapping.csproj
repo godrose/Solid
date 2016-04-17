@@ -40,14 +40,6 @@
       <Project>{3583B84F-B883-4DB5-BC23-25C90B4C1567}</Project>
       <Name>Solid.Practices.IoC</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Solid.Practices.Middleware\Solid.Practices.Middleware.csproj">
-      <Project>{4B92CF65-EDD3-4041-B3BF-AF79058AB2A6}</Project>
-      <Name>Solid.Practices.Middleware</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Solid.Practices.Modularity\Solid.Practices.Modularity.csproj">
-      <Project>{82BB5DF3-82AC-466D-BDDF-C65A9ECDB8A4}</Project>
-      <Name>Solid.Practices.Modularity</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IHaveContainer.cs" />
