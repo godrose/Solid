@@ -37,8 +37,12 @@
                 var isHandled = HandleData(data);
                 if (isHandled == false)
                 {
-                    _successor.Handle(data);
+                    _successor?.Handle(data);
                 }
+            }
+            else
+            {
+                _successor?.Handle(data);
             }
         }
 

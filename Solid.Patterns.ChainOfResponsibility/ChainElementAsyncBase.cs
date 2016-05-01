@@ -39,6 +39,16 @@ namespace Solid.Patterns.ChainOfResponsibility
                 var isHandled = await HandleDataAsync(data);
                 if (isHandled == false)
                 {
+                    if (_successor != null)
+                    {
+                        await _successor.HandleAsync(data);
+                    }
+                }
+            }
+            else
+            {
+                if (_successor != null)
+                {
                     await _successor.HandleAsync(data);
                 }
             }
