@@ -1,6 +1,4 @@
-﻿using Solid.Practices.IoC;
-
-namespace Solid.Practices.Middleware
+﻿namespace Solid.Practices.Middleware
 {
     /// <summary>
     /// Represents an interface for middleware that is applied to an object.
@@ -15,14 +13,5 @@ namespace Solid.Practices.Middleware
         /// <param name="object">The object.</param>
         /// <returns></returns>
         T Apply(T @object);
-    }
-
-    /// <summary>
-    /// Represents an interface for middleware that is applied
-    /// on an implementation of <see cref="IIocContainer"/>
-    /// </summary>
-    public interface IMiddleware : IMiddleware<IIocContainer>
-    {
-        
-    }
+    }   
 }
