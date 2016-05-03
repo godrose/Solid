@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using Solid.Practices.IoC;
 
 namespace Solid.Practices.Modularity
@@ -16,12 +18,40 @@ namespace Solid.Practices.Modularity
         /// <param name="container">The type of the container</param>
         /// <param name="modules">The collection of modules.</param>
         public static void RegisterModules<TModule>(IIocContainer container,
-            IEnumerable<ICompositionModule> modules)
+            IEnumerable<ICompositionModule> modules) where TModule : class
         {
             var typedModules = modules.OfType<TModule>().ToArray();
-            container.RegisterInstance<IEnumerable<TModule>>(typedModules);
+            container.RegisterCollection(typedModules);
         }
 
-        //TODO: non-generic version -> depends on IocContainer.RegisterCollection with appropriate signature.
+        /// <summary>
+        /// Registers the modules.
+        /// </summary>
+        /// <param name="container">The container.</param>
+        /// <param name="contractType">The type of the contract.</param>
+        /// <param name="modules">The modules.</param>
+        public static void RegisterModules(IIocContainer container,
+            Type contractType,
+            IEnumerable<ICompositionModule> modules)
+        {
+            RegisterCollection(container, contractType, modules.Select(t => t.GetType()));
+        }
+
+        /// <summary>
+        /// Registers the collection.
+        /// </summary>
+        /// <param name="container">The container.</param>
+        /// <param name="contractType">The type of the contract.</param>
+        /// <param name="types">The types.</param>
+        public static void RegisterCollection(IIocContainer container,
+            Type contractType,
+            IEnumerable<Type> types)
+        {
+            var typeInfo = contractType.GetTypeInfo();
+            var serviceTypes = types.Select(t => t.GetTypeInfo()).Where(t =>
+                t.IsInterface == false && t.IsAbstract == false &&
+                typeInfo.IsAssignableFrom(t)).Select(t => t.AsType());
+            container.RegisterCollection(contractType, serviceTypes);
+        }
     }
 }

@@ -79,7 +79,7 @@ namespace Solid.Practices.Modularity
     }
 
     /// <summary>
-    /// Middleware that's able to register scoped composition modules into the container.
+    /// Middleware that's able to register scoped composition modules into the ioc container.
     /// </summary>
     /// <typeparam name="TIocContainer">The type of the ioc container.</typeparam>
     /// <seealso />
@@ -105,7 +105,7 @@ namespace Solid.Practices.Modularity
 
         /// <summary>
         /// Applies the middleware on the specified object.
-        /// </summary>        
+        /// </summary>
         /// <param name="object">The object.</param>
         /// <returns></returns>
         public TIocContainer Apply(TIocContainer @object)
@@ -122,7 +122,7 @@ namespace Solid.Practices.Modularity
     }
 
     /// <summary>
-    /// Middleware that's able to register hierarchical composition modules into the container.
+    /// Middleware that's able to register hierarchical composition modules into the ioc container.
     /// </summary>
     /// <typeparam name="TIocContainer">The type of the ioc container.</typeparam>
     /// <seealso cref="Middleware.IMiddleware{TIocContainer}" />

@@ -16,7 +16,7 @@ namespace Solid.Practices.Modularity
 
     /// <summary>
     /// Represents a composition module, i.e. a module which 
-    /// can be discovered and created during the application composition.
+    /// can be discovered and instantiated during the application composition.
     /// It is a marker interface.    
     /// </summary>
     public interface ICompositionModule
@@ -25,15 +25,15 @@ namespace Solid.Practices.Modularity
     }
 
     /// <summary>
-    /// Represents a composition module, which may be registered into IoC container.
+    /// Represents a composition module, which may register dependencies into ioc container.
     /// </summary>
-    /// <typeparam name="TIocContainer">Type of IoC container.</typeparam>
-    public interface ICompositionModule<in TIocContainer> : ICompositionModule
+    /// <typeparam name="TIocContainer">The type of ioc container.</typeparam>
+    public interface ICompositionModule<in TIocContainer> : ICompositionModule        
     {
         /// <summary>
-        /// Registers composition module into IoC container
+        /// Registers dependencies into the ioc container.
         /// </summary>
-        /// <param name="iocContainer">IoC container</param>
+        /// <param name="iocContainer">The ioc container.</param>
         void RegisterModule(TIocContainer iocContainer);
     }    
 
@@ -56,34 +56,25 @@ namespace Solid.Practices.Modularity
     public interface IScopedCompositionModule : ICompositionModule
     {
         /// <summary>
-        /// Registers the composition module into the ioc container
+        /// Registers the dependencies into the ioc container.
         /// </summary>
-        /// <param name="container">The simple container.</param>
+        /// <param name="iocContainer">The ioc container.</param>
         /// <param name="lifetimeScopeProvider">The lifetime scope provider.</param>
-        void RegisterModule(IIocContainerScoped container, Func<object> lifetimeScopeProvider);
+        void RegisterModule(IIocContainerScoped iocContainer, Func<object> lifetimeScopeProvider);
     }
 
     /// <summary>
     /// Represents a composition module, which is able to
-    /// register collections of other modules into the container.
+    /// register collections of other modules into the ioc container.
     /// </summary>
     /// <seealso cref="ICompositionModule" />
-    public interface IHierarchicalCompositionModule<in TIocContainer> : ICompositionModule
+    public interface IHierarchicalCompositionModule<in TIocContainer> : ICompositionModule        
     {
         /// <summary>
-        /// Registers the modules into the container.
+        /// Registers the modules into the ioc container.
         /// </summary>
-        /// <param name="container">The container.</param>
+        /// <param name="iocContainer">The ioc container.</param>
         /// <param name="modules">The modules.</param>
-        void RegisterModules(TIocContainer container, IEnumerable<ICompositionModule> modules);
-    }
-
-    /// <summary>
-    /// Represents a composition module, which is able to
-    /// register collections of other modules into the container adapter to the <see cref="IIocContainer"/>.
-    /// </summary>
-    public interface IHierarchicalCompositionModule : IHierarchicalCompositionModule<IIocContainer>
-    {
-        
-    }
+        void RegisterModules(TIocContainer iocContainer, IEnumerable<ICompositionModule> modules);
+    }    
 }
