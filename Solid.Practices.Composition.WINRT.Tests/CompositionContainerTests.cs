@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using LogoFX.Client.Bootstrapping.Adapters.SimpleContainer;
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 using Solid.Practices.Composition.Contracts;
 using Solid.Practices.Modularity;
@@ -117,8 +116,7 @@ namespace Solid.Practices.Composition.WINRT.Tests
 
         private static ICompositionModuleCreationStrategy CreateModuleCreationStrategy()
         {
-            //return new ActivatorCreationStrategy();
-            return new ContainerResolutionStrategy(new ExtendedSimpleContainerAdapter());
+            return new ActivatorCreationStrategy();            
         }
     }
 
