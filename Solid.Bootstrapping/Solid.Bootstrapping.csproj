@@ -43,7 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IHaveContainer.cs" />
-    <Compile Include="IHaveContainerAdapter.cs" />
+    <Compile Include="IHaveContainerRegistrator.cs" />
+    <Compile Include="IHaveContainerResolver.cs" />
     <Compile Include="IHaveRootObject.cs" />
     <Compile Include="IInitializable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
