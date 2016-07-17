@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Practices", "Practices", "{11556FBE-83BE-4B8F-8DC1-17D2B4ED73BE}"
 EndProject
@@ -74,6 +74,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Extensibility", "Extensibility", "{2A800A7F-1255-4617-B636-CBD74E0ED96A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solid.Extensibility", "Solid.Extensibility\Solid.Extensibility.csproj", "{F7E2A917-1679-4051-AB5F-7D9440867928}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solid.IoC.Adapters.ObjectContainer", "Solid.IoC.Adapters.ObjectContainer\Solid.IoC.Adapters.ObjectContainer.csproj", "{7905B66F-51AB-4031-96BA-9B76A39237EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -457,6 +459,22 @@ Global
 		{F7E2A917-1679-4051-AB5F-7D9440867928}.Release|x64.Build.0 = Release|Any CPU
 		{F7E2A917-1679-4051-AB5F-7D9440867928}.Release|x86.ActiveCfg = Release|Any CPU
 		{F7E2A917-1679-4051-AB5F-7D9440867928}.Release|x86.Build.0 = Release|Any CPU
+		{7905B66F-51AB-4031-96BA-9B76A39237EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7905B66F-51AB-4031-96BA-9B76A39237EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7905B66F-51AB-4031-96BA-9B76A39237EE}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{7905B66F-51AB-4031-96BA-9B76A39237EE}.Debug|ARM.Build.0 = Debug|Any CPU
+		{7905B66F-51AB-4031-96BA-9B76A39237EE}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{7905B66F-51AB-4031-96BA-9B76A39237EE}.Debug|x64.Build.0 = Debug|Any CPU
+		{7905B66F-51AB-4031-96BA-9B76A39237EE}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7905B66F-51AB-4031-96BA-9B76A39237EE}.Debug|x86.Build.0 = Debug|Any CPU
+		{7905B66F-51AB-4031-96BA-9B76A39237EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7905B66F-51AB-4031-96BA-9B76A39237EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7905B66F-51AB-4031-96BA-9B76A39237EE}.Release|ARM.ActiveCfg = Release|Any CPU
+		{7905B66F-51AB-4031-96BA-9B76A39237EE}.Release|ARM.Build.0 = Release|Any CPU
+		{7905B66F-51AB-4031-96BA-9B76A39237EE}.Release|x64.ActiveCfg = Release|Any CPU
+		{7905B66F-51AB-4031-96BA-9B76A39237EE}.Release|x64.Build.0 = Release|Any CPU
+		{7905B66F-51AB-4031-96BA-9B76A39237EE}.Release|x86.ActiveCfg = Release|Any CPU
+		{7905B66F-51AB-4031-96BA-9B76A39237EE}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -496,5 +514,6 @@ Global
 		{DB97D15D-853F-4C7A-87A4-2CFA43D6FD83} = {50E59CB7-5DC6-4133-82D3-223CE387F9A7}
 		{2A800A7F-1255-4617-B636-CBD74E0ED96A} = {11556FBE-83BE-4B8F-8DC1-17D2B4ED73BE}
 		{F7E2A917-1679-4051-AB5F-7D9440867928} = {2A800A7F-1255-4617-B636-CBD74E0ED96A}
+		{7905B66F-51AB-4031-96BA-9B76A39237EE} = {C55CA8FA-D249-4EF0-BDA4-CB408A20256D}
 	EndGlobalSection
 EndGlobal
