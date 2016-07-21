@@ -33,7 +33,7 @@ namespace Solid.Practices.Composition
         IEnumerable<Assembly> IAssembliesReadOnlyResolver.GetAssemblies()
         {
             var assemblies = GetRootAssemblies();
-            return assemblies.Concat(_assemblySourceProvider.InspectedAssemblies).Distinct();
+            return assemblies.Concat(_assemblySourceProvider.Assemblies).Distinct();
         }
     }
 }

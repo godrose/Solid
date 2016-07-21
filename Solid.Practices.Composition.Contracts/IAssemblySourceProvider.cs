@@ -10,11 +10,11 @@ namespace Solid.Practices.Composition.Contracts
     public interface IAssemblySourceProvider
     {
         /// <summary>
-        /// Gets the assemblies to be inspected.
+        /// Gets the assemblies which can be inspected for the additional components.
         /// </summary>
         /// <value>
-        /// The assemblies to be inspected.
+        /// The assemblies.
         /// </value>
-        IEnumerable<Assembly> InspectedAssemblies { get; }
+        IEnumerable<Assembly> Assemblies { get; }
     }
 }

@@ -1,14 +1,18 @@
 ﻿using System.Linq;
-using NUnit.Framework;
 using Solid.Practices.Composition.Contracts;
 using Solid.Practices.Modularity;
+using Xunit;
 
 namespace Solid.Practices.Composition.Platform.UWP.Tests
-{    
-    [TestFixture]
-    class CompositionContainerTests
+{        
+    public class CompositionContainerTests
     {
-        [Test]
+        static CompositionContainerTests()
+        {
+            PlatformProvider.Current = new UniversalPlatformProvider();
+        }
+
+        [Fact]
         public void RootPathContainsCompositionModules_CompositionModulesAreImported()
         {
             var rootPath = GetCurrentDirectory();
@@ -17,11 +21,11 @@ namespace Solid.Practices.Composition.Platform.UWP.Tests
             compositionContainer.Compose();
 
             var modules = compositionContainer.Modules;
-            var modulesCount = modules.Count();
-            Assert.AreEqual(1, modulesCount);
+            var modulesCount = modules.Count();            
+            Assert.Equal(1, modulesCount);
         }
 
-        [Test]
+        [Fact]
         public void RootPathContainsCustomModules_CustomModulesAreImported()
         {
             var rootPath = GetCurrentDirectory();
@@ -31,10 +35,10 @@ namespace Solid.Practices.Composition.Platform.UWP.Tests
 
             var modules = compositionContainer.Modules;
             var modulesCount = modules.Count();
-            Assert.AreEqual(2, modulesCount);
+            Assert.Equal(2, modulesCount);
         }
 
-        [Test]
+        [Fact]
         public void RootPathContainsCustomModulesAndCorrectPrefixIsUsed_CustomModulesAreImported()
         {
             var rootPath = GetCurrentDirectory();
@@ -44,10 +48,10 @@ namespace Solid.Practices.Composition.Platform.UWP.Tests
 
             var modules = compositionContainer.Modules;
             var modulesCount = modules.Count();
-            Assert.AreEqual(2, modulesCount);
+            Assert.Equal(2, modulesCount);
         }
 
-        [Test]
+        [Fact]
         public void RootPathContainsCustomModulesAndIncorrectPrefixIsUsed_CustomModulesAreImported()
         {
             var rootPath = GetCurrentDirectory();
@@ -57,10 +61,10 @@ namespace Solid.Practices.Composition.Platform.UWP.Tests
 
             var modules = compositionContainer.Modules;
             var modulesCount = modules.Count();
-            Assert.AreEqual(0, modulesCount);
+            Assert.Equal(0, modulesCount);
         }
 
-        [Test]
+        [Fact]
         public void RootPathContainsCustomModulesAndNoPrefixIsUsed_CustomModulesAreImported()
         {
             var rootPath = GetCurrentDirectory();
@@ -70,7 +74,7 @@ namespace Solid.Practices.Composition.Platform.UWP.Tests
 
             var modules = compositionContainer.Modules;
             var modulesCount = modules.Count();
-            Assert.AreEqual(2, modulesCount);
+            Assert.Equal(2, modulesCount);
         }
 
         //TODO: Removed the hardcoded path

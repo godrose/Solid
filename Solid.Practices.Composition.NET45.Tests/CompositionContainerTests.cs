@@ -1,20 +1,19 @@
 ﻿using System.Linq;
-using NUnit.Framework;
+using FluentAssertions;
 using Solid.Practices.Composition.Contracts;
 using Solid.Practices.Modularity;
+using Xunit;
 
 namespace Solid.Practices.Composition.Tests
-{
-    [TestFixture]
-    class CompositionContainerTests
+{    
+    public class CompositionContainerTests
     {
-        [OneTimeSetUp]
-        public void OneTimeSetUp()
+        static CompositionContainerTests()
         {
             PlatformProvider.Current = new NetPlatformProvider();
         }
 
-        [Test]
+        [Fact]
         public void RootPathContainsCompositionModules_CompositionModulesAreImported()
         {
             var rootPath = GetCurrentDirectory();
@@ -24,10 +23,10 @@ namespace Solid.Practices.Composition.Tests
 
             var modules = compositionContainer.Modules;
             var modulesCount = modules.Count();
-            Assert.AreEqual(3, modulesCount);
+            modulesCount.Should().Be(3);            
         }
 
-        [Test]
+        [Fact]
         public void RootPathContainsCustomModules_CustomModulesAreImported()
         {
             var rootPath = GetCurrentDirectory();
@@ -37,10 +36,10 @@ namespace Solid.Practices.Composition.Tests
 
             var modules = compositionContainer.Modules;
             var modulesCount = modules.Count();
-            Assert.AreEqual(2, modulesCount);
+            modulesCount.Should().Be(2);
         }
 
-        [Test]
+        [Fact]
         public void RootPathContainsCustomModulesAndCorrectPrefixIsUsed_CustomModulesAreImported()
         {
             var rootPath = GetCurrentDirectory();
@@ -50,10 +49,10 @@ namespace Solid.Practices.Composition.Tests
 
             var modules = compositionContainer.Modules;
             var modulesCount = modules.Count();
-            Assert.AreEqual(2, modulesCount);
+            modulesCount.Should().Be(2);
         }
 
-        [Test]
+        [Fact]
         public void RootPathContainsCustomModulesAndIncorrectPrefixIsUsed_CustomModulesAreImported()
         {
             var rootPath = GetCurrentDirectory();
@@ -63,10 +62,10 @@ namespace Solid.Practices.Composition.Tests
 
             var modules = compositionContainer.Modules;
             var modulesCount = modules.Count();
-            Assert.AreEqual(0, modulesCount);
+            modulesCount.Should().Be(0);
         }
 
-        [Test]
+        [Fact]
         public void RootPathContainsCustomModulesAndNoPrefixIsUsed_CustomModulesAreImported()
         {
             var rootPath = GetCurrentDirectory();
@@ -76,10 +75,10 @@ namespace Solid.Practices.Composition.Tests
 
             var modules = compositionContainer.Modules;
             var modulesCount = modules.Count();
-            Assert.AreEqual(2, modulesCount);
+            modulesCount.Should().Be(2);
         }
 
-        [Test]
+        [Fact]
         public void RootPathContainsOtherModules_OtherModulesAreImported()
         {
             var rootPath = GetCurrentDirectory();
@@ -89,7 +88,7 @@ namespace Solid.Practices.Composition.Tests
 
             var modules = compositionContainer.Modules;
             var modulesCount = modules.Count();
-            Assert.AreEqual(1, modulesCount);
+            modulesCount.Should().Be(1);
         }
 
         //TODO: Removed the hardcoded path

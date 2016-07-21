@@ -24,18 +24,14 @@ namespace Solid.Practices.Composition
             _rootPath = rootPath;
         }
 
-        private List<Assembly> _inspectedAssemblies;
-
+        private Assembly[] _inspectedAssemblies;
         /// <summary>
         /// Gets the assemblies to be inspected.
         /// </summary>
         /// <value>
         /// The assemblies to be inspected.
         /// </value>
-        public IEnumerable<Assembly> InspectedAssemblies
-        {
-            get { return _inspectedAssemblies ?? (_inspectedAssemblies = CreateAssemblies()); }
-        }
+        public IEnumerable<Assembly> Assemblies => _inspectedAssemblies ?? (_inspectedAssemblies = CreateAssemblies());
 
         /// <summary>
         /// Returns the list of namespaces to be looked for during assembly discovery.
@@ -43,9 +39,9 @@ namespace Solid.Practices.Composition
         /// <returns></returns>
         protected abstract string[] ResolveNamespaces();
 
-        private List<Assembly> CreateAssemblies()
+        private Assembly[] CreateAssemblies()
         {
-            return SafeAssemblyLoader.LoadAssembliesFromNames(DiscoverAssemblyNames()).ToList();
+            return SafeAssemblyLoader.LoadAssembliesFromNames(DiscoverAssemblyNames()).ToArray();
         }
 
         private IEnumerable<string> DiscoverAssemblyNames()
