@@ -70,7 +70,10 @@ namespace Solid.IoC.Adapters.ObjectContainer
         /// <exception cref="System.NotImplementedException"></exception>
         public void RegisterCollection<TService>(IEnumerable<Type> dependencyTypes) where TService : class
         {
-            throw new NotImplementedException();
+            foreach (var dependencyType in dependencyTypes)
+            {
+                _objectContainer.RegisterTypeAs<TService>(dependencyType, dependencyType.Name);
+            }            
         }
 
         /// <summary>
@@ -178,6 +181,16 @@ namespace Solid.IoC.Adapters.ObjectContainer
         public object Resolve(Type serviceType)
         {
             return _objectContainer.Resolve(serviceType);
+        }
+
+        /// <summary>
+        /// Resolves all instances of the specified type.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public IEnumerable<T> ResolveAll<T>() where T : class
+        {
+            return _objectContainer.ResolveAll<T>();
         }
 
         /// <summary>
