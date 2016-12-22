@@ -72,6 +72,67 @@ namespace Solid.Practices.Composition
             return Directory.GetCurrentDirectory();
 #endif
         }
+
+        /// <summary>
+        /// Writes the specified text into the resource identified by the specified path.
+        /// </summary>
+        /// <param name="path">The path.</param>
+        /// <param name="contents">The text.</param>        
+        public
+#if WINRT
+            async
+#endif
+            void WriteText(string path, string contents)
+        {
+#if WINRT
+            //supports only current folder
+            var folder = Package.Current.InstalledLocation;
+            var file = await folder.CreateFileAsync(path);
+            await FileIO.WriteTextAsync(file, contents);
+#else
+            var fileStream = new FileStream(path, FileMode.Create);
+            using (var textWriter = new StreamWriter(fileStream))             
+            {
+                textWriter.Write(contents);
+                textWriter.Flush();
+            }           
+#endif
+        }
+
+        /// <summary>
+        /// Reads the contents of the resource identified by the specified path.
+        /// </summary>
+        /// <param name="path">The path.</param>
+        /// <returns></returns>        
+        public string ReadText(string path)
+        {
+#if WINRT
+            //support only current folder
+            var folder = Package.Current.InstalledLocation;
+            var fileOperation = folder.GetFileAsync(path);
+            while (fileOperation.Status != AsyncStatus.Completed && fileOperation.Status != AsyncStatus.Canceled &&
+                   fileOperation.Status != AsyncStatus.Error)
+            {
+                Task.Delay(50);
+            }
+            var file = fileOperation.GetResults();
+            var contentsOperation = FileIO.ReadTextAsync(file);
+            while (contentsOperation.Status != AsyncStatus.Completed && contentsOperation.Status != AsyncStatus.Canceled &&
+                   contentsOperation.Status != AsyncStatus.Error)
+            {
+                Task.Delay(50);
+            }
+            return contentsOperation.GetResults();
+#else
+            var fileStream = new FileStream(path, FileMode.Open);
+            using (var textReader = new StreamReader(fileStream))
+            {
+                var contents = textReader.ReadToEnd();
+                return contents;
+            }                          
+#endif
+        }
+
 #if WINRT
 
         private const int Delay = 50;

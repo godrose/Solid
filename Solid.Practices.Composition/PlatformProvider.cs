@@ -57,5 +57,26 @@ namespace Solid.Practices.Composition
         {
             return string.Empty;
         }
+
+        /// <summary>
+        /// Writes the specified text into the resource identified by the specified path.
+        /// </summary>
+        /// <param name="path">The path.</param>
+        /// <param name="contents">The text.</param>
+        public void WriteText(string path, string contents)
+        {
+            
+        }
+
+        /// <summary>
+        /// Reads the contents of the resource identified by the specified path.
+        /// </summary>
+        /// <param name="path">The path.</param>
+        /// <returns></returns>
+        /// <exception cref="System.NotImplementedException"></exception>
+        public string ReadText(string path)
+        {
+            return string.Empty;
+        }
     }
 }

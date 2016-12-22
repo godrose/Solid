@@ -21,31 +21,4 @@ namespace Solid.Practices.Composition.Contracts
         /// </summary>
         IEnumerable<TModule> Modules { get; }
     }
-
-    /// <summary>
-    /// Interface for platform specific operations that need enlightenment.
-    /// </summary>
-    public interface IPlatformProvider
-    {
-        /// <summary>
-        /// Gets the files at the specified path.
-        /// </summary>
-        /// <param name="path">The path.</param>
-        /// <returns></returns>
-        string[] GetFiles(string path);
-
-        /// <summary>
-        /// Gets the files at the specified path, using provided search pattern.
-        /// </summary>
-        /// <param name="path">The path.</param>
-        /// <param name="searchPattern">The search pattern.</param>
-        /// <returns></returns>
-        string[] GetFiles(string path, string searchPattern);
-
-        /// <summary>
-        /// Gets the root path.
-        /// </summary>
-        /// <returns></returns>
-        string GetRootPath();
-    }
 }
