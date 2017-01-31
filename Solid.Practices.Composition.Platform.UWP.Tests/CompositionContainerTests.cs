@@ -4,8 +4,8 @@ using Solid.Practices.Modularity;
 using Xunit;
 
 namespace Solid.Practices.Composition.Platform.UWP.Tests
-{        
-    public class CompositionContainerTests
+{           
+    class CompositionContainerTests
     {
         static CompositionContainerTests()
         {

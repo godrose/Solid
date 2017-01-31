@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.IO;
+using System.Linq;
 using FluentAssertions;
 using Solid.Practices.Composition.Contracts;
 using Solid.Practices.Modularity;
@@ -95,10 +96,7 @@ namespace Solid.Practices.Composition.Tests
 
         private static string GetCurrentDirectory()
         {
-#if DEBUG
-            return @"C:\Workspace\Solid\Solid.Practices.Composition.NET45.Tests\bin\Debug";
-#endif
-            return @"C:\Workspace\Solid\Solid.Practices.Composition.NET45.Tests\bin\Release";
+            return Directory.GetCurrentDirectory();
         }
 
         private static CompositionContainer<TModule> CreateCompositionContainer<TModule>(string rootPath) 
