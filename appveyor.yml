@@ -1,6 +1,6 @@
 configuration: Release
 
-before build:
+before_build:
 - nuget restore
 
 build:
