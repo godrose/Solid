@@ -1,7 +1,10 @@
 ﻿{
   "dependencies": {
+    "FluentAssertions": "2.1.0",
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0",
-    "xunit": "2.1.0"
+    "xunit.abstractions": "2.0.0",
+    "xunit.core": "2.1.0",
+    "xunit.extensibility.core": "2.1.0"
   },
   "frameworks": {
     "uap10.0": {}

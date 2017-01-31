@@ -90,9 +90,7 @@ namespace Solid.Practices.Composition.Tests
             var modules = compositionContainer.Modules;
             var modulesCount = modules.Count();
             modulesCount.Should().Be(1);
-        }
-
-        //TODO: Removed the hardcoded path
+        }        
 
         private static string GetCurrentDirectory()
         {

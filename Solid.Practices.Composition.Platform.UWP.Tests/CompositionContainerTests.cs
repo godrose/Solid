@@ -1,11 +1,13 @@
-﻿using System.Linq;
+﻿using System.IO;
+using System.Linq;
+using FluentAssertions;
 using Solid.Practices.Composition.Contracts;
 using Solid.Practices.Modularity;
 using Xunit;
 
 namespace Solid.Practices.Composition.Platform.UWP.Tests
 {           
-    class CompositionContainerTests
+    public class CompositionContainerTests
     {
         static CompositionContainerTests()
         {
@@ -21,8 +23,8 @@ namespace Solid.Practices.Composition.Platform.UWP.Tests
             compositionContainer.Compose();
 
             var modules = compositionContainer.Modules;
-            var modulesCount = modules.Count();            
-            Assert.Equal(1, modulesCount);
+            var modulesCount = modules.Count();
+            modulesCount.Should().Be(1);
         }
 
         [Fact]
@@ -35,7 +37,7 @@ namespace Solid.Practices.Composition.Platform.UWP.Tests
 
             var modules = compositionContainer.Modules;
             var modulesCount = modules.Count();
-            Assert.Equal(2, modulesCount);
+            modulesCount.Should().Be(2);
         }
 
         [Fact]
@@ -48,7 +50,7 @@ namespace Solid.Practices.Composition.Platform.UWP.Tests
 
             var modules = compositionContainer.Modules;
             var modulesCount = modules.Count();
-            Assert.Equal(2, modulesCount);
+            modulesCount.Should().Be(2);
         }
 
         [Fact]
@@ -61,7 +63,7 @@ namespace Solid.Practices.Composition.Platform.UWP.Tests
 
             var modules = compositionContainer.Modules;
             var modulesCount = modules.Count();
-            Assert.Equal(0, modulesCount);
+            modulesCount.Should().Be(0);
         }
 
         [Fact]
@@ -74,16 +76,13 @@ namespace Solid.Practices.Composition.Platform.UWP.Tests
 
             var modules = compositionContainer.Modules;
             var modulesCount = modules.Count();
-            Assert.Equal(2, modulesCount);
+            modulesCount.Should().Be(2);
         }
 
         //TODO: Removed the hardcoded path
         private static string GetCurrentDirectory()
         {
-#if DEBUG
-            return @"C:\Workspace\Solid\Solid.Practices.Composition.Platform.UWP.Tests\bin\Debug";
-#endif
-            return @"C:\Workspace\Solid\Solid.Practices.Composition.Platform.UWP.Tests\bin\Release";
+            return Directory.GetCurrentDirectory();
         }
 
         private static CompositionContainer<TModule> CreateCompositionContainer<TModule>(string rootPath)

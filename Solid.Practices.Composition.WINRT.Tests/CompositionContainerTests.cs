@@ -95,6 +95,7 @@ namespace Solid.Practices.Composition.WINRT.Tests
         //TODO: Removed the hardcoded path
         private static string GetCurrentDirectory()
         {
+            
 #if DEBUG
             return @"C:\Workspace\Solid\Solid.Practices.Composition.WINRT.Tests\bin\Debug\AppX";
 #else
