@@ -13,3 +13,4 @@ The Composition aspect is the only one that has concrete implementation. In esse
 
 Additionally, the Solid library contains various interfaces and implementation for some of the Design Patterns, including ```IAcceptor``` for the **Visitor** pattern, ```IMemento<T>``` for the **Memento** pattern and so on. This saves a lot of duplicate code when such a pattern is used in the app development.
 
+<img src=https://ci.appveyor.com/api/projects/status/github/godrose/solid>
