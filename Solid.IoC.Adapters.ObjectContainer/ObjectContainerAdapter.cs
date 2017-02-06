@@ -128,7 +128,7 @@ namespace Solid.IoC.Adapters.ObjectContainer
         /// <exception cref="System.NotImplementedException"></exception>
         public void RegisterHandler<TService>(Func<TService> handler) where TService : class
         {
-            throw new NotImplementedException();
+            _objectContainer.RegisterFactoryAs(handler);
         }
 
         /// <summary>
