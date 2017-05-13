@@ -2,19 +2,15 @@
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
-    <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DB97D15D-853F-4C7A-87A4-2CFA43D6FD83}</ProjectGuid>
+    <ProjectGuid>{6939E70D-386F-401A-B5C1-0E5C21DBCEFA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Solid.Bootstrapping</RootNamespace>
     <AssemblyName>Solid.Bootstrapping</AssemblyName>
-    <DefaultLanguage>en-US</DefaultLanguage>
-    <FileAlignment>512</FileAlignment>
-    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <TargetFrameworkProfile>Profile111</TargetFrameworkProfile>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -28,21 +24,51 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\bin\portable\Release\</OutputPath>
+    <OutputPath>..\..\bin\net45\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\bin\portable\Release\Solid.Bootstrapping.XML</DocumentationFile>
+    <DocumentationFile>..\..\bin\net45\Release\Solid.Bootstrapping.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="IHaveContainer.cs" />
-    <Compile Include="IHaveContainerRegistrator.cs" />
-    <Compile Include="IHaveContainerResolver.cs" />
-    <Compile Include="IHaveRootObject.cs" />
-    <Compile Include="IInitializable.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\src\IHaveContainer.cs">
+      <Link>IHaveContainer.cs</Link>
+    </Compile>
+    <Compile Include="..\src\IHaveContainerRegistrator.cs">
+      <Link>IHaveContainerRegistrator.cs</Link>
+    </Compile>
+    <Compile Include="..\src\IHaveContainerResolver.cs">
+      <Link>IHaveContainerResolver.cs</Link>
+    </Compile>
+    <Compile Include="..\src\IHaveRootObject.cs">
+      <Link>IHaveRootObject.cs</Link>
+    </Compile>
+    <Compile Include="..\src\IInitializable.cs">
+      <Link>IInitializable.cs</Link>
+    </Compile>
+    <Compile Include="..\src\Properties\AssemblyInfo.cs">
+      <Link>AssemblyInfo.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Solid.Practices.IoC\net45\Solid.Practices.IoC.NET45.csproj">
+      <Project>{c67a514a-5966-4275-aa03-98ccd3c2a011}</Project>
+      <Name>Solid.Practices.IoC.NET45</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
