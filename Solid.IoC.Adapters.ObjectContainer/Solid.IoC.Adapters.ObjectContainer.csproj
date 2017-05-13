@@ -48,14 +48,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Solid.Practices.IoC\Solid.Practices.IoC.csproj">
-      <Project>{3583B84F-B883-4DB5-BC23-25C90B4C1567}</Project>
-      <Name>Solid.Practices.IoC</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Solid.Practices.IoC\net45\Solid.Practices.IoC.NET45\Solid.Practices.IoC.NET45.csproj">
+      <Project>{c67a514a-5966-4275-aa03-98ccd3c2a011}</Project>
+      <Name>Solid.Practices.IoC.NET45</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
