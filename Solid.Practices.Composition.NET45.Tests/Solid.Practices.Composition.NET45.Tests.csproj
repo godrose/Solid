@@ -81,10 +81,6 @@
       <Project>{FA9056E5-FA5A-43A0-BB88-4CD9BC4537E6}</Project>
       <Name>Solid.Practices.Composition</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Solid.Practices.Modularity\Solid.Practices.Modularity.csproj">
-      <Project>{82bb5df3-82ac-466d-bddf-c65a9ecdb8a4}</Project>
-      <Name>Solid.Practices.Modularity</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

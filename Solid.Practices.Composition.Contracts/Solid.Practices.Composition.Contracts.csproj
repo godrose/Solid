@@ -35,13 +35,6 @@
     <DocumentationFile>..\Bin\Release\Practices\Solid.Practices.Composition.Contracts.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <!-- A reference to the entire .NET Framework is automatically included -->
-    <ProjectReference Include="..\Solid.Practices.Modularity\Solid.Practices.Modularity.csproj">
-      <Project>{82BB5DF3-82AC-466D-BDDF-C65A9ECDB8A4}</Project>
-      <Name>Solid.Practices.Modularity</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="IAssembliesReadOnlyResolver.cs" />
     <Compile Include="IAssemblySourceProvider.cs" />
     <Compile Include="ICompositionContainer.cs" />
