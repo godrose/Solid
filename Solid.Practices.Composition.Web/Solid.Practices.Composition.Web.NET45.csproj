@@ -50,13 +50,13 @@
     <Compile Include="ServerAssemblySourceProvider.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Solid.Practices.Composition.Contracts\Solid.Practices.Composition.Contracts.csproj">
-      <Project>{0688E6E1-40E1-4625-B10B-E8F36F6D7690}</Project>
-      <Name>Solid.Practices.Composition.Contracts</Name>
+    <ProjectReference Include="..\Solid.Practices.Composition.Contracts\net45\Solid.Practices.Composition.Contracts.NET45.csproj">
+      <Project>{4910bb67-68c1-4f20-8f76-236b096224f8}</Project>
+      <Name>Solid.Practices.Composition.Contracts.NET45</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Solid.Practices.Composition\Solid.Practices.Composition.csproj">
-      <Project>{FA9056E5-FA5A-43A0-BB88-4CD9BC4537E6}</Project>
-      <Name>Solid.Practices.Composition</Name>
+    <ProjectReference Include="..\Solid.Practices.Composition\net45\Solid.Practices.Composition.NET45.csproj">
+      <Project>{D9C391FE-D984-45F5-9E12-9E0D0E07E4E4}</Project>
+      <Name>Solid.Practices.Composition.NET45</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

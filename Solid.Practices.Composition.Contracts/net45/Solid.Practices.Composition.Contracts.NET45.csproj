@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4910BB67-68C1-4F20-8F76-236B096224F8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Solid.Practices.Composition.Contracts</RootNamespace>
+    <AssemblyName>Solid.Practices.Composition.Contracts</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\bin\net45\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\..\bin\net45\Release\Solid.Practices.Composition.Contracts.xml</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Solid.Practices.Modularity\net45\Solid.Practices.Modularity.NET45.csproj">
+      <Project>{99EC4613-C5FA-4B00-863B-F3686E4C9D5F}</Project>
+      <Name>Solid.Practices.Modularity.NET45</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\src\IAssembliesReadOnlyResolver.cs">
+      <Link>IAssembliesReadOnlyResolver.cs</Link>
+    </Compile>
+    <Compile Include="..\src\IAssemblySourceProvider.cs">
+      <Link>IAssemblySourceProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\src\ICompositionContainer.cs">
+      <Link>ICompositionContainer.cs</Link>
+    </Compile>
+    <Compile Include="..\src\ICompositionManager.cs">
+      <Link>ICompositionManager.cs</Link>
+    </Compile>
+    <Compile Include="..\src\ICompositionModuleCreationStrategy.cs">
+      <Link>ICompositionModuleCreationStrategy.cs</Link>
+    </Compile>
+    <Compile Include="..\src\ICompositionModulesProvider.cs">
+      <Link>ICompositionModulesProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\src\IPlatformProvider.cs">
+      <Link>IPlatformProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\src\Properties\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
