@@ -31,11 +31,11 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\bin\uwp\Release\Practices\</OutputPath>
+    <OutputPath>..\..\bin\uwp\Release\</OutputPath>
     <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\..\bin\uwp\Release\Practices\Solid.Practices.Composition.Platform.XML</DocumentationFile>
+    <DocumentationFile>..\..\bin\uwp\Release\Solid.Practices.Composition.Platform.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <PlatformTarget>x86</PlatformTarget>
