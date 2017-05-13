@@ -24,11 +24,11 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\Bin\net45\Release\</OutputPath>
+    <OutputPath>..\bin\net45\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\Bin\net45\Release\Solid.IoC.Adapters.ObjectContainer.XML</DocumentationFile>
+    <DocumentationFile>..\bin\net45\Release\Solid.IoC.Adapters.ObjectContainer.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -52,7 +52,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Solid.Practices.IoC\net45\Solid.Practices.IoC.NET45\Solid.Practices.IoC.NET45.csproj">
+    <ProjectReference Include="..\Solid.Practices.IoC\net45\Solid.Practices.IoC.NET45.csproj">
       <Project>{c67a514a-5966-4275-aa03-98ccd3c2a011}</Project>
       <Name>Solid.Practices.IoC.NET45</Name>
     </ProjectReference>

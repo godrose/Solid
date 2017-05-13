@@ -38,12 +38,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistrationHelper.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Solid.Practices.Middleware\Solid.Practices.Middleware.csproj">
-      <Project>{4B92CF65-EDD3-4041-B3BF-AF79058AB2A6}</Project>
-      <Name>Solid.Practices.Middleware</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
