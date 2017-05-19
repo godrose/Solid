@@ -39,9 +39,7 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Compile Include="..\src\IHaveContainer.cs">
       <Link>IHaveContainer.cs</Link>
@@ -59,7 +57,7 @@
       <Link>IInitializable.cs</Link>
     </Compile>
     <Compile Include="..\src\Properties\AssemblyInfo.cs">
-      <Link>AssemblyInfo.cs</Link>
+      <Link>Properties\AssemblyInfo.cs</Link>
     </Compile>
   </ItemGroup>
   <ItemGroup>

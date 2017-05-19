@@ -34,15 +34,13 @@
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>..\..\bin\netstandard\Release\Solid.Practices.Modularity.XML</DocumentationFile>
   </PropertyGroup>
-  <ItemGroup>
-    <Folder Include="Properties\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Compile Include="..\src\ICompositionModule.cs">
       <Link>ICompositionModule.cs</Link>
     </Compile>
     <Compile Include="..\src\Properties\AssemblyInfo.cs">
-      <Link>AssemblyInfo.cs</Link>
+      <Link>Properties\AssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="..\src\RegistrationHelper.cs">
       <Link>RegistrationHelper.cs</Link>
