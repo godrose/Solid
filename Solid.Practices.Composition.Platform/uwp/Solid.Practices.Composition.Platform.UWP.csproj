@@ -31,11 +31,11 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\bin\uwp\Release\</OutputPath>
+    <OutputPath>..\..\bin\uwp\Release\Practices\</OutputPath>
     <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\..\bin\uwp\Release\Solid.Practices.Composition.Platform.XML</DocumentationFile>
+    <DocumentationFile>..\..\bin\uwp\Release\Practices\Solid.Practices.Composition.Platform.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <PlatformTarget>x86</PlatformTarget>
@@ -115,9 +115,17 @@
     <EmbeddedResource Include="Properties\Solid.Practices.Composition.Platform.UWP.rd.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Solid.Practices.Composition.Contracts\netstandard\Solid.Practices.Composition.Contracts.Standard.csproj">
-      <Project>{0688e6e1-40e1-4625-b10b-e8f36f6d7690}</Project>
-      <Name>Solid.Practices.Composition.Contracts.Standard</Name>
+    <ProjectReference Include="..\..\Solid.Practices.Composition.Contracts\Solid.Practices.Composition.Contracts.csproj">
+      <Project>{0688E6E1-40E1-4625-B10B-E8F36F6D7690}</Project>
+      <Name>Solid.Practices.Composition.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Solid.Practices.Composition\Solid.Practices.Composition.csproj">
+      <Project>{FA9056E5-FA5A-43A0-BB88-4CD9BC4537E6}</Project>
+      <Name>Solid.Practices.Composition</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Solid.Practices.Modularity\Solid.Practices.Modularity.csproj">
+      <Project>{82BB5DF3-82AC-466D-BDDF-C65A9ECDB8A4}</Project>
+      <Name>Solid.Practices.Modularity</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

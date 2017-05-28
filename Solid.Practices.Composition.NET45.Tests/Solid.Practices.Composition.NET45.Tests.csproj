@@ -69,21 +69,21 @@
     <Compile Include="TestOneCustomModule.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Solid.Practices.Composition.Contracts\net45\Solid.Practices.Composition.Contracts.NET45.csproj">
-      <Project>{4910BB67-68C1-4F20-8F76-236B096224F8}</Project>
-      <Name>Solid.Practices.Composition.Contracts.NET45</Name>
+    <ProjectReference Include="..\Solid.Practices.Composition.Contracts\Solid.Practices.Composition.Contracts.csproj">
+      <Project>{0688E6E1-40E1-4625-B10B-E8F36F6D7690}</Project>
+      <Name>Solid.Practices.Composition.Contracts</Name>
     </ProjectReference>
     <ProjectReference Include="..\Solid.Practices.Composition.Platform\net45\Solid.Practices.Composition.Platform.NET45.csproj">
       <Project>{705DFE80-50DD-453D-A515-DEDB877C8699}</Project>
       <Name>Solid.Practices.Composition.Platform.NET45</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Solid.Practices.Composition\net45\Solid.Practices.Composition.NET45.csproj">
-      <Project>{D9C391FE-D984-45F5-9E12-9E0D0E07E4E4}</Project>
-      <Name>Solid.Practices.Composition.NET45</Name>
+    <ProjectReference Include="..\Solid.Practices.Composition\Solid.Practices.Composition.csproj">
+      <Project>{FA9056E5-FA5A-43A0-BB88-4CD9BC4537E6}</Project>
+      <Name>Solid.Practices.Composition</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Solid.Practices.Modularity\net45\Solid.Practices.Modularity.NET45.csproj">
-      <Project>{99EC4613-C5FA-4B00-863B-F3686E4C9D5F}</Project>
-      <Name>Solid.Practices.Modularity.NET45</Name>
+    <ProjectReference Include="..\Solid.Practices.Modularity\Solid.Practices.Modularity.csproj">
+      <Project>{82bb5df3-82ac-466d-bddf-c65a9ecdb8a4}</Project>
+      <Name>Solid.Practices.Modularity</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

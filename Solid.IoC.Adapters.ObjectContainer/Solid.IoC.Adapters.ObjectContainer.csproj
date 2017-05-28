@@ -24,11 +24,11 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\bin\net45\Release\</OutputPath>
+    <OutputPath>..\Bin\net45\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\bin\net45\Release\Solid.IoC.Adapters.ObjectContainer.XML</DocumentationFile>
+    <DocumentationFile>..\Bin\net45\Release\Solid.IoC.Adapters.ObjectContainer.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -48,14 +48,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
+    <ProjectReference Include="..\Solid.Practices.IoC\Solid.Practices.IoC.csproj">
+      <Project>{3583B84F-B883-4DB5-BC23-25C90B4C1567}</Project>
+      <Name>Solid.Practices.IoC</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Solid.Practices.IoC\net45\Solid.Practices.IoC.NET45.csproj">
-      <Project>{c67a514a-5966-4275-aa03-98ccd3c2a011}</Project>
-      <Name>Solid.Practices.IoC.NET45</Name>
-    </ProjectReference>
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

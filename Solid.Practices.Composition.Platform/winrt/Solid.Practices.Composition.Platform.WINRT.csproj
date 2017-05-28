@@ -35,6 +35,13 @@
     <DocumentationFile>..\..\bin\winrt\Release\Solid.Practices.Composition.Platform.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
+    <!-- A reference to the entire .NET Framework is automatically included -->
+    <ProjectReference Include="..\..\Solid.Practices.Composition.Contracts\Solid.Practices.Composition.Contracts.csproj">
+      <Project>{0688e6e1-40e1-4625-b10b-e8f36f6d7690}</Project>
+      <Name>Solid.Practices.Composition.Contracts</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="..\src\PlatformProvider.cs">
       <Link>PlatformProvider.cs</Link>
     </Compile>
