@@ -29,17 +29,16 @@ namespace Solid.IoC.Adapters.ObjectContainer
         /// <typeparam name="TImplementation">Type of dependency implementation.</typeparam>
         public void RegisterTransient<TService, TImplementation>() where TImplementation : class, TService
         {
-            throw new NotImplementedException();
+            _objectContainer.RegisterTypeAs<TImplementation, TService>();
         }
 
         /// <summary>
         /// Registers the transient.
         /// </summary>
-        /// <typeparam name="TService">The type of the service.</typeparam>
-        /// <exception cref="System.NotImplementedException"></exception>
+        /// <typeparam name="TService">The type of the service.</typeparam>        
         public void RegisterTransient<TService>() where TService : class
         {
-            throw new NotImplementedException();
+            _objectContainer.RegisterTypeAs<TService, TService>();
         }
 
         /// <summary>
@@ -109,16 +108,6 @@ namespace Solid.IoC.Adapters.ObjectContainer
             throw new NotImplementedException();
         }
 
-        /// <summary>
-        /// Registers the handler.
-        /// </summary>
-        /// <param name="dependencyType">Type of the dependency.</param>
-        /// <param name="handler">The handler.</param>
-        /// <exception cref="System.NotImplementedException"></exception>
-        public void RegisterHandler(Type dependencyType, Func<object> handler)
-        {
-            throw new NotImplementedException();
-        }
 
         /// <summary>
         /// Registers the handler.
@@ -153,6 +142,79 @@ namespace Solid.IoC.Adapters.ObjectContainer
         }
 
         /// <summary>
+        /// Registers dependency in a transient lifetime style.
+        /// </summary>
+        /// <typeparam name="TService">Type of dependency declaration.</typeparam>
+        /// <typeparam name="TImplementation">Type of dependency implementation.</typeparam>
+        /// <param name="dependencyCreator">Dependency creator delegate.</param>
+        public void RegisterTransient<TService, TImplementation>(Func<TImplementation> dependencyCreator) where TImplementation : class, TService
+        {
+            _objectContainer.RegisterFactoryAs<TService>(dependencyCreator);
+        }
+
+        /// <summary>
+        /// Registers dependency in a transient lifetime style.
+        /// </summary>
+        /// <typeparam name="TService">Type of dependency.</typeparam>
+        /// <param name="dependencyCreator">Dependency creator delegate.</param>
+        public void RegisterTransient<TService>(Func<TService> dependencyCreator) where TService : class
+        {
+            _objectContainer.RegisterFactoryAs(dependencyCreator);
+        }
+
+        /// <summary>
+        /// Registers dependency in a transient lifetime style.
+        /// </summary>
+        /// <param name="serviceType">Type of dependency declaration.</param>
+        /// <param name="implementationType">Type of dependency implementation.</param>
+        /// <param name="dependencyCreator">Dependency creator delegate.</param>
+        public void RegisterTransient(Type serviceType, Type implementationType, Func<object> dependencyCreator)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Registers dependency as a singleton.
+        /// </summary>
+        /// <typeparam name="TService">Type of dependency.</typeparam>
+        public void RegisterSingleton<TService>() where TService : class
+        {
+            _objectContainer.RegisterTypeAs<TService, TService>();
+        }
+
+        /// <summary>
+        /// Registers dependency as a singleton.
+        /// </summary>
+        /// <typeparam name="TService">Type of dependency.</typeparam>
+        /// <param name="dependencyCreator">Dependency creator delegate.</param>
+        public void RegisterSingleton<TService>(Func<TService> dependencyCreator) where TService : class
+        {
+            _objectContainer.RegisterFactoryAs(dependencyCreator);
+        }
+
+        /// <summary>
+        /// Registers dependency as a singleton.
+        /// </summary>
+        /// <typeparam name="TService">Type of dependency declaration.</typeparam>
+        /// <typeparam name="TImplementation">Type of dependency implementation.</typeparam>
+        /// <param name="dependencyCreator">Dependency creator delegate.</param>
+        public void RegisterSingleton<TService, TImplementation>(Func<TImplementation> dependencyCreator) where TImplementation : class, TService
+        {
+            _objectContainer.RegisterFactoryAs<TService>(dependencyCreator);
+        }
+
+        /// <summary>
+        /// Registers dependency as a singleton.
+        /// </summary>
+        /// <param name="serviceType">Type of dependency declaration.</param>
+        /// <param name="implementationType">Type of dependency implementation.</param>
+        /// <param name="dependencyCreator">Dependency creator delegate.</param>      
+        public void RegisterSingleton(Type serviceType, Type implementationType, Func<object> dependencyCreator)
+        {
+            _objectContainer.RegisterFactoryAs(dependencyCreator, serviceType);
+        }            
+
+        /// <summary>
         /// Registers the transient.
         /// </summary>
         /// <param name="serviceType">Type of the service.</param>
@@ -160,7 +222,7 @@ namespace Solid.IoC.Adapters.ObjectContainer
         /// <exception cref="System.NotImplementedException"></exception>
         public void RegisterTransient(Type serviceType, Type implementationType)
         {
-            throw new NotImplementedException();
+            _objectContainer.RegisterTypeAs(implementationType, serviceType);
         }
 
         /// <summary>
