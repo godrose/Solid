@@ -40,7 +40,7 @@
       <Project>{0688E6E1-40E1-4625-B10B-E8F36F6D7690}</Project>
       <Name>Solid.Practices.Composition.Contracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Solid.Practices.Modularity\Solid.Practices.Modularity.csproj">
+    <ProjectReference Include="..\Solid.Practices.Modularity\portable\Solid.Practices.Modularity.csproj">
       <Project>{82BB5DF3-82AC-466D-BDDF-C65A9ECDB8A4}</Project>
       <Name>Solid.Practices.Modularity</Name>
     </ProjectReference>
