@@ -44,7 +44,7 @@
       <Project>{0688E6E1-40E1-4625-B10B-E8F36F6D7690}</Project>
       <Name>Solid.Practices.Composition.Contracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Solid.Practices.IoC\Solid.Practices.IoC.csproj">
+    <ProjectReference Include="..\Solid.Practices.IoC\portable\Solid.Practices.IoC.csproj">
       <Project>{3583B84F-B883-4DB5-BC23-25C90B4C1567}</Project>
       <Name>Solid.Practices.IoC</Name>
     </ProjectReference>

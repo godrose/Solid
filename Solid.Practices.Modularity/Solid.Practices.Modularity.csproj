@@ -39,7 +39,7 @@
     <Compile Include="RegistrationHelper.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Solid.Practices.IoC\Solid.Practices.IoC.csproj">
+    <ProjectReference Include="..\Solid.Practices.IoC\portable\Solid.Practices.IoC.csproj">
       <Project>{3583B84F-B883-4DB5-BC23-25C90B4C1567}</Project>
       <Name>Solid.Practices.IoC</Name>
     </ProjectReference>
