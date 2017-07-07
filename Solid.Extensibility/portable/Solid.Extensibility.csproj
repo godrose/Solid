@@ -35,11 +35,13 @@
     <DocumentationFile>..\bin\portable\Release\Solid.Extensibility.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="IExtensible.cs" />
+    <Compile Include="..\src\IExtensible.cs">
+      <Link>IExtensible.cs</Link>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Solid.Practices.Middleware\portable\Solid.Practices.Middleware.csproj">
+    <ProjectReference Include="..\..\Solid.Practices.Middleware\portable\Solid.Practices.Middleware.csproj">
       <Project>{4B92CF65-EDD3-4041-B3BF-AF79058AB2A6}</Project>
       <Name>Solid.Practices.Middleware</Name>
     </ProjectReference>
