@@ -35,15 +35,17 @@
     <DocumentationFile>..\bin\portable\Release\Solid.Practices.Composition.Container.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="..\src\SimpleCompositionContainer.cs">
+      <Link>SimpleCompositionContainer.cs</Link>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SimpleCompositionContainer.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Solid.Practices.Composition.Contracts\portable\Solid.Practices.Composition.Contracts.csproj">
+    <ProjectReference Include="..\..\Solid.Practices.Composition.Contracts\portable\Solid.Practices.Composition.Contracts.csproj">
       <Project>{0688E6E1-40E1-4625-B10B-E8F36F6D7690}</Project>
       <Name>Solid.Practices.Composition.Contracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Solid.Practices.Modularity\portable\Solid.Practices.Modularity.csproj">
+    <ProjectReference Include="..\..\Solid.Practices.Modularity\portable\Solid.Practices.Modularity.csproj">
       <Project>{82BB5DF3-82AC-466D-BDDF-C65A9ECDB8A4}</Project>
       <Name>Solid.Practices.Modularity</Name>
     </ProjectReference>
