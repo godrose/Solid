@@ -35,15 +35,25 @@
     <DocumentationFile>..\bin\portable\Release\Solid.Bootstrapping.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="IHaveContainer.cs" />
-    <Compile Include="IHaveContainerRegistrator.cs" />
-    <Compile Include="IHaveContainerResolver.cs" />
-    <Compile Include="IHaveRootObject.cs" />
-    <Compile Include="IInitializable.cs" />
+    <Compile Include="..\src\IHaveContainer.cs">
+      <Link>IHaveContainer.cs</Link>
+    </Compile>
+    <Compile Include="..\src\IHaveContainerRegistrator.cs">
+      <Link>IHaveContainerRegistrator.cs</Link>
+    </Compile>
+    <Compile Include="..\src\IHaveContainerResolver.cs">
+      <Link>IHaveContainerResolver.cs</Link>
+    </Compile>
+    <Compile Include="..\src\IHaveRootObject.cs">
+      <Link>IHaveRootObject.cs</Link>
+    </Compile>
+    <Compile Include="..\src\IInitializable.cs">
+      <Link>IInitializable.cs</Link>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Solid.Practices.IoC\portable\Solid.Practices.IoC.csproj">
+    <ProjectReference Include="..\..\Solid.Practices.IoC\portable\Solid.Practices.IoC.csproj">
       <Project>{3583B84F-B883-4DB5-BC23-25C90B4C1567}</Project>
       <Name>Solid.Practices.IoC</Name>
     </ProjectReference>
