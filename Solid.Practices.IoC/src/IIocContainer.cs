@@ -26,8 +26,23 @@ namespace Solid.Practices.IoC
         /// <summary>
         /// Registers dependency in a transient lifetime style.
         /// </summary>
+        /// <typeparam name="TService">Type of dependency declaration.</typeparam>
+        /// <typeparam name="TImplementation">Type of dependency implementation.</typeparam>
+        /// <param name="dependencyCreator">Dependency creator delegate.</param>
+        void RegisterTransient<TService, TImplementation>(Func<TImplementation> dependencyCreator) where TImplementation : class, TService;
+
+        /// <summary>
+        /// Registers dependency in a transient lifetime style.
+        /// </summary>
         /// <typeparam name="TService">Type of dependency.</typeparam>
         void RegisterTransient<TService>() where TService : class;
+
+        /// <summary>
+        /// Registers dependency in a transient lifetime style.
+        /// </summary>
+        /// <typeparam name="TService">Type of dependency.</typeparam>
+        /// <param name="dependencyCreator">Dependency creator delegate.</param>
+        void RegisterTransient<TService>(Func<TService> dependencyCreator) where TService : class;
 
         /// <summary>
         /// Registers dependency in a transient lifetime style.
@@ -35,6 +50,27 @@ namespace Solid.Practices.IoC
         /// <param name="serviceType">Type of dependency declaration.</param>
         /// <param name="implementationType">Type of dependency implementation.</param>
         void RegisterTransient(Type serviceType, Type implementationType);
+
+        /// <summary>
+        /// Registers dependency in a transient lifetime style.
+        /// </summary>
+        /// <param name="serviceType">Type of dependency declaration.</param>
+        /// <param name="implementationType">Type of dependency implementation.</param>
+        /// <param name="dependencyCreator">Dependency creator delegate.</param>
+        void RegisterTransient(Type serviceType, Type implementationType, Func<object> dependencyCreator);
+
+        /// <summary>
+        /// Registers dependency as a singleton.
+        /// </summary>
+        /// <typeparam name="TService">Type of dependency.</typeparam>
+        void RegisterSingleton<TService>() where TService : class;
+
+        /// <summary>
+        /// Registers dependency as a singleton.
+        /// </summary>
+        /// <typeparam name="TService">Type of dependency.</typeparam>
+        /// <param name="dependencyCreator">Dependency creator delegate.</param>
+        void RegisterSingleton<TService>(Func<TService> dependencyCreator) where TService : class;
 
         /// <summary>
         /// Registers dependency as a singleton.
@@ -46,9 +82,25 @@ namespace Solid.Practices.IoC
         /// <summary>
         /// Registers dependency as a singleton.
         /// </summary>
+        /// <typeparam name="TService">Type of dependency declaration.</typeparam>
+        /// <typeparam name="TImplementation">Type of dependency implementation.</typeparam>
+        /// <param name="dependencyCreator">Dependency creator delegate.</param>
+        void RegisterSingleton<TService, TImplementation>(Func<TImplementation> dependencyCreator) where TImplementation : class, TService;
+
+        /// <summary>
+        /// Registers dependency as a singleton.
+        /// </summary>
         /// <param name="serviceType">Type of dependency declaration.</param>
         /// <param name="implementationType">Type of dependency implementation.</param>        
         void RegisterSingleton(Type serviceType, Type implementationType);
+
+        /// <summary>
+        /// Registers dependency as a singleton.
+        /// </summary>
+        /// <param name="serviceType">Type of dependency declaration.</param>
+        /// <param name="implementationType">Type of dependency implementation.</param>
+        /// <param name="dependencyCreator">Dependency creator delegate.</param>      
+        void RegisterSingleton(Type serviceType, Type implementationType, Func<object> dependencyCreator);
 
         /// <summary>
         /// Registers an instance of dependency.
@@ -57,25 +109,13 @@ namespace Solid.Practices.IoC
         /// <param name="instance">Instance of dependency.</param>
         void RegisterInstance<TService>(TService instance) where TService : class;
 
+
         /// <summary>
         /// Registers an instance of dependency.
         /// </summary>
         /// <param name="dependencyType">Type of dependency.</param>
         /// <param name="instance">Instance of dependency.</param>
-        void RegisterInstance(Type dependencyType, object instance);
-
-        /// <summary>
-        /// Registers the dependency via the handler.
-        /// </summary>
-        /// <param name="dependencyType">Type of the dependency.</param>
-        /// <param name="handler">The handler.</param>
-        void RegisterHandler(Type dependencyType, Func<object> handler);
-
-        /// <summary>
-        /// Registers the dependency via the handler.
-        /// </summary>
-        /// <param name="handler">The handler.</param>
-        void RegisterHandler<TService>(Func<TService> handler) where TService : class;
+        void RegisterInstance(Type dependencyType, object instance);       
 
         /// <summary>
         /// Registers the collection of the dependencies.

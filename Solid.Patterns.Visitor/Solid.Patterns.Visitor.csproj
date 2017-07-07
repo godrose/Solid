@@ -26,11 +26,11 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\bin\Release\Patterns\</OutputPath>
+    <OutputPath>..\bin\portable\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\bin\Release\Patterns\Solid.Patterns.Visitor.XML</DocumentationFile>
+    <DocumentationFile>..\bin\portable\Release\Solid.Patterns.Visitor.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="IAcceptor.cs" />
