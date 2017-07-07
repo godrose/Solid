@@ -2,61 +2,67 @@
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
-    <MinimumVisualStudioVersion>12.0</MinimumVisualStudioVersion>
+    <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{68EBFE00-9410-41CC-A76B-09E528E1418B}</ProjectGuid>
+    <ProjectGuid>{0688E6E1-40E1-4625-B10B-E8F36F6D7690}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Solid.Practices.Composition.Client</RootNamespace>
-    <AssemblyName>Solid.Practices.Composition.Client.Platform</AssemblyName>
+    <RootNamespace>Solid.Practices.Composition.Contracts</RootNamespace>
+    <AssemblyName>Solid.Practices.Composition.Contracts</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <TargetFrameworkProfile>Profile32</TargetFrameworkProfile>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Profile111</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;NETFX_CORE;WINRT</DefineConstants>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\bin\winrt\Release\</OutputPath>
-    <DefineConstants>TRACE;NETFX_CORE;WINRT</DefineConstants>
+    <OutputPath>..\bin\portable\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\..\bin\winrt\Release\Solid.Practices.Composition.Client.Platform.XML</DocumentationFile>
+    <DocumentationFile>..\bin\portable\Release\Solid.Practices.Composition.Contracts.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <!-- A reference to the entire .NET Framework is automatically included -->
-    <ProjectReference Include="..\..\Solid.Practices.Composition.Contracts\portable\Solid.Practices.Composition.Contracts.csproj">
-      <Project>{0688e6e1-40e1-4625-b10b-e8f36f6d7690}</Project>
-      <Name>Solid.Practices.Composition.Contracts</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Solid.Practices.Composition\Solid.Practices.Composition.csproj">
-      <Project>{FA9056E5-FA5A-43A0-BB88-4CD9BC4537E6}</Project>
-      <Name>Solid.Practices.Composition</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <TargetPlatform Include="Windows, Version=8.1" />
-    <TargetPlatform Include="WindowsPhoneApp, Version=8.1" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="..\src\AssembliesResolver.cs">
-      <Link>AssembliesResolver.cs</Link>
+    <Compile Include="..\src\IAssembliesReadOnlyResolver.cs">
+      <Link>IAssembliesReadOnlyResolver.cs</Link>
     </Compile>
-    <Compile Include="..\src\ClientAssemblySourceProvider.cs">
-      <Link>ClientAssemblySourceProvider.cs</Link>
+    <Compile Include="..\src\IAssemblySourceProvider.cs">
+      <Link>IAssemblySourceProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\src\ICompositionContainer.cs">
+      <Link>ICompositionContainer.cs</Link>
+    </Compile>
+    <Compile Include="..\src\ICompositionManager.cs">
+      <Link>ICompositionManager.cs</Link>
+    </Compile>
+    <Compile Include="..\src\ICompositionModuleCreationStrategy.cs">
+      <Link>ICompositionModuleCreationStrategy.cs</Link>
+    </Compile>
+    <Compile Include="..\src\ICompositionModulesProvider.cs">
+      <Link>ICompositionModulesProvider.cs</Link>
+    </Compile>
+    <Compile Include="..\src\IPlatformProvider.cs">
+      <Link>IPlatformProvider.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Solid.Practices.Modularity\portable\Solid.Practices.Modularity.csproj">
+      <Project>{82BB5DF3-82AC-466D-BDDF-C65A9ECDB8A4}</Project>
+      <Name>Solid.Practices.Modularity</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

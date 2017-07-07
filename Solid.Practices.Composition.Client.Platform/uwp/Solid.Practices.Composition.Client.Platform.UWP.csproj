@@ -118,7 +118,7 @@
     <EmbeddedResource Include="Properties\Solid.Practices.Composition.Client.Platform.UWP.rd.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Solid.Practices.Composition.Contracts\Solid.Practices.Composition.Contracts.csproj">
+    <ProjectReference Include="..\..\Solid.Practices.Composition.Contracts\portable\Solid.Practices.Composition.Contracts.csproj">
       <Project>{0688E6E1-40E1-4625-B10B-E8F36F6D7690}</Project>
       <Name>Solid.Practices.Composition.Contracts</Name>
     </ProjectReference>
