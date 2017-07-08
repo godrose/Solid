@@ -51,10 +51,6 @@
       <Project>{43a281e6-5203-4d2b-94ca-558336d1b136}</Project>
       <Name>Solid.Practices.Composition.Contracts.NET45</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Solid.Practices.Composition\Solid.Practices.Composition.csproj">
-      <Project>{FA9056E5-FA5A-43A0-BB88-4CD9BC4537E6}</Project>
-      <Name>Solid.Practices.Composition</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

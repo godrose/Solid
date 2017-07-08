@@ -54,9 +54,9 @@
       <Project>{0688E6E1-40E1-4625-B10B-E8F36F6D7690}</Project>
       <Name>Solid.Practices.Composition.Contracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Solid.Practices.Composition\Solid.Practices.Composition.csproj">
-      <Project>{FA9056E5-FA5A-43A0-BB88-4CD9BC4537E6}</Project>
-      <Name>Solid.Practices.Composition</Name>
+    <ProjectReference Include="..\Solid.Practices.Composition\net45\Solid.Practices.Composition.NET45.csproj">
+      <Project>{C46D427D-580F-40AE-A429-7F3114673FAD}</Project>
+      <Name>Solid.Practices.Composition.NET45</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
