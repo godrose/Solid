@@ -26,11 +26,11 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\bin\portable\Release\</OutputPath>
+    <OutputPath>..\..\Bin\portable\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\bin\portable\Release\Solid.Practices.Modularity.XML</DocumentationFile>
+    <DocumentationFile>..\..\Bin\portable\Release\Solid.Practices.Modularity.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="..\src\ICompositionModule.cs">

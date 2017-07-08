@@ -28,11 +28,11 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\bin\winrt\Release\</OutputPath>
+    <OutputPath>..\..\Bin\winrt\Release\</OutputPath>
     <DefineConstants>TRACE;NETFX_CORE;WINRT</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\..\bin\winrt\Release\Solid.Practices.Composition.Platform.XML</DocumentationFile>
+    <DocumentationFile>..\..\Bin\winrt\Release\Solid.Practices.Composition.Platform.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="..\src\PlatformProvider.cs">

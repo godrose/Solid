@@ -25,11 +25,11 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\bin\net45\Release\</OutputPath>
+    <OutputPath>..\..\Bin\net45\Release\</OutputPath>
     <DefineConstants>TRACE;NET</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\..\bin\net45\Release\Solid.Practices.Composition.Client.Platform.XML</DocumentationFile>
+    <DocumentationFile>..\..\Bin\net45\Release\Solid.Practices.Composition.Client.Platform.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
