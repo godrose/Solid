@@ -6,6 +6,8 @@ before_build:
 build:
   verbosity: minimal
   
+image: Visual Studio 2017
+  
 notifications:
 - provider: Email
   to:
