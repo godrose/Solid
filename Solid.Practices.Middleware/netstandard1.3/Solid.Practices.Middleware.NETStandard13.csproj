@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.3</TargetFramework>
+    <AssemblyName>Solid.Practices.Middleware</AssemblyName>
+    <RootNamespace>Solid.Practices.Middleware</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\..\Bin\netstandard1.3\Release\</OutputPath>
+    <DocumentationFile>..\..\Bin\netstandard1.3\Release\netstandard1.3\Solid.Practices.Middleware.xml</DocumentationFile>
+    <DefineConstants>TRACE;RELEASE;NETSTANDARD1_3</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\src\IMiddleware.cs" Link="IMiddleware.cs" />
+    <Compile Include="..\src\MiddlewareApplier.cs" Link="MiddlewareApplier.cs" />
+  </ItemGroup>
+
+</Project>

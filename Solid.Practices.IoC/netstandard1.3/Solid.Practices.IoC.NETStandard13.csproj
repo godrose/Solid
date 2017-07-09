@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.3</TargetFramework>
+    <AssemblyName>Solid.Practices.IoC</AssemblyName>
+    <RootNamespace>Solid.Practices.IoC</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\..\Bin\netstandard1.3\Release\</OutputPath>
+    <DocumentationFile>..\..\Bin\netstandard1.3\Release\netstandard1.3\Solid.Practices.IoC.NETStandard13.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\src\IIocContainer.cs" Link="IIocContainer.cs" />
+  </ItemGroup>
+
+</Project>
