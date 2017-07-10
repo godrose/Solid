@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.3</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\..\Bin\netstandard1.3\Release\</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\src\SameThreadTaskScheduler.cs" Link="SameThreadTaskScheduler.cs" />
+    <Compile Include="..\src\TaskFactoryFactory.cs" Link="TaskFactoryFactory.cs" />
+    <Compile Include="..\src\TaskRunner.cs" Link="TaskRunner.cs" />
+    <Compile Include="..\src\TaskScheduler.cs" Link="TaskScheduler.cs" />
+  </ItemGroup>
+
+</Project>
