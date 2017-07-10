@@ -6,11 +6,12 @@
     <RootNamespace>Solid.Practices.IoC</RootNamespace>
     <AssemblyVersion>1.2.0</AssemblyVersion>
     <FileVersion>1.2.0</FileVersion>
+    <Version>1.2.0</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <OutputPath>..\..\Bin\netstandard1.3\Release\</OutputPath>
-    <DocumentationFile>..\..\Bin\netstandard1.3\Release\netstandard1.3\Solid.Practices.IoC.NETStandard13.xml</DocumentationFile>
+    <DocumentationFile>..\..\Bin\netstandard1.3\Release\netstandard1.3\Solid.Practices.IoC.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
