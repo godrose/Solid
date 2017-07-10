@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.3</TargetFramework>
+    <AssemblyName>Solid.Bootstrapping</AssemblyName>
+    <RootNamespace>Solid.Bootstrapping</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\..\Bin\netstandard1.3\Release\</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\src\IHaveContainer.cs" Link="IHaveContainer.cs" />
+    <Compile Include="..\src\IHaveContainerRegistrator.cs" Link="IHaveContainerRegistrator.cs" />
+    <Compile Include="..\src\IHaveContainerResolver.cs" Link="IHaveContainerResolver.cs" />
+    <Compile Include="..\src\IHaveRootObject.cs" Link="IHaveRootObject.cs" />
+    <Compile Include="..\src\IInitializable.cs" Link="IInitializable.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Solid.Practices.IoC\netstandard1.3\Solid.Practices.IoC.NETStandard13.csproj" />
+  </ItemGroup>
+
+</Project>

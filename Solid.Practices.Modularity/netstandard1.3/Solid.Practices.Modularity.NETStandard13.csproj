@@ -6,6 +6,10 @@
     <RootNamespace>Solid.Practices.Modularity</RootNamespace>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\..\Bin\netstandard1.3\Release\</OutputPath>
+  </PropertyGroup>
+
   <ItemGroup>
     <Compile Include="..\src\ICompositionModule.cs" Link="ICompositionModule.cs" />
     <Compile Include="..\src\RegistrationHelper.cs" Link="RegistrationHelper.cs" />
