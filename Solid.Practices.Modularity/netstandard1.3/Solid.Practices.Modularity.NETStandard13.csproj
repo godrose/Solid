@@ -4,6 +4,8 @@
     <TargetFramework>netstandard1.3</TargetFramework>
     <AssemblyName>Solid.Practices.Modularity</AssemblyName>
     <RootNamespace>Solid.Practices.Modularity</RootNamespace>
+    <AssemblyVersion>1.2.0</AssemblyVersion>
+    <FileVersion>1.2.0</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
