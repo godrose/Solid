@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.3</TargetFramework>
+    <AssemblyName>Solid.Practices.Modularity</AssemblyName>
+    <RootNamespace>Solid.Practices.Modularity</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\src\ICompositionModule.cs" Link="ICompositionModule.cs" />
+    <Compile Include="..\src\RegistrationHelper.cs" Link="RegistrationHelper.cs" />
+    <Compile Include="..\src\RegistrationMiddleware.cs" Link="RegistrationMiddleware.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Solid.Practices.IoC\netstandard1.3\Solid.Practices.IoC.NETStandard13.csproj" />
+    <ProjectReference Include="..\..\Solid.Practices.Middleware\netstandard1.3\Solid.Practices.Middleware.NETStandard13.csproj" />
+  </ItemGroup>
+
+</Project>
