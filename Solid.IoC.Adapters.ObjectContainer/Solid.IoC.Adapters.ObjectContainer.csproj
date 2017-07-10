@@ -54,9 +54,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Solid.Practices.IoC\portable\Solid.Practices.IoC.csproj">
-      <Project>{3583B84F-B883-4DB5-BC23-25C90B4C1567}</Project>
-      <Name>Solid.Practices.IoC</Name>
+    <ProjectReference Include="..\Solid.Practices.IoC\net45\Solid.Practices.IoC.NET45.csproj">
+      <Project>{B21B0993-B149-416B-B067-634177A0C3CA}</Project>
+      <Name>Solid.Practices.IoC.NET45</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

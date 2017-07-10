@@ -50,9 +50,9 @@
     <Compile Include="ServerAssemblySourceProvider.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Solid.Practices.Composition.Contracts\portable\Solid.Practices.Composition.Contracts.csproj">
-      <Project>{0688E6E1-40E1-4625-B10B-E8F36F6D7690}</Project>
-      <Name>Solid.Practices.Composition.Contracts</Name>
+    <ProjectReference Include="..\Solid.Practices.Composition.Contracts\net45\Solid.Practices.Composition.Contracts.NET45.csproj">
+      <Project>{43A281E6-5203-4D2B-94CA-558336D1B136}</Project>
+      <Name>Solid.Practices.Composition.Contracts.NET45</Name>
     </ProjectReference>
     <ProjectReference Include="..\Solid.Practices.Composition\net45\Solid.Practices.Composition.NET45.csproj">
       <Project>{C46D427D-580F-40AE-A429-7F3114673FAD}</Project>
