@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.3</TargetFramework>
+    <AssemblyName>Solid.Patterns.Builder</AssemblyName>
+    <RootNamespace>Solid.Patterns.Builder</RootNamespace>
+    <Version>1.2.0</Version>
+    <FileVersion>1.2.0</FileVersion>
+    <AssemblyVersion>1.2.0</AssemblyVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\..\Bin\netstandard1.3\Release</OutputPath>
+    <DocumentationFile>..\..\Bin\netstandard1.3\Release\netstandard1.3\Solid.Patterns.Builder.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\src\IBuilder.cs" Link="IBuilder.cs" />
+  </ItemGroup>
+
+</Project>
