@@ -5,7 +5,7 @@ namespace Solid.Bootstrapping
     /// <summary>
     /// Represents an application that has ioc container resolver (service locator).
     /// </summary>
-    public interface IHaveContainerResolver
+    public interface IHaveResolver
     {
         /// <summary>
         /// Gets the resolver.

@@ -5,7 +5,7 @@ namespace Solid.Bootstrapping
     /// <summary>
     /// Represents an application that has ioc container registrator.
     /// </summary>
-    public interface IHaveContainerRegistrator
+    public interface IHaveRegistrator
     {
         /// <summary>
         /// Gets the registrator.

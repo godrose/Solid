@@ -16,8 +16,8 @@
 
   <ItemGroup>
     <Compile Include="..\src\IHaveContainer.cs" Link="IHaveContainer.cs" />
-    <Compile Include="..\src\IHaveContainerRegistrator.cs" Link="IHaveContainerRegistrator.cs" />
-    <Compile Include="..\src\IHaveContainerResolver.cs" Link="IHaveContainerResolver.cs" />
+    <Compile Include="..\src\IHaveRegistrator.cs" Link="IHaveRegistrator.cs" />
+    <Compile Include="..\src\IHaveResolver.cs" Link="IHaveResolver.cs" />
     <Compile Include="..\src\IHaveRootObject.cs" Link="IHaveRootObject.cs" />
     <Compile Include="..\src\IInitializable.cs" Link="IInitializable.cs" />
   </ItemGroup>

@@ -43,11 +43,11 @@
     <Compile Include="..\src\IHaveContainer.cs">
       <Link>IHaveContainer.cs</Link>
     </Compile>
-    <Compile Include="..\src\IHaveContainerRegistrator.cs">
-      <Link>IHaveContainerRegistrator.cs</Link>
+    <Compile Include="..\src\IHaveRegistrator.cs">
+      <Link>IHaveRegistrator.cs</Link>
     </Compile>
-    <Compile Include="..\src\IHaveContainerResolver.cs">
-      <Link>IHaveContainerResolver.cs</Link>
+    <Compile Include="..\src\IHaveResolver.cs">
+      <Link>IHaveResolver.cs</Link>
     </Compile>
     <Compile Include="..\src\IHaveRootObject.cs">
       <Link>IHaveRootObject.cs</Link>
