@@ -7,10 +7,10 @@ using Solid.Practices.Middleware;
 namespace Solid.Practices.Modularity
 {
     /// <summary>
-    /// Middleware that's able to register composition modules into the container.
+    /// Middleware that's able to register composition modules into the IoC container.
     /// </summary>
-    /// <typeparam name="TIocContainer">The type of the ioc container.</typeparam>
-    /// <typeparam name="TContainerConstraint">The type of the container constraint.</typeparam>
+    /// <typeparam name="TIocContainer">The type of the IoC  container.</typeparam>
+    /// <typeparam name="TContainerConstraint">The type of the IoC container constraint.</typeparam>
     /// <seealso cref="Middleware.IMiddleware{TIocContainer}" />
     public class ContainerRegistrationMiddleware<TIocContainer, TContainerConstraint> : IMiddleware<TIocContainer>
         where TIocContainer : class, TContainerConstraint
@@ -46,9 +46,9 @@ namespace Solid.Practices.Modularity
     }
 
     /// <summary>
-    /// Middleware that's able to register plain composition modules into the container.
+    /// Middleware that's able to register plain composition modules into the IoC container.
     /// </summary>
-    /// <typeparam name="TIocContainer">The type of the ioc container.</typeparam>
+    /// <typeparam name="TIocContainer">The type of the IoC container.</typeparam>
     /// <seealso cref="Middleware.IMiddleware{TIocContainer}" />
     public class ContainerPlainRegistrationMiddleware<TIocContainer> : IMiddleware<TIocContainer> where TIocContainer : class
     {
@@ -79,13 +79,13 @@ namespace Solid.Practices.Modularity
     }
 
     /// <summary>
-    /// Middleware that's able to register scoped composition modules into the ioc container.
+    /// Middleware that's able to register scoped composition modules into the IoC container.
     /// </summary>
-    /// <typeparam name="TIocContainer">The type of the ioc container.</typeparam>
+    /// <typeparam name="TIocContainer">The type of the IoC container.</typeparam>
     /// <seealso />
     public class ContainerScopedRegistrationMiddleware<TIocContainer> :
         IMiddleware<TIocContainer>
-        where TIocContainer : class, IIocContainerScoped
+        where TIocContainer : class, IDependencyRegistratorScoped
     {
         private readonly IEnumerable<ICompositionModule> _modules;
         private readonly Func<object> _lifetimeScopeProvider;
@@ -93,7 +93,7 @@ namespace Solid.Practices.Modularity
         /// <summary>
         /// Initializes a new instance of the <see cref="ContainerScopedRegistrationMiddleware{TIocContainer}"/> class.
         /// </summary>
-        /// <param name="modules">The modules.</param>
+        /// <param name="modules">The modules collection.</param>
         /// <param name="lifetimeScopeProvider">The lifetime scope provider.</param>
         public ContainerScopedRegistrationMiddleware(
             IEnumerable<ICompositionModule> modules,
@@ -122,9 +122,9 @@ namespace Solid.Practices.Modularity
     }
 
     /// <summary>
-    /// Middleware that's able to register hierarchical composition modules into the ioc container.
+    /// Middleware that's able to register hierarchical composition modules into the IoC container.
     /// </summary>
-    /// <typeparam name="TIocContainer">The type of the ioc container.</typeparam>
+    /// <typeparam name="TIocContainer">The type of the IoC container.</typeparam>
     /// <seealso cref="Middleware.IMiddleware{TIocContainer}" />
     public class ContainerHierarchicalRegistrationMiddleware<TIocContainer> :
         IMiddleware<TIocContainer> where TIocContainer : class

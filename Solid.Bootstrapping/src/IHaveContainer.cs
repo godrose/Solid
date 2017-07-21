@@ -1,9 +1,9 @@
 namespace Solid.Bootstrapping
 {
     /// <summary>
-    /// Represents an application whose architecture includes ioc container.
+    /// Represents an application whose architecture includes IoC container.
     /// </summary>
-    /// <typeparam name="TIocContainer">The type of the ioc container.</typeparam>
+    /// <typeparam name="TIocContainer">The type of the IoC container.</typeparam>
     public interface IHaveContainer<TIocContainer>
     {
         /// <summary>
