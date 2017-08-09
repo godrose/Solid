@@ -118,13 +118,13 @@
     <EmbeddedResource Include="Properties\Solid.Practices.Composition.Client.Platform.UWP.rd.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Solid.Practices.Composition.Contracts\portable\Solid.Practices.Composition.Contracts.csproj">
-      <Project>{0688E6E1-40E1-4625-B10B-E8F36F6D7690}</Project>
-      <Name>Solid.Practices.Composition.Contracts</Name>
+    <ProjectReference Include="..\..\Solid.Practices.Composition.Contracts\netstandard1.3\Solid.Practices.Composition.Contracts.NETStandard13.csproj">
+      <Project>{e41e223a-6039-41d6-8008-e35b859e91aa}</Project>
+      <Name>Solid.Practices.Composition.Contracts.NETStandard13</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Solid.Practices.Composition\portable\Solid.Practices.Composition.csproj">
-      <Project>{fa9056e5-fa5a-43a0-bb88-4cd9bc4537e6}</Project>
-      <Name>Solid.Practices.Composition</Name>
+    <ProjectReference Include="..\..\Solid.Practices.Composition\netstandard1.3\Solid.Practices.Composition.NETStandard13.csproj">
+      <Project>{f846b8d6-7bbb-4e82-aebc-c91c66ca014b}</Project>
+      <Name>Solid.Practices.Composition.NETStandard13</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

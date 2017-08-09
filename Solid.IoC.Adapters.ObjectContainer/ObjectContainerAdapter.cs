@@ -238,11 +238,11 @@ namespace Solid.IoC.Adapters.ObjectContainer
         /// <summary>
         /// Resolves the specified service type.
         /// </summary>
-        /// <param name="serviceType">Type of the service.</param>
+        /// <param name="dependencyType">Type of the service.</param>
         /// <returns></returns>
-        public object Resolve(Type serviceType)
+        public object Resolve(Type dependencyType)
         {
-            return _objectContainer.Resolve(serviceType);
+            return _objectContainer.Resolve(dependencyType);
         }
 
         /// <summary>

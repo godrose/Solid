@@ -67,9 +67,9 @@
     <Compile Include="TestOneCustomModule.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Solid.Practices.Composition.Contracts\portable\Solid.Practices.Composition.Contracts.csproj">
-      <Project>{0688E6E1-40E1-4625-B10B-E8F36F6D7690}</Project>
-      <Name>Solid.Practices.Composition.Contracts</Name>
+    <ProjectReference Include="..\Solid.Practices.Composition.Contracts\net45\Solid.Practices.Composition.Contracts.NET45.csproj">
+      <Project>{43a281e6-5203-4d2b-94ca-558336d1b136}</Project>
+      <Name>Solid.Practices.Composition.Contracts.NET45</Name>
     </ProjectReference>
     <ProjectReference Include="..\Solid.Practices.Composition.Platform\net45\Solid.Practices.Composition.Platform.NET45.csproj">
       <Project>{705DFE80-50DD-453D-A515-DEDB877C8699}</Project>

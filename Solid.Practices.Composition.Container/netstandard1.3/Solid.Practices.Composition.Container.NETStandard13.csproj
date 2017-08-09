@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.3</TargetFramework>
+    <AssemblyName>Solid.Practices.Composition.Container</AssemblyName>
+    <RootNamespace>Solid.Practices.Composition.Container</RootNamespace>
+    <AssemblyVersion>1.2.0</AssemblyVersion>
+    <FileVersion>1.2.0</FileVersion>
+    <Version>1.2.0</Version>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\..\Bin\netstandard1.3\Release\</OutputPath>
+    <DocumentationFile>..\..\Bin\netstandard1.3\Release\netstandard1.3\Solid.Practices.Composition.Container.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\src\SimpleCompositionContainer.cs" Link="SimpleCompositionContainer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Solid.Practices.Composition.Contracts\netstandard1.3\Solid.Practices.Composition.Contracts.NETStandard13.csproj" />
+    <ProjectReference Include="..\..\Solid.Practices.Modularity\netstandard1.3\Solid.Practices.Modularity.NETStandard13.csproj" />
+  </ItemGroup>
+
+</Project>

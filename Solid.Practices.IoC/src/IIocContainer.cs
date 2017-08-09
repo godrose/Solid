@@ -4,196 +4,195 @@ using System.Collections.Generic;
 namespace Solid.Practices.IoC
 {
     /// <summary>
-    /// Represents Inversion-Of-Control container.
+    /// Represents an IoC (Inversion-Of-Control) container.
     /// </summary>
-    public interface IIocContainer : IIocContainerRegistrator, IIocContainerResolver, IDisposable
+    public interface IIocContainer : IDependencyRegistrator, IDependencyResolver, IDisposable
     {      
           
     }
 
     /// <summary>
-    /// Allows registering dependencies into the IoC container.
+    /// Represents an object that is capable of registering dependencies into an IoC container.
     /// </summary>
-    public interface IIocContainerRegistrator
+    public interface IDependencyRegistrator
     {
         /// <summary>
         /// Registers dependency in a transient lifetime style.
         /// </summary>
-        /// <typeparam name="TService">Type of dependency declaration.</typeparam>
-        /// <typeparam name="TImplementation">Type of dependency implementation.</typeparam>
-        void RegisterTransient<TService, TImplementation>() where TImplementation : class, TService;
+        /// <typeparam name="TDependency">The type of the dependency declaration.</typeparam>
+        /// <typeparam name="TImplementation">The type of the dependency implementation.</typeparam>
+        void RegisterTransient<TDependency, TImplementation>() where TImplementation : class, TDependency;
 
         /// <summary>
         /// Registers dependency in a transient lifetime style.
         /// </summary>
-        /// <typeparam name="TService">Type of dependency declaration.</typeparam>
-        /// <typeparam name="TImplementation">Type of dependency implementation.</typeparam>
+        /// <typeparam name="TDependency">The type of the dependency declaration.</typeparam>
+        /// <typeparam name="TImplementation">The type of the dependency implementation.</typeparam>
         /// <param name="dependencyCreator">Dependency creator delegate.</param>
-        void RegisterTransient<TService, TImplementation>(Func<TImplementation> dependencyCreator) where TImplementation : class, TService;
+        void RegisterTransient<TDependency, TImplementation>(Func<TImplementation> dependencyCreator) where TImplementation : class, TDependency;
 
         /// <summary>
         /// Registers dependency in a transient lifetime style.
         /// </summary>
-        /// <typeparam name="TService">Type of dependency.</typeparam>
-        void RegisterTransient<TService>() where TService : class;
+        /// <typeparam name="TDependency">The type of the dependency.</typeparam>
+        void RegisterTransient<TDependency>() where TDependency : class;
 
         /// <summary>
         /// Registers dependency in a transient lifetime style.
         /// </summary>
-        /// <typeparam name="TService">Type of dependency.</typeparam>
+        /// <typeparam name="TDependency">The type of the dependency.</typeparam>
         /// <param name="dependencyCreator">Dependency creator delegate.</param>
-        void RegisterTransient<TService>(Func<TService> dependencyCreator) where TService : class;
+        void RegisterTransient<TDependency>(Func<TDependency> dependencyCreator) where TDependency : class;
 
         /// <summary>
         /// Registers dependency in a transient lifetime style.
         /// </summary>
-        /// <param name="serviceType">Type of dependency declaration.</param>
-        /// <param name="implementationType">Type of dependency implementation.</param>
+        /// <param name="serviceType">The type of the dependency declaration.</param>
+        /// <param name="implementationType">The type of the dependency implementation.</param>
         void RegisterTransient(Type serviceType, Type implementationType);
 
         /// <summary>
         /// Registers dependency in a transient lifetime style.
         /// </summary>
-        /// <param name="serviceType">Type of dependency declaration.</param>
-        /// <param name="implementationType">Type of dependency implementation.</param>
+        /// <param name="serviceType">The type of the dependency declaration.</param>
+        /// <param name="implementationType">The type of the dependency implementation.</param>
         /// <param name="dependencyCreator">Dependency creator delegate.</param>
         void RegisterTransient(Type serviceType, Type implementationType, Func<object> dependencyCreator);
 
         /// <summary>
         /// Registers dependency as a singleton.
         /// </summary>
-        /// <typeparam name="TService">Type of dependency.</typeparam>
-        void RegisterSingleton<TService>() where TService : class;
+        /// <typeparam name="TDependency">The type of the dependency.</typeparam>
+        void RegisterSingleton<TDependency>() where TDependency : class;
 
         /// <summary>
         /// Registers dependency as a singleton.
         /// </summary>
-        /// <typeparam name="TService">Type of dependency.</typeparam>
+        /// <typeparam name="TDependency">The type of the dependency.</typeparam>
         /// <param name="dependencyCreator">Dependency creator delegate.</param>
-        void RegisterSingleton<TService>(Func<TService> dependencyCreator) where TService : class;
+        void RegisterSingleton<TDependency>(Func<TDependency> dependencyCreator) where TDependency : class;
 
         /// <summary>
         /// Registers dependency as a singleton.
         /// </summary>
-        /// <typeparam name="TService">Type of dependency declaration.</typeparam>
-        /// <typeparam name="TImplementation">Type of dependency implementation.</typeparam>
-        void RegisterSingleton<TService, TImplementation>() where TImplementation : class, TService;
+        /// <typeparam name="TDependency">The type of the dependency declaration.</typeparam>
+        /// <typeparam name="TImplementation">The type of the dependency implementation.</typeparam>
+        void RegisterSingleton<TDependency, TImplementation>() where TImplementation : class, TDependency;
 
         /// <summary>
         /// Registers dependency as a singleton.
         /// </summary>
-        /// <typeparam name="TService">Type of dependency declaration.</typeparam>
-        /// <typeparam name="TImplementation">Type of dependency implementation.</typeparam>
+        /// <typeparam name="TDependency">The type of the dependency declaration.</typeparam>
+        /// <typeparam name="TImplementation">The type of the dependency implementation.</typeparam>
         /// <param name="dependencyCreator">Dependency creator delegate.</param>
-        void RegisterSingleton<TService, TImplementation>(Func<TImplementation> dependencyCreator) where TImplementation : class, TService;
+        void RegisterSingleton<TDependency, TImplementation>(Func<TImplementation> dependencyCreator) where TImplementation : class, TDependency;
 
         /// <summary>
         /// Registers dependency as a singleton.
         /// </summary>
-        /// <param name="serviceType">Type of dependency declaration.</param>
-        /// <param name="implementationType">Type of dependency implementation.</param>        
+        /// <param name="serviceType">The type of the dependency declaration.</param>
+        /// <param name="implementationType">The type of the dependency implementation.</param>        
         void RegisterSingleton(Type serviceType, Type implementationType);
 
         /// <summary>
         /// Registers dependency as a singleton.
         /// </summary>
-        /// <param name="serviceType">Type of dependency declaration.</param>
-        /// <param name="implementationType">Type of dependency implementation.</param>
+        /// <param name="serviceType">The type of the dependency declaration.</param>
+        /// <param name="implementationType">The type of the dependency implementation.</param>
         /// <param name="dependencyCreator">Dependency creator delegate.</param>      
         void RegisterSingleton(Type serviceType, Type implementationType, Func<object> dependencyCreator);
 
         /// <summary>
-        /// Registers an instance of dependency.
+        /// Registers the instance of the dependency.
         /// </summary>
-        /// <typeparam name="TService">Type of dependency.</typeparam>
-        /// <param name="instance">Instance of dependency.</param>
-        void RegisterInstance<TService>(TService instance) where TService : class;
-
+        /// <typeparam name="TDependency">The type of the dependency.</typeparam>
+        /// <param name="instance">The instance of the dependency.</param>
+        void RegisterInstance<TDependency>(TDependency instance) where TDependency : class;
 
         /// <summary>
-        /// Registers an instance of dependency.
+        /// Registers the instance of the dependency.
         /// </summary>
-        /// <param name="dependencyType">Type of dependency.</param>
-        /// <param name="instance">Instance of dependency.</param>
+        /// <param name="dependencyType">The type of dependency.</param>
+        /// <param name="instance">The instance of dependency.</param>
         void RegisterInstance(Type dependencyType, object instance);       
 
         /// <summary>
         /// Registers the collection of the dependencies.
         /// </summary>
-        /// <typeparam name="TService">The type of the service.</typeparam>
+        /// <typeparam name="TDependency">The type of the dependency.</typeparam>
         /// <param name="dependencyTypes">The dependency types.</param>
-        void RegisterCollection<TService>(IEnumerable<Type> dependencyTypes) where TService : class;
+        void RegisterCollection<TDependency>(IEnumerable<Type> dependencyTypes) where TDependency : class;
 
         /// <summary>
         /// Registers the collection of the dependencies.
         /// </summary>
-        /// <typeparam name="TService">The type of the service.</typeparam>
+        /// <typeparam name="TDependency">The type of the dependency.</typeparam>
         /// <param name="dependencies">The dependencies.</param>
-        void RegisterCollection<TService>(IEnumerable<TService> dependencies) where TService : class;
+        void RegisterCollection<TDependency>(IEnumerable<TDependency> dependencies) where TDependency : class;
 
         /// <summary>
         /// Registers the collection of the dependencies.
         /// </summary>        
-        /// <param name="dependencyType">The dependency type.</param>
+        /// <param name="dependencyType">The type of the dependency.</param>
         /// <param name="dependencyTypes">The dependency types.</param>
         void RegisterCollection(Type dependencyType, IEnumerable<Type> dependencyTypes);
 
         /// <summary>
         /// Registers the collection of the dependencies.
         /// </summary>        
-        /// <param name="dependencyType">The dependency type.</param>
+        /// <param name="dependencyType">The type of the dependency.</param>
         /// <param name="dependencies">The dependencies.</param>
         void RegisterCollection(Type dependencyType, IEnumerable<object> dependencies);
     }
 
     /// <summary>
-    /// Represents object that is capable of resolving services from the IoC container.
+    /// Represents object that is capable of resolving dependencies from an IoC container.
     /// </summary>
-    public interface IIocContainerResolver
+    public interface IDependencyResolver
     {
         /// <summary>
-        /// Resolves an instance of service.
+        /// Resolves an instance of dependency.
         /// </summary>
-        /// <typeparam name="TService">The type of the service.</typeparam>
+        /// <typeparam name="TDependency">The type of the dependency.</typeparam>
         /// <returns></returns>
-        TService Resolve<TService>() where TService : class;
+        TDependency Resolve<TDependency>() where TDependency : class;
 
         /// <summary>
-        /// Resolves an instance of service according to the service type.
+        /// Resolves an instance of dependency according to the dependency type.
         /// </summary>
-        /// <param name="serviceType">The type of the service.</param>
+        /// <param name="dependencyType">The type of the dependency.</param>
         /// <returns></returns>
-        object Resolve(Type serviceType);
+        object Resolve(Type dependencyType);
     }
 
     /// <summary>
     /// Represents means of registering a dependency whose lifetime is bound
     /// to the lifetime of another object.
     /// </summary>
-    public interface IIocContainerScoped
+    public interface IDependencyRegistratorScoped
     {
         /// <summary>
         /// Registers the dependency per lifetime of another object.
         /// </summary>
         /// <param name="lifetimeProvider">The lifetime scope.</param>
-        /// <param name="service">The service.</param>
-        /// <param name="implementation">The implementation.</param>
-        void RegisterScoped(Func<object> lifetimeProvider, Type service, Type implementation);
+        /// <param name="dependencyContract">The type of the dependency declaration.</param>
+        /// <param name="dependencyImplementation">The type of the dependency implementation.</param>
+        void RegisterScoped(Func<object> lifetimeProvider, Type dependencyContract, Type dependencyImplementation);
 
         /// <summary>
         /// Registers the dependency per lifetime of another object.
         /// </summary>
-        /// <typeparam name="TService">The type of the service.</typeparam>
-        /// <typeparam name="TImplementation">The type of the implementation.</typeparam>
+        /// <typeparam name="TDependency">The type of the dependency declaration.</typeparam>
+        /// <typeparam name="TImplementation">The type of the dependency implementation.</typeparam>
         /// <param name="lifetimeProvider">The lifetime provider.</param>
-        void RegisterScoped<TService, TImplementation>(Func<object> lifetimeProvider);
+        void RegisterScoped<TDependency, TImplementation>(Func<object> lifetimeProvider);
 
         /// <summary>
         /// Registers the dependency per lifetime of another object.
         /// </summary>
-        /// <typeparam name="TService">The type of the service.</typeparam>
+        /// <typeparam name="TDependency">The type of the dependency.</typeparam>
         /// <param name="lifetimeProvider">The lifetime provider.</param>
-        void RegisterScoped<TService>(Func<object> lifetimeProvider);
+        void RegisterScoped<TDependency>(Func<object> lifetimeProvider);
     }
 
     /// <summary>
@@ -206,10 +205,10 @@ namespace Solid.Practices.IoC
     }
 
     /// <summary>
-    /// Represents an adapter to the concrete Inversion-Of-Control container.
+    /// Represents an adapter to the concrete IoC container.
     /// This is a marker interface.
     /// </summary>
-    /// <typeparam name="TContainer">The type of the concrete Inversion-Of-Control container.</typeparam>
+    /// <typeparam name="TContainer">The type of the concrete IoC container.</typeparam>
     public interface IIocContainerAdapter<TContainer> : IIocContainerAdapter
     {
         

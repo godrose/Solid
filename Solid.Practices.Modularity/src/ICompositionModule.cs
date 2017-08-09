@@ -25,16 +25,16 @@ namespace Solid.Practices.Modularity
     }
 
     /// <summary>
-    /// Represents a composition module, which may register dependencies into ioc container.
+    /// Represents a composition module, which may register dependencies into an IoC container.
     /// </summary>
-    /// <typeparam name="TIocContainer">The type of ioc container.</typeparam>
-    public interface ICompositionModule<in TIocContainer> : ICompositionModule        
+    /// <typeparam name="TDependencyRegistrator">The type of the dependency registrator.</typeparam>
+    public interface ICompositionModule<in TDependencyRegistrator> : ICompositionModule        
     {
         /// <summary>
-        /// Registers dependencies into the ioc container.
+        /// Registers dependencies.
         /// </summary>
-        /// <param name="iocContainer">The ioc container.</param>
-        void RegisterModule(TIocContainer iocContainer);
+        /// <param name="dependencyRegistrator">The dependency registrator.</param>
+        void RegisterModule(TDependencyRegistrator dependencyRegistrator);
     }    
 
     /// <summary>
@@ -56,25 +56,25 @@ namespace Solid.Practices.Modularity
     public interface IScopedCompositionModule : ICompositionModule
     {
         /// <summary>
-        /// Registers the dependencies into the ioc container.
+        /// Registers the dependencies.
         /// </summary>
-        /// <param name="iocContainer">The ioc container.</param>
+        /// <param name="dependencyRegistratorScoped">The scoped dependency registrator.</param>
         /// <param name="lifetimeScopeProvider">The lifetime scope provider.</param>
-        void RegisterModule(IIocContainerScoped iocContainer, Func<object> lifetimeScopeProvider);
+        void RegisterModule(IDependencyRegistratorScoped dependencyRegistratorScoped, Func<object> lifetimeScopeProvider);
     }
 
     /// <summary>
     /// Represents a composition module, which is able to
-    /// register collections of other modules into the ioc container.
+    /// register collections of other modules into the IoC container.
     /// </summary>
     /// <seealso cref="ICompositionModule" />
-    public interface IHierarchicalCompositionModule<in TIocContainer> : ICompositionModule        
+    public interface IHierarchicalCompositionModule<in TDependencyRegistrator> : ICompositionModule        
     {
         /// <summary>
-        /// Registers the modules into the ioc container.
+        /// Registers the modules.
         /// </summary>
-        /// <param name="iocContainer">The ioc container.</param>
-        /// <param name="modules">The modules.</param>
-        void RegisterModules(TIocContainer iocContainer, IEnumerable<ICompositionModule> modules);
+        /// <param name="dependencyRegistrator">The dependency registrator.</param>
+        /// <param name="modules">The modules collection.</param>
+        void RegisterModules(TDependencyRegistrator dependencyRegistrator, IEnumerable<ICompositionModule> modules);
     }    
 }
