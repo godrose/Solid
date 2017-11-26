@@ -3,9 +3,18 @@
 namespace Solid.Bootstrapping
 {
     /// <summary>
+    /// Represents an application whose architecture includes <see cref="IDependencyRegistrator"/> 
+    /// as the dependency registator abstraction.
+    /// </summary>
+    public interface IHaveRegistrator : IHaveRegistrator<IDependencyRegistrator>
+    {       
+    }
+
+    /// <summary>
     /// Represents an application whose architecture includes dependency registrator.
     /// </summary>
-    public interface IHaveRegistrator
+    /// <typeparam name="TDependencyRegistrator"></typeparam>
+    public interface IHaveRegistrator<TDependencyRegistrator>
     {
         /// <summary>
         /// Gets the registrator.
@@ -13,6 +22,6 @@ namespace Solid.Bootstrapping
         /// <value>
         /// The registrator.
         /// </value>
-        IDependencyRegistrator Registrator { get; }
+        TDependencyRegistrator Registrator { get; }
     }
 }
