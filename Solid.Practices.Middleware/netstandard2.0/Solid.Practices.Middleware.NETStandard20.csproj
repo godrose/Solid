@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>Solid.Practices.Middleware</AssemblyName>
+    <RootNamespace>Solid.Practices.Middleware</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\..\Bin\netstandard2.0\Release</OutputPath>
+    <DocumentationFile>..\..\Bin\netstandard2.0\Release\netstandard2.0\Solid.Practices.Middleware.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\src\IMiddleware.cs" Link="IMiddleware.cs" />
+    <Compile Include="..\src\MiddlewareApplier.cs" Link="MiddlewareApplier.cs" />
+  </ItemGroup>
+
+</Project>
