@@ -3,7 +3,7 @@
   
   <Identity Name="c02d45da-ef68-4729-918b-7edf7719cbce"
             Publisher="CN=Gena"
-            Version="1.0.0.0" />
+            Version="1.2.1.0" />
   
   <Properties>
     <DisplayName>Solid.Practices.Composition.WIN81.Tests</DisplayName>
