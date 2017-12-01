@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>Solid.Practices.Modularity</AssemblyName>
+    <RootNamespace>Solid.Practices.Modularity</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\..\Bin\netstandard2.0\Release</OutputPath>
+    <DocumentationFile>..\..\Bin\netstandard2.0\Release\netstandard2.0\Solid.Practices.Modularity.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\src\ICompositionModule.cs" Link="ICompositionModule.cs" />
+    <Compile Include="..\src\RegistrationHelper.cs" Link="RegistrationHelper.cs" />
+    <Compile Include="..\src\RegistrationMiddleware.cs" Link="RegistrationMiddleware.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Solid.Practices.IoC\netstandard2.0\Solid.Practices.IoC.NETStandard20.csproj" />
+    <ProjectReference Include="..\..\Solid.Practices.Middleware\netstandard2.0\Solid.Practices.Middleware.NETStandard20.csproj" />
+  </ItemGroup>
+
+</Project>
