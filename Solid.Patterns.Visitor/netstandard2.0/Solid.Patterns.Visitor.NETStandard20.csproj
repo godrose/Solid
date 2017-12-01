@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>Solid.Patterns.Visitor</AssemblyName>
+    <RootNamespace>Solid.Patterns.Visitor</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\..\Bin\netstandard2.0\Release</OutputPath>
+    <DocumentationFile>..\..\Bin\netstandard2.0\Release\netstandard2.0\Solid.Patterns.Visitor.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\src\IAcceptor.cs" Link="IAcceptor.cs" />
+    <Compile Include="..\src\IAcceptorWithParameters.cs" Link="IAcceptorWithParameters.cs" />
+    <Compile Include="..\src\IAcceptorWithParametersResult.cs" Link="IAcceptorWithParametersResult.cs" />
+  </ItemGroup>
+
+</Project>
