@@ -26,14 +26,14 @@ namespace Solid.Practices.Composition
     /// Default implementation of <see cref="IPlatformProvider"/>.
     /// </summary>
     /// <seealso cref="IPlatformProvider" />
-    public class DefaultPlatformProvider : IPlatformProvider
+    public class DefaultPlatformProvider : PlatformProviderBase
     {
         /// <summary>
         /// Gets the files at the specified path.
         /// </summary>
         /// <param name="path">The path.</param>
         /// <returns></returns>
-        public string[] GetFiles(string path)
+        public override string[] GetFiles(string path)
         {
             return new string[] {};
         }
@@ -44,7 +44,7 @@ namespace Solid.Practices.Composition
         /// <param name="path">The path.</param>
         /// <param name="searchPattern">The search pattern.</param>
         /// <returns></returns>
-        public string[] GetFiles(string path, string searchPattern)
+        public override string[] GetFiles(string path, string searchPattern)
         {
             return new string[] { };
         }
@@ -53,7 +53,7 @@ namespace Solid.Practices.Composition
         /// Gets the root directory.
         /// </summary>
         /// <returns></returns>
-        public string GetRootPath()
+        public override string GetRootPath()
         {
             return string.Empty;
         }
@@ -63,7 +63,7 @@ namespace Solid.Practices.Composition
         /// </summary>
         /// <param name="path">The path.</param>
         /// <param name="contents">The text.</param>
-        public void WriteText(string path, string contents)
+        public override void WriteText(string path, string contents)
         {
             
         }
@@ -74,7 +74,7 @@ namespace Solid.Practices.Composition
         /// <param name="path">The path.</param>
         /// <returns></returns>
         /// <exception cref="System.NotImplementedException"></exception>
-        public string ReadText(string path)
+        public override string ReadText(string path)
         {
             return string.Empty;
         }

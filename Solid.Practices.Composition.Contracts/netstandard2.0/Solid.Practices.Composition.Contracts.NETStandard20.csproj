@@ -21,6 +21,7 @@
     <Compile Include="..\src\ICompositionModuleCreationStrategy.cs" Link="ICompositionModuleCreationStrategy.cs" />
     <Compile Include="..\src\ICompositionModulesProvider.cs" Link="ICompositionModulesProvider.cs" />
     <Compile Include="..\src\IPlatformProvider.cs" Link="IPlatformProvider.cs" />
+    <Compile Include="..\src\PlatformProviderBase.cs" Link="PlatformProviderBase.cs" />
   </ItemGroup>
 
   <ItemGroup>

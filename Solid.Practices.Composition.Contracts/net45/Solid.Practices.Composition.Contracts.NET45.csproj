@@ -61,6 +61,9 @@
     <Compile Include="..\src\IPlatformProvider.cs">
       <Link>IPlatformProvider.cs</Link>
     </Compile>
+    <Compile Include="..\src\PlatformProviderBase.cs">
+      <Link>PlatformProviderBase.cs</Link>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

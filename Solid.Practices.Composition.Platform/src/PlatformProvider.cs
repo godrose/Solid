@@ -27,14 +27,14 @@ namespace Solid.Practices.Composition
 #if WINRT
         WinRTPlatformProvider
 #endif
-        : IPlatformProvider
+        : PlatformProviderBase
     {
         /// <summary>
         /// Gets the files at the specified path.
         /// </summary>
         /// <param name="path">The path.</param>
         /// <returns></returns>
-        public string[] GetFiles(string path)
+        public override string[] GetFiles(string path)
         {
 #if WINRT
             var taskResult = GetFilesInternal(path);
@@ -50,7 +50,7 @@ namespace Solid.Practices.Composition
         /// <param name="path">The path.</param>
         /// <param name="searchPattern">The search pattern.</param>
         /// <returns></returns>
-        public string[] GetFiles(string path, string searchPattern)
+        public override string[] GetFiles(string path, string searchPattern)
         {
 #if WINRT
             var taskResult = GetFilesInternal(path);
@@ -64,7 +64,7 @@ namespace Solid.Practices.Composition
         /// Gets the root path.
         /// </summary>
         /// <returns></returns>
-        public string GetRootPath()
+        public override string GetRootPath()
         {
 #if WINRT
             return Package.Current.InstalledLocation.Path;            
@@ -78,7 +78,7 @@ namespace Solid.Practices.Composition
         /// </summary>
         /// <param name="path">The path.</param>
         /// <param name="contents">The text.</param>        
-        public
+        public override
 #if WINRT
             async
 #endif
@@ -104,7 +104,7 @@ namespace Solid.Practices.Composition
         /// </summary>
         /// <param name="path">The path.</param>
         /// <returns></returns>        
-        public string ReadText(string path)
+        public override string ReadText(string path)
         {
 #if WINRT
             //support only current folder
