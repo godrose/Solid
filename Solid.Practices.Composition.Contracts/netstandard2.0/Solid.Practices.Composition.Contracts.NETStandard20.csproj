@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>Solid.Practices.Composition.Contracts</AssemblyName>
+    <RootNamespace>Solid.Practices.Composition.Contracts</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\..\Bin\netstandard2.0\Release</OutputPath>
+    <DocumentationFile>..\..\Bin\netstandard2.0\Release\netstandard2.0\Solid.Practices.Composition.Contracts.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\src\IAssembliesReadOnlyResolver.cs" Link="IAssembliesReadOnlyResolver.cs" />
+    <Compile Include="..\src\IAssemblySourceProvider.cs" Link="IAssemblySourceProvider.cs" />
+    <Compile Include="..\src\ICompositionContainer.cs" Link="ICompositionContainer.cs" />
+    <Compile Include="..\src\ICompositionManager.cs" Link="ICompositionManager.cs" />
+    <Compile Include="..\src\ICompositionModuleCreationStrategy.cs" Link="ICompositionModuleCreationStrategy.cs" />
+    <Compile Include="..\src\ICompositionModulesProvider.cs" Link="ICompositionModulesProvider.cs" />
+    <Compile Include="..\src\IPlatformProvider.cs" Link="IPlatformProvider.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Solid.Practices.Modularity\netstandard2.0\Solid.Practices.Modularity.NETStandard20.csproj" />
+  </ItemGroup>
+
+</Project>
