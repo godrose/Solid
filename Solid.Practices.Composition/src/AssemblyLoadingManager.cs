@@ -16,7 +16,7 @@ namespace Solid.Practices.Composition
         /// <summary>
         /// Calculates the list of server namespaces to be looked for during assembly discovery.
         /// </summary>
-        public static Func<IEnumerable<string>> ServerNamespaces = () => new[] { "Controllers"};
+        public static Func<IEnumerable<string>> ServerNamespaces = () => new[] { "Controllers", "Api"};
 
         /// <summary>
         /// Calculates the list of supported assembly extensions.

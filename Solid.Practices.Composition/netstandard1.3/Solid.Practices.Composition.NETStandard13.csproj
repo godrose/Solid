@@ -21,6 +21,7 @@
     <Compile Include="..\src\CompositionContainer.cs" Link="CompositionContainer.cs" />
     <Compile Include="..\src\CompositionManager.cs" Link="CompositionManager.cs" />
     <Compile Include="..\src\CompositionModuleCreationStrategy.cs" Link="CompositionModuleCreationStrategy.cs" />
+    <Compile Include="..\src\NetStandardPlatformProvider.cs" Link="NetStandardPlatformProvider.cs" />
     <Compile Include="..\src\PlatformProvider.cs" Link="PlatformProvider.cs" />
     <Compile Include="..\src\SafeAssemblyLoader.cs" Link="SafeAssemblyLoader.cs" />
   </ItemGroup>
