@@ -3,7 +3,10 @@ using Solid.Practices.Composition.Contracts;
 
 namespace Solid.Practices.Composition
 {
-    class NetStandardPlatformProvider : PlatformProviderBase
+    /// <summary>
+    /// Implementation of <see cref="IPlatformProvider"/> for .NETStandard
+    /// </summary>
+    public class NetStandardPlatformProvider : PlatformProviderBase
     {
         /// <summary>
         /// Gets the files at the specified path.
