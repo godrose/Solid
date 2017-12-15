@@ -127,6 +127,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solid.Practices.Composition
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solid.Practices.Composition.Client.NETStandard13", "Solid.Practices.Composition.Client\netstandard1.3\Solid.Practices.Composition.Client.NETStandard13.csproj", "{1BE48D63-0877-411B-AFFA-6AF106FE347D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solid.Practices.Composition.Client.NET45", "Solid.Practices.Composition.Client\net45\Solid.Practices.Composition.Client.NET45.csproj", "{F9623BC7-AD4D-424F-8822-EE8201061689}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -907,6 +909,22 @@ Global
 		{1BE48D63-0877-411B-AFFA-6AF106FE347D}.Release|x64.Build.0 = Release|Any CPU
 		{1BE48D63-0877-411B-AFFA-6AF106FE347D}.Release|x86.ActiveCfg = Release|Any CPU
 		{1BE48D63-0877-411B-AFFA-6AF106FE347D}.Release|x86.Build.0 = Release|Any CPU
+		{F9623BC7-AD4D-424F-8822-EE8201061689}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9623BC7-AD4D-424F-8822-EE8201061689}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9623BC7-AD4D-424F-8822-EE8201061689}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{F9623BC7-AD4D-424F-8822-EE8201061689}.Debug|ARM.Build.0 = Debug|Any CPU
+		{F9623BC7-AD4D-424F-8822-EE8201061689}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F9623BC7-AD4D-424F-8822-EE8201061689}.Debug|x64.Build.0 = Debug|Any CPU
+		{F9623BC7-AD4D-424F-8822-EE8201061689}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F9623BC7-AD4D-424F-8822-EE8201061689}.Debug|x86.Build.0 = Debug|Any CPU
+		{F9623BC7-AD4D-424F-8822-EE8201061689}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9623BC7-AD4D-424F-8822-EE8201061689}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9623BC7-AD4D-424F-8822-EE8201061689}.Release|ARM.ActiveCfg = Release|Any CPU
+		{F9623BC7-AD4D-424F-8822-EE8201061689}.Release|ARM.Build.0 = Release|Any CPU
+		{F9623BC7-AD4D-424F-8822-EE8201061689}.Release|x64.ActiveCfg = Release|Any CPU
+		{F9623BC7-AD4D-424F-8822-EE8201061689}.Release|x64.Build.0 = Release|Any CPU
+		{F9623BC7-AD4D-424F-8822-EE8201061689}.Release|x86.ActiveCfg = Release|Any CPU
+		{F9623BC7-AD4D-424F-8822-EE8201061689}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -972,6 +990,7 @@ Global
 		{9F589B39-4FEE-456B-AAF9-0DDE0C00A621} = {A9647145-00FC-4FC9-BFD8-8AC179BF4A36}
 		{AE27C060-00DE-4291-B567-47DA7732374E} = {A9647145-00FC-4FC9-BFD8-8AC179BF4A36}
 		{1BE48D63-0877-411B-AFFA-6AF106FE347D} = {A9647145-00FC-4FC9-BFD8-8AC179BF4A36}
+		{F9623BC7-AD4D-424F-8822-EE8201061689} = {A9647145-00FC-4FC9-BFD8-8AC179BF4A36}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DF34B008-79AB-4162-ADC9-E6F970571414}
