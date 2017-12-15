@@ -13,8 +13,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="..\..\Solid.Practices.Composition.Client.Platform\src\AssembliesResolver.cs" Link="AssembliesResolver.cs" />
-    <Compile Include="..\..\Solid.Practices.Composition.Client.Platform\src\ClientAssemblySourceProvider.cs" Link="ClientAssemblySourceProvider.cs" />
+    <Compile Include="..\src\AssembliesResolver.cs" Link="AssembliesResolver.cs" />
+    <Compile Include="..\src\ClientAssemblySourceProvider.cs" Link="ClientAssemblySourceProvider.cs" />
   </ItemGroup>
 
   <ItemGroup>
