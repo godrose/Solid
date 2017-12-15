@@ -4,6 +4,7 @@
     <TargetFramework>netstandard1.3</TargetFramework>
     <AssemblyName>Solid.Practices.Composition.Client</AssemblyName>
     <RootNamespace>Solid.Practices.Composition.Client</RootNamespace>
+    <Version>1.2.1</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
