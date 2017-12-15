@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Solid.IoC.Adapters.ObjectContainer</RootNamespace>
     <AssemblyName>Solid.IoC.Adapters.ObjectContainer</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -24,11 +25,11 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\Bin\net45\Release\</OutputPath>
+    <OutputPath>..\Bin\net461\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\Bin\net45\Release\Solid.IoC.Adapters.ObjectContainer.XML</DocumentationFile>
+    <DocumentationFile>..\Bin\net461\Release\Solid.IoC.Adapters.ObjectContainer.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -54,9 +55,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Solid.Practices.IoC\net45\Solid.Practices.IoC.NET45.csproj">
-      <Project>{B21B0993-B149-416B-B067-634177A0C3CA}</Project>
-      <Name>Solid.Practices.IoC.NET45</Name>
+    <ProjectReference Include="..\Solid.Practices.IoC\netstandard2.0\Solid.Practices.IoC.NETStandard20.csproj">
+      <Project>{e5fdbe1d-f374-4d7a-8b19-c0712aaec600}</Project>
+      <Name>Solid.Practices.IoC.NETStandard20</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

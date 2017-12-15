@@ -11,7 +11,7 @@ namespace Solid.Practices.Composition.Tests
     {
         static CompositionContainerTests()
         {
-            PlatformProvider.Current = new NetPlatformProvider();
+            PlatformProvider.Current = new NetStandardPlatformProvider();
         }
 
         [Fact]
