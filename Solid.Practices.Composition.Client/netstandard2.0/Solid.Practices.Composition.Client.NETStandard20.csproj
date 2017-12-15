@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>Solid.Practices.Composition.Client</AssemblyName>
+    <RootNamespace>Solid.Practices.Composition.Client</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\..\Bin\netstandard2.0\Release</OutputPath>
+    <DocumentationFile>..\..\Bin\netstandard2.0\Release\netstandard2.0\Solid.Practices.Composition.Client.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\Solid.Practices.Composition.Client.Platform\src\AssembliesResolver.cs" Link="AssembliesResolver.cs" />
+    <Compile Include="..\..\Solid.Practices.Composition.Client.Platform\src\ClientAssemblySourceProvider.cs" Link="ClientAssemblySourceProvider.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Solid.Practices.Composition.Contracts\netstandard2.0\Solid.Practices.Composition.Contracts.NETStandard20.csproj" />
+    <ProjectReference Include="..\..\Solid.Practices.Composition\netstandard2.0\Solid.Practices.Composition.NETStandard20.csproj" />
+  </ItemGroup>
+
+</Project>

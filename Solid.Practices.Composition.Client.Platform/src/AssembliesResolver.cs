@@ -31,11 +31,8 @@ namespace Solid.Practices.Composition.Client
         protected override IEnumerable<Assembly> GetRootAssemblies()
         {
             return Enumerable.Repeat(
-                _entryType
-#if NETFX_CORE
-                .GetTypeInfo()
-#endif
-                .Assembly, 1);
+                _entryType.GetTypeInfo()
+                    .Assembly, 1);
         }
     }
 }
