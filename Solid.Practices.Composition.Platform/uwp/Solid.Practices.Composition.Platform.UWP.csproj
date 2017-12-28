@@ -108,6 +108,7 @@
     <Compile Include="..\src\PlatformProvider.cs">
       <Link>PlatformProvider.cs</Link>
     </Compile>
+    <Compile Include="FileReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Solid.Practices.Composition.Platform.UWP.rd.xml" />
   </ItemGroup>

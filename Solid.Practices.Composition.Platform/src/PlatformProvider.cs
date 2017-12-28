@@ -69,12 +69,21 @@ namespace Solid.Practices.Composition
         /// <returns></returns>        
         public override string ReadText(string path)
         {
+#if WINDOWS_UWP
+            using (var fileReader = new FileReader())
+            {
+                fileReader.Read(path);
+                return fileReader.Contents;
+            }
+#else
+
             var fileStream = new FileStream(path, FileMode.Open);
             using (var textReader = new StreamReader(fileStream))
             {
                 var contents = textReader.ReadToEnd();
                 return contents;
             }
+#endif
         }
     }
 }
