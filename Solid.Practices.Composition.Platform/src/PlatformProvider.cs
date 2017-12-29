@@ -1,6 +1,4 @@
-﻿#if NET45 || WINDOWS_UWP
-using System.IO;
-#endif
+﻿using System.IO;
 using Solid.Practices.Composition.Contracts;
 
 namespace Solid.Practices.Composition
@@ -9,7 +7,7 @@ namespace Solid.Practices.Composition
     /// Platform-specific implementation of <see cref="IPlatformProvider"/>.
     /// </summary>    
     public class
-#if NET45
+#if NET
         NetPlatformProvider
 #endif
 #if WINDOWS_UWP
