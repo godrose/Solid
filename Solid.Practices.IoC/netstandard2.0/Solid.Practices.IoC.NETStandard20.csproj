@@ -14,6 +14,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="DependencyRegistratorExtensions.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\src\DependencyRegistratorExtensions.cs" Link="DependencyRegistratorExtensions.cs" />
     <Compile Include="..\src\IIocContainer.cs" Link="IIocContainer.cs" />
   </ItemGroup>
 
