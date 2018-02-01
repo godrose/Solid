@@ -100,13 +100,15 @@ namespace Solid.Practices.Composition.Tests
         private static CompositionContainer<TModule> CreateCompositionContainer<TModule>(string rootPath) 
             where TModule : ICompositionModule
         {
-            return new CompositionContainer<TModule>(CreateModuleCreationStrategy(), rootPath);
+            return new CompositionContainer<TModule>(CreateModuleCreationStrategy(),
+                new FileSystemBasedAssemblyLoadingStrategy(rootPath));
         }
 
         private static CompositionContainer<TModule> CreateCompositionContainer<TModule>(string rootPath, string[] prefixes)
             where TModule : ICompositionModule
         {
-            return new CompositionContainer<TModule>(CreateModuleCreationStrategy(), rootPath, prefixes);
+            return new CompositionContainer<TModule>(CreateModuleCreationStrategy(),
+                new FileSystemBasedAssemblyLoadingStrategy(rootPath, prefixes));
         }
 
         private static ICompositionModuleCreationStrategy CreateModuleCreationStrategy()

@@ -14,6 +14,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="AssemblyLoadingStrategy.cs" />
     <Compile Remove="NetStandardPlatformProvider.cs" />
     <Compile Remove="PlatformProviderBase.cs" />
   </ItemGroup>
@@ -21,6 +22,7 @@
   <ItemGroup>
     <Compile Include="..\src\AssembliesResolverBase.cs" Link="AssembliesResolverBase.cs" />
     <Compile Include="..\src\AssemblyLoadingManager.cs" Link="AssemblyLoadingManager.cs" />
+    <Compile Include="..\src\AssemblyLoadingStrategy.cs" Link="AssemblyLoadingStrategy.cs" />
     <Compile Include="..\src\AssemblySourceProviderBase.cs" Link="AssemblySourceProviderBase.cs" />
     <Compile Include="..\src\CompositionContainer.cs" Link="CompositionContainer.cs" />
     <Compile Include="..\src\CompositionManager.cs" Link="CompositionManager.cs" />

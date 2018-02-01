@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.Reflection;
 using Solid.Practices.Composition.Contracts;
 using Solid.Practices.IoC;
 using Solid.Practices.Modularity;
 
 namespace Solid.Practices.Composition
-{
+{    
     /// <summary>
     /// Allows initializing composition from the given path.
     /// </summary>
@@ -63,11 +64,27 @@ namespace Solid.Practices.Composition
         public void Initialize(string rootPath, string[] prefixes = null)
         {
             InitializeComposition(rootPath, prefixes);            
-        }       
+        }
+
+        /// <summary>
+        /// Initializes composition modules from the provided assemblies.
+        /// </summary>
+        /// <param name="assemblies"></param>
+        public void Initialize(IEnumerable<Assembly> assemblies)
+        {
+            InitializeComposition(assemblies);
+        }
+
+        private void InitializeComposition(IEnumerable<Assembly> assemblies)
+        {
+            CompositionContainer = new CompositionContainer(_compositionModuleCreationStrategy,
+                new PreloadedAssemblyLoadingStrategy(assemblies));
+            CompositionContainer.Compose();
+        }
 
         private void InitializeComposition(string rootPath, string[] prefixes = null)
         {            
-            CompositionContainer = new CompositionContainer(_compositionModuleCreationStrategy, rootPath, prefixes);
+            CompositionContainer = new CompositionContainer(_compositionModuleCreationStrategy, new FileSystemBasedAssemblyLoadingStrategy(rootPath, prefixes));
             CompositionContainer.Compose();
         }
     }

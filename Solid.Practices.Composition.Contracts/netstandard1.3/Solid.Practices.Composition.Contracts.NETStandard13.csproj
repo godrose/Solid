@@ -15,7 +15,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="IAssemblyLoadingStrategy.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Include="..\src\IAssembliesReadOnlyResolver.cs" Link="IAssembliesReadOnlyResolver.cs" />
+    <Compile Include="..\src\IAssemblyLoadingStrategy.cs" Link="IAssemblyLoadingStrategy.cs" />
     <Compile Include="..\src\IAssemblySourceProvider.cs" Link="IAssemblySourceProvider.cs" />
     <Compile Include="..\src\ICompositionContainer.cs" Link="ICompositionContainer.cs" />
     <Compile Include="..\src\ICompositionManager.cs" Link="ICompositionManager.cs" />
