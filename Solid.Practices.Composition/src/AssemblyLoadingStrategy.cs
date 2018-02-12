@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -16,7 +17,7 @@ namespace Solid.Practices.Composition
         /// <summary>
         /// Initializes a new instance of the <see cref="PreloadedAssemblyLoadingStrategy"/> class.
         /// </summary>
-        /// <param name="assemblies">The preloaded assemblies</param>
+        /// <param name="assemblies">The preloaded assemblies.</param>
         public PreloadedAssemblyLoadingStrategy(IEnumerable<Assembly> assemblies)
         {
             Assemblies = assemblies;
@@ -61,5 +62,28 @@ namespace Solid.Practices.Composition
                     .SelectMany(t => t)
                     .ToArray();
         }).SelectMany(k => k);
+    }
+
+    /// <summary>
+    /// Represents a type-based assembly loading strategy.
+    /// </summary>
+    public class TypeBasedAssemblyLoadingStrategy : IAssemblyLoadingStrategy
+    {
+        private readonly IEnumerable<Type> _types;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TypeBasedAssemblyLoadingStrategy"/> class.
+        /// </summary>
+        /// <param name="types">The types.</param>
+        public TypeBasedAssemblyLoadingStrategy(IEnumerable<Type> types)
+        {
+            _types = types;
+        }
+
+        /// <inheritdoc/>
+        public IEnumerable<Assembly> Load()
+        {
+            return _types.Select(t => t.GetTypeInfo().Assembly);
+        }
     }
 }
