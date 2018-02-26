@@ -18,9 +18,12 @@ namespace Solid.Practices.Composition
         /// Initializes a new instance of the <see cref="PreloadedAssemblyLoadingStrategy"/> class.
         /// </summary>
         /// <param name="assemblies">The preloaded assemblies.</param>
-        public PreloadedAssemblyLoadingStrategy(IEnumerable<Assembly> assemblies)
+        /// <param name="prefixes">Allowed prefixes; leave empty if all are allowed.</param>
+        public PreloadedAssemblyLoadingStrategy(
+            IEnumerable<Assembly> assemblies,
+            string[] prefixes = null)
         {
-            Assemblies = assemblies;
+            Assemblies = assemblies.FilterByPrefixes(prefixes).ToArray();
         }
 
         /// <inheritdoc />
@@ -70,20 +73,36 @@ namespace Solid.Practices.Composition
     public class TypeBasedAssemblyLoadingStrategy : IAssemblyLoadingStrategy
     {
         private readonly IEnumerable<Type> _types;
+        private readonly string[] _prefixes;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TypeBasedAssemblyLoadingStrategy"/> class.
         /// </summary>
         /// <param name="types">The types.</param>
-        public TypeBasedAssemblyLoadingStrategy(IEnumerable<Type> types)
+        /// <param name="prefixes">Allowed prefixes; leave empty if all are allowed.</param>
+        public TypeBasedAssemblyLoadingStrategy(
+            IEnumerable<Type> types,
+            string[] prefixes = null)
         {
             _types = types;
+            _prefixes = prefixes;
         }
 
         /// <inheritdoc/>
         public IEnumerable<Assembly> Load()
         {
-            return _types.Select(t => t.GetTypeInfo().Assembly);
+            var allAssemblies = _types.Select(t => t.GetTypeInfo().Assembly);
+            return allAssemblies.FilterByPrefixes(_prefixes).ToArray();            
+        }
+    }
+
+    internal static class AssembliesExtensions
+    {
+        internal static IEnumerable<Assembly> FilterByPrefixes(this IEnumerable<Assembly> assemblies, string[] prefixes)
+        {
+            return prefixes?.Length == 0
+                ? assemblies
+                : assemblies.Where(t => prefixes.Any(k => t.GetName().Name.StartsWith(k)));
         }
     }
 }
