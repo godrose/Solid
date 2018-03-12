@@ -5,6 +5,8 @@
     <AssemblyName>Solid.Practices.Composition.Client</AssemblyName>
     <RootNamespace>Solid.Practices.Composition.Client</RootNamespace>
     <Version>1.2.1</Version>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>Solid.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
