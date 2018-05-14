@@ -39,6 +39,8 @@ namespace Solid.Practices.Composition
 
             ICompositionContainer<TModule> innerContainer = new SimpleCompositionContainer<TModule>(
                 assemblies,
+                //TODO: Consider replacing with dependency injection for improved testability
+                new TypeInfoExtractionService(), 
                 _compositionModuleCreationStrategy);
             innerContainer.Compose();
             Modules = innerContainer.Modules;
