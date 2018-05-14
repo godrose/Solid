@@ -7,26 +7,55 @@ using Solid.Practices.Modularity;
 
 namespace Solid.Practices.Composition.Container
 {
+    /// <summary>
+    /// Represents means of extracting type info.
+    /// </summary>
     public interface ITypeInfoExtractionService
     {
+        /// <summary>
+        /// Gets the types that are defined in the assembly.
+        /// </summary>
+        /// <param name="assembly">The assembly to be queried for types.</param>
+        /// <returns></returns>
         IEnumerable<TypeInfo> GetTypes(Assembly assembly);
+        /// <summary>
+        /// Tests whethere the provided type qualifies as a composition module.
+        /// </summary>
+        /// <param name="type">The type to be tested.</param>
+        /// <param name="moduleType">The composition module type.</param>
+        /// <returns>True, if the type qualifies as a composition module; false otherwise.</returns>
         bool IsCompositionModule(TypeInfo type, Type moduleType);
+        /// <summary>
+        /// Converts the provided <see cref="TypeInfo"/> instance to <see cref="Type"/>
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
         Type ToType(TypeInfo type);
     }
 
+    /// <inheritdoc />    
     public class TypeInfoExtractionService : ITypeInfoExtractionService
     {
+        /// <inheritdoc />  
         public IEnumerable<TypeInfo> GetTypes(Assembly assembly) => assembly.DefinedTypes;
 
+        /// <inheritdoc />  
         public bool IsCompositionModule(TypeInfo type, Type moduleType) => type.IsClass && type.IsAbstract == false
                                                                            && type.ImplementedInterfaces.Contains(
                                                                                moduleType);
-
+        /// <inheritdoc />  
         public Type ToType(TypeInfo type) => type.AsType();
     }
 
+    /// <summary>
+    /// Represents an exception that is thrown during modules composition.
+    /// </summary>
     public class CompositionException : Exception
     {
+        /// <summary>
+        /// Creates a new instance of <see cref="CompositionException"/>
+        /// </summary>
+        /// <param name="message">The message.</param>
         public CompositionException(string message)
             :base(message)
         {
@@ -34,10 +63,21 @@ namespace Solid.Practices.Composition.Container
         }
     }
 
+    /// <summary>
+    /// Represents an exception that is thrown during assembly inspection
+    /// </summary>
     public class AssemblyInspectionException : Exception
     {
+        /// <summary>
+        /// The assembly whose inspection resulted in the exception.
+        /// </summary>
         public Assembly Assembly { get; }
 
+        /// <summary>
+        /// Creates an instance of <see cref="AssemblyInspectionException"/>
+        /// </summary>
+        /// <param name="assembly">The assembly.</param>
+        /// <param name="innerException">The inner exception.</param>
         public AssemblyInspectionException(Assembly assembly, Exception innerException)
             :base("Unable to load defined types", innerException)
         {
@@ -45,10 +85,20 @@ namespace Solid.Practices.Composition.Container
         }
     }
 
+    /// <summary>
+    /// Represents an exception that is thrown during modules' creation.
+    /// </summary>
     public class AggregateModuleCreationException : Exception
     {
+        /// <summary>
+        /// The collection modules' inner exceptions.
+        /// </summary>
         public ModuleCreationException[] InnerExceptions { get; }
 
+        /// <summary>
+        /// Creates an instance of <see cref="AggregateModuleCreationException"/>
+        /// </summary>
+        /// <param name="innerExceptions">The inner exceptions.</param>
         public AggregateModuleCreationException(ModuleCreationException[] innerExceptions)
             :base("Unable to create composition modules")
         {
@@ -56,10 +106,21 @@ namespace Solid.Practices.Composition.Container
         }
     }
 
+    /// <summary>
+    /// Represents an exception that is thrown during module creation.
+    /// </summary>
     public class ModuleCreationException : Exception
     {
+        /// <summary>
+        /// The module type.
+        /// </summary>
         public TypeInfo Type { get; }
 
+        /// <summary>
+        /// Creates an instance of <see cref="ModuleCreationException"/>
+        /// </summary>
+        /// <param name="type">The module type.</param>
+        /// <param name="innerException">The inner exception.</param>
         public ModuleCreationException(TypeInfo type, Exception innerException)
             :base("Unable to create module for the specified type", innerException)
         {
