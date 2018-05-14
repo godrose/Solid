@@ -63,6 +63,9 @@ namespace Solid.Practices.Composition.Container
         }
     }
 
+    /// <summary>
+    /// Represents an exception that is thrown during assemblies' inspection.
+    /// </summary>
     public class AggregateAssemblyInspectionException : Exception 
     {
         /// <summary>
