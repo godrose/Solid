@@ -22,7 +22,7 @@ namespace Solid.Practices.Composition.Container.NETStandard20.Tests
                 stubTypeInfoExtractionService, null);
             var exception = Record.Exception(() => container.Compose());
 
-            exception.Should().BeOfType<AssemblyInspectionException>().Which.Message.Should()
+            exception.Should().BeOfType<AggregateAssemblyInspectionException>().Which.InnerExceptions[0].Message.Should()
                 .Be("Unable to load defined types");
         }
 
@@ -51,10 +51,12 @@ namespace Solid.Practices.Composition.Container.NETStandard20.Tests
                 stubTypeInfoExtractionService, stubCompositionModuleCreationStrategy);
             var exception = Record.Exception(() => container.Compose());
 
-            exception.Should().BeOfType<AggregateModuleCreationException>().Which.Message.Should()
+            exception.Should().BeOfType<AggregateAssemblyInspectionException>().Which.InnerExceptions[0].Message.Should()
                 .Be("Unable to create composition modules");
-            exception.As<AggregateModuleCreationException>().InnerExceptions[0].Type.Should().Be(secondType);
-            exception.As<AggregateModuleCreationException>().InnerExceptions[0].Message.Should()
+            var moduleCreationException = exception.As<AggregateAssemblyInspectionException>().InnerExceptions[0]
+                .As<AggregateModuleCreationException>().InnerExceptions[0];
+            moduleCreationException.Type.Should().Be(secondType);
+            moduleCreationException.Message.Should()
                 .Be("Unable to create module for the specified type");
         }
     }

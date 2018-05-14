@@ -63,6 +63,24 @@ namespace Solid.Practices.Composition.Container
         }
     }
 
+    public class AggregateAssemblyInspectionException : Exception 
+    {
+        /// <summary>
+        /// The collection modules' inner exceptions.
+        /// </summary>
+        public Exception[] InnerExceptions { get; }
+
+        /// <summary>
+        /// Creates an instance of <see cref="AggregateAssemblyInspectionException"/>
+        /// </summary>
+        /// <param name="innerExceptions">The inner exceptions.</param>
+        public AggregateAssemblyInspectionException(Exception[] innerExceptions)
+            : base("Unable to load assemblies")
+        {
+            InnerExceptions = innerExceptions;
+        }
+    }    
+
     /// <summary>
     /// Represents an exception that is thrown during assembly inspection
     /// </summary>
@@ -175,15 +193,34 @@ namespace Solid.Practices.Composition.Container
         public void Compose()
         {
             Modules = new List<TModule>();
-            foreach (var assembly in _assemblies)
+            var innerExceptions = new List<Exception>();
+
+            try
             {
-                InspectAssembly(assembly);
+                foreach (var assembly in _assemblies)
+                {
+                    try
+                    {
+                        InspectAssembly(assembly);
+                    }
+                    catch (Exception e)
+                    {
+                        innerExceptions.Add(e);
+                    }
+                }               
             }            
+            catch (Exception e)
+            {
+                innerExceptions.Add(e);               
+            }
+            if (innerExceptions.Count > 0)
+            {
+                throw new AggregateAssemblyInspectionException(innerExceptions.ToArray());
+            }
         }
 
         private void InspectAssembly(Assembly assembly)
         {
-
             try
             {
                 var innerExceptions = new List<ModuleCreationException>();
@@ -212,14 +249,11 @@ namespace Solid.Practices.Composition.Container
             catch (AggregateModuleCreationException)
             {
                 throw;
-            }
-            //TODO: proper exception handling
+            }            
             catch (Exception ex)
-            {          
-                
+            {                          
                 throw new AssemblyInspectionException(assembly, ex);
             }            
-
         }
     }
 }
