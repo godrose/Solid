@@ -42,7 +42,15 @@ namespace Solid.Practices.Composition
                 //TODO: Consider replacing with dependency injection for improved testability
                 new TypeInfoExtractionService(), 
                 _compositionModuleCreationStrategy);
-            innerContainer.Compose();
+            try
+            {
+                innerContainer.Compose();
+            }
+            catch
+            {
+                Modules = innerContainer.Modules;
+                throw;
+            }
             Modules = innerContainer.Modules;
         }        
     }

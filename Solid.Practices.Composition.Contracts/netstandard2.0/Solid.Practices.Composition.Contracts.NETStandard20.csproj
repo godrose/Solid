@@ -13,6 +13,11 @@
     <DocumentationFile>..\..\Bin\netstandard2.0\Release\netstandard2.0\Solid.Practices.Composition.Contracts.xml</DocumentationFile>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
   <ItemGroup>
     <Compile Include="..\src\IAssembliesReadOnlyResolver.cs" Link="IAssembliesReadOnlyResolver.cs" />
     <Compile Include="..\src\IAssemblyLoadingStrategy.cs" Link="IAssemblyLoadingStrategy.cs" />
