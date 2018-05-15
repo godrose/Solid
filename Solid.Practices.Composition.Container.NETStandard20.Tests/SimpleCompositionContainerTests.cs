@@ -38,9 +38,7 @@ namespace Solid.Practices.Composition.Container.NETStandard20.Tests
             A.CallTo(() => stubTypeInfoExtractionService.IsCompositionModule(firstType, typeof(ICompositionModule)))
                 .Returns(true);
             A.CallTo(() => stubTypeInfoExtractionService.IsCompositionModule(secondType, typeof(ICompositionModule)))
-                .Returns(true);
-            A.CallTo(() => stubTypeInfoExtractionService.ToType(A<TypeInfo>._))
-                .ReturnsLazily(r => r.Arguments.First().As<TypeInfo>().AsType());
+                .Returns(true);           
             var stubCompositionModuleCreationStrategy = A.Fake<ICompositionModuleCreationStrategy>();
             A.CallTo(() => stubCompositionModuleCreationStrategy.CreateCompositionModule(firstType.AsType()))
                 .Returns(A.Fake<ICompositionModule>());

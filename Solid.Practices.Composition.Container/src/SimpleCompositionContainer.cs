@@ -24,13 +24,7 @@ namespace Solid.Practices.Composition.Container
         /// <param name="type">The type to be tested.</param>
         /// <param name="moduleType">The composition module type.</param>
         /// <returns>True, if the type qualifies as a composition module; false otherwise.</returns>
-        bool IsCompositionModule(TypeInfo type, Type moduleType);
-        /// <summary>
-        /// Converts the provided <see cref="TypeInfo"/> instance to <see cref="Type"/>
-        /// </summary>
-        /// <param name="type"></param>
-        /// <returns></returns>
-        Type ToType(TypeInfo type);
+        bool IsCompositionModule(TypeInfo type, Type moduleType);       
     }
 
     /// <inheritdoc />    
@@ -43,8 +37,6 @@ namespace Solid.Practices.Composition.Container
         public bool IsCompositionModule(TypeInfo type, Type moduleType) => type.IsClass && type.IsAbstract == false
                                                                            && type.ImplementedInterfaces.Contains(
                                                                                moduleType);
-        /// <inheritdoc />  
-        public Type ToType(TypeInfo type) => type.AsType();
     }
 
     /// <summary>
@@ -236,7 +228,7 @@ namespace Solid.Practices.Composition.Container
                         {
                             Modules.Add(
                                 (TModule) _compositionModuleCreationStrategy.CreateCompositionModule(
-                                    _typeInfoExtractionService.ToType(typeInfo)));
+                                    typeInfo.AsType()));
                         }
                     }
                     catch (Exception e)
