@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -8,14 +8,14 @@
     <FileVersion>1.2.1.0</FileVersion>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <OutputPath>..\..\Bin\netstandard2.0\Release</OutputPath>
-    <DocumentationFile>..\..\Bin\netstandard2.0\Release\netstandard2.0\Solid.Practices.IoC.xml</DocumentationFile>
+  <PropertyGroup>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="DependencyRegistratorExtensions.cs" />
-  </ItemGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\..\Bin\netstandard2.0\Release</OutputPath>
+    <DocumentationFile>..\..\Bin\netstandard2.0\Release\Solid.Practices.IoC.xml</DocumentationFile>
+  </PropertyGroup>  
 
   <ItemGroup>
     <Compile Include="..\src\DependencyRegistratorExtensions.cs" Link="DependencyRegistratorExtensions.cs" />

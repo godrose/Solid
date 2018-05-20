@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -7,9 +7,13 @@
     <AssemblyVersion>1.2.1.0</AssemblyVersion>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+  </PropertyGroup>
+
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <OutputPath>..\..\Bin\netstandard2.0\Release\</OutputPath>
-    <DocumentationFile>..\..\Bin\netstandard2.0\Release\netstandard2.0\Solid.Practices.Composition.Web.xml</DocumentationFile>
+    <DocumentationFile>..\..\Bin\netstandard2.0\Release\Solid.Practices.Composition.Web.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
