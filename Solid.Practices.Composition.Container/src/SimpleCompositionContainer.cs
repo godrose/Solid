@@ -84,17 +84,23 @@ namespace Solid.Practices.Composition.Container
         /// <summary>
         /// The assembly whose inspection resulted in the exception.
         /// </summary>
-        public Assembly Assembly { get; }
+        public string AssemblyName { get; }
 
         /// <summary>
         /// Creates an instance of <see cref="AssemblyInspectionException"/>
         /// </summary>
-        /// <param name="assembly">The assembly.</param>
+        /// <param name="assemblyName">The assembly.</param>
         /// <param name="innerException">The inner exception.</param>
-        public AssemblyInspectionException(Assembly assembly, Exception innerException)
+        public AssemblyInspectionException(string assemblyName, Exception innerException)
             :base("Unable to load defined types", innerException)
         {
-            Assembly = assembly;
+            AssemblyName = assemblyName;
+        }
+
+        /// <inheritdoc />
+        public override string ToString()
+        {
+            return $"{Message} for {AssemblyName}; Inner exception is: {InnerException}";
         }
     }
 
@@ -247,7 +253,7 @@ namespace Solid.Practices.Composition.Container
             }            
             catch (Exception ex)
             {                          
-                throw new AssemblyInspectionException(assembly, ex);
+                throw new AssemblyInspectionException(assembly.FullName, ex);
             }            
         }
     }
