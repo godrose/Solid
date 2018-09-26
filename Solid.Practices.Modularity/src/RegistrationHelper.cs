@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using Solid.Practices.IoC;
 
 namespace Solid.Practices.Modularity
@@ -12,7 +11,7 @@ namespace Solid.Practices.Modularity
     public class RegistrationHelper
     {
         /// <summary>
-        /// Registers collection of modules into the IoC container.
+        /// Registers collection of modules into the dependency registrator.
         /// </summary>
         /// <typeparam name="TModule">The type of the module.</typeparam>
         /// <param name="dependencyRegistrator">The dependency registrator.</param>
@@ -26,7 +25,7 @@ namespace Solid.Practices.Modularity
         }
 
         /// <summary>
-        /// Registers the modules into the IoC container.
+        /// Registers the modules into the dependency registrator.
         /// </summary>
         /// <param name="dependencyRegistrator">The dependency registrator.</param>
         /// <param name="contractType">The type of the contract.</param>
@@ -36,26 +35,7 @@ namespace Solid.Practices.Modularity
             Type contractType,
             IEnumerable<ICompositionModule> modules)
         {
-            RegisterCollection(dependencyRegistrator, contractType, modules.Select(t => t.GetType()));
-        }
-
-        /// <summary>
-        /// Registers the collection of types that implement the specified contract
-        /// into the IoC container.
-        /// </summary>
-        /// <param name="dependencyRegistrator">The dependency registrator.</param>
-        /// <param name="contractType">The type of the contract.</param>
-        /// <param name="types">The types.</param>
-        public static void RegisterCollection(
-            IDependencyRegistrator dependencyRegistrator,
-            Type contractType,
-            IEnumerable<Type> types)
-        {
-            var typeInfo = contractType.GetTypeInfo();
-            var serviceTypes = types.Select(t => t.GetTypeInfo()).Where(t =>
-                t.IsInterface == false && t.IsAbstract == false &&
-                typeInfo.IsAssignableFrom(t)).Select(t => t.AsType());
-            dependencyRegistrator.RegisterCollection(contractType, serviceTypes);
+            dependencyRegistrator.RegisterCollection(contractType, modules.Select(t => t.GetType()));            
         }
     }
 }

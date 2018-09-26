@@ -293,5 +293,24 @@ namespace Solid.Practices.IoC
             }
             return dependencyRegistrator;
         }
+
+        /// <summary>
+        /// Registers the collection of types that implement the specified contract
+        /// into the dependency registrator.
+        /// </summary>
+        /// <param name="dependencyRegistrator">The dependency registrator.</param>
+        /// <param name="contractType">The type of the contract.</param>
+        /// <param name="types">The types.</param>
+        public static void RegisterCollection(
+            IDependencyRegistrator dependencyRegistrator,
+            Type contractType,
+            IEnumerable<Type> types)
+        {
+            var typeInfo = contractType.GetTypeInfo();
+            var serviceTypes = types.Select(t => t.GetTypeInfo()).Where(t =>
+                t.IsInterface == false && t.IsAbstract == false &&
+                typeInfo.IsAssignableFrom(t)).Select(t => t.AsType());
+            dependencyRegistrator.RegisterCollection(contractType, serviceTypes);
+        }
     }
 }
