@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 
 namespace Solid.Practices.IoC
 {
@@ -235,6 +237,39 @@ namespace Solid.Practices.IoC
         public static IDependencyRegistrator AddCollection(this IDependencyRegistrator dependencyRegistrator, Type dependencyType, IEnumerable<object> dependencies)
         {
             dependencyRegistrator.RegisterCollection(dependencyType, dependencies);
+            return dependencyRegistrator;
+        }
+
+        /// <summary>
+        /// Registers types as their abstractions using singleton lifetime style
+        /// The assemblies are inspected using [IDependency]--[Dependency] naming convention
+        /// </summary>
+        /// <param name="dependencyRegistrator">The dependency registrator.</param>
+        /// <param name="contractsAssembly">The assembly which contains the contracts/abstractions</param>
+        /// <param name="implementationsAssembly">The assembly which contains the implementations.</param>
+        /// <returns></returns>
+        public static IDependencyRegistrator RegisterAutomagically(
+            this IDependencyRegistrator dependencyRegistrator,
+            Assembly contractsAssembly,
+            Assembly implementationsAssembly)
+        {
+            var contracts =
+                contractsAssembly.DefinedTypes.Where(t => t.IsInterface).Select(t => t.AsType()).ToArray();
+            var implementations =
+                implementationsAssembly.DefinedTypes.Where(
+                        t => t.IsInterface == false)
+                    .ToArray();
+            var contractsInfo = contracts.ToDictionary(t => t.Name, t => t);
+            var implementationsInfo = implementations.Where(t => t.Name.StartsWith("<>") == false)
+                .ToDictionary(t => t.Name, t => t);
+            foreach (var implementationInfo in implementationsInfo)
+            {
+                contractsInfo.TryGetValue("I" + implementationInfo.Key, out Type match);
+                if (match != null)
+                {
+                    dependencyRegistrator.RegisterSingleton(match, implementationInfo.Value.AsType());
+                }
+            }
             return dependencyRegistrator;
         }
     }
