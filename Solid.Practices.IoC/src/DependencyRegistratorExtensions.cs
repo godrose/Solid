@@ -253,6 +253,27 @@ namespace Solid.Practices.IoC
             Assembly contractsAssembly,
             Assembly implementationsAssembly)
         {
+            return dependencyRegistrator.RegisterAutomagically(
+                (d, serviceType, implementationType) => d.RegisterSingleton(serviceType, implementationType),
+                contractsAssembly, 
+                implementationsAssembly);
+        }
+
+        /// <summary>
+        /// Registers types as their abstractions using provided registration method
+        /// The assemblies are inspected using [IDependency]--[Dependency] naming convention
+        /// </summary>
+        /// <param name="dependencyRegistrator">The dependency registrator.</param>
+        /// <param name="registrationMethod">The registration method.</param>
+        /// <param name="contractsAssembly">The assembly which contains the contracts/abstractions.</param>
+        /// <param name="implementationsAssembly">The assembly which contains the implementations.</param>
+        /// <returns></returns>
+        public static TDependencyRegistrator RegisterAutomagically<TDependencyRegistrator>(
+            this TDependencyRegistrator dependencyRegistrator,
+            Action<TDependencyRegistrator, Type, Type> registrationMethod,
+            Assembly contractsAssembly,
+            Assembly implementationsAssembly)
+        {
             var contracts =
                 contractsAssembly.DefinedTypes.Where(t => t.IsInterface).Select(t => t.AsType()).ToArray();
             var implementations =
@@ -267,7 +288,7 @@ namespace Solid.Practices.IoC
                 contractsInfo.TryGetValue("I" + implementationInfo.Key, out Type match);
                 if (match != null)
                 {
-                    dependencyRegistrator.RegisterSingleton(match, implementationInfo.Value.AsType());
+                    registrationMethod.Invoke(dependencyRegistrator, match, implementationInfo.Value.AsType());
                 }
             }
             return dependencyRegistrator;
