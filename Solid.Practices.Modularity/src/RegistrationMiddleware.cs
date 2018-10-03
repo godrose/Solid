@@ -7,36 +7,48 @@ using Solid.Practices.Middleware;
 namespace Solid.Practices.Modularity
 {
     /// <summary>
+    /// Base class for regsitation middlewares with modules.
+    /// </summary>
+    public abstract class RegistrationMiddlewareBase
+    {
+        /// <summary>
+        /// The collection of modules
+        /// </summary>
+        protected readonly IEnumerable<ICompositionModule> Modules;
+
+        /// <summary>
+        /// Creates a new instance of <see cref="RegistrationMiddlewareBase"/>
+        /// </summary>
+        /// <param name="modules">The composition modules.</param>
+        protected RegistrationMiddlewareBase(IEnumerable<ICompositionModule> modules) => Modules = modules;
+    }
+
+    /// <summary>
     /// Middleware that's able to register composition modules into the IoC container.
     /// </summary>
     /// <typeparam name="TIocContainer">The type of the IoC  container.</typeparam>
     /// <typeparam name="TContainerConstraint">The type of the IoC container constraint.</typeparam>
     /// <seealso cref="Middleware.IMiddleware{TIocContainer}" />
-    public class ContainerRegistrationMiddleware<TIocContainer, TContainerConstraint> : IMiddleware<TIocContainer>
+    public class ContainerRegistrationMiddleware<TIocContainer, TContainerConstraint> :
+        RegistrationMiddlewareBase,
+        IMiddleware<TIocContainer>
         where TIocContainer : class, TContainerConstraint
     {
-        private readonly IEnumerable<ICompositionModule> _modules;
-
         /// <summary>
-        /// Initializes a new instance of the 
+        /// Creates a new instance of the 
         /// <see cref="ContainerRegistrationMiddleware{TIocContainer, TContainerConstraint}"/> class.
         /// </summary>
-        /// <param name="modules">The modules.</param>
-        public ContainerRegistrationMiddleware(IEnumerable<ICompositionModule> modules)
+        /// <param name="modules">The composition modules.</param>
+        public ContainerRegistrationMiddleware(IEnumerable<ICompositionModule> modules) : base(modules)
         {
-            _modules = modules;
         }
 
-        /// <summary>
-        /// Applies the middleware on the specified object.
-        /// </summary>        
-        /// <param name="object">The object.</param>
-        /// <returns></returns>
+        /// <inheritdoc />        
         public TIocContainer Apply(TIocContainer @object)
         {
-            if (_modules != null)
+            if (Modules != null)
             {
-                foreach (var compositionModule in _modules.OfType<ICompositionModule<TContainerConstraint>>())
+                foreach (var compositionModule in Modules.OfType<ICompositionModule<TContainerConstraint>>())
                 {
                     compositionModule.RegisterModule(@object);
                 }                
@@ -50,30 +62,28 @@ namespace Solid.Practices.Modularity
     /// </summary>
     /// <typeparam name="TIocContainer">The type of the IoC container.</typeparam>
     /// <seealso cref="Middleware.IMiddleware{TIocContainer}" />
-    public class ContainerPlainRegistrationMiddleware<TIocContainer> : IMiddleware<TIocContainer> where TIocContainer : class
-    {
-        private readonly IEnumerable<ICompositionModule> _modules;
-
+    public class ContainerPlainRegistrationMiddleware<TIocContainer> : 
+        RegistrationMiddlewareBase,
+        IMiddleware<TIocContainer> where TIocContainer : class
+    {        
         /// <summary>
-        /// Initializes a new instance of the <see cref="ContainerPlainRegistrationMiddleware{TIocContainer}"/> class.
+        /// Creates a new instance of the <see cref="ContainerPlainRegistrationMiddleware{TIocContainer}"/> class.
         /// </summary>
-        /// <param name="modules">The modules.</param>
-        public ContainerPlainRegistrationMiddleware(IEnumerable<ICompositionModule> modules)
+        /// <param name="modules">The composition modules.</param>
+        public ContainerPlainRegistrationMiddleware(IEnumerable<ICompositionModule> modules) : base(modules)
         {
-            _modules = modules;
         }
 
-        /// <summary>
-        /// Applies the middleware on the specified object.
-        /// </summary>        
-        /// <param name="object">The object.</param>
-        /// <returns></returns>
+        /// <inheritdoc />        
         public TIocContainer Apply(TIocContainer @object)
         {
-            foreach (var plainCompositionModule in _modules.OfType<IPlainCompositionModule>())
+            if (Modules != null)
             {
-                plainCompositionModule.RegisterModule();
-            }
+                foreach (var plainCompositionModule in Modules.OfType<IPlainCompositionModule>())
+                {
+                    plainCompositionModule.RegisterModule();
+                }
+            }            
             return @object;
         }
     }
@@ -84,35 +94,28 @@ namespace Solid.Practices.Modularity
     /// <typeparam name="TIocContainer">The type of the IoC container.</typeparam>
     /// <seealso />
     public class ContainerScopedRegistrationMiddleware<TIocContainer> :
+        RegistrationMiddlewareBase,
         IMiddleware<TIocContainer>
         where TIocContainer : class, IDependencyRegistratorScoped
-    {
-        private readonly IEnumerable<ICompositionModule> _modules;
+    {        
         private readonly Func<object> _lifetimeScopeProvider;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ContainerScopedRegistrationMiddleware{TIocContainer}"/> class.
+        /// Creates a new instance of the <see cref="ContainerScopedRegistrationMiddleware{TIocContainer}"/> class.
         /// </summary>
-        /// <param name="modules">The modules collection.</param>
+        /// <param name="modules">The composition modules.</param>
         /// <param name="lifetimeScopeProvider">The lifetime scope provider.</param>
         public ContainerScopedRegistrationMiddleware(
             IEnumerable<ICompositionModule> modules,
             Func<object> lifetimeScopeProvider)
-        {
-            _modules = modules;
-            _lifetimeScopeProvider = lifetimeScopeProvider;
-        }
+            :base(modules) => _lifetimeScopeProvider = lifetimeScopeProvider;
 
-        /// <summary>
-        /// Applies the middleware on the specified object.
-        /// </summary>
-        /// <param name="object">The object.</param>
-        /// <returns></returns>
+        /// <inheritdoc />        
         public TIocContainer Apply(TIocContainer @object)
         {
-            if (_modules != null)
+            if (Modules != null)
             {
-                foreach (var scopedModule in _modules.OfType<IScopedCompositionModule>())
+                foreach (var scopedModule in Modules.OfType<IScopedCompositionModule>())
                 {
                     scopedModule.RegisterModule(@object, _lifetimeScopeProvider);
                 }
@@ -127,31 +130,28 @@ namespace Solid.Practices.Modularity
     /// <typeparam name="TIocContainer">The type of the IoC container.</typeparam>
     /// <seealso cref="Middleware.IMiddleware{TIocContainer}" />
     public class ContainerHierarchicalRegistrationMiddleware<TIocContainer> :
+        RegistrationMiddlewareBase,
         IMiddleware<TIocContainer> where TIocContainer : class
-    {
-        private readonly IEnumerable<ICompositionModule> _modules;
+    {        
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ContainerHierarchicalRegistrationMiddleware{TIocContainer}"/> class.
+        /// Creates a new instance of the <see cref="ContainerHierarchicalRegistrationMiddleware{TIocContainer}"/> class.
         /// </summary>
-        /// <param name="modules">The modules.</param>
-        public ContainerHierarchicalRegistrationMiddleware(IEnumerable<ICompositionModule> modules)
+        /// <param name="modules">The composition modules.</param>
+        public ContainerHierarchicalRegistrationMiddleware(IEnumerable<ICompositionModule> modules) : base(modules)
         {
-            _modules = modules;
         }
 
-        /// <summary>
-        /// Applies the middleware on the specified object.
-        /// </summary>        
-        /// <param name="object">The object.</param>
-        /// <returns></returns>
+        /// <inheritdoc />        
         public TIocContainer Apply(TIocContainer @object)
         {
-            var hierarchicalModules = _modules.OfType<IHierarchicalCompositionModule<TIocContainer>>();
-            foreach (var hierarchicalModule in hierarchicalModules)
+            if (Modules != null)
             {
-                hierarchicalModule.RegisterModules(@object, _modules);
-            }
+                foreach (var hierarchicalModule in Modules.OfType<IHierarchicalCompositionModule<TIocContainer>>())
+                {
+                    hierarchicalModule.RegisterModules(@object, Modules);
+                }
+            }                        
             return @object;
         }
     }

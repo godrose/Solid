@@ -16,16 +16,11 @@ namespace Solid.Practices.Middleware
         /// <param name="middlewares">The middlewares.</param>
         public static void ApplyMiddlewares<T>(
             T @object,
-            IEnumerable<IMiddleware<T>> middlewares) where T : class
-        {
-            ApplyMiddlewaresInternal(@object, middlewares);
-        }
+            IEnumerable<IMiddleware<T>> middlewares) where T : class => ApplyMiddlewaresInternal(@object, middlewares);
 
-        static void ApplyMiddlewaresInternal<T>
-            (T @object,
-                IEnumerable<IMiddleware<T>> middlewares) where T : class
-        {
+        private static void ApplyMiddlewaresInternal<T>
+        (T @object,
+            IEnumerable<IMiddleware<T>> middlewares) where T : class =>
             middlewares.Aggregate(@object, (current, middleware) => middleware.Apply(current));
-        }
     }
 }
