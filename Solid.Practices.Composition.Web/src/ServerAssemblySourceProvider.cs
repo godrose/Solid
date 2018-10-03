@@ -16,13 +16,7 @@ namespace Solid.Practices.Composition.Web
         {
         }
 
-        /// <summary>
-        /// Returns the list of namespaces to be looked for during assembly discovery.
-        /// </summary>
-        /// <returns></returns>
-        protected override string[] ResolveNamespaces()
-        {
-            return AssemblyLoadingManager.ServerNamespaces().ToArray();
-        }
+        /// <inheritdoc />        
+        protected override string[] ResolveNamespaces() => AssemblyLoadingManager.ServerNamespaces().ToArray();
     }
 }

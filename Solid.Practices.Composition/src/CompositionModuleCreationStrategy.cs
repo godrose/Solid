@@ -15,10 +15,7 @@ namespace Solid.Practices.Composition
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
-        public object CreateCompositionModule(Type type)
-        {
-            return Activator.CreateInstance(type);
-        }
+        public object CreateCompositionModule(Type type) => Activator.CreateInstance(type);
     }
 
     /// <summary>
@@ -33,10 +30,7 @@ namespace Solid.Practices.Composition
         /// Initializes a new instance of the <see cref="ContainerResolutionStrategy"/> class.
         /// </summary>
         /// <param name="iocContainer">The ioc container.</param>
-        public ContainerResolutionStrategy(IIocContainer iocContainer)
-        {
-            _iocContainer = iocContainer;
-        }
+        public ContainerResolutionStrategy(IIocContainer iocContainer) => _iocContainer = iocContainer;
 
         /// <summary>
         /// Creates composition module from its type.

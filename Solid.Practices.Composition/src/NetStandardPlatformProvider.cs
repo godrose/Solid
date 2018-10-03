@@ -13,10 +13,7 @@ namespace Solid.Practices.Composition
         /// </summary>
         /// <param name="path">The path.</param>
         /// <returns></returns>
-        public override string[] GetFiles(string path)
-        {
-            return Directory.GetFiles(path);
-        }
+        public override string[] GetFiles(string path) => Directory.GetFiles(path);
 
         /// <summary>
         /// Gets the files at the specified path, using provided search pattern.
@@ -24,19 +21,13 @@ namespace Solid.Practices.Composition
         /// <param name="path">The path.</param>
         /// <param name="searchPattern">The search pattern.</param>
         /// <returns></returns>
-        public override string[] GetFiles(string path, string searchPattern)
-        {
-            return Directory.GetFiles(path, searchPattern);
-        }
+        public override string[] GetFiles(string path, string searchPattern) => Directory.GetFiles(path, searchPattern);
 
         /// <summary>
         /// Gets the root path.
         /// </summary>
         /// <returns></returns>
-        public override string GetRootPath()
-        {
-            return Directory.GetCurrentDirectory();
-        }
+        public override string GetRootPath() => Directory.GetCurrentDirectory();
 
         /// <summary>
         /// Writes the specified text into the resource identified by the specified path.

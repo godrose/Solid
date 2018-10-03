@@ -11,14 +11,12 @@ namespace Solid.Practices.Composition
     public abstract class AssembliesResolverBase : IAssembliesReadOnlyResolver
     {
         private readonly IAssemblySourceProvider _assemblySourceProvider;
-                
+
         /// <summary>
         /// Initializes a new instance of the <see cref="AssembliesResolverBase"/> class.
         /// </summary>
-        protected AssembliesResolverBase(IAssemblySourceProvider assemblySourceProvider)
-        {
-            _assemblySourceProvider = assemblySourceProvider;            
-        }
+        protected AssembliesResolverBase(IAssemblySourceProvider assemblySourceProvider) =>
+            _assemblySourceProvider = assemblySourceProvider;
 
         /// <summary>
         /// Override this method to retrieve platform-specific root assemblies.

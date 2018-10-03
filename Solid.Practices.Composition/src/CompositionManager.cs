@@ -5,7 +5,7 @@ using Solid.Practices.IoC;
 using Solid.Practices.Modularity;
 
 namespace Solid.Practices.Composition
-{    
+{
     /// <summary>
     /// Allows initializing composition from the given path.
     /// </summary>
@@ -19,9 +19,9 @@ namespace Solid.Practices.Composition
         public class WithIocResolution : CompositionManager
         {
             public WithIocResolution(IIocContainer iocContainer)
-                :base(new ContainerResolutionStrategy(iocContainer))
+                : base(new ContainerResolutionStrategy(iocContainer))
             {
-                
+
             }
         }
 
@@ -31,29 +31,30 @@ namespace Solid.Practices.Composition
         /// Initializes a new instance of the <see cref="CompositionManager"/> class.
         /// </summary>
         public CompositionManager()
-            :this(new ActivatorCreationStrategy())
+            : this(new ActivatorCreationStrategy())
         {
-            
+
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CompositionManager"/> class.
         /// </summary>
         /// <param name="compositionModuleCreationStrategy">The module creation strategy.</param>
-        protected internal CompositionManager(ICompositionModuleCreationStrategy compositionModuleCreationStrategy)
-        {
+        protected internal CompositionManager(ICompositionModuleCreationStrategy compositionModuleCreationStrategy) =>
             _compositionModuleCreationStrategy = compositionModuleCreationStrategy;
-        }
 
         /// <summary>
         /// The composition container.
         /// </summary>
-        protected ICompositionContainer CompositionContainer;        
+        protected ICompositionContainer CompositionContainer;
 
         /// <summary>
         /// Collection of composition modules.
         /// </summary>
-        public IEnumerable<ICompositionModule> Modules { get { return CompositionContainer.Modules; } }
+        public IEnumerable<ICompositionModule> Modules
+        {
+            get { return CompositionContainer.Modules; }
+        }
 
         /// <summary>
         /// Initializes composition modules from the provided path.
@@ -61,19 +62,13 @@ namespace Solid.Practices.Composition
         /// <param name="rootPath">Root path.</param>
         /// <param name="prefixes">Optional file name prefixes; 
         /// used for filtering potential assembly candidates.</param>
-        public void Initialize(string rootPath, string[] prefixes = null)
-        {
-            InitializeComposition(rootPath, prefixes);            
-        }
+        public void Initialize(string rootPath, string[] prefixes = null) => InitializeComposition(rootPath, prefixes);
 
         /// <summary>
         /// Initializes composition modules from the provided assemblies.
         /// </summary>
         /// <param name="assemblies"></param>
-        public void Initialize(IEnumerable<Assembly> assemblies)
-        {
-            InitializeComposition(assemblies);
-        }
+        public void Initialize(IEnumerable<Assembly> assemblies) => InitializeComposition(assemblies);
 
         private void InitializeComposition(IEnumerable<Assembly> assemblies)
         {
@@ -83,8 +78,9 @@ namespace Solid.Practices.Composition
         }
 
         private void InitializeComposition(string rootPath, string[] prefixes = null)
-        {            
-            CompositionContainer = new CompositionContainer(_compositionModuleCreationStrategy, new FileSystemBasedAssemblyLoadingStrategy(rootPath, prefixes));
+        {
+            CompositionContainer = new CompositionContainer(_compositionModuleCreationStrategy,
+                new FileSystemBasedAssemblyLoadingStrategy(rootPath, prefixes));
             CompositionContainer.Compose();
         }
     }

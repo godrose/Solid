@@ -7,19 +7,13 @@ namespace Solid.Practices.Composition
     /// </summary>
     public class PlatformProvider
     {
-        private static IPlatformProvider _current = new DefaultPlatformProvider();
-
         /// <summary>
         /// Gets or sets the current value for platform provider.
         /// </summary>
         /// <value>
         /// The current.
         /// </value>
-        public static IPlatformProvider Current
-        {
-            get { return _current; }
-            set { _current = value; }
-        }
+        public static IPlatformProvider Current { get; set; } = new DefaultPlatformProvider();
     }
 
     /// <summary>
@@ -33,10 +27,7 @@ namespace Solid.Practices.Composition
         /// </summary>
         /// <param name="path">The path.</param>
         /// <returns></returns>
-        public override string[] GetFiles(string path)
-        {
-            return new string[] {};
-        }
+        public override string[] GetFiles(string path) => new string[] {};
 
         /// <summary>
         /// Gets the files at the specified path, using provided search pattern.
@@ -44,19 +35,13 @@ namespace Solid.Practices.Composition
         /// <param name="path">The path.</param>
         /// <param name="searchPattern">The search pattern.</param>
         /// <returns></returns>
-        public override string[] GetFiles(string path, string searchPattern)
-        {
-            return new string[] { };
-        }
+        public override string[] GetFiles(string path, string searchPattern) => new string[] { };
 
         /// <summary>
         /// Gets the root directory.
         /// </summary>
         /// <returns></returns>
-        public override string GetRootPath()
-        {
-            return string.Empty;
-        }
+        public override string GetRootPath() => string.Empty;
 
         /// <summary>
         /// Writes the specified text into the resource identified by the specified path.
@@ -74,9 +59,6 @@ namespace Solid.Practices.Composition
         /// <param name="path">The path.</param>
         /// <returns></returns>
         /// <exception cref="System.NotImplementedException"></exception>
-        public override string ReadText(string path)
-        {
-            return string.Empty;
-        }
+        public override string ReadText(string path) => string.Empty;
     }
 }

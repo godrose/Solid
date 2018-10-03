@@ -19,12 +19,10 @@ namespace Solid.Practices.Composition
         /// Initializes a new instance of the <see cref="AssemblySourceProviderBase"/> class.
         /// </summary>
         /// <param name="rootPath">The root path.</param>
-        protected AssemblySourceProviderBase(string rootPath)
-        {
-            _rootPath = rootPath;
-        }
+        protected AssemblySourceProviderBase(string rootPath) => _rootPath = rootPath;
 
         private Assembly[] _inspectedAssemblies;
+
         /// <summary>
         /// Gets the assemblies to be inspected.
         /// </summary>
@@ -39,29 +37,20 @@ namespace Solid.Practices.Composition
         /// <returns></returns>
         protected abstract string[] ResolveNamespaces();
 
-        private Assembly[] CreateAssemblies()
-        {
-            return SafeAssemblyLoader.LoadAssembliesFromNames(DiscoverAssemblyNames()).ToArray();
-        }
+        private Assembly[] CreateAssemblies() =>
+            SafeAssemblyLoader.LoadAssembliesFromNames(DiscoverAssemblyNames()).ToArray();
 
-        private IEnumerable<string> DiscoverAssemblyNames()
-        {
-            return DiscoverFilePathsFromNamespaces(ResolveNamespaces()).Select(Path.GetFileNameWithoutExtension);
-        }
+        private IEnumerable<string> DiscoverAssemblyNames() => DiscoverFilePathsFromNamespaces(ResolveNamespaces())
+            .Select(Path.GetFileNameWithoutExtension);
 
-        private IEnumerable<string> DiscoverFilePathsFromNamespaces(string[] namespaces)
-        {
-            return AssemblyLoadingManager.Extensions().Select(searchPattern =>
-            {
-                return namespaces.Length == 0
-                    ? PlatformProvider.Current.GetFiles(_rootPath, searchPattern)
-                    : namespaces.Select(
+        private IEnumerable<string> DiscoverFilePathsFromNamespaces(string[] namespaces) => AssemblyLoadingManager
+            .Extensions().Select(searchPattern => namespaces.Length == 0
+                ? PlatformProvider.Current.GetFiles(_rootPath, searchPattern)
+                : namespaces.Select(
                         @namespace =>
                             PlatformProvider.Current.GetFiles(_rootPath).Select(t => t.ToUpper())
                                 .Where(t => t.Contains(@namespace.ToUpper()) && t.EndsWith(searchPattern.ToUpper())))
-                        .SelectMany(t => t.ToArray())                        
-                        .ToArray();
-            }).SelectMany(k => k);
-        }
-    }          
+                    .SelectMany(t => t.ToArray())
+                    .ToArray()).SelectMany(k => k);
+    }
 }

@@ -183,10 +183,7 @@ namespace Solid.Practices.Composition.Container
         /// <summary>
         /// Collection of composition modules.
         /// </summary>            
-        IEnumerable<TModule> ICompositionModulesProvider<TModule>.Modules
-        {
-            get { return Modules; }
-        }
+        IEnumerable<TModule> ICompositionModulesProvider<TModule>.Modules => Modules;
 
         /// <summary>
         /// Composes the composition modules.

@@ -21,9 +21,6 @@ namespace Solid.Practices.Composition.Client
         /// Returns the list of namespaces to be looked for during assembly discovery.
         /// </summary>
         /// <returns></returns>
-        protected override string[] ResolveNamespaces()
-        {
-            return AssemblyLoadingManager.ClientNamespaces().ToArray();
-        }
+        protected override string[] ResolveNamespaces() => AssemblyLoadingManager.ClientNamespaces().ToArray();
     }
 }

@@ -5,22 +5,19 @@ using System.Reflection;
 
 namespace Solid.Practices.Composition
 {
-    static class SafeAssemblyLoader
+    internal static class SafeAssemblyLoader
     {
-        internal static IEnumerable<Assembly> LoadAssembliesFromNames(IEnumerable<string> names)
+        internal static IEnumerable<Assembly> LoadAssembliesFromNames(IEnumerable<string> names) => names.Select(k =>
         {
-            return names.Select(k =>
+            try
             {
-                try
-                {
-                    return Assembly.Load(new AssemblyName(k));
-                }
-                catch (Exception)
-                {
+                return Assembly.Load(new AssemblyName(k));
+            }
+            catch (Exception)
+            {
 
-                    return null;
-                }
-            }).Where(k => k != null);
-        }
+                return null;
+            }
+        }).Where(k => k != null);
     }
 }

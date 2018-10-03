@@ -21,10 +21,7 @@ namespace Solid.Practices.Composition
         /// <param name="prefixes">Allowed prefixes; leave empty if all are allowed.</param>
         public PreloadedAssemblyLoadingStrategy(
             IEnumerable<Assembly> assemblies,
-            string[] prefixes = null)
-        {
-            Assemblies = assemblies.FilterByPrefixes(prefixes).ToArray();
-        }
+            string[] prefixes = null) => Assemblies = assemblies.FilterByPrefixes(prefixes).ToArray();
 
         /// <inheritdoc />
         public IEnumerable<Assembly> Load() => Assemblies;
@@ -37,7 +34,7 @@ namespace Solid.Practices.Composition
     {
         private readonly string _rootPath;
         private readonly string[] _prefixes;
-        private static readonly string[] AllowedModulePatterns = { "*.dll", "*.exe" };
+        private static readonly string[] AllowedModulePatterns = {"*.dll", "*.exe"};
 
         /// <summary>
         /// Initializes a new instance of the<see cref="FileSystemBasedAssemblyLoadingStrategy"/> class.     
@@ -55,16 +52,15 @@ namespace Solid.Practices.Composition
         /// <inheritdoc />
         public IEnumerable<Assembly> Load() => SafeAssemblyLoader.LoadAssembliesFromNames(DiscoverAssemblyNames());
 
-        private IEnumerable<string> DiscoverAssemblyNames() => DiscoverFilePaths().Select(Path.GetFileNameWithoutExtension);
+        private IEnumerable<string> DiscoverAssemblyNames() =>
+            DiscoverFilePaths().Select(Path.GetFileNameWithoutExtension);
 
         private IEnumerable<string> DiscoverFilePaths() => AllowedModulePatterns.Select(searchPattern =>
-        {
-            return _prefixes == null || _prefixes.Length == 0
+            _prefixes == null || _prefixes.Length == 0
                 ? PlatformProvider.Current.GetFiles(_rootPath, searchPattern)
                 : _prefixes.Select(prefix => PlatformProvider.Current.GetFiles(_rootPath, prefix + searchPattern))
                     .SelectMany(t => t)
-                    .ToArray();
-        }).SelectMany(k => k);
+                    .ToArray()).SelectMany(k => k);
     }
 
     /// <summary>
@@ -98,11 +94,8 @@ namespace Solid.Practices.Composition
 
     internal static class AssembliesExtensions
     {
-        internal static IEnumerable<Assembly> FilterByPrefixes(this IEnumerable<Assembly> assemblies, string[] prefixes)
-        {
-            return prefixes?.Length == 0
-                ? assemblies
-                : assemblies.Where(t => prefixes.Any(k => t.GetName().Name.StartsWith(k)));
-        }
+        internal static IEnumerable<Assembly> FilterByPrefixes(this IEnumerable<Assembly> assemblies, string[] prefixes) => prefixes?.Length == 0
+            ? assemblies
+            : assemblies.Where(t => prefixes.Any(k => t.GetName().Name.StartsWith(k)));
     }
 }
