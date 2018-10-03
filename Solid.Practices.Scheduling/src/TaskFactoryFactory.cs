@@ -11,9 +11,6 @@ namespace Solid.Practices.Scheduling
         /// Creates an instance of <see cref="TaskFactory"/> using <see cref="TaskScheduler.Current"/> as its scheduler
         /// </summary>
         /// <returns>Task Factory instance</returns>
-        public static TaskFactory CreateTaskFactory()
-        {
-            return new TaskFactory(TaskScheduler.Current);
-        }
+        public static TaskFactory CreateTaskFactory() => new TaskFactory(TaskScheduler.Current);
     }
 }
