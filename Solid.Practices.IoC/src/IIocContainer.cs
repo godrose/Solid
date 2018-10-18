@@ -10,7 +10,7 @@ namespace Solid.Practices.IoC
     {      
           
     }
-
+    
     /// <summary>
     /// Represents an object that is capable of registering dependencies into an IoC container.
     /// </summary>
@@ -163,6 +163,20 @@ namespace Solid.Practices.IoC
         /// <param name="dependencyType">The type of the dependency.</param>
         /// <returns></returns>
         object Resolve(Type dependencyType);
+
+        /// <summary>
+        /// Resolves all instances of dependency.
+        /// </summary>
+        /// <typeparam name="TDependency"></typeparam>
+        /// <returns></returns>
+        IEnumerable<TDependency> ResolveAll<TDependency>() where TDependency : class;
+
+        /// <summary>
+        /// Resolves all instances of dependency according to the dependency type.
+        /// </summary>
+        /// <param name="dependencyType">The type of the dependency</param>
+        /// <returns></returns>
+        IEnumerable<object> ResolveAll(Type dependencyType);
     }
 
     /// <summary>
