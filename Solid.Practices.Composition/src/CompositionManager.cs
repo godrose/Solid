@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Reflection;
 using Solid.Practices.Composition.Contracts;
-using Solid.Practices.IoC;
 using Solid.Practices.Modularity;
 
 namespace Solid.Practices.Composition
@@ -11,19 +10,19 @@ namespace Solid.Practices.Composition
     /// </summary>
     public class CompositionManager : ICompositionManager
     {
-        /// <summary>
-        /// Represents <see cref="CompositionManager"/> which uses container
-        /// for creating composition modules.
-        /// </summary>
-        /// <seealso cref="Solid.Practices.Composition.CompositionManager" />
-        public class WithIocResolution : CompositionManager
-        {
-            public WithIocResolution(IIocContainer iocContainer)
-                : base(new ContainerResolutionStrategy(iocContainer))
-            {
+        ///// <summary>
+        ///// Represents <see cref="CompositionManager"/> which uses container
+        ///// for creating composition modules.
+        ///// </summary>
+        ///// <seealso cref="Solid.Practices.Composition.CompositionManager" />
+        //public class WithIocResolution : CompositionManager
+        //{
+        //    public WithIocResolution(IIocContainer iocContainer)
+        //        : base(new ContainerResolutionStrategy(iocContainer))
+        //    {
 
-            }
-        }
+        //    }
+        //}
 
         private readonly ICompositionModuleCreationStrategy _compositionModuleCreationStrategy;
 
