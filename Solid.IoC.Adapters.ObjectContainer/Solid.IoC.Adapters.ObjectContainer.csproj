@@ -51,12 +51,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Solid.Practices.IoC\netstandard2.0\Solid.Practices.IoC.csproj">
-      <Project>{e5fdbe1d-f374-4d7a-8b19-c0712aaec600}</Project>
-      <Name>Solid.Practices.IoC</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <PackageReference Include="FluentAssertions">
       <Version>5.4.2</Version>
     </PackageReference>
@@ -77,6 +71,12 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Solid.Practices.IoC\Solid.Practices.IoC.csproj">
+      <Project>{156f34d5-5b15-40cd-9873-c822d5335b0d}</Project>
+      <Name>Solid.Practices.IoC</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

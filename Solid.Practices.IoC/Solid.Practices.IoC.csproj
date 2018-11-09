@@ -13,13 +13,8 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <OutputPath>..\..\Bin\netstandard2.0\Release</OutputPath>
-    <DocumentationFile>..\..\Bin\netstandard2.0\Release\Solid.Practices.IoC.xml</DocumentationFile>
-  </PropertyGroup>  
-
-  <ItemGroup>
-    <Compile Include="..\src\DependencyRegistratorExtensions.cs" Link="DependencyRegistratorExtensions.cs" />
-    <Compile Include="..\src\IIocContainer.cs" Link="IIocContainer.cs" />
-  </ItemGroup>
+    <OutputPath>..\Bin\netstandard2.0\Release</OutputPath>
+    <DocumentationFile>..\Bin\netstandard2.0\Release\Solid.Practices.IoC.xml</DocumentationFile>
+  </PropertyGroup>   
 
 </Project>

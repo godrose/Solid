@@ -26,7 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Solid.Practices.IoC\netstandard2.0\Solid.Practices.IoC.csproj" />
+    <ProjectReference Include="..\..\Solid.Practices.IoC\Solid.Practices.IoC.csproj" />
   </ItemGroup>
 
 </Project>
