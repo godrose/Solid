@@ -121,4 +121,85 @@ namespace Solid.Bootstrapping
             return @object;
         }
     }
+
+    /// <summary>
+    /// Registers composition modules into the bootstrapper's registrator.
+    /// </summary>
+    /// <typeparam name="TBootstrapper">The type of the bootstrapper.</typeparam>
+    /// <seealso cref="Solid.Practices.Middleware.IMiddleware{TBootstrapper}" />
+    public class RegisterCompositionModulesMiddleware<TBootstrapper> : IMiddleware<TBootstrapper>
+        where TBootstrapper : class, ICompositionModulesProvider, IHaveRegistrator
+    {
+        /// <inheritdoc />       
+        public TBootstrapper Apply(TBootstrapper @object)
+        {
+            @object.Registrator.RegisterContainerCompositionModules(@object.Modules);
+            return @object;
+        }
+    }
+
+    /// <summary>
+    /// Registers composition modules into the bootstrapper's registrator.
+    /// </summary>
+    /// <typeparam name="TBootstrapper">The type of the bootstrapper.</typeparam>
+    /// <typeparam name="TDependencyRegistrator">The type of the dependency registrator.</typeparam>
+    public class RegisterCustomCompositionModulesMiddleware<TBootstrapper, TDependencyRegistrator> : IMiddleware<TBootstrapper>
+        where TBootstrapper : class, ICompositionModulesProvider, IHaveRegistrator<TDependencyRegistrator>
+        where TDependencyRegistrator : class
+    {
+        /// <inheritdoc />       
+        public TBootstrapper Apply(TBootstrapper @object)
+        {
+            @object.Registrator.RegisterContainerCompositionModules(@object.Modules);
+            return @object;
+        }
+    }
+
+    /// <summary>
+    /// Registers composition modules into the boostrapper's ioc container.
+    /// </summary>
+    /// <typeparam name="TIocContainer">The type of the ioc container.</typeparam>
+    /// <typeparam name="TBootstrapper">The type of the bootstrapper.</typeparam>    
+    public class RegisterContainerCompositionModulesMiddleware<TBootstrapper, TIocContainer> :
+        IMiddleware<TBootstrapper>
+        where TBootstrapper : class, IHaveContainer<TIocContainer>, ICompositionModulesProvider
+        where TIocContainer : class
+    {
+        /// <inheritdoc />       
+        public TBootstrapper Apply(
+            TBootstrapper @object)
+        {
+            @object.Container.RegisterContainerCompositionModules(@object.Modules);
+            return @object;
+        }
+    }
+
+    /// <summary>
+    /// Extends the bootstrapper's functionality by using the 
+    /// specified dependency registrator middleware.
+    /// </summary>
+    /// <typeparam name="TBootstrapper">The type of the bootstrapper.</typeparam>
+    /// <seealso cref="Solid.Practices.Middleware.IMiddleware{TBootstrapper}" />
+    public class UseDependencyRegistratorMiddleware<TBootstrapper> : IMiddleware<TBootstrapper>
+        where TBootstrapper : class, IHaveRegistrator
+    {
+        private readonly IMiddleware<IDependencyRegistrator> _middleware;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UseDependencyRegistratorMiddleware{TBootstrapper}"/> class.
+        /// </summary>
+        /// <param name="middleware">The dependency registrator middleware.</param>
+        public UseDependencyRegistratorMiddleware(IMiddleware<IDependencyRegistrator> middleware)
+        {
+            _middleware = middleware;
+        }
+
+        /// <inheritdoc />       
+        public TBootstrapper Apply(
+            TBootstrapper @object)
+        {
+            _middleware.Apply(@object.Registrator);
+            return @object;
+        }
+    }
 }
