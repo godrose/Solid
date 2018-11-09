@@ -4,7 +4,7 @@ using FluentAssertions;
 using Solid.Practices.IoC;
 using Xunit;
 
-namespace Solid.IoC.Adapters.BoDi
+namespace Solid.IoC.Adapters.BoDi.Tests
 {
     public class ObjectContainerAdapterTests
     {
