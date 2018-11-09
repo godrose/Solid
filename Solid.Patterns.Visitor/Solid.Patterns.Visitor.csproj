@@ -13,14 +13,8 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <OutputPath>..\..\Bin\netstandard2.0\Release</OutputPath>
-    <DocumentationFile>..\..\Bin\netstandard2.0\Release\Solid.Patterns.Visitor.xml</DocumentationFile>
+    <OutputPath>..\Bin\netstandard2.0\Release</OutputPath>
+    <DocumentationFile>..\Bin\netstandard2.0\Release\Solid.Patterns.Visitor.xml</DocumentationFile>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Include="..\src\IAcceptor.cs" Link="IAcceptor.cs" />
-    <Compile Include="..\src\IAcceptorWithParameters.cs" Link="IAcceptorWithParameters.cs" />
-    <Compile Include="..\src\IAcceptorWithParametersResult.cs" Link="IAcceptorWithParametersResult.cs" />
-  </ItemGroup>
-
+ 
 </Project>
