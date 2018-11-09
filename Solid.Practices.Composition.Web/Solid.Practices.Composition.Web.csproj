@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>Solid.Practices.Composition.Web</AssemblyName>
+    <RootNamespace>Solid.Practices.Composition.Web</RootNamespace>
+    <AssemblyVersion>1.2.1.0</AssemblyVersion>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\Bin\netstandard2.0\Release\</OutputPath>
+    <DocumentationFile>..\Bin\netstandard2.0\Release\Solid.Practices.Composition.Web.xml</DocumentationFile>
+  </PropertyGroup>  
+
+  <ItemGroup>
+    <ProjectReference Include="..\Solid.Practices.Composition.Contracts\Solid.Practices.Composition.Contracts.csproj" />
+    <ProjectReference Include="..\Solid.Practices.Composition\Solid.Practices.Composition.csproj" />
+  </ItemGroup>
+
+</Project>
