@@ -44,7 +44,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Solid.Practices.Composition.Container\netstandard2.0\Solid.Practices.Composition.Container.csproj" />
-    <ProjectReference Include="..\..\Solid.Practices.Composition.Contracts\netstandard2.0\Solid.Practices.Composition.Contracts.csproj" />
+    <ProjectReference Include="..\..\Solid.Practices.Composition.Contracts\Solid.Practices.Composition.Contracts.csproj" />
   </ItemGroup>
 
 </Project>

@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <AssemblyName>Solid.Practices.Composition.Container</AssemblyName>
-    <RootNamespace>Solid.Practices.Composition.Container</RootNamespace>
+    <AssemblyName>Solid.Practices.Composition.Contracts</AssemblyName>
+    <RootNamespace>Solid.Practices.Composition.Contracts</RootNamespace>
     <AssemblyVersion>1.2.1.0</AssemblyVersion>
     <FileVersion>1.2.1.0</FileVersion>
   </PropertyGroup>
@@ -13,21 +13,17 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <OutputPath>..\..\Bin\netstandard2.0\Release</OutputPath>
-    <DocumentationFile>..\..\Bin\netstandard2.0\Release\Solid.Practices.Composition.Container.xml</DocumentationFile>
+    <OutputPath>..\Bin\netstandard2.0\Release</OutputPath>
+    <DocumentationFile>..\Bin\netstandard2.0\Release\Solid.Practices.Composition.Contracts.xml</DocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DebugType>full</DebugType>
     <DebugSymbols>true</DebugSymbols>
-  </PropertyGroup>
+  </PropertyGroup> 
 
   <ItemGroup>
-    <Compile Include="..\src\SimpleCompositionContainer.cs" Link="SimpleCompositionContainer.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\Solid.Practices.Composition.Contracts\Solid.Practices.Composition.Contracts.csproj" />
+    <ProjectReference Include="..\Solid.Practices.Modularity\Solid.Practices.Modularity.csproj" />
   </ItemGroup>
 
 </Project>

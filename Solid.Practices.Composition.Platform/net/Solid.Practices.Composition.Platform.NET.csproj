@@ -47,8 +47,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Solid.Practices.Composition.Contracts\netstandard2.0\Solid.Practices.Composition.Contracts.csproj">
-      <Project>{757947a5-1661-4c9f-8031-c24243faccff}</Project>
+    <ProjectReference Include="..\..\Solid.Practices.Composition.Contracts\Solid.Practices.Composition.Contracts.csproj">
+      <Project>{52962b7e-9ca6-4800-a989-e8c7786cc1e0}</Project>
       <Name>Solid.Practices.Composition.Contracts</Name>
     </ProjectReference>
   </ItemGroup>

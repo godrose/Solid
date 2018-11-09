@@ -73,8 +73,8 @@
       <Project>{7845cd24-9bbb-44ca-b61c-6131dd245e67}</Project>
       <Name>Solid.Practices.Composition.Container</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Solid.Practices.Composition.Contracts\netstandard2.0\Solid.Practices.Composition.Contracts.csproj">
-      <Project>{757947A5-1661-4C9F-8031-C24243FACCFF}</Project>
+    <ProjectReference Include="..\Solid.Practices.Composition.Contracts\Solid.Practices.Composition.Contracts.csproj">
+      <Project>{52962b7e-9ca6-4800-a989-e8c7786cc1e0}</Project>
       <Name>Solid.Practices.Composition.Contracts</Name>
     </ProjectReference>
     <ProjectReference Include="..\Solid.Practices.Modularity\Solid.Practices.Modularity.csproj">
