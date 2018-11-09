@@ -27,8 +27,5 @@
       <Project>{156f34d5-5b15-40cd-9873-c822d5335b0d}</Project>
       <Name>Solid.Practices.IoC</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\" />
-  </ItemGroup>
+  </ItemGroup> 
 </Project> 
