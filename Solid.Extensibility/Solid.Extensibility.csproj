@@ -13,16 +13,12 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <OutputPath>..\..\Bin\netstandard2.0\Release</OutputPath>
-    <DocumentationFile>..\..\Bin\netstandard2.0\Release\Solid.Extensibility.xml</DocumentationFile>
-  </PropertyGroup>
+    <OutputPath>..\Bin\netstandard2.0\Release</OutputPath>
+    <DocumentationFile>..\Bin\netstandard2.0\Release\Solid.Extensibility.xml</DocumentationFile>
+  </PropertyGroup>  
 
   <ItemGroup>
-    <Compile Include="..\src\IExtensible.cs" Link="IExtensible.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\Solid.Practices.Middleware\Solid.Practices.Middleware.csproj" />
+    <ProjectReference Include="..\Solid.Practices.Middleware\Solid.Practices.Middleware.csproj" />
   </ItemGroup>
 
 </Project>
