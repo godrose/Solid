@@ -35,7 +35,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Solid.Practices.Modularity\netstandard2.0\Solid.Practices.Modularity.NETStandard20.csproj" />
+    <ProjectReference Include="..\..\Solid.Practices.Modularity\netstandard2.0\Solid.Practices.Modularity.csproj" />
   </ItemGroup>
 
 </Project>

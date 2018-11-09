@@ -33,41 +33,41 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solid.IoC.Adapters.ObjectCo
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Builder", "Builder", "{591A10B7-688C-4D34-A689-40ED517B2F24}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solid.Practices.IoC.NETStandard20", "Solid.Practices.IoC\netstandard2.0\Solid.Practices.IoC.NETStandard20.csproj", "{E5FDBE1D-F374-4D7A-8B19-C0712AAEC600}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solid.Practices.IoC", "Solid.Practices.IoC\netstandard2.0\Solid.Practices.IoC.csproj", "{E5FDBE1D-F374-4D7A-8B19-C0712AAEC600}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solid.Bootstrapping.NETStandard20", "Solid.Bootstrapping\netstandard2.0\Solid.Bootstrapping.NETStandard20.csproj", "{78831EF4-DC9B-457B-8248-63E96EE799FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solid.Bootstrapping", "Solid.Bootstrapping\netstandard2.0\Solid.Bootstrapping.csproj", "{78831EF4-DC9B-457B-8248-63E96EE799FB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solid.Practices.Middleware.NETStandard20", "Solid.Practices.Middleware\netstandard2.0\Solid.Practices.Middleware.NETStandard20.csproj", "{423C1066-4D5F-419B-9051-79B14913CF60}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solid.Practices.Middleware", "Solid.Practices.Middleware\netstandard2.0\Solid.Practices.Middleware.csproj", "{423C1066-4D5F-419B-9051-79B14913CF60}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solid.Practices.Modularity.NETStandard20", "Solid.Practices.Modularity\netstandard2.0\Solid.Practices.Modularity.NETStandard20.csproj", "{7E33D59E-CA9D-427F-A1EB-8AA9227D9369}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solid.Practices.Modularity", "Solid.Practices.Modularity\netstandard2.0\Solid.Practices.Modularity.csproj", "{7E33D59E-CA9D-427F-A1EB-8AA9227D9369}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solid.Practices.Scheduling.NETStandard20", "Solid.Practices.Scheduling\netstandard2.0\Solid.Practices.Scheduling.NETStandard20.csproj", "{A3C8BB86-8005-4152-8F8D-DDB90AABE767}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solid.Practices.Scheduling", "Solid.Practices.Scheduling\netstandard2.0\Solid.Practices.Scheduling.csproj", "{A3C8BB86-8005-4152-8F8D-DDB90AABE767}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solid.Extensibility.NETStandard20", "Solid.Extensibility\netstandard2.0\Solid.Extensibility.NETStandard20.csproj", "{5F9ABFB3-824A-4FBB-9147-CDE573B4FD8C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solid.Extensibility", "Solid.Extensibility\netstandard2.0\Solid.Extensibility.csproj", "{5F9ABFB3-824A-4FBB-9147-CDE573B4FD8C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solid.Patterns.Builder.NETStandard20", "Solid.Patterns.Builder\netstandard2.0\Solid.Patterns.Builder.NETStandard20.csproj", "{DBDA6FBC-8B67-4888-88F6-FE5923AFCAD2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solid.Patterns.Builder", "Solid.Patterns.Builder\netstandard2.0\Solid.Patterns.Builder.csproj", "{DBDA6FBC-8B67-4888-88F6-FE5923AFCAD2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solid.Patterns.ChainOfResponsibility.NETStandard20", "Solid.Patterns.ChainOfResponsibility\netstandard2.0\Solid.Patterns.ChainOfResponsibility.NETStandard20.csproj", "{8A4809C1-DB8C-4007-8FED-E9B6CDEE4D85}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solid.Patterns.ChainOfResponsibility", "Solid.Patterns.ChainOfResponsibility\netstandard2.0\Solid.Patterns.ChainOfResponsibility.csproj", "{8A4809C1-DB8C-4007-8FED-E9B6CDEE4D85}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solid.Patterns.Memento.NETStandard20", "Solid.Patterns.Memento\netstandard2.0\Solid.Patterns.Memento.NETStandard20.csproj", "{DE9157F0-8EB8-4A0B-BB92-6897900689A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solid.Patterns.Memento", "Solid.Patterns.Memento\netstandard2.0\Solid.Patterns.Memento.csproj", "{DE9157F0-8EB8-4A0B-BB92-6897900689A7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solid.Patterns.Visitor.NETStandard20", "Solid.Patterns.Visitor\netstandard2.0\Solid.Patterns.Visitor.NETStandard20.csproj", "{F7EB0371-0C6A-4D51-AFBB-6BFDBD812FE9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solid.Patterns.Visitor", "Solid.Patterns.Visitor\netstandard2.0\Solid.Patterns.Visitor.csproj", "{F7EB0371-0C6A-4D51-AFBB-6BFDBD812FE9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solid.Practices.Composition.Contracts.NETStandard20", "Solid.Practices.Composition.Contracts\netstandard2.0\Solid.Practices.Composition.Contracts.NETStandard20.csproj", "{757947A5-1661-4C9F-8031-C24243FACCFF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solid.Practices.Composition.Contracts", "Solid.Practices.Composition.Contracts\netstandard2.0\Solid.Practices.Composition.Contracts.csproj", "{757947A5-1661-4C9F-8031-C24243FACCFF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solid.Practices.Composition.Container.NETStandard20", "Solid.Practices.Composition.Container\netstandard2.0\Solid.Practices.Composition.Container.NETStandard20.csproj", "{7845CD24-9BBB-44CA-B61C-6131DD245E67}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solid.Practices.Composition.Container", "Solid.Practices.Composition.Container\netstandard2.0\Solid.Practices.Composition.Container.csproj", "{7845CD24-9BBB-44CA-B61C-6131DD245E67}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solid.Practices.Composition.NETStandard20", "Solid.Practices.Composition\netstandard2.0\Solid.Practices.Composition.NETStandard20.csproj", "{064404CF-1C7E-476D-AFFD-3A4851293CEB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solid.Practices.Composition", "Solid.Practices.Composition\netstandard2.0\Solid.Practices.Composition.csproj", "{064404CF-1C7E-476D-AFFD-3A4851293CEB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solid.Practices.Composition.Web.NETStandard20", "Solid.Practices.Composition.Web\netstandard2.0\Solid.Practices.Composition.Web.NETStandard20.csproj", "{9F589B39-4FEE-456B-AAF9-0DDE0C00A621}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solid.Practices.Composition.Web", "Solid.Practices.Composition.Web\netstandard2.0\Solid.Practices.Composition.Web.csproj", "{9F589B39-4FEE-456B-AAF9-0DDE0C00A621}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solid.Practices.Composition.Client.NETStandard20", "Solid.Practices.Composition.Client\netstandard2.0\Solid.Practices.Composition.Client.NETStandard20.csproj", "{AE27C060-00DE-4291-B567-47DA7732374E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solid.Practices.Composition.Client", "Solid.Practices.Composition.Client\netstandard2.0\Solid.Practices.Composition.Client.csproj", "{AE27C060-00DE-4291-B567-47DA7732374E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solid.Practices.Composition.NETStandard20.Tests", "Solid.Practices.Composition.NETStandard20.Tests\Solid.Practices.Composition.NETStandard20.Tests.csproj", "{DBA4E5B8-754C-419B-921B-CEE40185465A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solid.Practices.Composition.Tests", "Solid.Practices.Composition.NETStandard20.Tests\Solid.Practices.Composition.Tests.csproj", "{DBA4E5B8-754C-419B-921B-CEE40185465A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solid.Practices.Composition.Platform.NET", "Solid.Practices.Composition.Platform\net\Solid.Practices.Composition.Platform.NET.csproj", "{705DFE80-50DD-453D-A515-DEDB877C8699}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solid.Practices.Composition.Container.NETStandard20.Tests", "Solid.Practices.Composition.Container.NETStandard20.Tests\Solid.Practices.Composition.Container.NETStandard20.Tests.csproj", "{2E5261C4-2633-4542-902F-07E3A76FE1C6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solid.Practices.Composition.Container.Tests", "Solid.Practices.Composition.Container.NETStandard20.Tests\Solid.Practices.Composition.Container.Tests.csproj", "{2E5261C4-2633-4542-902F-07E3A76FE1C6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solid.Practices.Composition.Platform.UWP", "Solid.Practices.Composition.Platform\uwp\Solid.Practices.Composition.Platform.UWP.csproj", "{8E66C48C-7DD2-4374-9737-F4945C17C9B7}"
 EndProject

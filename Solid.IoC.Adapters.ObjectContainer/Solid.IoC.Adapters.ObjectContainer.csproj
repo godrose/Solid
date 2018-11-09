@@ -51,9 +51,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Solid.Practices.IoC\netstandard2.0\Solid.Practices.IoC.NETStandard20.csproj">
+    <ProjectReference Include="..\Solid.Practices.IoC\netstandard2.0\Solid.Practices.IoC.csproj">
       <Project>{e5fdbe1d-f374-4d7a-8b19-c0712aaec600}</Project>
-      <Name>Solid.Practices.IoC.NETStandard20</Name>
+      <Name>Solid.Practices.IoC</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
