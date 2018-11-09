@@ -1,23 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+using BoDi;
 using Solid.Practices.IoC;
 
-namespace Solid.IoC.Adapters.ObjectContainer
+namespace Solid.IoC.Adapters.BoDi
 {
     /// <summary>
-    /// Represents a container adapter for <see cref="BoDi.ObjectContainer"/>
+    /// Represents a container adapter for <see cref="ObjectContainer"/>
     /// </summary>
     /// <seealso cref="IIocContainer" />    
     /// <seealso cref="IIocContainerAdapter" />    
-    public class ObjectContainerAdapter : IIocContainer, IIocContainerAdapter<BoDi.ObjectContainer>
+    public class ObjectContainerAdapter : IIocContainer, IIocContainerAdapter<ObjectContainer>
     {
-        private readonly BoDi.ObjectContainer _objectContainer;
+        private readonly ObjectContainer _objectContainer;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ObjectContainerAdapter"/> class.
         /// </summary>
         /// <param name="objectContainer">The object container.</param>
-        public ObjectContainerAdapter(BoDi.ObjectContainer objectContainer) => _objectContainer = objectContainer;
+        public ObjectContainerAdapter(ObjectContainer objectContainer) => _objectContainer = objectContainer;
 
         /// <inheritdoc />       
         public void RegisterTransient<TService, TImplementation>() where TImplementation : class, TService =>

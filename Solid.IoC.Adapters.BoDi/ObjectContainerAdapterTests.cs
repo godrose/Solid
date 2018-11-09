@@ -1,16 +1,17 @@
 ﻿using System.Linq;
+using BoDi;
 using FluentAssertions;
 using Solid.Practices.IoC;
 using Xunit;
 
-namespace Solid.IoC.Adapters.ObjectContainer
+namespace Solid.IoC.Adapters.BoDi
 {
     public class ObjectContainerAdapterTests
     {
         [Fact]
         public void ResolveAll_CollectionOfTypesIsRegisteredByInterface_ColelctionOfImplementationsIsResolved()
         {
-            var container = new ObjectContainerAdapter(new BoDi.ObjectContainer());
+            var container = new ObjectContainerAdapter(new ObjectContainer());
             container.RegisterCollection<IDependency>(new[]
                 {typeof(DependencyA), typeof(DependencyB)}, true);            
 
