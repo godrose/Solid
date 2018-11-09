@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>Solid.Practices.Composition</AssemblyName>
+    <RootNamespace>Solid.Practices.Composition</RootNamespace>
+    <AssemblyVersion>1.2.1.0</AssemblyVersion>
+    <FileVersion>1.2.1.0</FileVersion>
+  </PropertyGroup>
+
+<PropertyGroup> 
+  <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>  
+</PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\Bin\netstandard2.0\Release</OutputPath>
+    <DocumentationFile>..\Bin\netstandard2.0\Release\Solid.Practices.Composition.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>bin\Debug</OutputPath>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>  
+
+  <ItemGroup>
+    <ProjectReference Include="..\Solid.Practices.Composition.Container\Solid.Practices.Composition.Container.csproj" />
+    <ProjectReference Include="..\Solid.Practices.Composition.Contracts\Solid.Practices.Composition.Contracts.csproj" />
+  </ItemGroup>
+
+</Project>
