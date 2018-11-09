@@ -13,21 +13,17 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <OutputPath>..\..\Bin\netstandard2.0\Release</OutputPath>
-    <DocumentationFile>..\..\Bin\netstandard2.0\Release\Solid.Practices.Composition.Container.xml</DocumentationFile>
+    <OutputPath>..\Bin\netstandard2.0\Release</OutputPath>
+    <DocumentationFile>..\Bin\netstandard2.0\Release\Solid.Practices.Composition.Container.xml</DocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DebugType>full</DebugType>
     <DebugSymbols>true</DebugSymbols>
-  </PropertyGroup>
+  </PropertyGroup>  
 
   <ItemGroup>
-    <Compile Include="..\src\SimpleCompositionContainer.cs" Link="SimpleCompositionContainer.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\Solid.Practices.Composition.Contracts\Solid.Practices.Composition.Contracts.csproj" />
+    <ProjectReference Include="..\Solid.Practices.Composition.Contracts\Solid.Practices.Composition.Contracts.csproj" />
   </ItemGroup>
 
 </Project>

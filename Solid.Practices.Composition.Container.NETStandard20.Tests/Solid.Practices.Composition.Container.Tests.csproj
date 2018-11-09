@@ -69,8 +69,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Solid.Practices.Composition.Container\netstandard2.0\Solid.Practices.Composition.Container.csproj">
-      <Project>{7845cd24-9bbb-44ca-b61c-6131dd245e67}</Project>
+    <ProjectReference Include="..\Solid.Practices.Composition.Container\Solid.Practices.Composition.Container.csproj">
+      <Project>{0f0cb22f-8c5c-473e-be2a-feefb30e2db1}</Project>
       <Name>Solid.Practices.Composition.Container</Name>
     </ProjectReference>
     <ProjectReference Include="..\Solid.Practices.Composition.Contracts\Solid.Practices.Composition.Contracts.csproj">

@@ -70,10 +70,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Solid.Practices.Composition.Container\netstandard2.0\Solid.Practices.Composition.Container.csproj">
-      <Project>{7845cd24-9bbb-44ca-b61c-6131dd245e67}</Project>
-      <Name>Solid.Practices.Composition.Container</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Solid.Practices.Composition.Contracts\Solid.Practices.Composition.Contracts.csproj">
       <Project>{52962b7e-9ca6-4800-a989-e8c7786cc1e0}</Project>
       <Name>Solid.Practices.Composition.Contracts</Name>
