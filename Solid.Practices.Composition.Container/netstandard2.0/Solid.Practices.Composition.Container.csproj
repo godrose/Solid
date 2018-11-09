@@ -28,7 +28,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Solid.Practices.Composition.Contracts\netstandard2.0\Solid.Practices.Composition.Contracts.csproj" />
-    <ProjectReference Include="..\..\Solid.Practices.Modularity\netstandard2.0\Solid.Practices.Modularity.csproj" />
   </ItemGroup>
 
 </Project>

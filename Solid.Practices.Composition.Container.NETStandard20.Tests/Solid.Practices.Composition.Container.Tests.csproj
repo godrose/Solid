@@ -77,8 +77,8 @@
       <Project>{757947A5-1661-4C9F-8031-C24243FACCFF}</Project>
       <Name>Solid.Practices.Composition.Contracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Solid.Practices.Modularity\netstandard2.0\Solid.Practices.Modularity.csproj">
-      <Project>{7e33d59e-ca9d-427f-a1eb-8aa9227d9369}</Project>
+    <ProjectReference Include="..\Solid.Practices.Modularity\Solid.Practices.Modularity.csproj">
+      <Project>{ba1ed3bf-c103-4caa-ae47-71a98f63e2a8}</Project>
       <Name>Solid.Practices.Modularity</Name>
     </ProjectReference>
   </ItemGroup>
