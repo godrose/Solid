@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Solid.Practices.Middleware\netstandard2.0\Solid.Practices.Middleware.csproj" />
+    <ProjectReference Include="..\..\Solid.Practices.Middleware\Solid.Practices.Middleware.csproj" />
   </ItemGroup>
 
 </Project>
