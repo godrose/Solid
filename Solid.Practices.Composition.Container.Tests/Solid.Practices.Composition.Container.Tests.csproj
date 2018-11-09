@@ -7,8 +7,8 @@
     <ProjectGuid>{2E5261C4-2633-4542-902F-07E3A76FE1C6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Solid.Practices.Composition.Container.NETStandard20.Tests</RootNamespace>
-    <AssemblyName>Solid.Practices.Composition.Container.NETStandard20.Tests</AssemblyName>
+    <RootNamespace>Solid.Practices.Composition.Container.Tests</RootNamespace>
+    <AssemblyName>Solid.Practices.Composition.Container.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>

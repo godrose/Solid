@@ -7,8 +7,8 @@
     <ProjectGuid>{DBA4E5B8-754C-419B-921B-CEE40185465A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Solid.Practices.Composition.NETStandard20.Tests</RootNamespace>
-    <AssemblyName>Solid.Practices.Composition.NETStandard20.Tests</AssemblyName>
+    <RootNamespace>Solid.Practices.Composition.Tests</RootNamespace>
+    <AssemblyName>Solid.Practices.Composition.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>
