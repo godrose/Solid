@@ -73,6 +73,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solid.IoC.Adapters.BoDi", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solid.IoC.Adapters.BoDi.Tests", "Solid.IoC.Adapters.BoDi.Tests\Solid.IoC.Adapters.BoDi.Tests.csproj", "{CAD754BD-07FE-4845-9723-493C07D0D9BA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solid.Bootstrapping.Tests", "Solid.Bootstrapping.Tests\Solid.Bootstrapping.Tests.csproj", "{38931560-E6CB-4897-9681-D6E19339CB83}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -421,6 +423,22 @@ Global
 		{CAD754BD-07FE-4845-9723-493C07D0D9BA}.Release|x64.Build.0 = Release|Any CPU
 		{CAD754BD-07FE-4845-9723-493C07D0D9BA}.Release|x86.ActiveCfg = Release|Any CPU
 		{CAD754BD-07FE-4845-9723-493C07D0D9BA}.Release|x86.Build.0 = Release|Any CPU
+		{38931560-E6CB-4897-9681-D6E19339CB83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38931560-E6CB-4897-9681-D6E19339CB83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38931560-E6CB-4897-9681-D6E19339CB83}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{38931560-E6CB-4897-9681-D6E19339CB83}.Debug|ARM.Build.0 = Debug|Any CPU
+		{38931560-E6CB-4897-9681-D6E19339CB83}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{38931560-E6CB-4897-9681-D6E19339CB83}.Debug|x64.Build.0 = Debug|Any CPU
+		{38931560-E6CB-4897-9681-D6E19339CB83}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{38931560-E6CB-4897-9681-D6E19339CB83}.Debug|x86.Build.0 = Debug|Any CPU
+		{38931560-E6CB-4897-9681-D6E19339CB83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38931560-E6CB-4897-9681-D6E19339CB83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38931560-E6CB-4897-9681-D6E19339CB83}.Release|ARM.ActiveCfg = Release|Any CPU
+		{38931560-E6CB-4897-9681-D6E19339CB83}.Release|ARM.Build.0 = Release|Any CPU
+		{38931560-E6CB-4897-9681-D6E19339CB83}.Release|x64.ActiveCfg = Release|Any CPU
+		{38931560-E6CB-4897-9681-D6E19339CB83}.Release|x64.Build.0 = Release|Any CPU
+		{38931560-E6CB-4897-9681-D6E19339CB83}.Release|x86.ActiveCfg = Release|Any CPU
+		{38931560-E6CB-4897-9681-D6E19339CB83}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -459,6 +477,7 @@ Global
 		{DBA4E5B8-754C-419B-921B-CEE40185465A} = {F9CDFCC0-F3AD-4C78-BA2D-2775A0BE12FC}
 		{7905B66F-51AB-4031-96BA-9B76A39237EE} = {C55CA8FA-D249-4EF0-BDA4-CB408A20256D}
 		{CAD754BD-07FE-4845-9723-493C07D0D9BA} = {C55CA8FA-D249-4EF0-BDA4-CB408A20256D}
+		{38931560-E6CB-4897-9681-D6E19339CB83} = {50E59CB7-5DC6-4133-82D3-223CE387F9A7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DF34B008-79AB-4162-ADC9-E6F970571414}
