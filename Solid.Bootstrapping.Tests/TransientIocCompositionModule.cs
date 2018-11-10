@@ -9,5 +9,5 @@ namespace Solid.Bootstrapping.Tests
         {
             iocContainerRegistrator.RegisterTransient<IDependency, TransientDependency>();
         }
-    }   
+    }
 }

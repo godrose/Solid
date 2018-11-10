@@ -178,6 +178,28 @@ namespace Solid.Bootstrapping.Tests
         }
     }
 
+    class FakeContainer
+    {
+        private readonly List<ContainerEntry> _registrations = new List<ContainerEntry>();
+
+        private readonly List<InstanceEntry> _instances = new List<InstanceEntry>();
+
+        internal IEnumerable<ContainerEntry> Registrations
+        {
+            get { return _registrations; }
+        }
+
+        internal IEnumerable<InstanceEntry> Instances
+        {
+            get { return _instances; }
+        }
+
+        public void RegisterTransient<TService, TImplementation>()
+        {
+            _registrations.Add(new ContainerEntry(typeof(TService), typeof(TImplementation), false));
+        }
+    }
+
     class FakeBootstrapper : ICompositionModulesProvider, IAssemblySourceProvider, IHaveRegistrator
     {       
         public IEnumerable<ICompositionModule> Modules { get; internal set; }

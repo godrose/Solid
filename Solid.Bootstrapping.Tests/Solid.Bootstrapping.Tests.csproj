@@ -42,10 +42,13 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContainerExtensionsTests.cs" />
+    <Compile Include="ContainerRegistratorExtensionsTests.cs" />
     <Compile Include="FakeIocContainer.cs" />
     <Compile Include="ServiceContract.cs" />
     <Compile Include="MiddlewareTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TransientCompositionModule.cs" />
     <Compile Include="TransientDependency.cs" />
     <Compile Include="TransientIocCompositionModule.cs" />
   </ItemGroup>
