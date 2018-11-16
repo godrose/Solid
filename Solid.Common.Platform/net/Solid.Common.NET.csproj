@@ -7,8 +7,8 @@
     <ProjectGuid>{705DFE80-50DD-453D-A515-DEDB877C8699}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Solid.Platform</RootNamespace>
-    <AssemblyName>Solid.Platform.Platform</AssemblyName>
+    <RootNamespace>Solid.Common</RootNamespace>
+    <AssemblyName>Solid.Common.Platform</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -29,7 +29,7 @@
     <DefineConstants>TRACE;NET</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\..\Bin\net\Release\Solid.Platform.Platform.xml</DocumentationFile>
+    <DocumentationFile>..\..\Bin\net\Release\Solid.Common.Platform.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -47,9 +47,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Solid.Platform\Solid.Platform.csproj">
-      <Project>{02c70ef7-b56d-4c6b-b670-ffc834558344}</Project>
-      <Name>Solid.Platform</Name>
+    <ProjectReference Include="..\..\Solid.Common\Solid.Common.csproj">
+      <Project>{1046994d-64ca-445d-abb9-dae69f2a6bb1}</Project>
+      <Name>Solid.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

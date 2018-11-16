@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Linq;
 using FluentAssertions;
-using Solid.Platform;
+using Solid.Common;
 using Solid.Practices.Composition.Contracts;
 using Solid.Practices.Modularity;
 using Xunit;

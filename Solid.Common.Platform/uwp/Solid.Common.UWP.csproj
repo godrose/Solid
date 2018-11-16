@@ -7,8 +7,8 @@
     <ProjectGuid>{C023E56E-AAF6-4F31-B7AE-293945368D35}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Solid.Platform</RootNamespace>
-    <AssemblyName>Solid.Platform.Platform</AssemblyName>
+    <RootNamespace>Solid.Common</RootNamespace>
+    <AssemblyName>Solid.Common.Platform</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.17134.0</TargetPlatformVersion>
@@ -35,7 +35,7 @@
     <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\..\Bin\uwp\Release\Solid.Platform.Platform.xml</DocumentationFile>
+    <DocumentationFile>..\..\Bin\uwp\Release\Solid.Common.Platform.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <PlatformTarget>x86</PlatformTarget>
@@ -134,9 +134,9 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Solid.Platform\Solid.Platform.csproj">
-      <Project>{02c70ef7-b56d-4c6b-b670-ffc834558344}</Project>
-      <Name>Solid.Platform</Name>
+    <ProjectReference Include="..\..\Solid.Common\Solid.Common.csproj">
+      <Project>{1046994d-64ca-445d-abb9-dae69f2a6bb1}</Project>
+      <Name>Solid.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

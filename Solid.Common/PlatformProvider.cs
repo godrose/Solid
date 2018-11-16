@@ -1,4 +1,4 @@
-﻿namespace Solid.Platform
+﻿namespace Solid.Common
 {
     /// <summary>
     /// Ambient context that holds current value for <see cref="IPlatformProvider"/>.

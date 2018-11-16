@@ -1,11 +1,19 @@
 ﻿using System.IO;
+using Solid.Common;
 
 namespace Solid.Platform
 {
     /// <summary>
-    /// Implementation of <see cref="IPlatformProvider"/> for .NETStandard
-    /// </summary>
-    public class NetStandardPlatformProvider : PlatformProviderBase
+    /// Platform-specific implementation of <see cref="IPlatformProvider"/>.
+    /// </summary>    
+    public class
+#if NET
+        NetPlatformProvider
+#endif
+#if WINDOWS_UWP
+        UniversalPlatformProvider
+#endif
+        : PlatformProviderBase
     {
         /// <summary>
         /// Gets the files at the specified path.
@@ -50,12 +58,21 @@ namespace Solid.Platform
         /// <returns></returns>        
         public override string ReadText(string path)
         {
+#if WINDOWS_UWP
+            using (var fileReader = new FileReader())
+            {
+                fileReader.Read(path);
+                return fileReader.Contents;
+            }
+#else
+
             var fileStream = new FileStream(path, FileMode.Open);
             using (var textReader = new StreamReader(fileStream))
             {
                 var contents = textReader.ReadToEnd();
                 return contents;
             }
+#endif
         }
     }
 }
