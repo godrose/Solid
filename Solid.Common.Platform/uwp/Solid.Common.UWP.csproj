@@ -126,7 +126,7 @@
     </Compile>
     <Compile Include="FileReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Properties\Solid.Platform.UWP.rd.xml" />
+    <EmbeddedResource Include="Properties\Solid.Common.UWP.rd.xml" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
