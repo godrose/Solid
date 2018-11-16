@@ -134,9 +134,9 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Solid.Platform.Core\Solid.Platform.Core.csproj">
-      <Project>{271a8076-45a5-4511-8e26-e3bf9cbce458}</Project>
-      <Name>Solid.Platform.Core</Name>
+    <ProjectReference Include="..\..\Solid.Platform\Solid.Platform.csproj">
+      <Project>{02c70ef7-b56d-4c6b-b670-ffc834558344}</Project>
+      <Name>Solid.Platform</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

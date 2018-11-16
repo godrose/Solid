@@ -24,7 +24,7 @@
   </PropertyGroup>  
 
   <ItemGroup>
-    <ProjectReference Include="..\Solid.Platform.Core\Solid.Platform.Core.csproj" />
+    <ProjectReference Include="..\Solid.Platform\Solid.Platform.csproj" />
     <ProjectReference Include="..\Solid.Practices.Composition.Container\Solid.Practices.Composition.Container.csproj" />
     <ProjectReference Include="..\Solid.Practices.Composition.Contracts\Solid.Practices.Composition.Contracts.csproj" />
   </ItemGroup>
