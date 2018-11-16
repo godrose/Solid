@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using Solid.Core;
+using Solid.Platform;
 using Solid.Practices.Composition.Contracts;
 
 namespace Solid.Practices.Composition

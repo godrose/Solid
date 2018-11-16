@@ -5,7 +5,7 @@ using Windows.Foundation;
 using Windows.Storage;
 using Windows.Storage.Streams;
 
-namespace Solid.Practices.Composition
+namespace Solid.Platform
 {
     class FileReader : IDisposable
     {

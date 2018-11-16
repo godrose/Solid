@@ -1,16 +1,18 @@
-﻿namespace Solid.Core
+using System.IO;
+
+namespace Solid.Platform
 {
     /// <summary>
-    /// Interface for platform specific operations that need enlightenment.
+    /// Contains default implementation of some <see cref="IPlatformProvider"/> methods.
     /// </summary>
-    public interface IPlatformProvider
+    public abstract class PlatformProviderBase : IPlatformProvider
     {
         /// <summary>
         /// Gets the files at the specified path.
         /// </summary>
         /// <param name="path">The path.</param>
         /// <returns></returns>
-        string[] GetFiles(string path);
+        public abstract string[] GetFiles(string path);
 
         /// <summary>
         /// Gets the files at the specified path, using provided search pattern.
@@ -18,33 +20,36 @@
         /// <param name="path">The path.</param>
         /// <param name="searchPattern">The search pattern.</param>
         /// <returns></returns>
-        string[] GetFiles(string path, string searchPattern);
+        public abstract string[] GetFiles(string path, string searchPattern);
 
         /// <summary>
         /// Gets the root path.
         /// </summary>
         /// <returns></returns>
-        string GetRootPath();
+        public abstract string GetRootPath();
 
         /// <summary>
         /// Gets the absolute path.
         /// </summary>
         /// <param name="relativePath">The relative path.</param>
         /// <returns></returns>
-        string GetAbsolutePath(string relativePath);
+        public string GetAbsolutePath(string relativePath)
+        {
+            return Path.Combine(GetRootPath(), relativePath);
+        }
 
         /// <summary>
         /// Writes the specified text into the resource identified by the specified path.
         /// </summary>
         /// <param name="path">The path.</param>
         /// <param name="contents">The text.</param>
-        void WriteText(string path, string contents);
+        public abstract void WriteText(string path, string contents);
 
         /// <summary>
         /// Reads the contents of the resource identified by the specified path.
         /// </summary>
         /// <param name="path">The path.</param>
         /// <returns></returns>
-        string ReadText(string path);
+        public abstract string ReadText(string path);
     }
 }
