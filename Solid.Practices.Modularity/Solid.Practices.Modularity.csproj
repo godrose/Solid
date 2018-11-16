@@ -4,8 +4,8 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>Solid.Practices.Modularity</AssemblyName>
     <RootNamespace>Solid.Practices.Modularity</RootNamespace>
-    <AssemblyVersion>1.2.1.0</AssemblyVersion>
-    <FileVersion>1.2.1.0</FileVersion>
+    <AssemblyVersion>2.0.0.0</AssemblyVersion>
+    <FileVersion>2.0.0.0</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -21,5 +21,4 @@
     <ProjectReference Include="..\Solid.Practices.IoC\Solid.Practices.IoC.csproj" />
     <ProjectReference Include="..\Solid.Practices.Middleware\Solid.Practices.Middleware.csproj" />
   </ItemGroup>
-
 </Project>
