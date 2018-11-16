@@ -1,5 +1,5 @@
 ﻿using System.IO;
-using Solid.Practices.Composition.Contracts;
+using Solid.Core;
 
 namespace Solid.Practices.Composition
 {

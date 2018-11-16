@@ -1,6 +1,4 @@
-﻿using Solid.Practices.Composition.Contracts;
-
-namespace Solid.Practices.Composition
+﻿namespace Solid.Core
 {
     /// <summary>
     /// Ambient context that holds current value for <see cref="IPlatformProvider"/>.

@@ -118,6 +118,10 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Solid.Core\Solid.Core.csproj">
+      <Project>{ef81a4b1-9398-4934-a83a-6eab2beb6fb9}</Project>
+      <Name>Solid.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Solid.Practices.Composition.Contracts\Solid.Practices.Composition.Contracts.csproj">
       <Project>{52962b7e-9ca6-4800-a989-e8c7786cc1e0}</Project>
       <Name>Solid.Practices.Composition.Contracts</Name>
