@@ -1,4 +1,4 @@
-﻿namespace Solid.Practices.Composition.Contracts
+﻿namespace Solid.Common
 {
     /// <summary>
     /// Interface for platform specific operations that need enlightenment.

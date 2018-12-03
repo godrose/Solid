@@ -1,6 +1,6 @@
 using System.IO;
 
-namespace Solid.Practices.Composition.Contracts
+namespace Solid.Common
 {
     /// <summary>
     /// Contains default implementation of some <see cref="IPlatformProvider"/> methods.

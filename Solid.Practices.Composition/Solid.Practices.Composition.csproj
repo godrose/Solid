@@ -4,12 +4,13 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>Solid.Practices.Composition</AssemblyName>
     <RootNamespace>Solid.Practices.Composition</RootNamespace>
-    <AssemblyVersion>1.2.1.0</AssemblyVersion>
-    <FileVersion>1.2.1.0</FileVersion>
+    <AssemblyVersion>2.0.0.0</AssemblyVersion>
+    <FileVersion>2.0.0.0</FileVersion>
   </PropertyGroup>
 
 <PropertyGroup> 
-  <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>  
+  <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath> 
+  <Version>2.0.0</Version>  
 </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -24,6 +25,7 @@
   </PropertyGroup>  
 
   <ItemGroup>
+    <ProjectReference Include="..\Solid.Common\Solid.Common.csproj" />
     <ProjectReference Include="..\Solid.Practices.Composition.Container\Solid.Practices.Composition.Container.csproj" />
     <ProjectReference Include="..\Solid.Practices.Composition.Contracts\Solid.Practices.Composition.Contracts.csproj" />
   </ItemGroup>

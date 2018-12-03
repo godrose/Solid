@@ -1,7 +1,6 @@
 ﻿using System.IO;
-using Solid.Practices.Composition.Contracts;
 
-namespace Solid.Practices.Composition
+namespace Solid.Common
 {
     /// <summary>
     /// Implementation of <see cref="IPlatformProvider"/> for .NETStandard
