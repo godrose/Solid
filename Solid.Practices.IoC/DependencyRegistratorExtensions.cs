@@ -338,6 +338,13 @@ namespace Solid.Practices.IoC
             return dependencyRegistrator;
         }
 
+        /// <summary>
+        /// Registers the collection of types that implement the specified contract
+        /// into the dependency registrator.
+        /// </summary>
+        /// <param name="dependencyRegistrator">The dependency registrator.</param>        
+        /// <param name="types">The types.</param>
+        /// <param name="allowExactMatchOnly"></param>
         public static IDependencyRegistrator RegisterCollection<TService>(
             this IDependencyRegistrator dependencyRegistrator,
             IEnumerable<Type> types,

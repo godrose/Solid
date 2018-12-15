@@ -69,7 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="FluentAssertions">
-      <Version>5.5.0</Version>
+      <Version>5.5.3</Version>
     </PackageReference>
     <PackageReference Include="xunit.core">
       <Version>2.4.1</Version>
