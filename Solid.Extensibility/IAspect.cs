@@ -7,6 +7,9 @@ namespace Solid.Extensibility
     /// </summary>
     public interface IAspect : IInitializable, IHaveDependencies
     {
+        /// <summary>
+        /// Aspect id.
+        /// </summary>
         string Id { get; }
     }
 }
