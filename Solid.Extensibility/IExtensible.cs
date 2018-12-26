@@ -14,5 +14,5 @@ namespace Solid.Extensibility
         /// <param name="middleware">The middleware.</param>
         /// <returns></returns>
         T Use(IMiddleware<T> middleware);
-    }    
+    }
 }
