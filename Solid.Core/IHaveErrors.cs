@@ -1,7 +1,7 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 
-namespace Solid.Bootstrapping
+namespace Solid.Core
 {
     /// <summary>
     /// Gets the collection of errors that happen during initialization.
