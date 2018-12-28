@@ -17,6 +17,7 @@
   </PropertyGroup> 
 
   <ItemGroup>
+    <ProjectReference Include="..\Solid.Common\Solid.Common.csproj" />
     <ProjectReference Include="..\Solid.Extensibility\Solid.Extensibility.csproj" />
     <ProjectReference Include="..\Solid.Practices.Composition.Contracts\Solid.Practices.Composition.Contracts.csproj" />
     <ProjectReference Include="..\Solid.Practices.Composition\Solid.Practices.Composition.csproj" />
