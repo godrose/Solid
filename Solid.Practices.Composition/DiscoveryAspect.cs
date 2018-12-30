@@ -21,7 +21,7 @@ namespace Solid.Practices.Composition
         /// </summary>
         /// <param name="compositionOptions"></param>
         /// <param name="rootType"></param>
-        public DiscoveryAspect(CompositionOptions compositionOptions, Type rootType)
+        public DiscoveryAspect(CompositionOptions compositionOptions, Type rootType = null)
         {
             _compositionOptions = compositionOptions;
             _rootType = rootType;
@@ -46,9 +46,9 @@ namespace Solid.Practices.Composition
 
         private Assembly[] GetAssemblies()
         {
-            var assembliesResolver = new AssembliesResolver(_rootType,
+            var assembliesResolver = new AssembliesResolver(
                 new CustomAssemblySourceProvider(PlatformProvider.Current.GetRootPath(),
-                    _compositionOptions.Prefixes));
+                    _compositionOptions.Prefixes), _rootType);
             return ((IAssembliesReadOnlyResolver)assembliesResolver).GetAssemblies().ToArray();
         }
     }
