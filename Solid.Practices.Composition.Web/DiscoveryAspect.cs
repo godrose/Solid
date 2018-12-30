@@ -46,7 +46,7 @@ namespace Solid.Practices.Composition.Web
 
         private Assembly[] GetAssemblies()
         {
-            var rootPath = PlatformProvider.Current.GetAbsolutePath(_compositionOptions.ModulesPath);
+            var rootPath = PlatformProvider.Current.GetAbsolutePath(_compositionOptions.RelativePath);
             var assembliesResolver = new AssembliesResolver(
                 new ServerAssemblySourceProvider(rootPath));
             return ((IAssembliesReadOnlyResolver)assembliesResolver).GetAssemblies().ToArray();

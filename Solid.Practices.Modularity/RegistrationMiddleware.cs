@@ -7,7 +7,7 @@ using Solid.Practices.Middleware;
 namespace Solid.Practices.Modularity
 {
     /// <summary>
-    /// Base class for regsitation middlewares with modules.
+    /// Base class for registration middlewares with modules.
     /// </summary>
     public abstract class RegistrationMiddlewareBase
     {
@@ -133,7 +133,6 @@ namespace Solid.Practices.Modularity
         RegistrationMiddlewareBase,
         IMiddleware<TIocContainer> where TIocContainer : class
     {        
-
         /// <summary>
         /// Creates a new instance of the <see cref="ContainerHierarchicalRegistrationMiddleware{TIocContainer}"/> class.
         /// </summary>
