@@ -44,9 +44,9 @@ namespace Solid.Practices.Composition
         public IEnumerable<Exception> Errors { get; private set; } = new Exception[] { };
 
         /// <summary>
-        /// The relative modules' path.
+        /// The relative path.
         /// </summary>
-        public string ModulesPath => _options.ModulesPath;
+        public string RelativePath => _options.RelativePath;
 
         /// <summary>
         /// The modules' prefixes.
@@ -60,7 +60,7 @@ namespace Solid.Practices.Composition
             ModularityInfo modularityInfo = new ModularityInfo();
             try
             {
-                compositionManager.Initialize(ModulesPath, Prefixes);
+                compositionManager.Initialize(RelativePath, Prefixes);
             }
             catch (AggregateAssemblyInspectionException ex)
             {
@@ -68,7 +68,9 @@ namespace Solid.Practices.Composition
             }
             finally
             {
-                modularityInfo.Modules = compositionManager.Modules == null ? new ICompositionModule[0] : compositionManager.Modules.ToArray<ICompositionModule>();
+                modularityInfo.Modules = compositionManager.Modules == null
+                    ? new ICompositionModule[0]
+                    : compositionManager.Modules.ToArray();
             }
 
             Modules = modularityInfo.Modules;

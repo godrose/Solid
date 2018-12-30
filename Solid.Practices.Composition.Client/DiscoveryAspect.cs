@@ -42,10 +42,11 @@ namespace Solid.Practices.Composition.Client
 
         private Assembly[] GetAssemblies()
         {
+            var rootPath = PlatformProvider.Current.GetAbsolutePath(_compositionOptions.RelativePath);
             var assembliesResolver = new AssembliesResolver(GetType(),
-                new CustomAssemblySourceProvider(PlatformProvider.Current.GetRootPath(),
+                new CustomAssemblySourceProvider(rootPath,
                     _compositionOptions.Prefixes));
-            return ((IAssembliesReadOnlyResolver)assembliesResolver).GetAssemblies().ToArray();
+            return ((IAssembliesReadOnlyResolver) assembliesResolver).GetAssemblies().ToArray();
         }
     }
 }
