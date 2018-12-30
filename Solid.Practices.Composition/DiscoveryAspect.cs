@@ -1,26 +1,30 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Solid.Common;
 using Solid.Extensibility;
 using Solid.Practices.Composition.Contracts;
 
-namespace Solid.Practices.Composition.Client
+namespace Solid.Practices.Composition
 {
     /// <summary>
-    /// The assemblies discovery aspect. See <see cref="IAspect"/>
+    /// The discovery aspect.
     /// </summary>
-    public sealed class DiscoveryAspect : IAspect, IAssemblySourceProvider
+    public class DiscoveryAspect : IAspect, IAssemblySourceProvider
     {
         private readonly CompositionOptions _compositionOptions;
+        private readonly Type _rootType;
 
         /// <summary>
         /// Creates an instance of <see cref="DiscoveryAspect"/>
         /// </summary>
         /// <param name="compositionOptions"></param>
-        public DiscoveryAspect(CompositionOptions compositionOptions)
+        /// <param name="rootType"></param>
+        public DiscoveryAspect(CompositionOptions compositionOptions, Type rootType)
         {
             _compositionOptions = compositionOptions;
+            _rootType = rootType;
         }
 
         /// <inheritdoc />
@@ -42,11 +46,10 @@ namespace Solid.Practices.Composition.Client
 
         private Assembly[] GetAssemblies()
         {
-            var rootPath = PlatformProvider.Current.GetAbsolutePath(_compositionOptions.RelativePath);
-            var assembliesResolver = new AssembliesResolver(GetType(),
-                new CustomAssemblySourceProvider(rootPath,
+            var assembliesResolver = new AssembliesResolver(_rootType,
+                new CustomAssemblySourceProvider(PlatformProvider.Current.GetRootPath(),
                     _compositionOptions.Prefixes));
-            return ((IAssembliesReadOnlyResolver) assembliesResolver).GetAssemblies().ToArray();
+            return ((IAssembliesReadOnlyResolver)assembliesResolver).GetAssemblies().ToArray();
         }
     }
 }

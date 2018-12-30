@@ -4,10 +4,10 @@ using System.Linq;
 using System.Reflection;
 using Solid.Practices.Composition.Contracts;
 
-namespace Solid.Practices.Composition.Client
+namespace Solid.Practices.Composition
 {
     /// <summary>
-    /// Assemblies resolver for client applications.
+    /// The assemblies resolver.
     /// </summary>
     public class AssembliesResolver : AssembliesResolverBase
     {
