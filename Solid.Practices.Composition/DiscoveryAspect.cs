@@ -30,7 +30,7 @@ namespace Solid.Practices.Composition
         /// <inheritdoc />
         public void Initialize()
         {
-            GetAssemblies();
+            _assemblies = GetAssemblies();
         }
 
         /// <inheritdoc />
@@ -47,9 +47,10 @@ namespace Solid.Practices.Composition
         private Assembly[] GetAssemblies()
         {
             var assembliesResolver = new AssembliesResolver(
-                new CustomAssemblySourceProvider(PlatformProvider.Current.GetRootPath(),
+                new CustomAssemblySourceProvider(
+                    PlatformProvider.Current.GetAbsolutePath(_compositionOptions.RelativePath),
                     _compositionOptions.Prefixes), _rootType);
-            return ((IAssembliesReadOnlyResolver)assembliesResolver).GetAssemblies().ToArray();
+            return ((IAssembliesReadOnlyResolver) assembliesResolver).GetAssemblies().ToArray();
         }
     }
 }
