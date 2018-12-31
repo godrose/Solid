@@ -19,7 +19,7 @@ namespace Solid.Practices.Composition.Container
         /// <returns></returns>
         IEnumerable<TypeInfo> GetTypes(Assembly assembly);
         /// <summary>
-        /// Tests whethere the provided type qualifies as a composition module.
+        /// Tests whether the provided type qualifies as a composition module.
         /// </summary>
         /// <param name="type">The type to be tested.</param>
         /// <param name="moduleType">The composition module type.</param>

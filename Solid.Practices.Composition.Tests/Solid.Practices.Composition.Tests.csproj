@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="CompositionContainerTests.cs">
     </Compile>
+    <Compile Include="DiscoveryAspectTests.cs" />
     <Compile Include="TestAnotherModule.cs">
     </Compile>
     <Compile Include="TestOneCustomModule.cs">

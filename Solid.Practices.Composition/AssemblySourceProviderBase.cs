@@ -44,14 +44,25 @@ namespace Solid.Practices.Composition
         private IEnumerable<string> DiscoverAssemblyNames() => DiscoverFilePathsFromNamespaces(ResolveNamespaces())
             .Select(Path.GetFileNameWithoutExtension);
 
-        private IEnumerable<string> DiscoverFilePathsFromNamespaces(string[] namespaces) => AssemblyLoadingManager
-            .Extensions().Select(searchPattern => namespaces.Length == 0
-                ? PlatformProvider.Current.GetFiles(_rootPath, searchPattern)
-                : namespaces.Select(
-                        @namespace =>
-                            PlatformProvider.Current.GetFiles(_rootPath).Select(t => t.ToUpper())
-                                .Where(t => t.Contains(@namespace.ToUpper()) && t.EndsWith(searchPattern.ToUpper())))
-                    .SelectMany(t => t.ToArray())
-                    .ToArray()).SelectMany(k => k);
+        private IEnumerable<string> DiscoverFilePathsFromNamespaces(string[] namespaces)
+        {
+            return AssemblyLoadingManager
+                .Extensions().Select(searchPattern => namespaces.Length == 0
+                    ? PlatformProvider.Current.GetFiles(_rootPath, searchPattern)
+                    : namespaces.Select(
+                            @namespace =>
+                                GetFilesByNamespace(@namespace, searchPattern))
+                        .SelectMany(t => t.ToArray())
+                        .ToArray()).SelectMany(k => k);
+        }
+
+        private IEnumerable<string> GetFilesByNamespace(string @namespace, string searchPattern)
+        {
+            var matches = PlatformProvider.Current.GetFiles(_rootPath)
+                .Select(t => t.ToUpper())
+                .Where(t => Path.GetFileName(t).Contains(@namespace.ToUpper()) &&
+                            t.EndsWith(searchPattern.ToUpper())).ToArray();
+            return matches;
+        }
     }
 }
