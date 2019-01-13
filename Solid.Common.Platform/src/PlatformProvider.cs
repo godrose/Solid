@@ -1,7 +1,6 @@
 ﻿using System.IO;
-using Solid.Common;
 
-namespace Solid.Platform
+namespace Solid.Common
 {
     /// <summary>
     /// Platform-specific implementation of <see cref="IPlatformProvider"/>.
