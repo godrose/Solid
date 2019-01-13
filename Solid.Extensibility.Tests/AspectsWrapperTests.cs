@@ -91,7 +91,7 @@ namespace Solid.Extensibility.Tests
             var exception = Record.Exception(() => wrapper.Initialize());
 
             exception.Should().NotBeNull();
-            exception.Message.Should().BeEquivalentTo("Missing dependency Missing for aspect Basic");            
+            exception.Message.Should().BeEquivalentTo("Missing dependency Missing");            
         }
 
         [Fact]

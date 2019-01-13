@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Solid.Core;
 
@@ -35,28 +36,33 @@ namespace Solid.Extensibility
         {
             void SortAspects()
             {
-                //TODO: should use cycle detection and bfs - later
-                var sortedAspects = new List<IAspect>();
-                var additionalAspects =
-                    _aspects.Where(t => t.Id != "Platform" && t.Id != "Modularity" && t.Id != "Discovery").ToArray();
-                var platformAspect = _aspects.FirstOrDefault(t => t.Id == "Platform");
-                if (platformAspect != null)
+                const string sameKeyPrefix = "An item with the same key has already been added. Key: ";
+                try
                 {
-                    sortedAspects.Add(platformAspect);
+                    var aspectsByGroup = TopologicalSort.Group(_aspects, x => x.Dependencies, x => x.Id, ignoreCycles:false);
+                    _aspects.Clear();
+                    foreach (var group in aspectsByGroup)
+                    {
+                        _aspects.AddRange(group.OrderBy(t => t.Id));
+                    }
                 }
-                var modularityAspect = _aspects.FirstOrDefault(t => t.Id == "Modularity");
-                if (modularityAspect != null)
+                catch (ArgumentException e)
                 {
-                    sortedAspects.Add(modularityAspect);
+                    if (e.Message.StartsWith(sameKeyPrefix))
+                    {
+                        throw new Exception($"Aspect Id must be unique - {e.Message.Substring(sameKeyPrefix.Length)}");
+                    }
                 }
-                var discoveryAspect = _aspects.FirstOrDefault(t => t.Id == "Discovery");
-                if (platformAspect != null)
+                catch (KeyNotFoundException e)
                 {
-                    sortedAspects.Add(discoveryAspect);
+                    var parts = e.Message.Split('\'');
+                    //TODO: USe RegEx
+                    if (parts.Length == 3)
+                    {
+                        throw new Exception($"Missing dependency {parts[1]}");
+                    }
+                    throw;
                 }
-                sortedAspects.AddRange(additionalAspects);
-                _aspects.Clear();
-                _aspects.AddRange(sortedAspects);
             }
 
             _aspects.AddRange(_coreAspects);
