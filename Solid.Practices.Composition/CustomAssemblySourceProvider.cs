@@ -7,19 +7,19 @@
     /// <seealso cref="AssemblySourceProviderBase" />
     public sealed class CustomAssemblySourceProvider : AssemblySourceProviderBase
     {
-        private readonly string[] _endings;
+        private readonly string[] _namespaces;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomAssemblySourceProvider"/> class.
         /// </summary>
         /// <param name="rootPath"></param>
-        /// <param name="endings"></param>
-        public CustomAssemblySourceProvider(string rootPath, string[] endings) : base(rootPath)
+        /// <param name="namespaces"></param>
+        public CustomAssemblySourceProvider(string rootPath, string[] namespaces) : base(rootPath)
         {
-            _endings = endings;
+            _namespaces = namespaces;
         }
 
         /// <inheritdoc />
-        protected override string[] ResolveNamespaces() => _endings;
+        protected override string[] ResolveNamespaces() => _namespaces;
     }
 }

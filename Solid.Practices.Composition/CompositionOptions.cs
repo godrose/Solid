@@ -6,9 +6,9 @@
     public class CompositionOptions
     {
         /// <summary>
-        /// The relative modules' path.
+        /// The relative path.
         /// </summary>
-        public string ModulesPath { get; set; } = ".";
+        public string RelativePath { get; set; } = ".";
 
         /// <summary>
         /// The modules' prefixes.

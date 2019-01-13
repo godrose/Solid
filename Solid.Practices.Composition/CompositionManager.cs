@@ -50,10 +50,7 @@ namespace Solid.Practices.Composition
         /// <summary>
         /// Collection of composition modules.
         /// </summary>
-        public IEnumerable<ICompositionModule> Modules
-        {
-            get { return CompositionContainer.Modules; }
-        }
+        public IEnumerable<ICompositionModule> Modules => CompositionContainer.Modules;
 
         /// <summary>
         /// Initializes composition modules from the provided path.

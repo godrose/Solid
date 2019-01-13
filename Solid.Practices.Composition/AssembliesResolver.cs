@@ -4,10 +4,10 @@ using System.Linq;
 using System.Reflection;
 using Solid.Practices.Composition.Contracts;
 
-namespace Solid.Practices.Composition.Client
+namespace Solid.Practices.Composition
 {
     /// <summary>
-    /// Assemblies resolver for client applications.
+    /// The assemblies resolver.
     /// </summary>
     public class AssembliesResolver : AssembliesResolverBase
     {
@@ -18,12 +18,15 @@ namespace Solid.Practices.Composition.Client
         /// </summary>
         /// <param name="entryType">Type of the entry.</param>
         /// <param name="assemblySourceProvider">The assembly source provider.</param>
-        public AssembliesResolver(Type entryType,
-            IAssemblySourceProvider assemblySourceProvider) : base(assemblySourceProvider) => _entryType = entryType;
+        public AssembliesResolver(
+            IAssemblySourceProvider assemblySourceProvider,
+            Type entryType = null) : base(assemblySourceProvider) => _entryType = entryType;
 
         /// <inheritdoc />       
-        protected override IEnumerable<Assembly> GetRootAssemblies() => Enumerable.Repeat(
-            _entryType.GetTypeInfo()
-                .Assembly, 1);
+        protected override IEnumerable<Assembly> GetRootAssemblies() => _entryType == null
+            ? new Assembly[] { }
+            : Enumerable.Repeat(
+                _entryType.GetTypeInfo()
+                    .Assembly, 1);
     }
 }
