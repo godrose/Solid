@@ -8,7 +8,7 @@ namespace Solid.Core
     /// </summary>
     /// <typeparam name="TItem">The type of the items to be compared</typeparam>
     /// <typeparam name="TKey">The type of the comparison key</typeparam>
-    public class GenericEqualityComparer<TItem, TKey> : EqualityComparer<TItem>
+    public sealed class GenericEqualityComparer<TItem, TKey> : EqualityComparer<TItem>
     {
         private readonly Func<TItem, TKey> _keyExtractor;
         private readonly EqualityComparer<TKey> _keyComparer;

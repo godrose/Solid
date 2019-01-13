@@ -29,7 +29,7 @@ namespace Solid.Extensibility.Tests
 
         [Fact]
         public void
-            Initialize_AspectHasBasicDependenciesAtTheSameLevel_AspectsAreInitializedByDependencyAndAlphanumericOrder()
+            Initialize_AspectHasBasicDependenciesAtTheSameLevel_AspectsAreInitializedByDependency()
         {
             var callbacks = new List<string>();
             var firstAspect = new Mock<IAspect>();
@@ -49,7 +49,7 @@ namespace Solid.Extensibility.Tests
             wrapper.UseAspect(firstAspect.Object).UseAspect(secondAspect.Object).UseAspect(thirdAspect.Object);
             wrapper.Initialize();
 
-            callbacks.Should().BeEquivalentTo(new[] {"Basic", "DependentA", "DependentB"}, c => c.WithStrictOrdering());
+            callbacks.Should().BeEquivalentTo(new[] {"Basic", "DependentB", "DependentA"}, c => c.WithStrictOrdering());
         }
 
         [Fact]

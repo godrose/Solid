@@ -1,10 +1,15 @@
-﻿using System;
+﻿//using excellent code from https://www.codeproject.com/Articles/869059/Topological-sorting-in-Csharp
+
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 
 namespace Solid.Core
 {
+    /// <summary>
+    /// Contains helpers for topological sort implementation
+    /// </summary>
     public static class TopologicalSort
     {
         private static Func<T, IEnumerable<T>> RemapDependencies<T, TKey>(IEnumerable<T> source, Func<T, IEnumerable<TKey>> getDependencies, Func<T, TKey> getKey)
@@ -13,23 +18,50 @@ namespace Solid.Core
             return item =>
             {
                 var dependencies = getDependencies(item);
-                return dependencies != null
-                    ? dependencies.Select(key => map[key])
-                    : null;
+                return dependencies?.Select(key => map[key]);
             };
         }
 
+        /// <summary>
+        /// Sorts the source items.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="TKey"></typeparam>
+        /// <param name="source"></param>
+        /// <param name="getDependencies"></param>
+        /// <param name="getKey"></param>
+        /// <param name="ignoreCycles"></param>
+        /// <returns></returns>
         public static IList<T> Sort<T, TKey>(IEnumerable<T> source, Func<T, IEnumerable<TKey>> getDependencies, Func<T, TKey> getKey, bool ignoreCycles = false)
         {
             ICollection<T> source2 = source as ICollection<T> ?? source.ToArray();
             return Sort<T>(source2, RemapDependencies(source2, getDependencies, getKey), null, ignoreCycles);
         }
 
+        /// <summary>
+        /// Sorts the source items.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="TKey"></typeparam>
+        /// <param name="source"></param>
+        /// <param name="getDependencies"></param>
+        /// <param name="getKey"></param>
+        /// <param name="ignoreCycles"></param>
+        /// <returns></returns>
         public static IList<T> Sort<T, TKey>(IEnumerable<T> source, Func<T, IEnumerable<T>> getDependencies, Func<T, TKey> getKey, bool ignoreCycles = false)
         {
             return Sort<T>(source, getDependencies, new GenericEqualityComparer<T, TKey>(getKey), ignoreCycles);
         }
 
+        /// <summary>
+        /// Sorts the source items.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="source"></param>
+        /// <param name="getDependencies"></param>
+        /// <param name="comparer"></param>
+        /// <param name="ignoreCycles"></param>
+        /// <returns></returns>
         public static IList<T> Sort<T>(IEnumerable<T> source, Func<T, IEnumerable<T>> getDependencies, IEqualityComparer<T> comparer = null, bool ignoreCycles = false)
         {
             var sorted = new List<T>();
@@ -42,11 +74,10 @@ namespace Solid.Core
 
             return sorted;
         }
-
-        public static void Visit<T>(T item, Func<T, IEnumerable<T>> getDependencies, List<T> sorted, Dictionary<T, bool> visited, bool ignoreCycles)
+       
+        private static void Visit<T>(T item, Func<T, IEnumerable<T>> getDependencies, List<T> sorted, Dictionary<T, bool> visited, bool ignoreCycles)
         {
-            bool inProcess;
-            var alreadyVisited = visited.TryGetValue(item, out inProcess);
+            var alreadyVisited = visited.TryGetValue(item, out var inProcess);
 
             if (alreadyVisited)
             {
@@ -73,17 +104,46 @@ namespace Solid.Core
             }
         }
 
+        /// <summary>
+        /// Sorts the source of items and groups the result by level.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="TKey"></typeparam>
+        /// <param name="source"></param>
+        /// <param name="getDependencies"></param>
+        /// <param name="getKey"></param>
+        /// <param name="ignoreCycles"></param>
+        /// <returns></returns>
         public static IList<ICollection<T>> Group<T, TKey>(IEnumerable<T> source, Func<T, IEnumerable<TKey>> getDependencies, Func<T, TKey> getKey, bool ignoreCycles = true)
         {
             var source2 = source as ICollection<T> ?? source.ToArray();
             return Group<T>(source2, RemapDependencies(source2, getDependencies, getKey), null, ignoreCycles);
         }
 
+        /// <summary>
+        /// Sorts the source of items and groups the result by level.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="TKey"></typeparam>
+        /// <param name="source"></param>
+        /// <param name="getDependencies"></param>
+        /// <param name="getKey"></param>
+        /// <param name="ignoreCycles"></param>
+        /// <returns></returns>
         public static IList<ICollection<T>> Group<T, TKey>(IEnumerable<T> source, Func<T, IEnumerable<T>> getDependencies, Func<T, TKey> getKey, bool ignoreCycles = true)
         {
             return Group<T>(source, getDependencies, new GenericEqualityComparer<T, TKey>(getKey), ignoreCycles);
         }
 
+        /// <summary>
+        /// Sorts the source of items and groups the result by level.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="source"></param>
+        /// <param name="getDependencies"></param>
+        /// <param name="comparer"></param>
+        /// <param name="ignoreCycles"></param>
+        /// <returns></returns>
         public static IList<ICollection<T>> Group<T>(IEnumerable<T> source, Func<T, IEnumerable<T>> getDependencies, IEqualityComparer<T> comparer = null, bool ignoreCycles = true)
         {
             var sorted = new List<ICollection<T>>();
@@ -97,11 +157,10 @@ namespace Solid.Core
             return sorted;
         }
 
-        public static int Visit<T>(T item, Func<T, IEnumerable<T>> getDependencies, List<ICollection<T>> sorted, Dictionary<T, int> visited, bool ignoreCycles)
+        private static int Visit<T>(T item, Func<T, IEnumerable<T>> getDependencies, List<ICollection<T>> sorted, Dictionary<T, int> visited, bool ignoreCycles)
         {
             const int inProcess = -1;
-            int level;
-            var alreadyVisited = visited.TryGetValue(item, out level);
+            var alreadyVisited = visited.TryGetValue(item, out var level);
 
             if (alreadyVisited)
             {
@@ -131,9 +190,7 @@ namespace Solid.Core
                 }
                 sorted[level].Add(item);
             }
-
             return level;
         }
-
     }
 }

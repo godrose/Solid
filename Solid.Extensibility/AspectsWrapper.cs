@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using Solid.Core;
 
 namespace Solid.Extensibility
@@ -39,12 +38,9 @@ namespace Solid.Extensibility
                 const string sameKeyPrefix = "An item with the same key has already been added. Key: ";
                 try
                 {
-                    var aspectsByGroup = TopologicalSort.Group(_aspects, x => x.Dependencies, x => x.Id, ignoreCycles:false);
+                    var sortedAspects = TopologicalSort.Sort(_aspects, x => x.Dependencies, x => x.Id, ignoreCycles:false);
                     _aspects.Clear();
-                    foreach (var group in aspectsByGroup)
-                    {
-                        _aspects.AddRange(group.OrderBy(t => t.Id));
-                    }
+                    _aspects.AddRange(sortedAspects);
                 }
                 catch (ArgumentException e)
                 {
@@ -52,6 +48,8 @@ namespace Solid.Extensibility
                     {
                         throw new Exception($"Aspect Id must be unique - {e.Message.Substring(sameKeyPrefix.Length)}");
                     }
+
+                    throw;
                 }
                 catch (KeyNotFoundException e)
                 {
