@@ -79,6 +79,6 @@ namespace Solid.Practices.Composition
         public string Id => "Modularity";
 
         /// <inheritdoc />
-        public string[] Dependencies => new[] { "Platform" };
+        public string[] Dependencies => new[] { "Platform", "Discovery" };
     }
 }
