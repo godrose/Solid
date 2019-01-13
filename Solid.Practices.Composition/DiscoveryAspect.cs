@@ -37,7 +37,7 @@ namespace Solid.Practices.Composition
         public string Id => "Discovery";
 
         /// <inheritdoc />
-        public string[] Dependencies => new[] { "Modularity", "Platform" };
+        public string[] Dependencies => new[] { "Platform" };
 
         private Assembly[] _assemblies;
 
