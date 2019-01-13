@@ -80,7 +80,8 @@ namespace Solid.Practices.Composition
         /// <inheritdoc />
         public string Id => "Modularity";
 
+        //TODO: Add explicit dep on Discovery when assemblies loading strategies are merged
         /// <inheritdoc />
-        public string[] Dependencies => new[] { "Platform", "Discovery" };
+        public string[] Dependencies => new[] { "Platform"};
     }
 }
