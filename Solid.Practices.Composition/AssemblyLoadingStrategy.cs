@@ -70,7 +70,8 @@ namespace Solid.Practices.Composition
             var patterns = patternsCalculator.Calculate(_prefixes, _namespaces, _extensions);
             return patterns
                 .Select(k =>
-                    PlatformProvider.Current.GetFiles(_rootPath, Path.Combine(k.Prefix + "*" + k.Contents, k.Postfix)))
+                    PlatformProvider.Current.GetFiles(_rootPath).Where(t =>
+                        t.StartsWith(k.Prefix) && t.Contains(k.Contents) && t.EndsWith(k.Postfix)))
                 .SelectMany(k => k);
         }
     }
