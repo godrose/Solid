@@ -1,12 +1,15 @@
 ﻿namespace Solid.Core
 {
     internal static class CollectionExtensions
-    {
-        private const string WildCard = "*";
-
+    {         
         internal static string[] Patch(this string[] input)
         {
-            return input == null || input.Length == 0 ? new[] { WildCard } : input;
+            return input == null || input.Length == 0 ? new[] { Consts.WildCard } : input;
         }
+    }
+
+    public static class Consts
+    {
+        public const string WildCard = "*";
     }
 }

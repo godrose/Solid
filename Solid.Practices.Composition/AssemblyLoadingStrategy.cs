@@ -68,11 +68,16 @@ namespace Solid.Practices.Composition
         {
             var patternsCalculator = new PatternsCalculator();
             var patterns = patternsCalculator.Calculate(_prefixes, _namespaces, _extensions);
-            return patterns
+            var allFiles = PlatformProvider.Current.GetFiles(_rootPath).Select(Path.GetFileName).ToArray();
+            var filePaths = patterns
                 .Select(k =>
-                    PlatformProvider.Current.GetFiles(_rootPath).Where(t =>
-                        t.StartsWith(k.Prefix) && t.Contains(k.Contents) && t.EndsWith(k.Postfix)))
+                    //TODO: Consider RegEx
+                    allFiles.Where(t =>
+                        (k.Prefix == Consts.WildCard || t.StartsWith(k.Prefix)) && 
+                        (k.Contents == Consts.WildCard || t.Contains(k.Contents)) && 
+                        (k.Postfix == Consts.WildCard || t.EndsWith(k.Postfix))))
                 .SelectMany(k => k);
+            return filePaths;
         }
     }
 

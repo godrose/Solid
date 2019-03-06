@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using Solid.Practices.Composition.Contracts;
 using Solid.Practices.Modularity;
@@ -76,7 +77,8 @@ namespace Solid.Practices.Composition
         private void InitializeComposition(string rootPath, string[] prefixes = null)
         {
             CompositionContainer = new CompositionContainer(_compositionModuleCreationStrategy,
-                new FileSystemBasedAssemblyLoadingStrategy(rootPath, prefixes));
+                //TODO: Use DiscoveryAspect of course
+                new FileSystemBasedAssemblyLoadingStrategy(rootPath, prefixes, namespaces:null, extensions:AssemblyLoadingManager.Extensions().ToArray()));
             CompositionContainer.Compose();
         }
     }

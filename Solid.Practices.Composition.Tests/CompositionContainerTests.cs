@@ -46,7 +46,8 @@ namespace Solid.Practices.Composition.Tests
         {
             var rootPath = GetCurrentDirectory();
 
-            ICompositionContainer<ICustomModule> compositionContainer = CreateCompositionContainer<ICustomModule>(rootPath, new[] { "Solid" });
+            ICompositionContainer<ICustomModule> compositionContainer =
+                CreateCompositionContainer<ICustomModule>(rootPath, new[] {"Solid"});
             compositionContainer.Compose();
 
             var modules = compositionContainer.Modules;
@@ -102,14 +103,16 @@ namespace Solid.Practices.Composition.Tests
             where TModule : ICompositionModule
         {
             return new CompositionContainer<TModule>(CreateModuleCreationStrategy(),
-                new FileSystemBasedAssemblyLoadingStrategy(rootPath));
+                new FileSystemBasedAssemblyLoadingStrategy(rootPath, prefixes:null, namespaces:null, extensions:AssemblyLoadingManager.Extensions().ToArray()));
         }
 
         private static CompositionContainer<TModule> CreateCompositionContainer<TModule>(string rootPath, string[] prefixes)
             where TModule : ICompositionModule
         {
             return new CompositionContainer<TModule>(CreateModuleCreationStrategy(),
-                new FileSystemBasedAssemblyLoadingStrategy(rootPath, prefixes));
+                new FileSystemBasedAssemblyLoadingStrategy(rootPath, prefixes,
+                    null,
+                    AssemblyLoadingManager.Extensions().ToArray()));
         }
 
         private static ICompositionModuleCreationStrategy CreateModuleCreationStrategy()
