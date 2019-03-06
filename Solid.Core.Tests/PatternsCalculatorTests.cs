@@ -112,50 +112,5 @@ namespace Solid.Core.Tests
 
             paths.Should().BeEquivalentTo(expectedOutput);
         }
-    }
-
-    public struct PatternDescription
-    {
-        public PatternDescription(string prefix, string contents, string postfix)
-        {
-            Prefix = prefix;
-            Contents = contents;
-            Postfix = postfix;
-        }
-
-        public string Prefix { get; }
-        public string Contents { get; }
-        public string Postfix { get; }
-    }
-
-    internal class PatternsCalculator
-    {        
-        public IEnumerable<PatternDescription> Calculate(string[] prefixes, string[] namespaces, string[] extensions)
-        {
-            prefixes = prefixes.Patch();
-            namespaces = namespaces.Patch();
-            extensions = extensions.Patch();
-
-            foreach (var prefix in prefixes)
-            {
-                foreach (var ns in namespaces)
-                {
-                    foreach (var extension in extensions)
-                    {
-                        yield return new PatternDescription(prefix, ns, extension);
-                    }
-                }
-            }
-        }        
-    }
-
-    internal static class CollectionExtensions
-    {
-        private static string WildCard = "*";
-
-        internal static string[] Patch(this string[] input)
-        {
-            return input == null || input.Length == 0 ? new[] {WildCard} : input;
-        }
-    }
+    }            
 }
