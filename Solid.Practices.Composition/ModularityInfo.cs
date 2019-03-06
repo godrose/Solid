@@ -5,7 +5,7 @@ using Solid.Practices.Modularity;
 namespace Solid.Practices.Composition
 {
     /// <summary>
-    /// The modularity information
+    /// The modularity information.
     /// </summary>
     public struct ModularityInfo
     {

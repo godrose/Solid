@@ -23,8 +23,8 @@ namespace Solid.Practices.Composition
         /// <summary>
         /// Creates an instance of <see cref="ModularityAspect"/> using provided <see cref="CompositionOptions"/>
         /// </summary>
-        /// <param name="assemblySourceProvider">The assembly source provider</param>
-        /// <param name="options">The composition options</param>
+        /// <param name="assemblySourceProvider">The assembly source provider.</param>
+        /// <param name="options">The composition options.</param>
         public ModularityAspect(
             IAssemblySourceProvider assemblySourceProvider, 
             CompositionOptions options)

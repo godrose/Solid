@@ -19,11 +19,9 @@ namespace Solid.Practices.Composition
         /// <summary>
         /// Initializes a new instance of the <see cref="PreloadedAssemblyLoadingStrategy"/> class.
         /// </summary>
-        /// <param name="assemblies">The preloaded assemblies.</param>
-        /// <param name="prefixes">Allowed prefixes; leave empty if all are allowed.</param>
+        /// <param name="assemblies">The preloaded assemblies.</param>        
         public PreloadedAssemblyLoadingStrategy(
-            IEnumerable<Assembly> assemblies,
-            string[] prefixes = null) => Assemblies = assemblies.FilterByPrefixes(prefixes).ToArray();
+            IEnumerable<Assembly> assemblies) => Assemblies = assemblies.ToArray();
 
         /// <inheritdoc />
         public IEnumerable<Assembly> Load() => Assemblies;

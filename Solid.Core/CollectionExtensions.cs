@@ -7,9 +7,4 @@
             return input == null || input.Length == 0 ? new[] { Consts.WildCard } : input;
         }
     }
-
-    public static class Consts
-    {
-        public const string WildCard = "*";
-    }
 }

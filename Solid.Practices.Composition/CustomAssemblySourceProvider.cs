@@ -12,10 +12,13 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomAssemblySourceProvider"/> class.
         /// </summary>
-        /// <param name="rootPath"></param>
-        /// <param name="prefixes"></param>
-        /// <param name="namespaces"></param>
-        public CustomAssemblySourceProvider(string rootPath, string[] prefixes = null, string[] namespaces = null) 
+        /// <param name="rootPath">The root path.</param>
+        /// <param name="prefixes">The prefixes.</param>
+        /// <param name="namespaces">The namespaces.</param>
+        public CustomAssemblySourceProvider(
+            string rootPath, 
+            string[] prefixes = null, 
+            string[] namespaces = null) 
             : base(rootPath, prefixes)
         {
             _namespaces = namespaces;
