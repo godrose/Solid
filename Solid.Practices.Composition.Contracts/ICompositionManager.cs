@@ -1,16 +1,17 @@
-﻿namespace Solid.Practices.Composition.Contracts
+﻿using System.Collections.Generic;
+using System.Reflection;
+
+namespace Solid.Practices.Composition.Contracts
 {    
     /// <summary>
-    /// Allows initializing composition from the given path.
+    /// Allows initializing composition modules using pre-loaded assemblies.
     /// </summary>
     public interface ICompositionManager : ICompositionModulesProvider
-    {        
+    {
         /// <summary>
-        /// Initializes composition modules from the provided path.
+        /// Initializes composition modules using pre-loaded assemblies.
         /// </summary>
-        /// <param name="rootPath">Root path.</param>
-        /// <param name="prefixes">Optional file name prefixes; 
-        /// used for filtering potential assembly candidates.</param>
-        void Initialize(string rootPath, string[] prefixes = null);
+        /// <param name="assemblies">The assemblies.</param>        
+        void Initialize(IEnumerable<Assembly> assemblies);
     }
 }
