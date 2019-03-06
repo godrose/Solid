@@ -12,7 +12,8 @@ namespace Solid.Practices.Composition.Web
         /// Initializes a new instance of the <see cref="ServerAssemblySourceProvider"/> class.
         /// </summary>
         /// <param name="rootPath">The root path.</param>
-        public ServerAssemblySourceProvider(string rootPath) : base(rootPath)
+        /// <param name="prefixes">The prefixes.</param>
+        public ServerAssemblySourceProvider(string rootPath, string[] prefixes) : base(rootPath, prefixes)
         {
         }
 

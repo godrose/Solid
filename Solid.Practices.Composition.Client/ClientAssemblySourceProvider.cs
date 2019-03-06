@@ -13,7 +13,8 @@ namespace Solid.Practices.Composition.Client
         /// Initializes a new instance of the <see cref="ClientAssemblySourceProvider"/> class.
         /// </summary>
         /// <param name="rootPath">The root path.</param>
-        public ClientAssemblySourceProvider(string rootPath) : base(rootPath)
+        /// <param name="prefixes">The prefixes.</param>
+        public ClientAssemblySourceProvider(string rootPath, string[] prefixes) : base(rootPath, prefixes)
         {
         }
 
