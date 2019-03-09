@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Reflection;
-using Solid.Common;
 using Solid.Practices.Composition.Contracts;
 
 namespace Solid.Practices.Composition
@@ -15,12 +13,19 @@ namespace Solid.Practices.Composition
     public abstract class AssemblySourceProviderBase : IAssemblySourceProvider
     {
         private readonly string _rootPath;
+        private readonly string[] _prefixes;
+        private IAssemblyLoadingStrategy _assemblyLoadingStrategy;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AssemblySourceProviderBase"/> class.
         /// </summary>
         /// <param name="rootPath">The root path.</param>
-        protected AssemblySourceProviderBase(string rootPath) => _rootPath = rootPath;
+        /// <param name="prefixes">The prefixes.</param>
+        protected AssemblySourceProviderBase(string rootPath, string[] prefixes = null)
+        {
+            _rootPath = rootPath;
+            _prefixes = prefixes;
+        }
 
         private Assembly[] _inspectedAssemblies;
 
@@ -38,31 +43,11 @@ namespace Solid.Practices.Composition
         /// <returns></returns>
         protected abstract string[] ResolveNamespaces();
 
-        private Assembly[] CreateAssemblies() =>
-            SafeAssemblyLoader.LoadAssembliesFromNames(DiscoverAssemblyNames()).ToArray();
-
-        private IEnumerable<string> DiscoverAssemblyNames() => DiscoverFilePathsFromNamespaces(ResolveNamespaces())
-            .Select(Path.GetFileNameWithoutExtension);
-
-        private IEnumerable<string> DiscoverFilePathsFromNamespaces(string[] namespaces)
+        private Assembly[] CreateAssemblies()
         {
-            return AssemblyLoadingManager
-                .Extensions().Select(searchPattern => namespaces.Length == 0
-                    ? PlatformProvider.Current.GetFiles(_rootPath, searchPattern)
-                    : namespaces.Select(
-                            @namespace =>
-                                GetFilesByNamespace(@namespace, searchPattern))
-                        .SelectMany(t => t.ToArray())
-                        .ToArray()).SelectMany(k => k);
-        }
-
-        private IEnumerable<string> GetFilesByNamespace(string @namespace, string searchPattern)
-        {
-            var matches = PlatformProvider.Current.GetFiles(_rootPath)
-                .Select(t => t.ToUpper())
-                .Where(t => Path.GetFileName(t).Contains(@namespace.ToUpper()) &&
-                            t.EndsWith(searchPattern.ToUpper())).ToArray();
-            return matches;
+            _assemblyLoadingStrategy = new FileSystemBasedAssemblyLoadingStrategy(_rootPath, _prefixes,
+                ResolveNamespaces(), AssemblyLoadingManager.Extensions().ToArray());
+            return _assemblyLoadingStrategy.Load().ToArray();            
         }
     }
 }

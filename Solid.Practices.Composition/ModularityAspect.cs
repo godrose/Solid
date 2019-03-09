@@ -17,23 +17,19 @@ namespace Solid.Practices.Composition
         ICompositionModulesProvider,
         IHaveErrors
     {
+        private readonly IAssemblySourceProvider _assemblySourceProvider;
         private readonly CompositionOptions _options;
-
-        /// <summary>
-        /// Creates an instance of <see cref="ModularityAspect"/> with empty <see cref="CompositionOptions"/>
-        /// </summary>
-        public ModularityAspect() :
-            this(new CompositionOptions())
-        {
-
-        }
 
         /// <summary>
         /// Creates an instance of <see cref="ModularityAspect"/> using provided <see cref="CompositionOptions"/>
         /// </summary>
-        /// <param name="options">The composition options</param>
-        public ModularityAspect(CompositionOptions options)
+        /// <param name="assemblySourceProvider">The assembly source provider.</param>
+        /// <param name="options">The composition options.</param>
+        public ModularityAspect(
+            IAssemblySourceProvider assemblySourceProvider, 
+            CompositionOptions options)
         {
+            _assemblySourceProvider = assemblySourceProvider;
             _options = options;
         }
 
@@ -60,7 +56,7 @@ namespace Solid.Practices.Composition
             ModularityInfo modularityInfo = new ModularityInfo();
             try
             {
-                compositionManager.Initialize(RelativePath, Prefixes);
+                compositionManager.Initialize(_assemblySourceProvider.Assemblies);
             }
             catch (AggregateAssemblyInspectionException ex)
             {
@@ -79,9 +75,8 @@ namespace Solid.Practices.Composition
 
         /// <inheritdoc />
         public string Id => "Modularity";
-
-        //TODO: Add explicit dep on Discovery when assemblies loading strategies are merged
+        
         /// <inheritdoc />
-        public string[] Dependencies => new[] { "Platform"};
+        public string[] Dependencies => new[] { "Platform", "Discovery" };
     }
 }

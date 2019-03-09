@@ -50,15 +50,7 @@ namespace Solid.Practices.Composition
         /// <summary>
         /// Collection of composition modules.
         /// </summary>
-        public IEnumerable<ICompositionModule> Modules => CompositionContainer.Modules;
-
-        /// <summary>
-        /// Initializes composition modules from the provided path.
-        /// </summary>        
-        /// <param name="rootPath">Root path.</param>
-        /// <param name="prefixes">Optional file name prefixes; 
-        /// used for filtering potential assembly candidates.</param>
-        public void Initialize(string rootPath, string[] prefixes = null) => InitializeComposition(rootPath, prefixes);
+        public IEnumerable<ICompositionModule> Modules => CompositionContainer.Modules;        
 
         /// <summary>
         /// Initializes composition modules from the provided assemblies.
@@ -71,13 +63,6 @@ namespace Solid.Practices.Composition
             CompositionContainer = new CompositionContainer(_compositionModuleCreationStrategy,
                 new PreloadedAssemblyLoadingStrategy(assemblies));
             CompositionContainer.Compose();
-        }
-
-        private void InitializeComposition(string rootPath, string[] prefixes = null)
-        {
-            CompositionContainer = new CompositionContainer(_compositionModuleCreationStrategy,
-                new FileSystemBasedAssemblyLoadingStrategy(rootPath, prefixes));
-            CompositionContainer.Compose();
-        }
+        }        
     }
 }
