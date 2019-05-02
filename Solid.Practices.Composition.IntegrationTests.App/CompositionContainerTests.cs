@@ -3,7 +3,6 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using BoDi;
-using FluentAssertions;
 using McMaster.NETCore.Plugins;
 using Solid.Common;
 using Solid.IoC.Adapters.BoDi;
