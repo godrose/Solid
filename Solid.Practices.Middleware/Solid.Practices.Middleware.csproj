@@ -11,6 +11,10 @@
     <DocumentationFile>..\Bin\netstandard2.0\Release\Solid.Practices.Middleware.xml</DocumentationFile>
     <DebugType>full</DebugType>
     <DebugSymbols>true</DebugSymbols>
-  </PropertyGroup>  
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Solid.Core\Solid.Core.csproj" />
+  </ItemGroup>  
 
 </Project>
