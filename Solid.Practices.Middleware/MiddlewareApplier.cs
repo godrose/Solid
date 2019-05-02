@@ -1,5 +1,4 @@
 ﻿using Solid.Core;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -18,40 +17,10 @@ namespace Solid.Practices.Middleware
         /// <param name="middlewares">The middlewares.</param>
         public static void ApplyMiddlewares<T>(
             T @object,
-            IEnumerable<IMiddleware<T>> middlewares) where T : class => AggregateMiddlewares(@object, SortMiddlewares(middlewares));
-
-        private static IEnumerable<IMiddleware<T>> SortMiddlewares<T>
-            (IEnumerable<IMiddleware<T>> middlewares) where T : class
-        {
-            const string sameKeyPrefix = "An item with the same key has already been added. Key: ";
-            try
-            {
-                var result = new List<IMiddleware<T>>();
-                var sortedItems = TopologicalSort.Sort<object, string>(middlewares, ExtractDependencies, ExtractId, ignoreCycles: false).OfType<IMiddleware<T>>();
-                result.Clear();
-                result.AddRange(sortedItems);
-                return result;
-            }
-            catch (ArgumentException e)
-            {
-                if (e.Message.StartsWith(sameKeyPrefix))
-                {
-                    throw new Exception($"Id must be unique - {e.Message.Substring(sameKeyPrefix.Length)}");
-                }
-
-                throw;
-            }
-            catch (KeyNotFoundException e)
-            {
-                var parts = e.Message.Split('\'');
-                //TODO: Use RegEx
-                if (parts.Length == 3)
-                {
-                    throw new Exception($"Missing dependency {parts[1]}");
-                }
-                throw;
-            }            
-        }
+            IEnumerable<IMiddleware<T>> middlewares) where T : class =>
+            AggregateMiddlewares(@object,
+                middlewares.SortTopologically<object, string>(ExtractDependencies, ExtractId)
+                    .OfType<IMiddleware<T>>());        
 
         private static string ExtractId(object arg)
         {            
