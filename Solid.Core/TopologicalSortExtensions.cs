@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Solid.Core
 {
@@ -35,6 +36,28 @@ namespace Solid.Core
                 }
                 throw;
             }
-        }        
+        }
+
+        public static string ExtractId(this object arg)
+        {
+            if (arg is IIdentifiable identifiable)
+            {
+                return identifiable.Id;
+            }
+            var idAttributes = arg.GetType().GetCustomAttributes(typeof(IdAttribute), inherit: true).OfType<IdAttribute>();
+            var idAttribute = idAttributes.FirstOrDefault();
+            return idAttribute != null ? idAttribute.Id : arg.GetType().Name;
+        }
+
+        public static IEnumerable<string> ExtractDependencies(this object arg)
+        {
+            if (arg is IHaveDependencies haveDependencies)
+            {
+                return haveDependencies.Dependencies;
+            }
+            var depAttributes = arg.GetType().GetCustomAttributes(typeof(DependenciesAttribute), inherit: true).OfType<DependenciesAttribute>();
+            var depAttribute = depAttributes.FirstOrDefault();
+            return depAttribute != null ? depAttribute.Dependencies : new string[] { };
+        }
     }
 }

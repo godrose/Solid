@@ -19,31 +19,8 @@ namespace Solid.Practices.Middleware
             T @object,
             IEnumerable<IMiddleware<T>> middlewares) where T : class =>
             AggregateMiddlewares(@object,
-                middlewares.SortTopologically<object, string>(ExtractDependencies, ExtractId)
-                    .OfType<IMiddleware<T>>());        
-
-        private static string ExtractId(object arg)
-        {            
-            if (arg is IIdentifiable identifiable)
-            {
-                return identifiable.Id;
-            }
-            var idAttributes = arg.GetType().GetCustomAttributes(typeof(IdAttribute), inherit: true).OfType<IdAttribute>();
-            var idAttribute = idAttributes.FirstOrDefault();
-            return idAttribute != null ? idAttribute.Id : arg.GetType().Name;
-        }
-
-        private static IEnumerable<string> ExtractDependencies(object arg)
-        {            
-            if (arg is IHaveDependencies haveDependencies)
-            {
-                return haveDependencies.Dependencies;
-            }
-            var depAttributes = arg.GetType().GetCustomAttributes(typeof(DependenciesAttribute), inherit:true).OfType<DependenciesAttribute>();
-            var depAttribute = depAttributes.FirstOrDefault();
-            return depAttribute != null ? depAttribute.Dependencies : new string[] { };
-        }
-
+                middlewares.SortTopologically(r => r.ExtractDependencies(), r => r.ExtractId()));        
+        
         private static void AggregateMiddlewares<T>
         (T @object,
             IEnumerable<IMiddleware<T>> middlewares) where T : class =>
