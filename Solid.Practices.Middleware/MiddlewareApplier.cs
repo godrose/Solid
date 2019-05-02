@@ -54,35 +54,25 @@ namespace Solid.Practices.Middleware
         }
 
         private static string ExtractId(object arg)
-        {
-            var implementsInterface = arg is IIdentifiable;
-            if (arg is IIdentifiable)
+        {            
+            if (arg is IIdentifiable identifiable)
             {
-                return (arg as IIdentifiable).Id;
+                return identifiable.Id;
             }
             var idAttributes = arg.GetType().GetCustomAttributes(typeof(IdAttribute), inherit: true).OfType<IdAttribute>();
             var idAttribute = idAttributes.FirstOrDefault();
-            if (idAttribute != null)
-            {
-                return idAttribute.Id;
-            }
-            return arg.GetType().Name;
+            return idAttribute != null ? idAttribute.Id : arg.GetType().Name;
         }
 
         private static IEnumerable<string> ExtractDependencies(object arg)
-        {
-            var implementsInterface = arg is IHaveDependencies;
-            if (arg is IHaveDependencies)
+        {            
+            if (arg is IHaveDependencies haveDependencies)
             {
-                return (arg as IHaveDependencies).Dependencies;
+                return haveDependencies.Dependencies;
             }
             var depAttributes = arg.GetType().GetCustomAttributes(typeof(DependenciesAttribute), inherit:true).OfType<DependenciesAttribute>();
             var depAttribute = depAttributes.FirstOrDefault();
-            if (depAttribute != null)
-            {
-                return depAttribute.Dependencies;
-            }
-            return new string[] { };
+            return depAttribute != null ? depAttribute.Dependencies : new string[] { };
         }
 
         private static void AggregateMiddlewares<T>
