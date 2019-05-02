@@ -18,6 +18,42 @@ namespace Solid.Practices.Middleware.Tests
             var result = init.ToString();
             result.Should().Be("CBA");
         }
+
+        [Fact]
+        public void Apply_SomeMiddlewaresHaveDependenciesSomeDont_MiddlewaresAreInvokedInTheCorrectOrder()
+        {
+            var middlewares = new IMiddleware<StringBuilder>[] { new MiddlewareB(), new MiddlewareA(), new IndependentExplicitMiddleware(), new MiddlewareC() };
+
+            var init = new StringBuilder();
+            MiddlewareApplier.ApplyMiddlewares(init, middlewares);
+
+            var result = init.ToString();
+            result.Should().Be("CBAIndExpl");
+        }
+
+        [Fact]
+        public void Apply_SomeMiddlewaresHaveDependenciesSomeDontImplicit_MiddlewaresAreInvokedInTheCorrectOrder()
+        {
+            var middlewares = new IMiddleware<StringBuilder>[] { new MiddlewareB(), new MiddlewareA(), new IndependentImplicitMiddleware(), new MiddlewareC() };
+
+            var init = new StringBuilder();
+            MiddlewareApplier.ApplyMiddlewares(init, middlewares);
+
+            var result = init.ToString();
+            result.Should().Be("CBAIndImpl");
+        }
+
+        [Fact]
+        public void Apply_MiddlewaresHaveDependenciesByAttributes_MiddlewaresAreInvokedInTheCorrectOrder()
+        {
+            var middlewares = new IMiddleware<StringBuilder>[] { new MiddlewareAttrB(), new MiddlewareAttrA(), new MiddlewareAttrC() };
+
+            var init = new StringBuilder();
+            MiddlewareApplier.ApplyMiddlewares(init, middlewares);
+
+            var result = init.ToString();
+            result.Should().Be("CBA");
+        }
     }
 
     class IndependentImplicitMiddleware : IMiddleware<StringBuilder>
@@ -40,7 +76,7 @@ namespace Solid.Practices.Middleware.Tests
 
     class MiddlewareA : IMiddleware<StringBuilder>, IHaveDependencies, IIdentifiable
     {
-        public string[] Dependencies => new string[] { "B", "C" };
+        public string[] Dependencies => new[] { "B", "C" };
 
         public string Id => "A";
 
@@ -52,7 +88,7 @@ namespace Solid.Practices.Middleware.Tests
 
     class MiddlewareB : IMiddleware<StringBuilder>, IHaveDependencies, IIdentifiable
     {
-        public string[] Dependencies => new string[] { "C" };
+        public string[] Dependencies => new[] { "C" };
 
         public string Id => "B";
 
@@ -68,6 +104,36 @@ namespace Solid.Practices.Middleware.Tests
 
         public string Id => "C";
 
+        public StringBuilder Apply(StringBuilder @object)
+        {
+            return @object.Append("C");
+        }
+    }
+
+    [Dependencies(new[] { "B", "C" })]
+    [Id("A")]
+    class MiddlewareAttrA : IMiddleware<StringBuilder>
+    {        
+        public StringBuilder Apply(StringBuilder @object)
+        {
+            return @object.Append("A");
+        }
+    }
+
+    [Dependencies(new[] { "C" })]
+    [Id("B")]
+    class MiddlewareAttrB : IMiddleware<StringBuilder>
+    {
+        public StringBuilder Apply(StringBuilder @object)
+        {
+            return @object.Append("B");
+        }
+    }
+
+    [Dependencies(new string[] {  })]
+    [Id("C")]
+    class MiddlewareAttrC : IMiddleware<StringBuilder>
+    {
         public StringBuilder Apply(StringBuilder @object)
         {
             return @object.Append("C");
