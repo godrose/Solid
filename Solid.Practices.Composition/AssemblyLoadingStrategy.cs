@@ -57,11 +57,8 @@ namespace Solid.Practices.Composition
         }
 
         /// <inheritdoc />
-        public IEnumerable<Assembly> Load() => SafeAssemblyLoader.LoadAssembliesFromNames(DiscoverAssemblyNames());
-
-        private IEnumerable<string> DiscoverAssemblyNames() =>
-            DiscoverFilePaths().Select(Path.GetFileNameWithoutExtension);
-
+        public IEnumerable<Assembly> Load() => AssemblyLoader.LoadAssembliesFromPaths(DiscoverFilePaths());
+       
         private IEnumerable<string> DiscoverFilePaths()
         {
             var patternsCalculator = new PatternsCalculator();

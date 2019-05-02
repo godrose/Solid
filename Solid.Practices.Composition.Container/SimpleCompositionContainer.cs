@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using Solid.Practices.Composition.Contracts;
 using Solid.Practices.Modularity;
