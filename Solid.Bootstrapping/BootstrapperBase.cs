@@ -24,8 +24,11 @@ namespace Solid.Bootstrapping
         private DiscoveryAspect _discoveryAspect;        
         private readonly ExtensibilityAspect<BootstrapperBase> _concreteExtensibilityAspect;
         private readonly AspectsWrapper _aspectsWrapper = new AspectsWrapper();
-              
-        private BootstrapperBase()
+
+        /// <summary>
+        /// Creates an instance of <see cref="BootstrapperBase"/>
+        /// </summary>        
+        public BootstrapperBase()
         {
             _concreteExtensibilityAspect = new ExtensibilityAspect<BootstrapperBase>(this);            
         }
