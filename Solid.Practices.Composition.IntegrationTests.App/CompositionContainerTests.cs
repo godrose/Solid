@@ -44,8 +44,9 @@ namespace Solid.Practices.Composition.IntegrationTests.App
         public static IEnumerable<Assembly> Get(IEnumerable<string> paths)
         {
             return paths.Select(path =>
-                PluginLoader.CreateFromAssemblyFile(assemblyFile: Path.Combine(Directory.GetCurrentDirectory(), path),
-                    sharedTypes: new[] {typeof(ICompositionModule<IDependencyRegistrator>)}).LoadDefaultAssembly());
+                PluginLoader.CreateFromAssemblyFile(assemblyFile: Path.Combine(Directory.GetCurrentDirectory(), path), 
+                    PluginLoaderOptions.PreferSharedTypes
+                    ).LoadDefaultAssembly());
         }
     }
 }

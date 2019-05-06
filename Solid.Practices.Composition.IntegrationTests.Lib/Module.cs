@@ -8,8 +8,13 @@ namespace Solid.Practices.Composition.IntegrationTests.Lib
     {
         public void RegisterModule(IDependencyRegistrator dependencyRegistrator)
         {
-            var mock = new Mock<string>();
+            var mock = new Mock<IPlaceHolder>();
             mock.Setup(t => t.Length).Returns(5);
         }
+    }
+
+    public interface IPlaceHolder
+    {
+        int Length { get; }
     }
 }
