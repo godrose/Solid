@@ -1,4 +1,5 @@
 ﻿using Moq;
+using Solid.Practices.Composition.IntegrationTests.Contracts;
 using Solid.Practices.IoC;
 using Solid.Practices.Modularity;
 
@@ -8,13 +9,9 @@ namespace Solid.Practices.Composition.IntegrationTests.Lib
     {
         public void RegisterModule(IDependencyRegistrator dependencyRegistrator)
         {
-            var mock = new Mock<IPlaceHolder>();
+            var mock = new Mock<IPlaceholder>();
             mock.Setup(t => t.Length).Returns(5);
+            dependencyRegistrator.RegisterInstance(mock.Object);
         }
-    }
-
-    public interface IPlaceHolder
-    {
-        int Length { get; }
     }
 }

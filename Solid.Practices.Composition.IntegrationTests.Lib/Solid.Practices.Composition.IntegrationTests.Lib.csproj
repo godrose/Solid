@@ -18,6 +18,7 @@
   </ItemGroup>
   
   <ItemGroup>
+    <ProjectReference Include="..\Solid.Practices.Composition.IntegrationTests.Contracts\Solid.Practices.Composition.IntegrationTests.Contracts.csproj" />
     <ProjectReference Include="..\Solid.Practices.IoC\Solid.Practices.IoC.csproj" />
     <ProjectReference Include="..\Solid.Practices.Modularity\Solid.Practices.Modularity.csproj" />
   </ItemGroup>

@@ -3,10 +3,12 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using BoDi;
+using FluentAssertions;
 using McMaster.NETCore.Plugins;
 using Solid.Common;
 using Solid.IoC.Adapters.BoDi;
 using Solid.Practices.Composition.Contracts;
+using Solid.Practices.Composition.IntegrationTests.Contracts;
 using Solid.Practices.IoC;
 using Solid.Practices.Modularity;
 using Xunit;
@@ -34,7 +36,10 @@ namespace Solid.Practices.Composition.IntegrationTests.App
             var registrator = new ObjectContainerAdapter(new ObjectContainer());
             var singleModule = modules.SingleOrDefault();
             singleModule.RegisterModule(registrator);
-                        
+
+            var placeHolder = registrator.Resolve<IPlaceholder>();
+            var length = placeHolder.Length;
+            length.Should().Be(5);
         }
     }
 
