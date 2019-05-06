@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Solid.Core;
 using Solid.Practices.IoC;
 using Solid.Practices.Middleware;
 
@@ -48,11 +49,15 @@ namespace Solid.Practices.Modularity
         {
             if (Modules != null)
             {
-                foreach (var compositionModule in Modules.OfType<ICompositionModule<TContainerConstraint>>())
+                var matchingModules = Modules.OfType<ICompositionModule<TContainerConstraint>>();
+                var modules =
+                    matchingModules.SortTopologically(r => r.ExtractDependencies(), r => r.ExtractId());                
+                foreach (var compositionModule in modules)
                 {
                     compositionModule.RegisterModule(@object);
-                }                
+                }
             }
+
             return @object;
         }
     }
@@ -79,7 +84,10 @@ namespace Solid.Practices.Modularity
         {
             if (Modules != null)
             {
-                foreach (var plainCompositionModule in Modules.OfType<IPlainCompositionModule>())
+                var matchingModules = Modules.OfType<IPlainCompositionModule>();
+                var modules =
+                    matchingModules.SortTopologically(r => r.ExtractDependencies(), r => r.ExtractId());
+                foreach (var plainCompositionModule in modules)
                 {
                     plainCompositionModule.RegisterModule();
                 }
@@ -146,7 +154,10 @@ namespace Solid.Practices.Modularity
         {
             if (Modules != null)
             {
-                foreach (var hierarchicalModule in Modules.OfType<IHierarchicalCompositionModule<TIocContainer>>())
+                var matchingModules = Modules.OfType<IHierarchicalCompositionModule<TIocContainer>>();
+                var modules =
+                    matchingModules.SortTopologically(r => r.ExtractDependencies(), r => r.ExtractId());
+                foreach (var hierarchicalModule in modules)
                 {
                     hierarchicalModule.RegisterModules(@object, Modules);
                 }

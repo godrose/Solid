@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Solid.Core;
 
 namespace Solid.Extensibility
@@ -32,39 +31,11 @@ namespace Solid.Extensibility
 
         /// <inheritdoc />
         public void Initialize()
-        {
-            void SortAspects()
-            {
-                const string sameKeyPrefix = "An item with the same key has already been added. Key: ";
-                try
-                {
-                    var sortedAspects = TopologicalSort.Sort(_aspects, x => x.Dependencies, x => x.Id, ignoreCycles:false);
-                    _aspects.Clear();
-                    _aspects.AddRange(sortedAspects);
-                }
-                catch (ArgumentException e)
-                {
-                    if (e.Message.StartsWith(sameKeyPrefix))
-                    {
-                        throw new Exception($"Aspect Id must be unique - {e.Message.Substring(sameKeyPrefix.Length)}");
-                    }
-
-                    throw;
-                }
-                catch (KeyNotFoundException e)
-                {
-                    var parts = e.Message.Split('\'');
-                    //TODO: USe RegEx
-                    if (parts.Length == 3)
-                    {
-                        throw new Exception($"Missing dependency {parts[1]}");
-                    }
-                    throw;
-                }
-            }
-
+        {                        
             _aspects.AddRange(_coreAspects);
-            SortAspects();
+            var sortedAspects = _aspects.SortTopologically(x => x.Dependencies, x => x.Id);
+            _aspects.Clear();
+            _aspects.AddRange(sortedAspects);
             foreach (var aspect in _aspects)
             {
                 aspect.Initialize();

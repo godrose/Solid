@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Solid.Core;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Solid.Practices.Middleware
@@ -16,9 +17,11 @@ namespace Solid.Practices.Middleware
         /// <param name="middlewares">The middlewares.</param>
         public static void ApplyMiddlewares<T>(
             T @object,
-            IEnumerable<IMiddleware<T>> middlewares) where T : class => ApplyMiddlewaresInternal(@object, middlewares);
-
-        private static void ApplyMiddlewaresInternal<T>
+            IEnumerable<IMiddleware<T>> middlewares) where T : class =>
+            AggregateMiddlewares(@object,
+                middlewares.SortTopologically(r => r.ExtractDependencies(), r => r.ExtractId()));        
+        
+        private static void AggregateMiddlewares<T>
         (T @object,
             IEnumerable<IMiddleware<T>> middlewares) where T : class =>
             middlewares.Aggregate(@object, (current, middleware) => middleware.Apply(current));
