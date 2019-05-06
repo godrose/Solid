@@ -11,7 +11,7 @@ using Solid.Practices.Modularity;
 namespace Solid.Bootstrapping
 {
     /// <summary>
-    /// Base bootstrapper with composition modularity and discovery aspects.
+    /// Base bootstrapper with core aspects: composition, modularity, discovery.
     /// </summary>
     public class BootstrapperBase :
          IInitializable,
@@ -24,8 +24,11 @@ namespace Solid.Bootstrapping
         private DiscoveryAspect _discoveryAspect;        
         private readonly ExtensibilityAspect<BootstrapperBase> _concreteExtensibilityAspect;
         private readonly AspectsWrapper _aspectsWrapper = new AspectsWrapper();
-              
-        private BootstrapperBase()
+
+        /// <summary>
+        /// Creates an instance of <see cref="BootstrapperBase"/>
+        /// </summary>        
+        public BootstrapperBase()
         {
             _concreteExtensibilityAspect = new ExtensibilityAspect<BootstrapperBase>(this);            
         }
@@ -37,10 +40,7 @@ namespace Solid.Bootstrapping
             _modularityAspect.Modules;
 
         /// <inheritdoc />
-        public BootstrapperBase Use(IMiddleware<BootstrapperBase> middleware)
-        {
-            return _concreteExtensibilityAspect.Use(middleware);
-        }        
+        public BootstrapperBase Use(IMiddleware<BootstrapperBase> middleware) => _concreteExtensibilityAspect.Use(middleware);
 
         /// <summary>
         /// Override to provide custom composition options.

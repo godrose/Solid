@@ -14,7 +14,7 @@ namespace Solid.Practices.Composition
         ///// Represents <see cref="CompositionManager"/> which uses container
         ///// for creating composition modules.
         ///// </summary>
-        ///// <seealso cref="Solid.Practices.Composition.CompositionManager" />
+        ///// <see also cref="Solid.Practices.Composition.CompositionManager" />
         //public class WithIocResolution : CompositionManager
         //{
         //    public WithIocResolution(IIocContainer iocContainer)
@@ -47,15 +47,10 @@ namespace Solid.Practices.Composition
         /// </summary>
         protected ICompositionContainer CompositionContainer;
 
-        /// <summary>
-        /// Collection of composition modules.
-        /// </summary>
-        public IEnumerable<ICompositionModule> Modules => CompositionContainer.Modules;        
+        /// <inheritdoc />
+        public IEnumerable<ICompositionModule> Modules => CompositionContainer.Modules;
 
-        /// <summary>
-        /// Initializes composition modules from the provided assemblies.
-        /// </summary>
-        /// <param name="assemblies"></param>
+        /// <inheritdoc />
         public void Initialize(IEnumerable<Assembly> assemblies) => InitializeComposition(assemblies);
 
         private void InitializeComposition(IEnumerable<Assembly> assemblies)

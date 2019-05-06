@@ -39,7 +39,7 @@ namespace Solid.Extensibility
         }
 
         /// <inheritdoc />
-        public string Id => $"Extensibility.{typeof(T).Name}";
+        public string Id => $"Extensibility.{typeof(T).FullName}";
 
         /// <inheritdoc />
         public string[] Dependencies => new[] { "Modularity", "Discovery", "Platform" };
