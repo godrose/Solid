@@ -43,14 +43,13 @@ namespace Solid.Practices.Composition.IntegrationTests.App
         }
     }
 
-
     class Loader
     {
         public static IEnumerable<Assembly> Get(IEnumerable<string> paths)
         {
             return paths.Select(path =>
                 PluginLoader.CreateFromAssemblyFile(assemblyFile: Path.Combine(Directory.GetCurrentDirectory(), path), 
-                    PluginLoaderOptions.PreferSharedTypes
+                    loaderOptions: PluginLoaderOptions.PreferSharedTypes
                     ).LoadDefaultAssembly());
         }
     }
