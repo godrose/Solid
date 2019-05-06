@@ -6,7 +6,10 @@ before_build:
 build:
   verbosity: minimal
   
-image: Visual Studio 2019
+install: 
+  - cmd: choco install dotnetcore-sdk --pre
+
+image: Visual Studio 2017
   
 notifications:
 - provider: Email
