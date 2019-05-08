@@ -33,7 +33,7 @@ namespace Solid.Extensibility
         public void Initialize()
         {                        
             _aspects.AddRange(_coreAspects);
-            var sortedAspects = _aspects.SortTopologically(x => x.Dependencies, x => x.Id);
+            var sortedAspects = _aspects.SortTopologically();
             _aspects.Clear();
             _aspects.AddRange(sortedAspects);
             foreach (var aspect in _aspects)
