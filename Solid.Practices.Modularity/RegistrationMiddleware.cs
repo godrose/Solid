@@ -51,7 +51,7 @@ namespace Solid.Practices.Modularity
             {
                 var matchingModules = Modules.OfType<ICompositionModule<TContainerConstraint>>();
                 var modules =
-                    matchingModules.SortTopologically(r => r.ExtractDependencies(), r => r.ExtractId());                
+                    matchingModules.SortTopologically();                
                 foreach (var compositionModule in modules)
                 {
                     compositionModule.RegisterModule(@object);
@@ -86,7 +86,7 @@ namespace Solid.Practices.Modularity
             {
                 var matchingModules = Modules.OfType<IPlainCompositionModule>();
                 var modules =
-                    matchingModules.SortTopologically(r => r.ExtractDependencies(), r => r.ExtractId());
+                    matchingModules.SortTopologically();
                 foreach (var plainCompositionModule in modules)
                 {
                     plainCompositionModule.RegisterModule();
@@ -156,7 +156,7 @@ namespace Solid.Practices.Modularity
             {
                 var matchingModules = Modules.OfType<IHierarchicalCompositionModule<TIocContainer>>();
                 var modules =
-                    matchingModules.SortTopologically(r => r.ExtractDependencies(), r => r.ExtractId());
+                    matchingModules.SortTopologically();
                 foreach (var hierarchicalModule in modules)
                 {
                     hierarchicalModule.RegisterModules(@object, Modules);

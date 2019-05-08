@@ -19,7 +19,7 @@ namespace Solid.Practices.Middleware
             T @object,
             IEnumerable<IMiddleware<T>> middlewares) where T : class =>
             AggregateMiddlewares(@object,
-                middlewares.SortTopologically(r => r.ExtractDependencies(), r => r.ExtractId()));        
+                middlewares.SortTopologically());        
         
         private static void AggregateMiddlewares<T>
         (T @object,

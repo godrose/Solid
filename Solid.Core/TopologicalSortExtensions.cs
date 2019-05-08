@@ -13,9 +13,21 @@ namespace Solid.Core
         /// Sorts the items topologically
         /// </summary>
         /// <typeparam name="TItem">The type of the item.</typeparam>
+        /// <param name="items">The items.</param>
+        /// <returns></returns>
+        public static IEnumerable<TItem> SortTopologically<TItem>(
+            this IEnumerable<TItem> items)
+        {
+            return SortTopologicallyImpl(items, r => r.ExtractDependencies(), r => r.ExtractId());
+        }
+
+        /// <summary>
+        /// Sorts the items topologically using the provides means.
+        /// </summary>
+        /// <typeparam name="TItem">The type of the item.</typeparam>
         /// <typeparam name="TId">The type of the identity.</typeparam>
         /// <param name="items">The items.</param>
-        /// <param name="extractDeps">The means for extracting the deps.</param>
+        /// <param name="extractDeps">The means for extracting the dependencies.</param>
         /// <param name="extractId">The means for extracting the id.</param>
         /// <returns></returns>
         public static IEnumerable<TItem> SortTopologically<TItem, TId>(
@@ -23,10 +35,15 @@ namespace Solid.Core
             Func<TItem, IEnumerable<TId>> extractDeps,
             Func<TItem, TId> extractId)
         {
+            return SortTopologicallyImpl(items, extractDeps, extractId);
+        }
+
+        private static IEnumerable<TItem> SortTopologicallyImpl<TItem, TId>(IEnumerable<TItem> items, Func<TItem, IEnumerable<TId>> extractDeps, Func<TItem, TId> extractId)
+        {
             const string sameKeyPrefix = "An item with the same key has already been added. Key: ";
             try
-            {                
-                var sortedItems = TopologicalSort.Sort(items, extractDeps, extractId, ignoreCycles: false);                             
+            {
+                var sortedItems = TopologicalSort.Sort(items, extractDeps, extractId, ignoreCycles: false);
                 return sortedItems;
             }
             catch (ArgumentException e)
@@ -46,6 +63,7 @@ namespace Solid.Core
                 {
                     throw new Exception($"Missing dependency {parts[1]}");
                 }
+
                 throw;
             }
         }
@@ -67,7 +85,7 @@ namespace Solid.Core
         }
 
         /// <summary>
-        /// Extracts deps from the specified object.
+        /// Extracts dependencies from the specified object.
         /// </summary>
         /// <param name="object">The object.</param>
         /// <returns></returns>
