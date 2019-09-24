@@ -6,7 +6,7 @@ before_build:
 build:
   verbosity: minimal
 
-image: Visual Studio 2017
+image: Visual Studio 2019
   
 notifications:
 - provider: Email
