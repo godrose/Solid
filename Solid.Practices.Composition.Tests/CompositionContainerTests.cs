@@ -25,7 +25,7 @@ namespace Solid.Practices.Composition.Tests
 
             var modules = compositionContainer.Modules;
             var modulesCount = modules.Count();
-            modulesCount.Should().Be(3);            
+            modulesCount.Should().Be(4);            
         }
 
         [Fact]
