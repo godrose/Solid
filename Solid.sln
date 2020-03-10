@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2010
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29311.281
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Practices", "Practices", "{11556FBE-83BE-4B8F-8DC1-17D2B4ED73BE}"
 EndProject
@@ -67,9 +67,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solid.Practices.Composition
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solid.IoC.Adapters.BoDi", "Solid.IoC.Adapters.BoDi\Solid.IoC.Adapters.BoDi.csproj", "{7905B66F-51AB-4031-96BA-9B76A39237EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solid.IoC.Adapters.BoDi.Tests", "Solid.IoC.Adapters.BoDi.Tests\Solid.IoC.Adapters.BoDi.Tests.csproj", "{CAD754BD-07FE-4845-9723-493C07D0D9BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solid.IoC.Adapters.BoDi.Tests", "Solid.IoC.Adapters.BoDi.Tests\Solid.IoC.Adapters.BoDi.Tests.csproj", "{CAD754BD-07FE-4845-9723-493C07D0D9BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solid.Bootstrapping.Tests", "Solid.Bootstrapping.Tests\Solid.Bootstrapping.Tests.csproj", "{38931560-E6CB-4897-9681-D6E19339CB83}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solid.Bootstrapping.Tests", "Solid.Bootstrapping.Tests\Solid.Bootstrapping.Tests.csproj", "{38931560-E6CB-4897-9681-D6E19339CB83}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{1C712DFC-927F-43C0-B8DF-02ED6077B4A8}"
 EndProject
@@ -95,7 +95,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solid.Practices.Composition
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solid.Practices.Middleware.Tests", "Solid.Practices.Middleware.Tests\Solid.Practices.Middleware.Tests.csproj", "{993CB3EE-8E59-4E9D-8B31-B179512F7431}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solid.Practices.Composition.IntegrationTests.Contracts", "Solid.Practices.Composition.IntegrationTests.Contracts\Solid.Practices.Composition.IntegrationTests.Contracts.csproj", "{9C3FCEBB-846A-4A88-A931-94ADD003E7CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solid.Practices.Composition.IntegrationTests.Contracts", "Solid.Practices.Composition.IntegrationTests.Contracts\Solid.Practices.Composition.IntegrationTests.Contracts.csproj", "{9C3FCEBB-846A-4A88-A931-94ADD003E7CE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solid.Common.NETCore", "Solid.Common.Platform\netcore\Solid.Common.NETCore.csproj", "{595BB3EA-70CC-426C-9756-0AE81C5BB600}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -711,6 +713,26 @@ Global
 		{9C3FCEBB-846A-4A88-A931-94ADD003E7CE}.Release|x64.Build.0 = Release|Any CPU
 		{9C3FCEBB-846A-4A88-A931-94ADD003E7CE}.Release|x86.ActiveCfg = Release|Any CPU
 		{9C3FCEBB-846A-4A88-A931-94ADD003E7CE}.Release|x86.Build.0 = Release|Any CPU
+		{595BB3EA-70CC-426C-9756-0AE81C5BB600}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{595BB3EA-70CC-426C-9756-0AE81C5BB600}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{595BB3EA-70CC-426C-9756-0AE81C5BB600}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{595BB3EA-70CC-426C-9756-0AE81C5BB600}.Debug|ARM.Build.0 = Debug|Any CPU
+		{595BB3EA-70CC-426C-9756-0AE81C5BB600}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{595BB3EA-70CC-426C-9756-0AE81C5BB600}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{595BB3EA-70CC-426C-9756-0AE81C5BB600}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{595BB3EA-70CC-426C-9756-0AE81C5BB600}.Debug|x64.Build.0 = Debug|Any CPU
+		{595BB3EA-70CC-426C-9756-0AE81C5BB600}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{595BB3EA-70CC-426C-9756-0AE81C5BB600}.Debug|x86.Build.0 = Debug|Any CPU
+		{595BB3EA-70CC-426C-9756-0AE81C5BB600}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{595BB3EA-70CC-426C-9756-0AE81C5BB600}.Release|Any CPU.Build.0 = Release|Any CPU
+		{595BB3EA-70CC-426C-9756-0AE81C5BB600}.Release|ARM.ActiveCfg = Release|Any CPU
+		{595BB3EA-70CC-426C-9756-0AE81C5BB600}.Release|ARM.Build.0 = Release|Any CPU
+		{595BB3EA-70CC-426C-9756-0AE81C5BB600}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{595BB3EA-70CC-426C-9756-0AE81C5BB600}.Release|ARM64.Build.0 = Release|Any CPU
+		{595BB3EA-70CC-426C-9756-0AE81C5BB600}.Release|x64.ActiveCfg = Release|Any CPU
+		{595BB3EA-70CC-426C-9756-0AE81C5BB600}.Release|x64.Build.0 = Release|Any CPU
+		{595BB3EA-70CC-426C-9756-0AE81C5BB600}.Release|x86.ActiveCfg = Release|Any CPU
+		{595BB3EA-70CC-426C-9756-0AE81C5BB600}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -759,6 +781,7 @@ Global
 		{03D1F535-7588-4D9E-B86B-63CE8383CB58} = {BAE5C9E9-416C-4B79-AF4C-3AAA3071513D}
 		{993CB3EE-8E59-4E9D-8B31-B179512F7431} = {DC220A87-B77D-4D08-8475-468A7375484C}
 		{9C3FCEBB-846A-4A88-A931-94ADD003E7CE} = {BAE5C9E9-416C-4B79-AF4C-3AAA3071513D}
+		{595BB3EA-70CC-426C-9756-0AE81C5BB600} = {1C712DFC-927F-43C0-B8DF-02ED6077B4A8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DF34B008-79AB-4162-ADC9-E6F970571414}

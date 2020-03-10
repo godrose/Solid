@@ -6,7 +6,7 @@ using Solid.Practices.Composition.Contracts;
 using Solid.Practices.Modularity;
 using Xunit;
 
-namespace Solid.Practices.Composition.Container.NETStandard20.Tests
+namespace Solid.Practices.Composition.Container.Tests
 {
     public class SimpleCompositionContainerTests
     {
