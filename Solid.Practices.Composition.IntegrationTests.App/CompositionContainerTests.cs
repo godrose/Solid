@@ -49,7 +49,7 @@ namespace Solid.Practices.Composition.IntegrationTests.App
         {
             return paths.Select(path =>
                 PluginLoader.CreateFromAssemblyFile(assemblyFile: Path.Combine(Directory.GetCurrentDirectory(), path), 
-                    loaderOptions: PluginLoaderOptions.PreferSharedTypes
+                    t => t.PreferSharedTypes = true
                     ).LoadDefaultAssembly());
         }
     }
