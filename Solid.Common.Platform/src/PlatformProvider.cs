@@ -6,7 +6,7 @@ namespace Solid.Common
     /// Platform-specific implementation of <see cref="IPlatformProvider"/>.
     /// </summary>    
     public class
-#if NET
+#if NETFRAMEWORK
         NetPlatformProvider
 #endif
 #if WINDOWS_UWP
