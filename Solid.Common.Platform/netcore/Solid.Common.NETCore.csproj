@@ -10,6 +10,10 @@
     <DocumentationFile>..\..\Bin\netcore\Release\Solid.Common.NETCore.xml</DocumentationFile>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>TRACE;NETCORE</DefineConstants>
+  </PropertyGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\..\Solid.Common\Solid.Common.csproj" />
   </ItemGroup>
