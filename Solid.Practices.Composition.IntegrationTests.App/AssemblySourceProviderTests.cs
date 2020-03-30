@@ -15,7 +15,7 @@ namespace Solid.Practices.Composition.IntegrationTests.App
         [Fact]
         public void ResolveContract_AssembliesAreLoadedUsingCustomLoader_ImplementationsAreRegistered()
         {
-            AssemblyLoader.LoadAssembliesFromPaths = Loader.Get;
+            AssemblyLoader.LoadAssembliesFromPaths = DynamicLoader.LoadAssemblies;
 
             var assembliesProvider = new CustomAssemblySourceProvider(PlatformProvider.Current.GetRootPath(), null,
                 new[] { "Solid.Practices.Composition.IntegrationTests" });

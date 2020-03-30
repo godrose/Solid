@@ -1,10 +1,7 @@
-﻿using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
-using System.Reflection;
 using BoDi;
 using FluentAssertions;
-using McMaster.NETCore.Plugins;
 using Solid.Common;
 using Solid.IoC.Adapters.BoDi;
 using Solid.Practices.Composition.Contracts;
@@ -20,7 +17,7 @@ namespace Solid.Practices.Composition.IntegrationTests.App
         static CompositionContainerTests()
         {
             PlatformProvider.Current = new NetStandardPlatformProvider();
-            AssemblyLoader.LoadAssembliesFromPaths = Loader.Get;
+            AssemblyLoader.LoadAssembliesFromPaths = DynamicLoader.LoadAssemblies;
         }
 
         [Fact]
@@ -40,17 +37,6 @@ namespace Solid.Practices.Composition.IntegrationTests.App
             var placeHolder = registrator.Resolve<IPlaceholder>();
             var length = placeHolder.Length;
             length.Should().Be(5);
-        }
-    }
-
-    class Loader
-    {
-        public static IEnumerable<Assembly> Get(IEnumerable<string> paths)
-        {
-            return paths.Select(path =>
-                PluginLoader.CreateFromAssemblyFile(assemblyFile: Path.Combine(Directory.GetCurrentDirectory(), path), 
-                    t => t.PreferSharedTypes = true
-                    ).LoadDefaultAssembly());
         }
     }
 }
