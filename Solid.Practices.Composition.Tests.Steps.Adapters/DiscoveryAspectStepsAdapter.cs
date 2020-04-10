@@ -1,7 +1,7 @@
 ﻿using FluentAssertions;
 using TechTalk.SpecFlow;
 
-namespace Solid.Practices.Composition.IntegrationTests.App
+namespace Solid.Practices.Composition.Tests.Steps.Adapters
 {
     [Binding]
     internal sealed class DiscoveryAspectStepsAdapter
@@ -37,6 +37,14 @@ namespace Solid.Practices.Composition.IntegrationTests.App
             var discoveryAspect = _scenarioContext.Get<DiscoveryAspect>("discoveryAspect");
             var assemblies = discoveryAspect.Assemblies;
             assemblies.Should().Contain(t => t.FullName.Contains("Solid.Practices.Composition.IntegrationTests.Lib"));
+        }
+
+        [Then(@"There should be (.*) assemblies")]
+        public void ThenThereShouldBeAssemblies(int expectedCount)
+        {
+            var discoveryAspect = _scenarioContext.Get<DiscoveryAspect>("discoveryAspect");
+            var assemblies = discoveryAspect.Assemblies;
+            assemblies.Should().HaveCount(expectedCount);
         }
     }
 }
