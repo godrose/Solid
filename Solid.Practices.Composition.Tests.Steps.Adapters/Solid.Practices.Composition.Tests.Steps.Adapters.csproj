@@ -30,6 +30,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Solid.Common\Solid.Common.csproj" />
+    <ProjectReference Include="..\Solid.IoC.Adapters.BoDi\Solid.IoC.Adapters.BoDi.csproj" />
     <ProjectReference Include="..\Solid.Practices.Composition\Solid.Practices.Composition.csproj" />
   </ItemGroup>
 

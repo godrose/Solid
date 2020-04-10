@@ -33,7 +33,7 @@ namespace Solid.Practices.Composition.Container.Tests
         [When(@"The composition container is composed")]
         public void WhenTheCompositionContainerIsComposed()
         {
-            var container = _scenarioContext.Get<ICompositionContainer<ICompositionModule>>("compositionContainer");
+            var container = _scenarioContext.Get<IComposer>("compositionContainer");
             var exception = Record.Exception(() => container.Compose());
             _scenarioContext.Add("exception", exception);
         }

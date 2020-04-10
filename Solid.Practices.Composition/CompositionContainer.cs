@@ -33,7 +33,7 @@ namespace Solid.Practices.Composition
         /// </summary>        
         public IEnumerable<TModule> Modules { get; private set; }
 
-        void ICompositionContainer<TModule>.Compose()
+        void IComposer.Compose()
         {
             var assemblies = _assemblyLoadingStrategy.Load();
 

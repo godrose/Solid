@@ -121,7 +121,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And("The discovery aspect is initialized", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 11
- testRunner.Then("There should be 11 assemblies", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("There should be 12 assemblies", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
