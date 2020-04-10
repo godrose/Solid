@@ -132,12 +132,15 @@ this.ScenarioInitialize(scenarioInfo);
         [Xunit.TraitAttribute("FeatureTitle", "Assembly Source Provider")]
         [Xunit.TraitAttribute("Description", "Load assemblies using custom assembly loading strategy should create matching typ" +
             "es")]
+        [Xunit.TraitAttribute("Category", "Ignore")]
         public virtual void LoadAssembliesUsingCustomAssemblyLoadingStrategyShouldCreateMatchingTypes()
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = new string[] {
+                    "Ignore"};
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Load assemblies using custom assembly loading strategy should create matching typ" +
-                    "es", null, ((string[])(null)));
-#line 12
+                    "es", null, new string[] {
+                        "Ignore"});
+#line 14
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -157,16 +160,16 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 13
+#line 15
  testRunner.Given("I run in .NETStandard environment", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 14
+#line 16
  testRunner.And("The assemblies loader used custom assembly loading strategy", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 15
+#line 17
  testRunner.When("The assemblies provider loads the assemblies in the current folder", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 16
+#line 18
  testRunner.Then("The loaded implementation type implements the loaded contract type", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
