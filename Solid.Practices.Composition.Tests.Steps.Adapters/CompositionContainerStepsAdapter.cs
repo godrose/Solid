@@ -35,33 +35,22 @@ namespace Solid.Practices.Composition.Tests.Steps.Adapters
         [When(@"The composition container for composition modules is created in the current folder")]
         public void WhenTheCompositionContainerForCompositionModulesIsCreatedInTheCurrentFolder(Table table)
         {
-            var options = table.CreateInstance<ContainerCreationData>();
-            var prefixes = string.IsNullOrWhiteSpace(options.Prefixes)
-                ? new string[] { }
-                : options.Prefixes.Split(new[] {';'}).ToArray();
-            var rootPath = Directory.GetCurrentDirectory();
-
-            ICompositionContainer<ICompositionModule> compositionContainer = new CompositionContainer<ICompositionModule>(new ActivatorCreationStrategy(),
-                new FileSystemBasedAssemblyLoadingStrategy(rootPath, prefixes: prefixes, namespaces: null, extensions: AssemblyLoadingManager.Extensions().ToArray()));
-            _scenarioContext.Add("compositionContainer", compositionContainer);
+            ComposeContainer<ICompositionModule>(table);
         }
 
         [When(@"The composition container for custom modules is created in the current folder")]
         public void WhenTheCompositionContainerForCustomModulesIsCreatedInTheCurrentFolder(Table table)
         {
-            var options = table.CreateInstance<ContainerCreationData>();
-            var prefixes = string.IsNullOrWhiteSpace(options.Prefixes)
-                ? new string[] { }
-                : options.Prefixes.Split(new[] { ';' }).ToArray();
-            var rootPath = Directory.GetCurrentDirectory();
-
-            ICompositionContainer<ICustomModule> compositionContainer = new CompositionContainer<ICustomModule>(new ActivatorCreationStrategy(),
-                new FileSystemBasedAssemblyLoadingStrategy(rootPath, prefixes: prefixes, namespaces: null, extensions: AssemblyLoadingManager.Extensions().ToArray()));
-            _scenarioContext.Add("compositionContainer", compositionContainer);
+            ComposeContainer<ICustomModule>(table);
         }
 
         [When(@"The composition container for other modules is created in the current folder")]
         public void WhenTheCompositionContainerForOtherModulesIsCreatedInTheCurrentFolder(Table table)
+        {
+            ComposeContainer<IAnotherModule>(table);
+        }
+
+        private void ComposeContainer<TModule>(Table table) where TModule : ICompositionModule
         {
             var options = table.CreateInstance<ContainerCreationData>();
             var prefixes = string.IsNullOrWhiteSpace(options.Prefixes)
@@ -69,11 +58,10 @@ namespace Solid.Practices.Composition.Tests.Steps.Adapters
                 : options.Prefixes.Split(new[] { ';' }).ToArray();
             var rootPath = Directory.GetCurrentDirectory();
 
-            ICompositionContainer<IAnotherModule> compositionContainer = new CompositionContainer<IAnotherModule>(new ActivatorCreationStrategy(),
+            ICompositionContainer<TModule> compositionContainer = new CompositionContainer<TModule>(new ActivatorCreationStrategy(),
                 new FileSystemBasedAssemblyLoadingStrategy(rootPath, prefixes: prefixes, namespaces: null, extensions: AssemblyLoadingManager.Extensions().ToArray()));
             _scenarioContext.Add("compositionContainer", compositionContainer);
         }
-
 
         [When(@"The composition container is composed")]
         public void WhenTheCompositionContainerIsComposed()
@@ -100,39 +88,29 @@ namespace Solid.Practices.Composition.Tests.Steps.Adapters
         [Then(@"There should be (.*) composition modules")]
         public void ThenThereShouldBeCompositionModules(int expectedCount)
         {
-            var compositionContainer =
-                _scenarioContext.Get<ICompositionContainer<ICompositionModule>>(
-                    "compositionContainer");
-            var modules = compositionContainer.Modules;
-            var modulesCount = modules.Count();
-            modulesCount.Should().Be(expectedCount);
+            AssertModulesCount<ICompositionModule>(expectedCount);
         }
 
         [Then(@"There should be (.*) custom modules")]
         public void ThenThereShouldBeCustomModules(int expectedCount)
         {
-            var compositionContainer =
-                _scenarioContext.Get<ICompositionContainer<ICustomModule>>(
-                    "compositionContainer");
-            var modules = compositionContainer.Modules;
-            var modulesCount = modules.Count();
-            modulesCount.Should().Be(expectedCount);
+            AssertModulesCount<ICustomModule>(expectedCount);
         }
 
         [Then(@"There should be (.*) other modules")]
         public void ThenThereShouldBeOtherModules(int expectedCount)
         {
+            AssertModulesCount<IAnotherModule>(expectedCount);
+        }
+
+        private void AssertModulesCount<TModule>(int expectedCount)
+        {
             var compositionContainer =
-                _scenarioContext.Get<ICompositionContainer<IAnotherModule>>(
+                _scenarioContext.Get<ICompositionContainer<TModule>>(
                     "compositionContainer");
             var modules = compositionContainer.Modules;
             var modulesCount = modules.Count();
             modulesCount.Should().Be(expectedCount);
         }
-    }
-
-    public sealed class ContainerCreationData
-    {
-        public string Prefixes { get; set; }
     }
 }
