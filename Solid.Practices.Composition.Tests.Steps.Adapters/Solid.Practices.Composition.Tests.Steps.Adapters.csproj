@@ -29,21 +29,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Solid.Common\Solid.Common.csproj" />
     <ProjectReference Include="..\Solid.IoC.Adapters.BoDi\Solid.IoC.Adapters.BoDi.csproj" />
-    <ProjectReference Include="..\Solid.Practices.Composition.IntegrationTests.Contracts\Solid.Practices.Composition.IntegrationTests.Contracts.csproj" />
-    <ProjectReference Include="..\Solid.Practices.Composition.Tests.Steps.Adapters\Solid.Practices.Composition.Tests.Steps.Adapters.csproj" />
     <ProjectReference Include="..\Solid.Practices.Composition\Solid.Practices.Composition.csproj" />
-    <ProjectReference Include="..\Solid.Practices.IoC\Solid.Practices.IoC.csproj" />
-    <ProjectReference Include="..\Solid.Practices.Modularity\Solid.Practices.Modularity.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="specflow.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="xunit.runner.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
 
 </Project>

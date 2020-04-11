@@ -1,10 +1,10 @@
 ﻿using Solid.Common;
 using TechTalk.SpecFlow;
 
-namespace Solid.Practices.Composition.IntegrationTests.App
+namespace Solid.Practices.Composition.Tests.Steps.Adapters
 {
     [Binding]
-    internal sealed class GivenEnvironmentStepsAdapter
+    public sealed class GivenEnvironmentStepsAdapter
     {
         [Given(@"I run in \.NETStandard environment")]
         public void GivenIRunIn_NETStandardEnvironment()

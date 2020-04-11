@@ -1,12 +1,7 @@
-﻿using Solid.Practices.Modularity;
+﻿using Solid.Practices.Composition.Tests.Steps.Adapters;
 
 namespace Solid.Practices.Composition.Tests
 {
-    interface IAnotherModule : ICompositionModule
-    {
-
-    }
-
     class TestAnotherModule : IAnotherModule
     {
     }
