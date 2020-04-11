@@ -40,5 +40,8 @@ namespace Solid.Practices.Composition.IntegrationTests.App
 
             placeHolderImplementation?.ImplementedInterfaces.Contains(placeHolderContract).Should().BeTrue("Implementation type should implement the contract type");
         }
+
+        
+
     }
 }

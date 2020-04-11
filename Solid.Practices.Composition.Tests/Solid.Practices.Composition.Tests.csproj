@@ -8,6 +8,9 @@
       <Version>5.10.3</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
+    <PackageReference Include="SpecFlow" Version="3.1.95" />
+    <PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="3.1.95" />
+    <PackageReference Include="SpecFlow.xUnit" Version="3.1.95" />
     <PackageReference Include="xunit.core">
       <Version>2.4.1</Version>
     </PackageReference>
@@ -20,6 +23,27 @@
     <ProjectReference Include="..\Solid.Common\Solid.Common.csproj" />
     <ProjectReference Include="..\Solid.Practices.Composition.Container\Solid.Practices.Composition.Container.csproj" />
     <ProjectReference Include="..\Solid.Practices.Composition.Contracts\Solid.Practices.Composition.Contracts.csproj" />
+    <ProjectReference Include="..\Solid.Practices.Composition.Tests.Steps.Adapters\Solid.Practices.Composition.Tests.Steps.Adapters.csproj" />
     <ProjectReference Include="..\Solid.Practices.Composition\Solid.Practices.Composition.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Composition Container.feature.cs">
+      <DesignTime>True</DesignTime>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Discovery Aspect.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Discovery Aspect.feature.cs</LastGenOutput>
+    </None>
+    <None Update="specflow.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <SpecFlowFeatureFiles Update="Composition Container.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Composition Container.feature.cs</LastGenOutput>
+    </SpecFlowFeatureFiles>
   </ItemGroup>
 </Project>

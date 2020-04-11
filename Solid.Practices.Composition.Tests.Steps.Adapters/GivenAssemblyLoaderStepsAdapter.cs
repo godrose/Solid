@@ -1,6 +1,6 @@
 ﻿using TechTalk.SpecFlow;
 
-namespace Solid.Practices.Composition.IntegrationTests.App
+namespace Solid.Practices.Composition.Tests.Steps.Adapters
 {
     [Binding]
     internal sealed class GivenAssemblyLoaderStepsAdapter

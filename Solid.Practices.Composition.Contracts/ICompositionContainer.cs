@@ -14,11 +14,9 @@ namespace Solid.Practices.Composition.Contracts
     /// Represents composition container which allows composing the composition modules.
     /// </summary>
     /// <typeparam name="TModule">Type of composition module.</typeparam>
-    public interface ICompositionContainer<TModule> : ICompositionModulesProvider<TModule>
+    public interface ICompositionContainer<TModule> : 
+        ICompositionModulesProvider<TModule>,
+        IComposer
     {
-        /// <summary>
-        /// Composes the composition modules.
-        /// </summary>
-        void Compose();
     }
 }

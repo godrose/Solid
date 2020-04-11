@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 using McMaster.NETCore.Plugins;
 
-namespace Solid.Practices.Composition.IntegrationTests.App
+namespace Solid.Practices.Composition.Tests.Steps.Adapters
 {
     internal static class DynamicLoader
     {
