@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>../bin</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Attest.Testing.Contracts" Version="2.1.0-rc1" />
+    <PackageReference Include="Attest.Tests.Core" Version="2.1.0-rc1" />
+    <PackageReference Include="FluentAssertions" Version="5.10.3" />
+    <PackageReference Include="JetBrains.Annotations" Version="2020.1.0" />
+    <PackageReference Include="Solid.IoC.Adapters.BoDi" Version="2.2.0" />
+    <PackageReference Include="SpecFlow" Version="3.1.97" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Solid.Cli.Specs.Launcher\Solid.Cli.Specs.Launcher.csproj" />
+    <ProjectReference Include="..\Solid.Cli.Specs.Tests.Contracts\Solid.Cli.Specs.Tests.Contracts.csproj" />
+  </ItemGroup>
+
+</Project>
