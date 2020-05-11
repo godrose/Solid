@@ -11,6 +11,11 @@ using TechTalk.SpecFlow.Assist;
 
 namespace Solid.Cli.Specs.Steps
 {
+    static class Consts
+    {
+        internal static int DefaultTimeout = 30000;
+    }
+
     [Binding]
     public sealed class TemplateGenerationSteps
     {
@@ -25,7 +30,7 @@ namespace Solid.Cli.Specs.Steps
         public void WhenIInstallTheTemplatePackFromLocalPackage(string templatePackName)
         {
             //TODO: Use template pack name
-            var execInfo = _processManagementService.Start("../../devops/install-template-pack", string.Empty, 30000);
+            var execInfo = _processManagementService.Start("../../devops/install-template-pack", string.Empty, Consts.DefaultTimeout);
             execInfo.ShouldBeSuccessful();
         }
 
@@ -50,7 +55,7 @@ namespace Solid.Cli.Specs.Steps
             var tempPath = Path.GetTempPath();
             var path = Path.Combine(tempPath, folderName);
 
-            var execInfo = _processManagementService.Start(Path.Combine(path, "dotnet"), $"new {shortName}", 30000);
+            var execInfo = _processManagementService.Start(Path.Combine(path, "dotnet"), $"new {shortName}", Consts.DefaultTimeout);
             execInfo.ShouldBeSuccessful();
         }
 
