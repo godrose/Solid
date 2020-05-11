@@ -7,4 +7,4 @@ Scenario: Installing template pack should install all correspondent templates
 	When I install the template pack 'Solid' from local package
 	Then The template for 'solid-module' is installed with the following parameters
 	| Description              | Short Name   | Languages | Tags             |
-	| Solid composition module | solid-module | [C#]      | Solid/Modularity |
+	| Solid Composition Module | solid-module | [C#]      | Solid/Modularity |

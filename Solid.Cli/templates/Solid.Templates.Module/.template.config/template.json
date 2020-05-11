@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Gennady Verdel",
+  "classifications": [ "Solid", "Modularity" ], 
+  "name": "Solid Composition Module",
+  "identity": "Solid.Module",         
+  "groupIdentity":"Solid",
+  "shortName": "solid-module",
+  "tags": {
+    "language": "C#",
+    "type":"item"
+  },
+  "sourceName": "Solid.Templates.Module",
+  "preferNameDirectory": true
+}

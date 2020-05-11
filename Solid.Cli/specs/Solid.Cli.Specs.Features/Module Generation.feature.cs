@@ -118,7 +118,7 @@ this.ScenarioInitialize(scenarioInfo);
                             "Languages",
                             "Tags"});
                 table1.AddRow(new string[] {
-                            "Solid composition module",
+                            "Solid Composition Module",
                             "solid-module",
                             "[C#]",
                             "Solid/Modularity"});

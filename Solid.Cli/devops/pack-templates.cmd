@@ -1,4 +1,4 @@
-call copy-template.cmd Solid.Templates --use-common
+call copy-template.cmd Solid.Templates.Module
 
 if %ERRORLEVEL% NEQ 0 ( 
 	goto EXIT
