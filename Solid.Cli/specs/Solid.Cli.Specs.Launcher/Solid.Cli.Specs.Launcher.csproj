@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>../bin</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\..\common\Common.Bootstrapping\DynamicAssemblyLoader.cs" Link="DynamicAssemblyLoader.cs" />
+    <Compile Include="..\..\..\common\Common.Bootstrapping\Extensions.cs" Link="Extensions.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Attest.Tests.Core" Version="2.1.0-rc1" />
+    <PackageReference Include="McMaster.NETCore.Plugins" Version="1.2.0" />
+    <PackageReference Include="Solid.Bootstrapping" Version="2.2.0" />
+    <PackageReference Include="Solid.Extensibility" Version="2.2.0" />
+    <PackageReference Include="Solid.Practices.IoC" Version="2.2.0" />
+  </ItemGroup>
+
+</Project>

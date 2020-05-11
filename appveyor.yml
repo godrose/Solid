@@ -5,6 +5,7 @@ before_build:
 
 build:
   verbosity: minimal
+  project: Solid.sln
 
 image: Visual Studio 2019
   

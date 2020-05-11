@@ -144,6 +144,9 @@ publish/
 csx/
 *.build.csdef
 
+# Visual Studio 2015/2017 cache/options directory
+.vs/
+
 # Windows Store app package directory
 AppPackages/
 
@@ -199,3 +202,7 @@ Tests*/
 /.vs/Solid/DesignTimeBuild/.dtbcache
 /.vs/Solid/v16/Server/sqlite3
 /.vs/Solid/DesignTimeBuild/.dtbcache.v2
+
+# Generated dotnet folders/files
+
+Solid.Cli/generated
