@@ -11,8 +11,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solid.Cli.Specs.Tests.Infra
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solid.Cli.Specs.Steps", "Solid.Cli.Specs.Steps\Solid.Cli.Specs.Steps.csproj", "{7A018EA7-22B5-4F8E-9CC4-C1B2973F068C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.Bootstrapping", "..\..\common\Common.Bootstrapping\Common.Bootstrapping.csproj", "{4B9D8D9B-72B9-44FE-8DAA-FCCAD71A96EC}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solid.Cli.Specs.Launcher", "Solid.Cli.Specs.Launcher\Solid.Cli.Specs.Launcher.csproj", "{61016C9E-5C85-4BB4-B713-9A518E7F1F7D}"
 EndProject
 Global
@@ -37,10 +35,6 @@ Global
 		{7A018EA7-22B5-4F8E-9CC4-C1B2973F068C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A018EA7-22B5-4F8E-9CC4-C1B2973F068C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A018EA7-22B5-4F8E-9CC4-C1B2973F068C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4B9D8D9B-72B9-44FE-8DAA-FCCAD71A96EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4B9D8D9B-72B9-44FE-8DAA-FCCAD71A96EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4B9D8D9B-72B9-44FE-8DAA-FCCAD71A96EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4B9D8D9B-72B9-44FE-8DAA-FCCAD71A96EC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{61016C9E-5C85-4BB4-B713-9A518E7F1F7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{61016C9E-5C85-4BB4-B713-9A518E7F1F7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61016C9E-5C85-4BB4-B713-9A518E7F1F7D}.Release|Any CPU.ActiveCfg = Release|Any CPU

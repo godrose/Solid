@@ -27,9 +27,19 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Solid.Cli.Specs.Steps\Solid.Cli.Specs.Steps.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Module Generation.feature.cs">
       <DesignTime>True</DesignTime>
     </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="specflow.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
