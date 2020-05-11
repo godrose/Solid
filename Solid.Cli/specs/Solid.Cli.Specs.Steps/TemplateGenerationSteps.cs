@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.IO;
 using System.Linq;
 using FluentAssertions;
 using JetBrains.Annotations;
@@ -28,6 +29,31 @@ namespace Solid.Cli.Specs.Steps
             execInfo.ShouldBeSuccessful();
         }
 
+        [When(@"I create a folder named '(.*)'")]
+        public void WhenICreateAFolderNamed(string folderName)
+        {
+            var tempPath = Path.GetTempPath();
+            var path = Path.Combine(tempPath, folderName);
+
+            if (Directory.Exists(path))
+            {
+                Directory.Delete(path, true);
+            }
+
+            Directory.CreateDirectory(path);
+        }
+
+        [When(@"I generate the code in folder named '(.*)' using '(.*)' template with the default options")]
+        public void WhenIGenerateTheCodeInFolderNamedUsingTemplateWithTheDefaultOptions(string folderName,
+            string shortName)
+        {
+            var tempPath = Path.GetTempPath();
+            var path = Path.Combine(tempPath, folderName);
+
+            var execInfo = _processManagementService.Start(Path.Combine(path, "dotnet"), $"new {shortName}", 30000);
+            execInfo.ShouldBeSuccessful();
+        }
+
         [Then(@"The template for '(.*)' is installed with the following parameters")]
         public void ThenTheTemplateForIsInstalledWithTheFollowingParameters(string shortName, Table table)
         {
@@ -51,16 +77,19 @@ namespace Solid.Cli.Specs.Steps
                         continue;
                     }
                 }
+
                 if (dashLine[i] == '-')
                 {
                     if (start == initStart)
                     {
                         start = i;
                     }
+
                     length++;
                     if (i != dashLine.Length - 1)
                         continue;
                 }
+
                 words.Add(infoLine[new Range(new Index(start), new Index(start + length))].Trim());
                 start = initStart;
                 length = initLength;
@@ -74,6 +103,32 @@ namespace Solid.Cli.Specs.Steps
             actualShortName.Should().Be(expectedResult.ShortName);
             actualLanguages.Should().Be(expectedResult.Languages);
             actualTags.Should().Be(expectedResult.Tags);
+        }
+
+        [Then(@"The folder '(.*)' contains valid composition module")]
+        public void ThenTheFolderContainsValidCompositionModule(string folderName)
+        {
+            var tempPath = Path.GetTempPath();
+            var path = Path.Combine(tempPath, folderName);
+            var moduleFile = Path.Combine(path, "Module.cs");
+            File.Exists(moduleFile).Should().BeTrue();
+            var contents = File.ReadAllLines(moduleFile);
+            string.Join(Environment.NewLine, contents).Should().Be(
+                @"using Solid.Practices.IoC;
+using Solid.Practices.Modularity;
+
+namespace Solid.Cli.Modularity
+{
+    internal sealed class Module : ICompositionModule<IDependencyRegistrator>
+    {
+        public void RegisterModule(IDependencyRegistrator dependencyRegistrator)
+        {
+			//Add your registrations here
+            //dependencyRegistrator
+                //.AddSingleton<IContract, Implementation>();
+        }
+    }
+}");
         }
     }
 
