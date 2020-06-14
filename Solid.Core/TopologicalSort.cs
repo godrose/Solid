@@ -81,27 +81,38 @@ namespace Solid.Core
 
             if (alreadyVisited)
             {
-                if (inProcess && !ignoreCycles)
-                {
-                    throw new ArgumentException("Cyclic dependency found.");
-                }
+                HandleAlreadyVisited<T>(ignoreCycles, inProcess);
             }
             else
             {
-                visited[item] = true;
-
-                var dependencies = getDependencies(item);
-                if (dependencies != null)
-                {
-                    foreach (var dependency in dependencies)
-                    {
-                        Visit(dependency, getDependencies, sorted, visited, ignoreCycles);
-                    }
-                }
-
-                visited[item] = false;
-                sorted.Add(item);
+                HandleNotVisited(item, getDependencies, sorted, visited, ignoreCycles);
             }
+        }
+
+        private static void HandleAlreadyVisited<T>(bool ignoreCycles, bool inProcess)
+        {
+            if (inProcess && !ignoreCycles)
+            {
+                throw new ArgumentException("Cyclic dependency found.");
+            }
+        }
+
+        private static void HandleNotVisited<T>(T item, Func<T, IEnumerable<T>> getDependencies, List<T> sorted, Dictionary<T, bool> visited,
+            bool ignoreCycles)
+        {
+            visited[item] = true;
+
+            var dependencies = getDependencies(item);
+            if (dependencies != null)
+            {
+                foreach (var dependency in dependencies)
+                {
+                    Visit(dependency, getDependencies, sorted, visited, ignoreCycles);
+                }
+            }
+
+            visited[item] = false;
+            sorted.Add(item);
         }
 
         /// <summary>
