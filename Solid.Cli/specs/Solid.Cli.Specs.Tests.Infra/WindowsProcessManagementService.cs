@@ -3,6 +3,7 @@ using System.IO;
 using System.Threading;
 using Common.Infra;
 using JetBrains.Annotations;
+using Polly;
 using Solid.Cli.Specs.Tests.Contracts;
 
 namespace Solid.Cli.Specs.Tests.Infra
@@ -56,8 +57,8 @@ namespace Solid.Cli.Specs.Tests.Infra
 
         public void Stop(int processId)
         {
-            Action killAction = () => processId.KillProcessAndChildren();
-            killAction.Execute();
+            Policy.Handle<Exception>().WaitAndRetry(20, r => TimeSpan.FromMilliseconds(200))
+                .Execute(() => processId.KillProcessAndChildren());
         }
     }
 }
