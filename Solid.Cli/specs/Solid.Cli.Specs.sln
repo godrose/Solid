@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solid.Cli.Specs.Steps", "So
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solid.Cli.Specs.Launcher", "Solid.Cli.Specs.Launcher\Solid.Cli.Specs.Launcher.csproj", "{61016C9E-5C85-4BB4-B713-9A518E7F1F7D}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.Infra", "..\..\common\Common.Infra\Common.Infra.csproj", "{8AB7EB2E-2737-4A6E-89BD-C8F5AFEDCEB2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{61016C9E-5C85-4BB4-B713-9A518E7F1F7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61016C9E-5C85-4BB4-B713-9A518E7F1F7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{61016C9E-5C85-4BB4-B713-9A518E7F1F7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AB7EB2E-2737-4A6E-89BD-C8F5AFEDCEB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AB7EB2E-2737-4A6E-89BD-C8F5AFEDCEB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AB7EB2E-2737-4A6E-89BD-C8F5AFEDCEB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AB7EB2E-2737-4A6E-89BD-C8F5AFEDCEB2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

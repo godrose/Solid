@@ -12,10 +12,11 @@
   <ItemGroup>
     <PackageReference Include="JetBrains.Annotations" Version="2020.1.0" />
     <PackageReference Include="Solid.Practices.Modularity" Version="2.2.0" />
-    <PackageReference Include="System.Management" Version="4.6.0" />
+    <PackageReference Include="System.Management" Version="4.7.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\common\Common.Infra\Common.Infra.csproj" />
     <ProjectReference Include="..\Solid.Cli.Specs.Tests.Contracts\Solid.Cli.Specs.Tests.Contracts.csproj" />
   </ItemGroup>
 
