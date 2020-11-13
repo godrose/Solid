@@ -1,20 +1,13 @@
 configuration: Release
 
-install:
-- ps: |
-    $env:CORE_SDK_VERSION = '5.0.100'
-    Write-Host "Installing .NET Core SDK $env:CORE_SDK_VERSION"
-    Invoke-WebRequest -Uri 'https://dot.net/v1/dotnet-install.ps1' -UseBasicParsing -OutFile "$env:temp\dotnet-install.ps1"
-    & $env:temp\dotnet-install.ps1 -Architecture x64 -Version $env:CORE_SDK_VERSION -InstallDir "$env:ProgramFiles\dotnet"
-
 before_build:
-- dotnet restore
+- nuget restore
 
 build:
   verbosity: minimal
   project: Solid.sln
 
-image: Visual Studio 2019
+image: Visual Studio 2019 Preview 
   
 notifications:
 - provider: Email
