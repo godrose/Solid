@@ -8,13 +8,13 @@ install:
     & $env:temp\dotnet-install.ps1 -Architecture x64 -Version $env:CORE_SDK_VERSION -InstallDir "$env:ProgramFiles\dotnet"
 
 before_build:
-- nuget restore
+- dotnet restore
 
 build:
   verbosity: minimal
   project: Solid.sln
 
-image: Visual Studio 2019 preview
+image: Visual Studio 2019
   
 notifications:
 - provider: Email
