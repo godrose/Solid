@@ -7,7 +7,7 @@ build:
   verbosity: minimal
   project: Solid.sln
 
-image: Visual Studio 2019 Preview 
+image: Visual Studio 2019
   
 notifications:
 - provider: Email
