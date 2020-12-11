@@ -27,18 +27,8 @@
     <ProjectReference Include="..\Solid.Practices.Composition\Solid.Practices.Composition.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <None Update="Discovery Aspect.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>Discovery Aspect.feature.cs</LastGenOutput>
-    </None>
     <None Update="specflow.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <SpecFlowFeatureFiles Update="Composition Container.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>Composition Container.feature.cs</LastGenOutput>
-    </SpecFlowFeatureFiles>
   </ItemGroup>
 </Project>
