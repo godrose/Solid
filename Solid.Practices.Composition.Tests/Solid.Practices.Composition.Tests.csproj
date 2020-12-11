@@ -27,11 +27,6 @@
     <ProjectReference Include="..\Solid.Practices.Composition\Solid.Practices.Composition.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Composition Container.feature.cs">
-      <DesignTime>True</DesignTime>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <None Update="Discovery Aspect.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Discovery Aspect.feature.cs</LastGenOutput>

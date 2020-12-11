@@ -25,13 +25,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Object Container Adapter.feature.cs">
-      <DependentUpon>Object Container Adapter.feature</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
     <SpecFlowFeatureFiles Update="Object Container Adapter.feature">
       <Visible>$(UsingMicrosoftNETSdk)</Visible>
       <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>

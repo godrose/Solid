@@ -24,13 +24,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Middleware Dependencies.feature.cs">
-      <DependentUpon>Middleware Dependencies.feature</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
     <SpecFlowFeatureFiles Update="Middleware Dependencies.feature">
       <Visible>$(UsingMicrosoftNETSdk)</Visible>
       <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>

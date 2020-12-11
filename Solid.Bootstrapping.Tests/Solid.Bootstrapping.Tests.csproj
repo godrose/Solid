@@ -26,12 +26,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Container.feature.cs">
-      <DesignTime>True</DesignTime>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
     <SpecFlowFeatureFiles Update="Middleware.feature">
       <Visible>$(UsingMicrosoftNETSdk)</Visible>
       <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>

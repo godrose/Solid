@@ -25,13 +25,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Aspects Wrapper.feature.cs">
-      <DependentUpon>Aspects Wrapper.feature</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
     <SpecFlowFeatureFiles Update="Aspects Wrapper.feature">
       <Visible>$(UsingMicrosoftNETSdk)</Visible>
       <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
