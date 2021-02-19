@@ -206,3 +206,7 @@ Tests*/
 # Generated dotnet folders/files
 
 Solid.Cli/generated
+
+# Generated packages and intermediate output
+output
+devops/pack/**/contents/lib
