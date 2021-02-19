@@ -1,5 +1,5 @@
-rmdir /Q /S contents/lib
 cd contents
+rmdir /Q /S lib
 mkdir lib
 cd lib
 mkdir netstandard2.0\

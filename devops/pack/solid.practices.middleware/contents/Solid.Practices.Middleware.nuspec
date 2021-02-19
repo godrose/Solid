@@ -1,17 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
-    <id>Solid.Core</id>
+    <id>Solid.Practices.Middleware</id>
     <version>2.3.0-rc1</version>
-    <title>Solid.Core</title>
+    <title>Solid.Practices.Middleware</title>
     <authors>Gennady Verdel</authors>
     <owners>Gennady Verdel</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <licenseUrl>https://github.com/godrose/Solid/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/godrose/Solid</projectUrl>
     <iconUrl>https://github.com/godrose/Solid/blob/master/assets/icon.png?raw=true</iconUrl>
-    <description>This package provides core abstractions</description>
-    <summary>This package provides core abstractions</summary>
-    <releaseNotes>Added attributes for deps and id specification</releaseNotes>
+    <description>This package contains middleware interface.</description>
+    <summary>This package contains middleware interface.</summary>
+    <releaseNotes>Using topological sort to determine middlewares invocation order</releaseNotes>
+    <dependencies>
+      <dependency id="Solid.Core" version="2.3.0-rc1" />
+    </dependencies>
   </metadata>
 </package>
