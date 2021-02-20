@@ -3,13 +3,15 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-    <Version>2.3.0</Version>
+    <Version>2.3.0-rc1</Version>
+    <AssemblyName>Solid.Common.Platform</AssemblyName>
+    <RootNamespace>Solid.Common</RootNamespace>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DefineConstants>NET</DefineConstants>
     <OutputPath>..\..\Bin\net\Release\</OutputPath>
-    <DocumentationFile>..\..\Bin\net\Release\Solid.Common.NET.xml</DocumentationFile>
+    <DocumentationFile>..\..\Bin\net\Release\Solid.Common.Platform.xml</DocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
