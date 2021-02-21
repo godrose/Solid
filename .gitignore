@@ -207,6 +207,8 @@ Tests*/
 
 Solid.Cli/generated
 
+#Generated SpecFlow feature.cs files
+*.feature.cs
 # Generated packages and intermediate output
 output
 devops/pack/**/contents/lib
