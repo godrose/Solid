@@ -14,16 +14,18 @@ The Composition aspect is the only one that has concrete implementation. In esse
 Additionally, the Solid library contains various interfaces and implementation for some of the Design Patterns, including ```IAcceptor``` for the **Visitor** pattern, ```IMemento<T>``` for the **Memento** pattern and so on. This saves a lot of duplicate code when such a pattern is used in the app development.
 
 <img src=https://ci.appveyor.com/api/projects/status/github/godrose/solid>
-
-[![Sourcegraph](https://sourcegraph.com/github.com/godrose/Solid/-/badge.svg)](https://sourcegraph.com/github.com/godrose/Solid?badge)
-
 <img src=https://img.shields.io/nuget/dt/Solid.Practices.IoC?style=for-the-badge>
 
 [Latest Bootstrapping specs result](https://ci.appveyor.com/api/projects/godrose/Solid/artifacts/src/Solid.Bootstrapping.Specs/bin/Release/LivingDoc.html)
+
 [Latest Extensibility specs result](https://ci.appveyor.com/api/projects/godrose/Solid/artifacts/src/Solid.Extensibility.Specs/bin/Release/LivingDoc.html)
+
 [Latest BoDi Adapter specs result](https://ci.appveyor.com/api/projects/godrose/Solid/artifacts/src/Solid.IoC.Adapters.BoDi.Specs/bin/Release/LivingDoc.html)
+
 [Latest Composition Container specs result](https://ci.appveyor.com/api/projects/godrose/Solid/artifacts/src/Solid.Practices.Composition.Container.Specs/bin/Release/LivingDoc.html)
+
 [Latest Composition specs result](https://ci.appveyor.com/api/projects/godrose/Solid/artifacts/src/Solid.Practices.Composition.Specs/bin/Release/LivingDoc.html)
+
 [Latest Middleware specs result](https://ci.appveyor.com/api/projects/godrose/Solid/artifacts/src/Solid.Practices.Middleware.Specs/bin/Release/LivingDoc.html)
 
-[Get package](https://www.nuget.org/packages/LogoFX.Client.Mvvm.Model/)
+[Get package](https://www.nuget.org/packages/Solid.Practices.IoC/)
