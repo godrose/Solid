@@ -11,7 +11,9 @@ build:
   project: Solid.sln
 
 test_script:
-  - cd .\devops\test\test-all.bat
+  - cd
+  - cd .\devops\test
+  - test-all.bat
   - cd ..\..\
 
 image: Visual Studio 2019
