@@ -1,3 +1,6 @@
+init:
+  - dotnet tool install --global SpecFlow.Plus.LivingDoc.CLI
+
 configuration: Release
 
 before_build:
@@ -6,6 +9,10 @@ before_build:
 build:
   verbosity: minimal
   project: Solid.sln
+
+test_script:
+  - .\devops\test\test-all.bat
+  - cd ..\..\
 
 image: Visual Studio 2019
   
@@ -16,3 +23,8 @@ notifications:
   on_build_success: false
   on_build_failure: false
   on_build_status_changed: true
+    
+artifacts:
+
+  # pushing a single file
+  - path: .\Solid.Bootstrapping.Specs\bin\Release\LivingDoc.html
