@@ -27,6 +27,22 @@ notifications:
   on_build_status_changed: true
     
 artifacts:
+  
+  - name: Bootstrapping Living Documentation
+    path: .\Solid.Bootstrapping.Specs\bin\Release\LivingDoc.html
 
-  # pushing a single file
-  - path: .\Solid.Bootstrapping.Specs\bin\Release\LivingDoc.html
+  - name: Extensibility Living Documentation
+    path: .\Solid.Extensibility.Specs\bin\Release\LivingDoc.html
+
+  - name: BoDi Adapter Living Documentation
+    path: .\Solid.IoC.Adapters.BoDi.Specs\bin\Release\LivingDoc.html
+
+  - name: Composition Container Living Documentation
+    path: .\Solid.Practices.Composition.Container.Specs\bin\Release\LivingDoc.html
+
+  - name: Composition Living Documentation
+    path: .\Solid.Practices.Composition.Specs\bin\Release\LivingDoc.html
+
+  - name: Middleware Living Documentation
+    path: .\Solid.Practices.Middleware.Specs\bin\Release\LivingDoc.html
+    
