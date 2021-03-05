@@ -18,7 +18,7 @@ Additionally, the **Solid** library contains various interfaces and implementati
 
 ## Inversion of Control
 
-<img src=https://img.shields.io/nuget/dt/Solid.Practices.IoC>
+<img src=https://img.shields.io/nuget/dt/Solid.Practices.IoC?style=for-the-badge>
 
 [Living Documentation](https://ci.appveyor.com/api/projects/godrose/Solid/artifacts/Solid.IoC.Adapters.BoDi.Specs/bin/Release/LivingDoc.html)
 
@@ -26,7 +26,7 @@ Additionally, the **Solid** library contains various interfaces and implementati
 
 ## Middleware
 
-<img src=https://img.shields.io/nuget/dt/Solid.Practices.Middleware?stylefor-the-badge>
+<img src=https://img.shields.io/nuget/dt/Solid.Practices.Middleware?style=for-the-badge>
 
 [Living Documentation](https://ci.appveyor.com/api/projects/godrose/Solid/artifacts/Solid.Practices.Middleware.Specs/bin/Release/LivingDoc.html)
 
@@ -34,7 +34,7 @@ Additionally, the **Solid** library contains various interfaces and implementati
 
 ## Extensibility
 
-<img src=https://img.shields.io/nuget/dt/Solid.Extensibility?stylefor-the-badge>
+<img src=https://img.shields.io/nuget/dt/Solid.Extensibility?style=for-the-badge>
 
 [Living Documentation](https://ci.appveyor.com/api/projects/godrose/Solid/artifacts/Solid.Extensibility.Specs/bin/Release/LivingDoc.html)
 
@@ -42,7 +42,7 @@ Additionally, the **Solid** library contains various interfaces and implementati
 
 ## Composition
 
-<img src=https://img.shields.io/nuget/dt/Solid.Practices.Composition.Core?stylefor-the-badge>
+<img src=https://img.shields.io/nuget/dt/Solid.Practices.Composition.Core?style=for-the-badge>
 
 [Living Documentation](https://ci.appveyor.com/api/projects/godrose/Solid/artifacts/Solid.Practices.Composition.Specs/bin/Release/LivingDoc.html)
 
@@ -50,7 +50,7 @@ Additionally, the **Solid** library contains various interfaces and implementati
 
 ## Bootstrapping
 
-<img src=https://img.shields.io/nuget/dt/Solid.Bootstrapping?stylefor-the-badge>
+<img src=https://img.shields.io/nuget/dt/Solid.Bootstrapping?style=for-the-badge>
 
 [Living Documentation](https://ci.appveyor.com/api/projects/godrose/Solid/artifacts/Solid.Bootstrapping.Specs/bin/Release/LivingDoc.html)
 
