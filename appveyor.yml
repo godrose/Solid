@@ -11,7 +11,7 @@ build:
   project: Solid.sln
 
 test_script:
-  - echo cd
+  - cd
   - .\devops\test\test-all.bat
   - cd ..\..\
 
