@@ -6,5 +6,5 @@ SET package_version=%2
 cd %UserProfile%/.nuget/packages/%package_name%
 C:
 rmdir /Q /S %package_version%
-Y:
 cd %current_dir%
+Y:
