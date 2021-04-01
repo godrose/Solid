@@ -35,9 +35,6 @@ notifications:
   on_build_status_changed: true
     
 artifacts:
-
-  - name: Packages
-    path: .\packages\Solid.Practices.IoC.2.3.0-rc1.nupkg
   
   - name: Bootstrapping Living Documentation
     path: .\Solid.Bootstrapping.Specs\bin\Release\LivingDoc.html
