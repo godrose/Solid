@@ -16,6 +16,14 @@ test_script:
   - test-all.bat
   - cd ..\..\
 
+after_test:
+  - mkdir packages
+  - cd devops
+  - cd pack
+  - pack-all
+  - cd ../publish
+  - copy-all-params 2.3.0-rc1 ../../packages
+
 image: Visual Studio 2019
   
 notifications:
@@ -27,6 +35,9 @@ notifications:
   on_build_status_changed: true
     
 artifacts:
+
+  - name: Packages
+    path: packages\*.nupkg
   
   - name: Bootstrapping Living Documentation
     path: .\Solid.Bootstrapping.Specs\bin\Release\LivingDoc.html
