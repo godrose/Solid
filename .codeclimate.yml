@@ -1,4 +1,6 @@
 ## other configuration excluded from example...
 exclude_patterns:
-- "**/*.Specs/"
+- "**/*.Specs*/"
+- "**/*.Tests*/"
 - "**/*.feature.cs"
+- "**/AssemblyInfo.cs"
