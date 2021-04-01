@@ -37,7 +37,7 @@ notifications:
 artifacts:
 
   - name: Packages
-    path: packages\*.nupkg
+    path: .\packages\*.nupkg
   
   - name: Bootstrapping Living Documentation
     path: .\Solid.Bootstrapping.Specs\bin\Release\LivingDoc.html
