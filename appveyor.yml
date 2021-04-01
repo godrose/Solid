@@ -21,6 +21,7 @@ after_test:
   - cd devops
   - cd pack
   - pack-all
+  - cd
   - cd ../publish
   - copy-all-params 2.3.0-rc1 ../../packages
 
@@ -35,6 +36,9 @@ notifications:
   on_build_status_changed: true
     
 artifacts:
+
+  - name: Packages
+    path: .\packages\*.nupkg
   
   - name: Bootstrapping Living Documentation
     path: .\Solid.Bootstrapping.Specs\bin\Release\LivingDoc.html
