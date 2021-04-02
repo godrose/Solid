@@ -20,7 +20,7 @@ after_test:
   - mkdir packages
   - cd devops
   - cd pack
-  - pack-single Solid.Practices.IoC
+  - pack-all
 
 image: Visual Studio 2019
   
