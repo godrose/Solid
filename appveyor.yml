@@ -17,7 +17,6 @@ test_script:
   - cd ..\..\
 
 after_test:
-  - mkdir packages
   - cd devops
   - cd pack
   - pack-all
