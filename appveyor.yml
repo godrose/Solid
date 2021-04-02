@@ -33,6 +33,9 @@ notifications:
   on_build_status_changed: true
     
 artifacts:
+
+  - name: Packages
+    path: .\output\*.nupkg
   
   - name: Bootstrapping Living Documentation
     path: .\Solid.Bootstrapping.Specs\bin\Release\LivingDoc.html
