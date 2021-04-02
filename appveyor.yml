@@ -2,7 +2,6 @@ version: 2.3.0.{build}
 
 init:
   - dotnet tool install --global SpecFlow.Plus.LivingDoc.CLI
-  - echo $APPVEYOR_BUILD_NUMBER
 
 configuration: Release
 
