@@ -17,13 +17,9 @@ test_script:
   - cd ..\..\
 
 after_test:
-  - mkdir packages
   - cd devops
   - cd pack
   - pack-all
-  - cd
-  - cd ../publish
-  - copy-all-params 2.3.0-rc1 ../../packages
 
 image: Visual Studio 2019
   
@@ -38,7 +34,7 @@ notifications:
 artifacts:
 
   - name: Packages
-    path: .\packages\*.nupkg
+    path: .\output\*.nupkg
   
   - name: Bootstrapping Living Documentation
     path: .\Solid.Bootstrapping.Specs\bin\Release\LivingDoc.html
