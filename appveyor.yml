@@ -20,10 +20,7 @@ after_test:
   - mkdir packages
   - cd devops
   - cd pack
-  - pack-all
-  - cd
-  - cd ../publish
-  - copy-all-params 2.3.0-rc1 ../../packages
+  - pack-single Solid.Practices.IoC
 
 image: Visual Studio 2019
   
@@ -36,9 +33,6 @@ notifications:
   on_build_status_changed: true
     
 artifacts:
-
-  - name: Packages
-    path: .\packages\*.nupkg
   
   - name: Bootstrapping Living Documentation
     path: .\Solid.Bootstrapping.Specs\bin\Release\LivingDoc.html
