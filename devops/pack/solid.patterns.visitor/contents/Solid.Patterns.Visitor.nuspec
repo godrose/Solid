@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Solid.Patterns.Visitor</id>
+    <version>2.3.0-rc1</version>
+    <title>Solid.Patterns.Visitor</title>
+    <authors>Gennady Verdel</authors>
+    <owners>Gennady Verdel</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>https://github.com/godrose/Solid/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/godrose/Solid</projectUrl>
+    <iconUrl>https://github.com/godrose/Solid/blob/master/assets/icon.png?raw=true</iconUrl>
+    <description>Contains reusable components for *Visitor* design pattern implementation, namely different variations of acceptor interfaces.</description>
+    <summary>Contains reusable components for *Visitor* design pattern implementation</summary>
+    <releaseNotes></releaseNotes>
+  </metadata>
+</package>

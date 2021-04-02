@@ -1,3 +1,6 @@
+init:
+  - dotnet tool install --global SpecFlow.Plus.LivingDoc.CLI
+
 configuration: Release
 
 before_build:
@@ -6,6 +9,17 @@ before_build:
 build:
   verbosity: minimal
   project: Solid.sln
+
+test_script:
+  - cd
+  - cd .\devops\test
+  - test-all.bat
+  - cd ..\..\
+
+after_test:
+  - cd devops
+  - cd pack
+  - pack-all
 
 image: Visual Studio 2019
   
@@ -16,3 +30,27 @@ notifications:
   on_build_success: false
   on_build_failure: false
   on_build_status_changed: true
+    
+artifacts:
+
+  - name: Packages
+    path: .\output\*.nupkg
+  
+  - name: Bootstrapping Living Documentation
+    path: .\Solid.Bootstrapping.Specs\bin\Release\LivingDoc.html
+
+  - name: Extensibility Living Documentation
+    path: .\Solid.Extensibility.Specs\bin\Release\LivingDoc.html
+
+  - name: BoDi Adapter Living Documentation
+    path: .\Solid.IoC.Adapters.BoDi.Specs\bin\Release\LivingDoc.html
+
+  - name: Composition Container Living Documentation
+    path: .\Solid.Practices.Composition.Container.Specs\bin\Release\LivingDoc.html
+
+  - name: Composition Living Documentation
+    path: .\Solid.Practices.Composition.Specs\bin\Release\LivingDoc.html
+
+  - name: Middleware Living Documentation
+    path: .\Solid.Practices.Middleware.Specs\bin\Release\LivingDoc.html
+    

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Solid.Practices.Modularity</id>
+    <version>2.3.0-rc1</version>
+    <title>Solid.Practices.Modularity</title>
+    <authors>Gennady Verdel</authors>
+    <owners>Gennady Verdel</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>https://github.com/godrose/Solid/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/godrose/Solid</projectUrl>
+    <iconUrl>https://github.com/godrose/Solid/blob/master/assets/icon.png?raw=true</iconUrl>
+    <description>This package provides means for composing modular applications.</description>
+    <summary>This package provides means for composing modular applications.</summary>
+    <releaseNotes>Using topological sort to determine modules invocation order</releaseNotes>
+    <dependencies>
+      <dependency id="Solid.Core" version="2.3.0-rc1" />
+      <dependency id="Solid.Practices.IoC" version="2.3.0-rc1" />
+      <dependency id="Solid.Practices.Middleware" version="2.3.0-rc1" />
+    </dependencies>
+  </metadata>
+</package>

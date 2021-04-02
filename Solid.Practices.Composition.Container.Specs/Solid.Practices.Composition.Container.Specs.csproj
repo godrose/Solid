@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>    
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="FakeItEasy">
+      <Version>6.2.1</Version>
+    </PackageReference>
+    <PackageReference Include="FluentAssertions">
+      <Version>5.10.3</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.8.3" />
+    <PackageReference Include="SpecFlow" Version="3.6.23" />
+    <PackageReference Include="SpecFlow.Plus.LivingDocPlugin" Version="3.6.6" />
+    <PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="3.6.23" />
+    <PackageReference Include="SpecFlow.xUnit" Version="3.6.23" />
+    <PackageReference Include="xunit.core">
+      <Version>2.4.1</Version>
+    </PackageReference>
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Solid.Practices.Composition.Container\Solid.Practices.Composition.Container.csproj" />
+    <ProjectReference Include="..\Solid.Practices.Composition.Contracts\Solid.Practices.Composition.Contracts.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>   
+    <None Update="specflow.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>    
+  </ItemGroup>
+</Project>

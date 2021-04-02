@@ -120,9 +120,6 @@ DocProject/Help/*.hhp
 DocProject/Help/Html2
 DocProject/Help/html
 
-# Click-Once directory
-publish/
-
 # Publish Web Output
 *.[Pp]ublish.xml
 *.azurePubxml
@@ -206,3 +203,9 @@ Tests*/
 # Generated dotnet folders/files
 
 Solid.Cli/generated
+
+#Generated SpecFlow feature.cs files
+*.feature.cs
+# Generated packages and intermediate output
+output
+devops/pack/**/contents/lib
