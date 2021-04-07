@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "UpdateUtil": {
+      "commandName": "Project",
+      "commandLineArgs": "Solid 2.3.0-rc1"
+    }
+  }
+}

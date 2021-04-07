@@ -12,7 +12,8 @@
     <iconUrl>https://github.com/godrose/Solid/blob/master/assets/icon.png?raw=true</iconUrl>
     <description>This package provides interfaces and wrappers for extensible objects</description>
     <summary>This package provides interfaces and wrappers for extensible objects</summary>
-    <releaseNotes></releaseNotes>
+    <releaseNotes>
+    </releaseNotes>
     <dependencies>
       <dependency id="Solid.Core" version="2.3.0-rc1" />
       <dependency id="Solid.Practices.Middleware" version="2.3.0-rc1" />

@@ -12,7 +12,8 @@
     <iconUrl>https://github.com/godrose/Solid/blob/master/assets/icon.png?raw=true</iconUrl>
     <description>This package provides common abstractions</description>
     <summary>This package provides common abstractions</summary>
-    <releaseNotes></releaseNotes>
+    <releaseNotes>
+    </releaseNotes>
     <dependencies>
       <dependency id="Solid.Extensibility" version="2.3.0-rc1" />
     </dependencies>

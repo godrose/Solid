@@ -12,6 +12,7 @@
     <iconUrl>https://github.com/godrose/Solid/blob/master/assets/icon.png?raw=true</iconUrl>
     <description>Contains reusable components for *Chain-Of-Responsibility* design pattern implementation, namely different variations of chain element interfaces and their base implementations.</description>
     <summary>Contains reusable components for *Chain-Of-Responsibility* design pattern implementation.</summary>
-    <releaseNotes></releaseNotes>
+    <releaseNotes>
+    </releaseNotes>
   </metadata>
 </package>
