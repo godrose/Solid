@@ -51,9 +51,7 @@ namespace UpdateUtil
                 doc.Save(manifestFile);
             }
             GoUp(1);
-            Cd("update");
-            Cd("UpdateUtil");
-            Cd("bin");
+            NavigateToBin();
         }
 
         private static void UpdateCIFile(string prefix, VersionInfo versionInfo)
@@ -69,13 +67,22 @@ namespace UpdateUtil
                 nodesEnumerator.MoveNext();
                 var rootNode = nodesEnumerator.Current as YamlMappingNode;
                 var versionNode = rootNode.Children[new YamlScalarNode("version")] as YamlScalarNode;
-                versionNode.Value = $"{versionInfo.VersionCore}.build";
+                versionNode.Value = $"{versionInfo.VersionCore}.{{build}}";
             }
 
             using (var writer = new StreamWriter(ciFile))
             {
-                yaml.Save(writer);
+                yaml.Save(writer, assignAnchors: false);
             }
+            Cd("devops");
+            NavigateToBin();
+        }
+
+        private static void NavigateToBin()
+        {
+            Cd("update");
+            Cd("UpdateUtil");
+            Cd("bin");
         }
 
         private static void GoUp(int numberOfLevels)
