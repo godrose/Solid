@@ -28,13 +28,12 @@ image: Visual Studio 2019
 notifications:
 - provider: Email
   to:
-  - godrose@gmail.com  
+    - godrose@gmail.com  
   on_build_success: false
   on_build_failure: false
   on_build_status_changed: true
     
 artifacts:
-
   - name: Packages
     path: .\output\*.nupkg
   
