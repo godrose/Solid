@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Xml;
@@ -19,8 +20,10 @@ namespace UpdateUtil
                 return;
             }
             var versionInfo = new VersionInfo(version);
-            UpdateCIFile(prefix, versionInfo);
+            UpdateAssemblyInfoFiles(prefix, versionInfo);
+            UpdateCIFile(versionInfo);
             UpdateManifestFiles(prefix, versionInfo);
+            
         }
 
         private static void UpdateManifestFiles(string prefix, VersionInfo versionInfo)
@@ -54,7 +57,7 @@ namespace UpdateUtil
             NavigateToBin();
         }
 
-        private static void UpdateCIFile(string prefix, VersionInfo versionInfo)
+        private static void UpdateCIFile(VersionInfo versionInfo)
         {
             GoUp(4);
             var ciFile = "appveyor.yml";
@@ -76,6 +79,28 @@ namespace UpdateUtil
             }
             Cd("devops");
             NavigateToBin();
+        }
+
+        private static void UpdateAssemblyInfoFiles(string prefix, VersionInfo versionInfo)
+        {
+            GoUp(4);
+            var assemblyInfoFiles =
+                Directory.GetFiles(Directory.GetCurrentDirectory(), "AssemblyInfo.cs", SearchOption.AllDirectories)
+                    .Where(t => !t.Contains("obj") && t.Contains(prefix));
+            Cd("devops");
+            NavigateToBin();
+            var ps1File = @"..\..\patch-assembly-info.ps1";
+            
+            foreach (var assemblyInfoFile in assemblyInfoFiles)
+            {
+                var startInfo = new ProcessStartInfo
+                {
+                    FileName = "powershell.exe",
+                    Arguments = $"-NoProfile -ExecutionPolicy unrestricted -File \"{ps1File}\" \"{assemblyInfoFile}\" \"{versionInfo.VersionCore}\"",
+                    UseShellExecute = false
+                };
+                Process.Start(startInfo).WaitForExit();
+            }
         }
 
         private static void NavigateToBin()
