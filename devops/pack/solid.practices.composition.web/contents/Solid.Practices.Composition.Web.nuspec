@@ -13,7 +13,8 @@
 composing modular web server applications.</description>
     <summary>This package provides utilities for
 composing modular web server applications.</summary>
-    <releaseNotes></releaseNotes>
+    <releaseNotes>
+    </releaseNotes>
     <dependencies>
       <dependency id="Solid.Practices.Composition.Core" version="2.3.0-rc1" />
     </dependencies>

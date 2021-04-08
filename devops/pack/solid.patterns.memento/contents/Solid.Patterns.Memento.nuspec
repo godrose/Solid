@@ -12,6 +12,7 @@
     <iconUrl>https://github.com/godrose/Solid/blob/master/assets/icon.png?raw=true</iconUrl>
     <description>Contains interface for *Memento* design pattern implementation providing support for Undo-Redo functionality</description>
     <summary>Contains interface for *Memento* design pattern implementation</summary>
-    <releaseNotes></releaseNotes>
+    <releaseNotes>
+    </releaseNotes>
   </metadata>
 </package>

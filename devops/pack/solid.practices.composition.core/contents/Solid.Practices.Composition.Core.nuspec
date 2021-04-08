@@ -14,7 +14,8 @@
 composing modular applications.</description>
     <summary>This package provides utilities for
 composing modular applications.</summary>
-    <releaseNotes></releaseNotes>
+    <releaseNotes>
+    </releaseNotes>
     <dependencies>
       <dependency id="Solid.Core" version="2.3.0-rc1" />
       <dependency id="Solid.Common.Core" version="2.3.0-rc1" />
