@@ -35,12 +35,12 @@ namespace UpdateUtil
                         UpdateDependencyVersion = true
                     }));
                     break;
-                default:
-                    break;
             }           
             foreach (var handler in handlers)
             {
+                handler.SetCurrentDirectoryBefore();
                 handler.UpdateFiles(prefix, versionInfo);
+                handler.SetCurrentDirectoryAfter();
             }
         }
     }

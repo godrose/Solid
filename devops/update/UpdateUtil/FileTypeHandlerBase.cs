@@ -8,6 +8,17 @@ namespace UpdateUtil
 {
     abstract class FileTypeHandlerBase
     {
+        public virtual void SetCurrentDirectoryBefore()
+        {
+            NavigationHelper.GoUp(4);
+        }
+
+        public virtual void SetCurrentDirectoryAfter()
+        {
+            NavigationHelper.Cd("devops");
+            NavigationHelper.NavigateToBin();
+        }
+
         public abstract void UpdateFiles(string prefix, VersionInfo versionInfo);
     }
 
@@ -15,13 +26,10 @@ namespace UpdateUtil
     {
         public override void UpdateFiles(string prefix, VersionInfo versionInfo)
         {
-            NavigationHelper.GoUp(4);
             var version = versionInfo.VersionCore;
             var projectFiles =
                 Directory.GetFiles(Directory.GetCurrentDirectory(), "*.csproj", SearchOption.AllDirectories);
-            NavigationHelper.Cd("devops");
-            NavigationHelper.NavigateToBin();
-
+         
             foreach (var projectFile in projectFiles)
             {
                 if (projectFile.Contains("templatepack"))
@@ -57,13 +65,10 @@ namespace UpdateUtil
     {
         public override void UpdateFiles(string prefix, VersionInfo versionInfo)
         {
-            NavigationHelper.GoUp(4);
             var assemblyInfoFiles =
                 Directory.GetFiles(Directory.GetCurrentDirectory(), "AssemblyInfo.cs", SearchOption.AllDirectories)
                     .Where(t => !t.Contains("obj"));
-            NavigationHelper.Cd("devops");
-            NavigationHelper.NavigateToBin();
-            var ps1File = @"..\..\patch-assembly-info.ps1";
+            var ps1File = @".\devops\update\patch-assembly-info.ps1";
 
             foreach (var assemblyInfoFile in assemblyInfoFiles)
             {
@@ -82,7 +87,6 @@ namespace UpdateUtil
     {
         public override void UpdateFiles(string prefix, VersionInfo versionInfo)
         {
-            NavigationHelper.GoUp(4);
             var ciFile = "appveyor.yml";
             var yaml = new YamlStream();
             using (var reader = new StreamReader(ciFile))
@@ -100,14 +104,12 @@ namespace UpdateUtil
             {
                 yaml.Save(writer, assignAnchors: false);
             }
-            NavigationHelper.Cd("devops");
-            NavigationHelper.NavigateToBin();
         }
     }
 
     class ManifestFileTypeHandler : FileTypeHandlerBase
     {
-        private ManifestFileTypeHandlerOptions _options;
+        private readonly ManifestFileTypeHandlerOptions _options;
 
         public ManifestFileTypeHandler(ManifestFileTypeHandlerOptions options)
         {
@@ -120,10 +122,20 @@ namespace UpdateUtil
 
         }
 
-        public override void UpdateFiles(string prefix, VersionInfo versionInfo)
+        public override void SetCurrentDirectoryBefore()
         {
             NavigationHelper.GoUp(3);
             NavigationHelper.Cd("pack");
+        }
+
+        public override void SetCurrentDirectoryAfter()
+        {
+            NavigationHelper.GoUp(1);
+            NavigationHelper.NavigateToBin();
+        }
+
+        public override void UpdateFiles(string prefix, VersionInfo versionInfo)
+        {
             var version = versionInfo.ToString();
             var manifestFiles =
                 Directory.GetFiles(Directory.GetCurrentDirectory(), $"*.nuspec", SearchOption.AllDirectories);
@@ -154,8 +166,6 @@ namespace UpdateUtil
                 
                 doc.Save(manifestFile);
             }
-            NavigationHelper.GoUp(1);
-            NavigationHelper.NavigateToBin();
         }
     }
 
