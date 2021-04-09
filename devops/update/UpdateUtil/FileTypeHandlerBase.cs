@@ -18,8 +18,7 @@ namespace UpdateUtil
             NavigationHelper.GoUp(4);
             var version = versionInfo.VersionCore;
             var projectFiles =
-                Directory.GetFiles(Directory.GetCurrentDirectory(), "*.csproj", SearchOption.AllDirectories)
-                    .Where(t => t.Contains(prefix));
+                Directory.GetFiles(Directory.GetCurrentDirectory(), "*.csproj", SearchOption.AllDirectories);
             NavigationHelper.Cd("devops");
             NavigationHelper.NavigateToBin();
 
@@ -114,7 +113,7 @@ namespace UpdateUtil
             NavigationHelper.Cd("pack");
             var version = versionInfo.ToString();
             var manifestFiles =
-                Directory.GetFiles(Directory.GetCurrentDirectory(), $"*{prefix}*.nuspec", SearchOption.AllDirectories);
+                Directory.GetFiles(Directory.GetCurrentDirectory(), $"*.nuspec", SearchOption.AllDirectories);
             foreach (var manifestFile in manifestFiles)
             {
                 var doc = new XmlDocument();
