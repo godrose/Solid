@@ -107,6 +107,19 @@ namespace UpdateUtil
 
     class ManifestFileTypeHandler : FileTypeHandlerBase
     {
+        private ManifestFileTypeHandlerOptions _options;
+
+        public ManifestFileTypeHandler(ManifestFileTypeHandlerOptions options)
+        {
+            _options = options;
+        }
+
+        public ManifestFileTypeHandler()
+            :this(new ManifestFileTypeHandlerOptions())
+        {
+
+        }
+
         public override void UpdateFiles(string prefix, VersionInfo versionInfo)
         {
             NavigationHelper.GoUp(3);
@@ -118,24 +131,42 @@ namespace UpdateUtil
             {
                 var doc = new XmlDocument();
                 doc.Load(manifestFile);
-                var versionElement = doc.GetElementsByTagName("package")[0]["metadata"]["version"];
-                versionElement.InnerText = version;
-                var dependenciesElement = doc.GetElementsByTagName("package")[0]["metadata"]["dependencies"];
-                if (dependenciesElement != null)
+                if (_options.UpdatePackageVersion)
                 {
-                    var dependencies = dependenciesElement.GetElementsByTagName("dependency");
-                    foreach (XmlNode dependencyElement in dependencies)
+                    var versionElement = doc.GetElementsByTagName("package")[0]["metadata"]["version"];
+                    versionElement.InnerText = version;
+                }
+                if (_options.UpdateDependencyVersion)
+                {
+                    var dependenciesElement = doc.GetElementsByTagName("package")[0]["metadata"]["dependencies"];
+                    if (dependenciesElement != null)
                     {
-                        if (dependencyElement.Attributes["id"].Value.StartsWith(prefix))
+                        var dependencies = dependenciesElement.GetElementsByTagName("dependency");
+                        foreach (XmlNode dependencyElement in dependencies)
                         {
-                            dependencyElement.Attributes["version"].Value = version;
+                            if (dependencyElement.Attributes["id"].Value.StartsWith(prefix))
+                            {
+                                dependencyElement.Attributes["version"].Value = version;
+                            }
                         }
                     }
                 }
+                
                 doc.Save(manifestFile);
             }
             NavigationHelper.GoUp(1);
             NavigationHelper.NavigateToBin();
         }
+    }
+
+    class ManifestFileTypeHandlerOptions
+    {
+        public ManifestFileTypeHandlerOptions()
+        {
+            
+        }
+
+        public bool UpdatePackageVersion {get;set;}
+        public bool UpdateDependencyVersion {get;set;}
     }
 }
