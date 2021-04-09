@@ -60,7 +60,7 @@ namespace UpdateUtil
             NavigationHelper.GoUp(4);
             var assemblyInfoFiles =
                 Directory.GetFiles(Directory.GetCurrentDirectory(), "AssemblyInfo.cs", SearchOption.AllDirectories)
-                    .Where(t => !t.Contains("obj") && t.Contains(prefix));
+                    .Where(t => !t.Contains("obj"));
             NavigationHelper.Cd("devops");
             NavigationHelper.NavigateToBin();
             var ps1File = @"..\..\patch-assembly-info.ps1";
