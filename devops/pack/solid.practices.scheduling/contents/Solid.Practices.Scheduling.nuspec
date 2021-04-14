@@ -11,6 +11,7 @@
     <iconUrl>https://github.com/godrose/Solid/blob/master/assets/icon.png?raw=true</iconUrl>
     <description>This package provides utitlities for scheduling in .NET</description>
     <summary>This package provides utitlities for scheduling in .NET</summary>
-    <releaseNotes></releaseNotes>
+    <releaseNotes>
+    </releaseNotes>
   </metadata>
 </package>

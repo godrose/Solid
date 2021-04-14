@@ -1,9 +1,9 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>    
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
-  <ItemGroup>    
+  <ItemGroup>
     <PackageReference Include="FluentAssertions">
       <Version>5.10.3</Version>
     </PackageReference>

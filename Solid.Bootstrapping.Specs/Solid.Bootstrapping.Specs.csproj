@@ -1,10 +1,8 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
   </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="FluentAssertions" Version="5.10.3" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.8.3" />
@@ -19,17 +17,14 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\Solid.Bootstrapping\Solid.Bootstrapping.csproj" />
     <ProjectReference Include="..\Solid.Practices.Composition\Solid.Practices.Composition.csproj" />
     <ProjectReference Include="..\Solid.Practices.Modularity\Solid.Practices.Modularity.csproj" />
   </ItemGroup>
-
-  <ItemGroup>   
+  <ItemGroup>
     <None Update="specflow.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>    
+    </None>
   </ItemGroup>
-
-</Project>  
+</Project>

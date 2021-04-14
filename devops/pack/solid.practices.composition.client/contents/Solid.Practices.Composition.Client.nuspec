@@ -12,7 +12,8 @@
     <iconUrl>https://github.com/godrose/Solid/blob/master/assets/icon.png?raw=true</iconUrl>
     <description>This package provides utilities for composing modular client applications.</description>
     <summary>This package provides utilities for composing modular client applications.</summary>
-    <releaseNotes></releaseNotes>
+    <releaseNotes>
+    </releaseNotes>
     <dependencies>
       <dependency id="Solid.Practices.Composition.Core" version="2.3.0-rc1" />
     </dependencies>

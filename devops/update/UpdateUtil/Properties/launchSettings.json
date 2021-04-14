@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "UpdateUtil": {
+      "commandName": "Project",
+      "commandLineArgs": "bump-version Solid 2.3.0-rc1"
+    }
+  }
+}
