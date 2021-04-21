@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>Solid.Practices.Composition.Web</id>
-    <version>2.3.0-rc1</version>
+    <version>2.3.0</version>
     <title>Solid.Practices.Composition.Web</title>
     <authors>Gennady Verdel</authors>
     <owners>Gennady Verdel</owners>
@@ -16,7 +16,7 @@ composing modular web server applications.</summary>
     <releaseNotes>
     </releaseNotes>
     <dependencies>
-      <dependency id="Solid.Practices.Composition.Core" version="2.3.0-rc1" />
+      <dependency id="Solid.Practices.Composition.Core" version="2.3.0" />
     </dependencies>
   </metadata>
 </package>
