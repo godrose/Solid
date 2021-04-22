@@ -12,7 +12,7 @@
     <iconUrl>https://github.com/godrose/Solid/blob/master/assets/icon.png?raw=true</iconUrl>
     <description>This package provides means for composing modular applications.</description>
     <summary>This package provides means for composing modular applications.</summary>
-    <releaseNotes>Using topological sort to determine modules invocation order</releaseNotes>
+    <releaseNotes>Checked compatibility with .NET 5</releaseNotes>
     <dependencies>
       <dependency id="Solid.Core" version="2.3.0" />
       <dependency id="Solid.Practices.IoC" version="2.3.0" />

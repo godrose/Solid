@@ -12,8 +12,7 @@
     <iconUrl>https://github.com/godrose/Solid/blob/master/assets/icon.png?raw=true</iconUrl>
     <description>This package provides platform-specific implementation for common services</description>
     <summary>This package provides platform-specific implementation for common services</summary>
-    <releaseNotes>
-    </releaseNotes>
+    <releaseNotes>Checked compatibility with .NET 5</releaseNotes>
     <dependencies>
       <dependency id="Solid.Common.Core" version="2.3.0" />
     </dependencies>

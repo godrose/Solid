@@ -14,7 +14,7 @@
 over different bootstrapping capabilities: having ioc container, etc. as well as the most common middlewares to be used during bootstrapping</description>
     <summary>This package provides abstractions
 over different bootstrapping capabilities: having ioc container, etc.</summary>
-    <releaseNotes>Added simple bootstrapper with core aspects</releaseNotes>
+    <releaseNotes>Checked compatibility with .NET 5</releaseNotes>
     <dependencies>
       <dependency id="Solid.Practices.IoC" version="2.3.0" />
       <dependency id="Solid.Practices.Middleware" version="2.3.0" />

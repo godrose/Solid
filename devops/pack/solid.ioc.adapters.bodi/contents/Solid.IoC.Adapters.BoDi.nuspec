@@ -12,8 +12,7 @@
     <iconUrl>https://github.com/godrose/Solid/blob/master/assets/icon.png?raw=true</iconUrl>
     <description>This package provides an adapter for BoDi.ObjectContainer</description>
     <summary>This package provides an adapter for BoDi.ObjectContainer</summary>
-    <releaseNotes>
-    </releaseNotes>
+    <releaseNotes>Checked compatibility with .NET 5</releaseNotes>
     <dependencies>
       <dependency id="BoDi" version="1.4.1" />
       <dependency id="Solid.Practices.IoC" version="2.3.0" />

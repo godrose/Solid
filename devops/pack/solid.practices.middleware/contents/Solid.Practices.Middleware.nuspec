@@ -12,7 +12,7 @@
     <iconUrl>https://github.com/godrose/Solid/blob/master/assets/icon.png?raw=true</iconUrl>
     <description>This package contains middleware interface.</description>
     <summary>This package contains middleware interface.</summary>
-    <releaseNotes>Using topological sort to determine middlewares invocation order</releaseNotes>
+    <releaseNotes>Checked compatibility with .NET 5</releaseNotes>
     <dependencies>
       <dependency id="Solid.Core" version="2.3.0" />
     </dependencies>

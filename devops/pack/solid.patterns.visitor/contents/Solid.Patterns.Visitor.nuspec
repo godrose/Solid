@@ -12,7 +12,6 @@
     <iconUrl>https://github.com/godrose/Solid/blob/master/assets/icon.png?raw=true</iconUrl>
     <description>Contains reusable components for *Visitor* design pattern implementation, namely different variations of acceptor interfaces.</description>
     <summary>Contains reusable components for *Visitor* design pattern implementation</summary>
-    <releaseNotes>
-    </releaseNotes>
+    <releaseNotes>Checked compatibility with .NET 5</releaseNotes>
   </metadata>
 </package>

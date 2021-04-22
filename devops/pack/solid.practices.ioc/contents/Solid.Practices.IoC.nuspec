@@ -14,7 +14,6 @@
 over Inversion-Of-Control container</description>
     <summary>This package provides abstraction
 over Inversion-Of-Control container</summary>
-    <releaseNotes>
-    </releaseNotes>
+   <releaseNotes>Checked compatibility with .NET 5</releaseNotes>
   </metadata>
 </package>

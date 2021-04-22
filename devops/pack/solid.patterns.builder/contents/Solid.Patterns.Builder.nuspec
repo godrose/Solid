@@ -12,7 +12,6 @@
     <iconUrl>https://github.com/godrose/Solid/blob/master/assets/icon.png?raw=true</iconUrl>
     <description>Contains interfaces for *Builder* design pattern implementation, both generic and non-generic.</description>
     <summary>Contains interfaces for *Builder* design pattern implementation</summary>
-    <releaseNotes>
-    </releaseNotes>
+    <releaseNotes>Checked compatibility with .NET 5</releaseNotes>
   </metadata>
 </package>
