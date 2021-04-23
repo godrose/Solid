@@ -37,8 +37,10 @@ namespace Solid.IoC.Adapters.BoDi.Specs
         {
             var container = _scenarioContext.Get<IIocContainer>("container");
             var dependencies = container.ResolveAll<IDependency>().ToArray();
-            dependencies[0].Should().BeOfType<DependencyA>();
-            dependencies[1].Should().BeOfType<DependencyB>();
+            dependencies.Select(d => 
+                d.GetType()).Should().BeEquivalentTo(
+                typeof(DependencyA), 
+                                typeof(DependencyB));
         }
     }
 }

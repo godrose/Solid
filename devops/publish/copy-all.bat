@@ -1,1 +1,1 @@
-call copy-all-params ../../../packages/Tests-All
+call copy-all-params %package_version% ../../../packages/Tests-All

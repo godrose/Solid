@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>Solid.Practices.Middleware</id>
-    <version>2.3.0-rc1</version>
+    <version>2.3.0</version>
     <title>Solid.Practices.Middleware</title>
     <authors>Gennady Verdel</authors>
     <owners>Gennady Verdel</owners>
@@ -12,9 +12,9 @@
     <iconUrl>https://github.com/godrose/Solid/blob/master/assets/icon.png?raw=true</iconUrl>
     <description>This package contains middleware interface.</description>
     <summary>This package contains middleware interface.</summary>
-    <releaseNotes>Using topological sort to determine middlewares invocation order</releaseNotes>
+    <releaseNotes>Checked compatibility with .NET 5</releaseNotes>
     <dependencies>
-      <dependency id="Solid.Core" version="2.3.0-rc1" />
+      <dependency id="Solid.Core" version="2.3.0" />
     </dependencies>
   </metadata>
 </package>
