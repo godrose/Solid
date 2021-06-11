@@ -16,6 +16,8 @@
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\Solid.Core\Solid.Core.csproj" />
+    <ProjectReference Include="..\Solid.Patterns.Builder\Solid.Patterns.Builder.csproj" />
+    <ProjectReference Include="..\Solid.Practices.IoC\Solid.Practices.IoC.csproj" />
     <ProjectReference Include="..\Solid.Practices.Middleware\Solid.Practices.Middleware.csproj" />
   </ItemGroup>
 </Project>

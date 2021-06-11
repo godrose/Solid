@@ -5,9 +5,9 @@ using Solid.Patterns.Builder;
 using Solid.Practices.IoC;
 using Solid.Practices.Middleware;
 
-namespace Solid.Extensibility.Specs
+namespace Solid.Extensibility
 {
-    internal class MiddlewareTypesWrapper<TExtensible> :
+    public class MiddlewareTypesWrapper<TExtensible> :
         IBuilder<MiddlewaresReadOnlyCollection<TExtensible>>
         where TExtensible : class
     {
