@@ -17,6 +17,7 @@ namespace Solid.Extensibility.Specs
             ObjectContainer objectContainer)
         {
             _scenarioDataStore = new MiddlewareTypeScenarioDataStore<ExtensibleByTypeObject>(scenarioContext);
+            _scenarioDataStore.Object = new ExtensibleByTypeObject();
             var containerAdapter = new ObjectContainerAdapter(objectContainer);
             _scenarioDataStore.IocContainer = containerAdapter;
         }
@@ -26,7 +27,8 @@ namespace Solid.Extensibility.Specs
         public void WhenTheMiddlewareTypesWrapperIsCreated()
         {
             var middlewareTypesWrapper =
-                new MiddlewareTypesWrapper<ExtensibleByTypeObject>(_scenarioDataStore.IocContainer);
+                new MiddlewareTypesWrapper<ExtensibleByTypeObject>(_scenarioDataStore.Object,
+                    _scenarioDataStore.IocContainer);
             _scenarioDataStore.MiddlewareTypesWrapper = middlewareTypesWrapper;
         }
 

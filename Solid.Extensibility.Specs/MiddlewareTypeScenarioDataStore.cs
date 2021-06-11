@@ -11,6 +11,12 @@ namespace Solid.Extensibility.Specs
         {
         }
 
+        public TExtensible Object
+        {
+            get => GetValue<TExtensible>();
+            set => SetValue(value);
+        }
+
         public IIocContainer IocContainer
         {
             get => GetValue<IIocContainer>();
