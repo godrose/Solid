@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
@@ -26,7 +26,7 @@
     <ProjectReference Include="..\Solid.IoC.Adapters.BoDi\Solid.IoC.Adapters.BoDi.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Middleware Types Wrapper.feature.cs">
+    <Compile Update="Middleware Types.feature.cs">
       <DesignTime>True</DesignTime>
     </Compile>
   </ItemGroup>
@@ -36,9 +36,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <SpecFlowFeatureFiles Update="Middleware Types Wrapper.feature">
+    <SpecFlowFeatureFiles Update="Middleware Types.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>Middleware Types Wrapper.feature.cs</LastGenOutput>
+      <LastGenOutput>Middleware Types.feature.cs</LastGenOutput>
     </SpecFlowFeatureFiles>
   </ItemGroup>
 </Project>

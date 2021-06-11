@@ -1,4 +1,4 @@
-﻿Feature: Middleware Types Wrapper
+﻿Feature: Middleware Types
 	As an app developer
 	I want to be able to use middlewares by specifying their types only
 	In order to support more advanced scenarios during bootstrapping
