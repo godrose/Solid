@@ -1,11 +1,14 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Attest.Tests.Core" Version="2.2.2" />
+    <PackageReference Include="Attest.Tests.SpecFlow" Version="2.2.2" />
     <PackageReference Include="FluentAssertions" Version="5.10.3" />
+    <PackageReference Include="JetBrains.Annotations" Version="2021.1.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.10.0" />
     <PackageReference Include="Moq" Version="4.16.1" />
     <PackageReference Include="SpecFlow" Version="3.8.14" />
@@ -20,10 +23,22 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Solid.Extensibility\Solid.Extensibility.csproj" />
+    <ProjectReference Include="..\Solid.IoC.Adapters.BoDi\Solid.IoC.Adapters.BoDi.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Middleware Types Wrapper.feature.cs">
+      <DesignTime>True</DesignTime>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Update="specflow.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <SpecFlowFeatureFiles Update="Middleware Types Wrapper.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Middleware Types Wrapper.feature.cs</LastGenOutput>
+    </SpecFlowFeatureFiles>
   </ItemGroup>
 </Project>
