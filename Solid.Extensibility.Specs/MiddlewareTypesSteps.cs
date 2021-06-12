@@ -22,6 +22,22 @@ namespace Solid.Extensibility.Specs
             _scenarioDataStore.IocContainer = containerAdapter;
         }
 
+        [Given(@"The creatable middleware can be created")]
+        [UsedImplicitly]
+        public void GivenTheCreatableMiddlewareCanBeCreated()
+        {
+            _scenarioDataStore.IocContainer
+                .RegisterSingleton<ICreatableMiddlewareDependency, CreatableMiddlewareDependency>();
+        }
+
+        [Given(@"The creatable middleware can not be created")]
+        [UsedImplicitly]
+        public void GivenTheCreatableMiddlewareCanNotBeCreated()
+        {
+            _scenarioDataStore.IocContainer
+                .RegisterSingleton<ICreatableMiddlewareDependency, ICreatableMiddlewareDependency>();
+        }
+
         [When(@"The middleware types wrapper is created")]
         [UsedImplicitly]
         public void WhenTheMiddlewareTypesWrapperIsCreated()
@@ -53,6 +69,16 @@ namespace Solid.Extensibility.Specs
                 .Middlewares
                 .Should()
                 .ContainSingle(t => t is CreatableMiddleware);
+        }
+
+        [Then(@"This middleware fails to create")]
+        public void ThenThisMiddlewareFailsToCreate()
+        {
+            _scenarioDataStore
+                .MiddlewareTypesWrapper
+                .Errors
+                .Should()
+                .ContainSingle();
         }
     }
 }
