@@ -28,6 +28,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bootstrapping", "Bootstrapping", "{50E59CB7-5DC6-4133-82D3-223CE387F9A7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Extensibility", "Extensibility", "{2A800A7F-1255-4617-B636-CBD74E0ED96A}"
+	ProjectSection(SolutionItems) = preProject
+		Solid.Extensibility\ExtensibilityAspect.cs = Solid.Extensibility\ExtensibilityAspect.cs
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Builder", "Builder", "{591A10B7-688C-4D34-A689-40ED517B2F24}"
 EndProject

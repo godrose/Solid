@@ -1,26 +1,14 @@
 ﻿using Attest.Testing.SpecFlow;
-using Solid.Practices.IoC;
 using TechTalk.SpecFlow;
 
 namespace Solid.Extensibility.Specs
 {
-    internal class MiddlewareTypeScenarioDataStore<TExtensible> : ScenarioDataStoreBase where TExtensible : class
+    internal class MiddlewareTypesScenarioDataStore<TExtensible> : ScenarioDataStoreBase 
+        where TExtensible : class
     {
-        public MiddlewareTypeScenarioDataStore(ScenarioContext scenarioContext) :
+        public MiddlewareTypesScenarioDataStore(ScenarioContext scenarioContext) :
             base(scenarioContext)
         {
-        }
-
-        public TExtensible Object
-        {
-            get => GetValue<TExtensible>();
-            set => SetValue(value);
-        }
-
-        public IIocContainer IocContainer
-        {
-            get => GetValue<IIocContainer>();
-            set => SetValue(value);
         }
 
         public MiddlewareTypesWrapper<TExtensible> MiddlewareTypesWrapper

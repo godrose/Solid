@@ -29,6 +29,9 @@
     <Compile Update="Middleware Types.feature.cs">
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Update="Using extensibility by type as Aspect.feature.cs">
+      <DesignTime>True</DesignTime>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Update="specflow.json">
@@ -39,6 +42,10 @@
     <SpecFlowFeatureFiles Update="Middleware Types.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Middleware Types.feature.cs</LastGenOutput>
+    </SpecFlowFeatureFiles>
+    <SpecFlowFeatureFiles Update="Using extensibility by type as Aspect.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Using extensibility by type as Aspect.feature.cs</LastGenOutput>
     </SpecFlowFeatureFiles>
   </ItemGroup>
 </Project>

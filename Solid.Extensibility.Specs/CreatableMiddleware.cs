@@ -13,6 +13,7 @@ namespace Solid.Extensibility.Specs
 
         public ExtensibleByTypeObject Apply(ExtensibleByTypeObject @object)
         {
+            _dependency.IsCalled = true;
             return @object;
         }
     }
