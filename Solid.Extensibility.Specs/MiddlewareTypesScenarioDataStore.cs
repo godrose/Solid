@@ -17,9 +17,9 @@ namespace Solid.Extensibility.Specs
             set => SetValue(value);
         }
 
-        public MiddlewaresReadOnlyCollection<TExtensible> MiddlewaresReadOnlyCollection
+        public MiddlewaresProvider<TExtensible> MiddlewaresProvider
         {
-            get => GetValue<MiddlewaresReadOnlyCollection<TExtensible>>();
+            get => GetValue<MiddlewaresProvider<TExtensible>>();
             set => SetValue(value);
         }
     }

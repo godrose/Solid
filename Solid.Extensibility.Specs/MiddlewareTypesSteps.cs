@@ -60,14 +60,14 @@ namespace Solid.Extensibility.Specs
         public void WhenIEnsureTheMiddlewaresAreCreated()
         {
             var middlewaresReadOnlyCollection = _middlewareTypesScenarioDataStore.MiddlewareTypesWrapper.Build();
-            _middlewareTypesScenarioDataStore.MiddlewaresReadOnlyCollection = middlewaresReadOnlyCollection;
+            _middlewareTypesScenarioDataStore.MiddlewaresProvider = middlewaresReadOnlyCollection;
         }
 
         [Then(@"This middleware is created successfully")]
         public void ThenThisMiddlewareIsCreatedSuccessfully()
         {
             _middlewareTypesScenarioDataStore
-                .MiddlewaresReadOnlyCollection
+                .MiddlewaresProvider
                 .Middlewares
                 .Should()
                 .ContainSingle(t => t is CreatableMiddleware);

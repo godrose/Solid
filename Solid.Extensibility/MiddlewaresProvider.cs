@@ -4,10 +4,10 @@ using Solid.Practices.Middleware;
 
 namespace Solid.Extensibility
 {
-    public class MiddlewaresReadOnlyCollection<TExtensible> : IMiddlewaresReadOnlyCollection<TExtensible>
+    public class MiddlewaresProvider<TExtensible> : IMiddlewaresProvider<TExtensible>
         where TExtensible : class
     {
-        public MiddlewaresReadOnlyCollection(IEnumerable<IMiddleware<TExtensible>> middlewares)
+        public MiddlewaresProvider(IEnumerable<IMiddleware<TExtensible>> middlewares)
         {
             Middlewares = middlewares.ToArray();
         }

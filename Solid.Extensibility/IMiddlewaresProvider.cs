@@ -3,7 +3,7 @@ using Solid.Practices.Middleware;
 
 namespace Solid.Extensibility
 {
-    public interface IMiddlewaresReadOnlyCollection<TExtensible> where TExtensible : class
+    public interface IMiddlewaresProvider<TExtensible> where TExtensible : class
     {
         /// <summary>
         /// Gets collection of middlewares.

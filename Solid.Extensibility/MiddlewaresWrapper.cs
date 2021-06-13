@@ -7,7 +7,7 @@ namespace Solid.Extensibility
     /// Wraps collection of middlewares.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class MiddlewaresWrapper<T> : IExtensible<T>, IMiddlewaresReadOnlyCollection<T> where T : class
+    public class MiddlewaresWrapper<T> : IExtensible<T>, IMiddlewaresProvider<T> where T : class
     {
         private readonly T _object;
         private readonly List<IMiddleware<T>> _middlewares = new List<IMiddleware<T>>();

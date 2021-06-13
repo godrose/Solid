@@ -10,7 +10,7 @@ namespace Solid.Extensibility
 {
     public class MiddlewareTypesWrapper<TExtensible> :
         IExtensibleByType<TExtensible>,
-        IBuilder<MiddlewaresReadOnlyCollection<TExtensible>>,
+        IBuilder<MiddlewaresProvider<TExtensible>>,
         IHaveErrors
         where TExtensible : class
     {
@@ -28,9 +28,9 @@ namespace Solid.Extensibility
         }
 
         /// <inheritdoc />
-        public MiddlewaresReadOnlyCollection<TExtensible> Build()
+        public MiddlewaresProvider<TExtensible> Build()
         {
-            return new MiddlewaresReadOnlyCollection<TExtensible>(
+            return new MiddlewaresProvider<TExtensible>(
                 _middlewareTypes
                     .Select(t =>
                     {
