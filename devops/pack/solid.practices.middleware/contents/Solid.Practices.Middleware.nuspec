@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>Solid.Practices.Middleware</id>
-    <version>2.3.0</version>
+    <version>2.3.1-rc1</version>
     <title>Solid.Practices.Middleware</title>
     <authors>Gennady Verdel</authors>
     <owners>Gennady Verdel</owners>
@@ -14,7 +14,7 @@
     <summary>This package contains middleware interface.</summary>
     <releaseNotes>Checked compatibility with .NET 5</releaseNotes>
     <dependencies>
-      <dependency id="Solid.Core" version="2.3.0" />
+      <dependency id="Solid.Core" version="2.3.1-rc1" />
     </dependencies>
   </metadata>
 </package>
