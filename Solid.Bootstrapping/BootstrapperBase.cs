@@ -17,6 +17,7 @@ namespace Solid.Bootstrapping
          IInitializable,
          IExtensible<BootstrapperBase>,         
          IHaveAspects<BootstrapperBase>,
+         IAspectsProvider,
          ICompositionModulesProvider,         
          IAssemblySourceProvider
     {
@@ -32,6 +33,8 @@ namespace Solid.Bootstrapping
         {
             _concreteExtensibilityAspect = new ExtensibilityAspect<BootstrapperBase>(this);            
         }
+
+        IEnumerable<IAspect> IAspectsProvider.Aspects => _aspectsWrapper.Aspects;
 
         /// <inheritdoc />
         public IEnumerable<Assembly> Assemblies => _discoveryAspect.Assemblies;

@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Reflection;
-using Solid.Practices.Composition.Contracts;
 using Solid.Practices.IoC;
-using Solid.Practices.Modularity;
 
 namespace Solid.Bootstrapping.Specs
 {
@@ -203,12 +200,5 @@ namespace Solid.Bootstrapping.Specs
         {
             _registrations.Add(new ContainerEntry(typeof(TService), typeof(TImplementation), false));
         }
-    }
-
-    class FakeBootstrapper : ICompositionModulesProvider, IAssemblySourceProvider, IHaveRegistrator
-    {       
-        public IEnumerable<ICompositionModule> Modules { get; internal set; }
-        public IEnumerable<Assembly> Assemblies { get; internal set; }        
-        public IDependencyRegistrator Registrator { get; internal set; }        
     }
 }
