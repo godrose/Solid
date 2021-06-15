@@ -1,7 +1,9 @@
-﻿using Solid.Practices.Middleware;
+﻿using JetBrains.Annotations;
+using Solid.Practices.Middleware;
 
 namespace Solid.Extensibility.Specs
 {
+    [UsedImplicitly]
     internal class CreatableMiddleware : IMiddleware<ExtensibleByTypeObject>
     {
         private readonly ICreatableMiddlewareDependency _dependency;

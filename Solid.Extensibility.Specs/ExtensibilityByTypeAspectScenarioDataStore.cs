@@ -1,9 +1,11 @@
 ﻿using Attest.Testing.SpecFlow;
+using JetBrains.Annotations;
 using TechTalk.SpecFlow;
 
 namespace Solid.Extensibility.Specs
 {
-    internal class ExtensibilityByTypeAspectScenarioDataStore<TExtensible> : ScenarioDataStoreBase
+    [UsedImplicitly]
+    internal sealed class ExtensibilityByTypeAspectScenarioDataStore<TExtensible> : ScenarioDataStoreBase
         where TExtensible : class
     {
         public ExtensibilityByTypeAspectScenarioDataStore(ScenarioContext scenarioContext) :

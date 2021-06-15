@@ -1,26 +1,33 @@
-﻿using System.Collections.Generic;
+﻿using Attest.Testing.SpecFlow;
+using BoDi;
+using Solid.Practices.IoC;
 using TechTalk.SpecFlow;
 
 namespace Solid.Extensibility.Specs
 {
     [Binding]
-    internal sealed class LifecycleHook
+    internal sealed class LifecycleHook : LifecycleHookBase
     {
-        //TODO: Use Container
-        private readonly ScenarioContext _scenarioContext;
-
-        public LifecycleHook(ScenarioContext scenarioContext)
+        public LifecycleHook(ObjectContainer objectContainer)
+            :base(objectContainer)
         {
-            _scenarioContext = scenarioContext;
         }
 
-        [BeforeScenario]
-        public void Setup()
+        protected override void InitializeContainer(IIocContainer iocContainer)
         {
-            var callbacks = new List<string>();
-            _scenarioContext.Add("callbacks", callbacks);
-            var aspects = new List<IAspect>();
-            _scenarioContext.Add("aspects", aspects);
+            new Startup(iocContainer).Initialize();
+            iocContainer
+                .AddInstance(iocContainer)
+                .AddSingleton<ExtensibleByTypeObject>()
+                .AddSingleton<AspectsScenarioDataStore>()
+                .AddSingleton<MiddlewareTypesScenarioDataStore<ExtensibleByTypeObject>>()
+                .AddSingleton<ExtensibilityByTypeAspectScenarioDataStore<ExtensibleByTypeObject>>();
+        }
+
+        [AfterTestRun]
+        public new static void AfterAllScenarios()
+        {
+            LifecycleHookBase.AfterAllScenarios();
         }
     }
 }

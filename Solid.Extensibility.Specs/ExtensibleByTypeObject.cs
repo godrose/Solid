@@ -1,6 +1,9 @@
-﻿namespace Solid.Extensibility.Specs
+﻿using JetBrains.Annotations;
+
+namespace Solid.Extensibility.Specs
 {
-    internal class ExtensibleByTypeObject
+    [UsedImplicitly]
+    internal sealed class ExtensibleByTypeObject
     {
     }
 }

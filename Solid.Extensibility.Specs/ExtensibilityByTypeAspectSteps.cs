@@ -1,7 +1,6 @@
-﻿using BoDi;
-using FluentAssertions;
+﻿using FluentAssertions;
 using JetBrains.Annotations;
-using Solid.IoC.Adapters.BoDi;
+using Solid.Practices.IoC;
 using TechTalk.SpecFlow;
 
 namespace Solid.Extensibility.Specs
@@ -10,27 +9,26 @@ namespace Solid.Extensibility.Specs
     [UsedImplicitly]
     internal sealed class ExtensibilityByTypeAspectSteps
     {
+        private readonly IIocContainer _iocContainer;
+        private readonly ExtensibleByTypeObject _object;
         private readonly ExtensibilityByTypeAspectScenarioDataStore<ExtensibleByTypeObject> _aspectScenarioDataStore;
-        private readonly CommonScenarioDataStore<ExtensibleByTypeObject> _commonScenarioDataStore;
 
         public ExtensibilityByTypeAspectSteps(
-            ScenarioContext scenarioContext,
-            ObjectContainer objectContainer)
+            IIocContainer iocContainer,
+            ExtensibleByTypeObject @object,
+            ExtensibilityByTypeAspectScenarioDataStore<ExtensibleByTypeObject> aspectScenarioDataStore)
         {
-            _commonScenarioDataStore = new CommonScenarioDataStore<ExtensibleByTypeObject>(scenarioContext);
-            _commonScenarioDataStore.Object = new ExtensibleByTypeObject();
-            var containerAdapter = new ObjectContainerAdapter(objectContainer);
-            _commonScenarioDataStore.IocContainer = containerAdapter;
-            _aspectScenarioDataStore =
-                new ExtensibilityByTypeAspectScenarioDataStore<ExtensibleByTypeObject>(scenarioContext);
+            _iocContainer = iocContainer;
+            _object = @object;
+            _aspectScenarioDataStore = aspectScenarioDataStore;
         }
 
         [When(@"The extensibility by type aspect is created")]
         public void WhenTheExtensibilityByTypeAspectIsCreated()
         {
             _aspectScenarioDataStore.Aspect =
-                new ExtensibilityByTypeAspect<ExtensibleByTypeObject>(_commonScenarioDataStore.Object,
-                    _commonScenarioDataStore.IocContainer);
+                new ExtensibilityByTypeAspect<ExtensibleByTypeObject>(_object,
+                   _iocContainer);
         }
 
         [When(@"The creatable middleware is used by the aspect")]
@@ -48,14 +46,14 @@ namespace Solid.Extensibility.Specs
         [Then(@"The creatable middleware is executed")]
         public void ThenTheCreatableMiddlewareIsExecuted()
         {
-            var dependency = _commonScenarioDataStore.IocContainer.Resolve<ICreatableMiddlewareDependency>();
+            var dependency = _iocContainer.Resolve<ICreatableMiddlewareDependency>();
             dependency.IsCalled.Should().BeTrue();
         }
 
         [Then(@"The creatable middleware is not executed")]
         public void ThenTheCreatableMiddlewareIsNotExecuted()
         {
-            var dependency = _commonScenarioDataStore.IocContainer.Resolve<ICreatableMiddlewareDependency>();
+            var dependency = _iocContainer.Resolve<ICreatableMiddlewareDependency>();
             dependency.IsCalled.Should().BeFalse();
         }
     }
