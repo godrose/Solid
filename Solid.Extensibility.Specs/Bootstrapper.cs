@@ -11,11 +11,6 @@ namespace Solid.Extensibility.Specs
         }
 
         public override CompositionOptions CompositionOptions => new CompositionOptions
-        {
-            Prefixes = new[]
-            {
-                "Solid.Extensibility.Specs"
-            }
-        };
+            {Prefixes = new[] {"Solid.Extensibility.Specs"}};
     }
 }
