@@ -2,7 +2,7 @@
 
 namespace Solid.Extensibility.Specs
 {
-    interface ICreatableMiddlewareDependency
+    internal interface ICreatableMiddlewareDependency
     {
         bool IsCalled { get; set; }
     }
