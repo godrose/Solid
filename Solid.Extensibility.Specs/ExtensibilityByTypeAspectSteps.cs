@@ -1,27 +1,25 @@
-﻿using Attest.Testing.SpecFlow;
-using BoDi;
+﻿using BoDi;
 using FluentAssertions;
 using JetBrains.Annotations;
+using Solid.Tests.Infra.SpecFlow;
 using TechTalk.SpecFlow;
 
 namespace Solid.Extensibility.Specs
 {
     [Binding]
     [UsedImplicitly]
-    internal sealed class ExtensibilityByTypeAspectSteps
+    internal sealed class ExtensibilityByTypeAspectSteps : StepsBase<ExtensibleByTypeObject>
     {
         private readonly ExtensibilityByTypeAspectScenarioDataStore<ExtensibleByTypeObject> _aspectScenarioDataStore;
-        private readonly CommonScenarioDataStore<ExtensibleByTypeObject> _commonScenarioDataStore;
 
         public ExtensibilityByTypeAspectSteps(
             ScenarioContext scenarioContext,
-            ObjectContainer objectContainer)
+            ObjectContainer objectContainer):
+            base(
+                scenarioContext, 
+                objectContainer, 
+                () =>  new ExtensibleByTypeObject())
         {
-            _commonScenarioDataStore =
-                CommonScenarioDataStoreFactory.CreateCommonScenarioDataStore(
-                    scenarioContext,
-                    objectContainer,
-                    () => new ExtensibleByTypeObject());
             _aspectScenarioDataStore =
                 new ExtensibilityByTypeAspectScenarioDataStore<ExtensibleByTypeObject>(scenarioContext);
         }
@@ -31,8 +29,8 @@ namespace Solid.Extensibility.Specs
         {
             _aspectScenarioDataStore.Aspect =
                 new ExtensibilityByTypeAspect<ExtensibleByTypeObject>(
-                    _commonScenarioDataStore.Object,
-                    _commonScenarioDataStore.IocContainer);
+                    CommonScenarioDataStore.Object,
+                    CommonScenarioDataStore.IocContainer);
         }
 
         [When(@"The creatable middleware is used by the aspect")]
@@ -50,14 +48,14 @@ namespace Solid.Extensibility.Specs
         [Then(@"The creatable middleware is executed")]
         public void ThenTheCreatableMiddlewareIsExecuted()
         {
-            var dependency = _commonScenarioDataStore.IocContainer.Resolve<ICreatableMiddlewareDependency>();
+            var dependency = CommonScenarioDataStore.IocContainer.Resolve<ICreatableMiddlewareDependency>();
             dependency.IsCalled.Should().BeTrue();
         }
 
         [Then(@"The creatable middleware is not executed")]
         public void ThenTheCreatableMiddlewareIsNotExecuted()
         {
-            var dependency = _commonScenarioDataStore.IocContainer.Resolve<ICreatableMiddlewareDependency>();
+            var dependency = CommonScenarioDataStore.IocContainer.Resolve<ICreatableMiddlewareDependency>();
             dependency.IsCalled.Should().BeFalse();
         }
     }

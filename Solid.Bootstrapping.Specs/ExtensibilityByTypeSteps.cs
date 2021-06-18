@@ -1,34 +1,28 @@
-﻿using Attest.Testing.SpecFlow;
-using BoDi;
+﻿using BoDi;
 using FluentAssertions;
 using JetBrains.Annotations;
 using Solid.Extensibility;
+using Solid.Tests.Infra.SpecFlow;
 using TechTalk.SpecFlow;
 
 namespace Solid.Bootstrapping.Specs
 {
     [Binding]
     [UsedImplicitly]
-    internal sealed class ExtensibilityByTypeSteps
+    internal sealed class ExtensibilityByTypeSteps : StepsBase<FakeBootstrapperWithExtensibilityByType>
     {
-        private readonly CommonScenarioDataStore<FakeBootstrapperWithExtensibilityByType> 
-            _commonScenarioDataStore;
-
         public ExtensibilityByTypeSteps(
             ScenarioContext scenarioContext,
-            ObjectContainer objectContainer)
+            ObjectContainer objectContainer):
+            base(scenarioContext, objectContainer,
+                () => new FakeBootstrapperWithExtensibilityByType())
         {
-            _commonScenarioDataStore =
-                CommonScenarioDataStoreFactory.CreateCommonScenarioDataStore(
-                    scenarioContext, 
-                    objectContainer, 
-                    () => new FakeBootstrapperWithExtensibilityByType());
         }
 
         [Given(@"The creatable middleware can be created")]
         public void GivenTheCreatableMiddlewareCanBeCreated()
         {
-            _commonScenarioDataStore.IocContainer
+            CommonScenarioDataStore.IocContainer
                 .RegisterSingleton<ICreatableMiddlewareDependency, CreatableMiddlewareDependency>();
         }
 
@@ -41,28 +35,28 @@ namespace Solid.Bootstrapping.Specs
         [When(@"The extensibility by type aspect is used")]
         public void WhenTheExtensibilityByTypeAspectIsUsed()
         {
-            _commonScenarioDataStore.Object.UseAspect(
+            CommonScenarioDataStore.Object.UseAspect(
                 new ExtensibilityByTypeAspect<FakeBootstrapperWithExtensibilityByType>(
-                    _commonScenarioDataStore.Object,
-                    _commonScenarioDataStore.IocContainer));
+                    CommonScenarioDataStore.Object,
+                    CommonScenarioDataStore.IocContainer));
         }
 
         [When(@"The creatable middleware is used by type")]
         public void WhenTheCreatableMiddlewareIsUsedByType()
         {
-            _commonScenarioDataStore.Object.Use<CreatableMiddleware>();
+            CommonScenarioDataStore.Object.Use<CreatableMiddleware>();
         }
 
         [When(@"The bootstrapper is initialized")]
         public void WhenTheBootstrapperIsInitialized()
         {
-            _commonScenarioDataStore.Object.Initialize();
+            CommonScenarioDataStore.Object.Initialize();
         }
 
         [Then(@"The creatable middleware is created")]
         public void ThenTheCreatableMiddlewareIsCreated()
         {
-            var dependency = _commonScenarioDataStore.IocContainer.Resolve<ICreatableMiddlewareDependency>();
+            var dependency = CommonScenarioDataStore.IocContainer.Resolve<ICreatableMiddlewareDependency>();
             dependency.IsCalled.Should().BeTrue();
         }
     }
