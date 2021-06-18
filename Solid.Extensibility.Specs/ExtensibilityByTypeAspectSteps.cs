@@ -29,7 +29,7 @@ namespace Solid.Extensibility.Specs
         {
             _aspectScenarioDataStore.Aspect =
                 new ExtensibilityByTypeAspect<ExtensibleByTypeObject>(
-                    CommonScenarioDataStore.Object,
+                    CommonScenarioDataStore.RootObject,
                     CommonScenarioDataStore.IocContainer);
         }
 

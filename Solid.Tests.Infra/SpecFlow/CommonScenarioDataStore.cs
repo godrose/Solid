@@ -4,15 +4,15 @@ using TechTalk.SpecFlow;
 // ReSharper disable once CheckNamespace
 namespace Attest.Testing.SpecFlow
 {
-    public sealed class CommonScenarioDataStore<TExtensible> : ScenarioDataStoreBase
+    public sealed class CommonScenarioDataStore<TRootObject> : ScenarioDataStoreBase
     {
         public CommonScenarioDataStore(ScenarioContext scenarioContext) : base(scenarioContext)
         {
         }
 
-        public TExtensible Object
+        public TRootObject RootObject
         {
-            get => GetValue<TExtensible>();
+            get => GetValue<TRootObject>();
             set => SetValue(value);
         }
 

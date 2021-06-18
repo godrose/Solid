@@ -35,22 +35,22 @@ namespace Solid.Bootstrapping.Specs
         [When(@"The extensibility by type aspect is used")]
         public void WhenTheExtensibilityByTypeAspectIsUsed()
         {
-            CommonScenarioDataStore.Object.UseAspect(
+            CommonScenarioDataStore.RootObject.UseAspect(
                 new ExtensibilityByTypeAspect<FakeBootstrapperWithExtensibilityByType>(
-                    CommonScenarioDataStore.Object,
+                    CommonScenarioDataStore.RootObject,
                     CommonScenarioDataStore.IocContainer));
         }
 
         [When(@"The creatable middleware is used by type")]
         public void WhenTheCreatableMiddlewareIsUsedByType()
         {
-            CommonScenarioDataStore.Object.Use<CreatableMiddleware>();
+            CommonScenarioDataStore.RootObject.Use<CreatableMiddleware>();
         }
 
         [When(@"The bootstrapper is initialized")]
         public void WhenTheBootstrapperIsInitialized()
         {
-            CommonScenarioDataStore.Object.Initialize();
+            CommonScenarioDataStore.RootObject.Initialize();
         }
 
         [Then(@"The creatable middleware is created")]

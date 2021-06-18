@@ -18,7 +18,7 @@ namespace Attest.Testing.SpecFlow
             var commonScenarioDataStore =
                 new CommonScenarioDataStore<TRootObject>(scenarioContext)
                 {
-                    Object = rootObjectFactory(),
+                    RootObject = rootObjectFactory(),
                     IocContainer = containerAdapter
                 };
             return commonScenarioDataStore;

@@ -45,7 +45,7 @@ namespace Solid.Extensibility.Specs
         public void WhenTheMiddlewareTypesWrapperIsCreated()
         {
             var middlewareTypesWrapper =
-                new MiddlewareTypesWrapper<ExtensibleByTypeObject>(CommonScenarioDataStore.Object,
+                new MiddlewareTypesWrapper<ExtensibleByTypeObject>(CommonScenarioDataStore.RootObject,
                     CommonScenarioDataStore.IocContainer);
             _middlewareTypesScenarioDataStore.MiddlewareTypesWrapper = middlewareTypesWrapper;
         }
