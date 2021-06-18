@@ -2,8 +2,6 @@ version: 2.3.1.{build}
 init:
 - dotnet tool install --global SpecFlow.Plus.LivingDoc.CLI
 configuration: Release
-before_build:
-- nuget restore Solid.sln
 build:
   verbosity: minimal
   project: Solid.sln
