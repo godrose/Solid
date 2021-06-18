@@ -1,12 +1,10 @@
-﻿using Attest.Testing.SpecFlow;
-using JetBrains.Annotations;
-using Solid.Practices.IoC;
+﻿using Solid.Practices.IoC;
 using TechTalk.SpecFlow;
 
-namespace Solid.Bootstrapping.Specs
+// ReSharper disable once CheckNamespace
+namespace Attest.Testing.SpecFlow
 {
-    [UsedImplicitly]
-    internal sealed class CommonScenarioDataStore<TExtensible> : ScenarioDataStoreBase
+    public sealed class CommonScenarioDataStore<TExtensible> : ScenarioDataStoreBase
     {
         public CommonScenarioDataStore(ScenarioContext scenarioContext) : base(scenarioContext)
         {

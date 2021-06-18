@@ -1,12 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Attest.Tests.Core" Version="2.2.2" />
-    <PackageReference Include="Attest.Tests.SpecFlow" Version="2.2.2" />
     <PackageReference Include="FluentAssertions" Version="5.10.3" />
     <PackageReference Include="JetBrains.Annotations" Version="2021.1.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.10.0" />
@@ -24,6 +22,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Solid.Extensibility\Solid.Extensibility.csproj" />
     <ProjectReference Include="..\Solid.IoC.Adapters.BoDi\Solid.IoC.Adapters.BoDi.csproj" />
+    <ProjectReference Include="..\Solid.Tests.Infra\Solid.Tests.Infra.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Middleware Types.feature.cs">

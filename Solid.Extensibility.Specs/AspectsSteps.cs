@@ -12,9 +12,9 @@ namespace Solid.Extensibility.Specs
     {
         private readonly AspectsScenarioDataStore _aspectsScenarioDataStore;
 
-        public AspectsSteps(AspectsScenarioDataStore aspectsScenarioDataStore)
+        public AspectsSteps(ScenarioContext scenarioContext)
         {
-            _aspectsScenarioDataStore = aspectsScenarioDataStore;
+            _aspectsScenarioDataStore = new AspectsScenarioDataStore(scenarioContext);
             _aspectsScenarioDataStore.Aspects = new List<IAspect>();
             _aspectsScenarioDataStore.Callbacks = new List<string>();
         }

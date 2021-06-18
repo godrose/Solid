@@ -1,8 +1,8 @@
-﻿using BoDi;
+﻿using Attest.Testing.SpecFlow;
+using BoDi;
 using FluentAssertions;
 using JetBrains.Annotations;
 using Solid.Extensibility;
-using Solid.IoC.Adapters.BoDi;
 using TechTalk.SpecFlow;
 
 namespace Solid.Bootstrapping.Specs
@@ -11,17 +11,18 @@ namespace Solid.Bootstrapping.Specs
     [UsedImplicitly]
     internal sealed class ExtensibilityByTypeSteps
     {
-        private readonly CommonScenarioDataStore<FakeBootstrapperWithExtensibilityByType> _commonScenarioDataStore;
+        private readonly CommonScenarioDataStore<FakeBootstrapperWithExtensibilityByType> 
+            _commonScenarioDataStore;
 
         public ExtensibilityByTypeSteps(
             ScenarioContext scenarioContext,
             ObjectContainer objectContainer)
         {
             _commonScenarioDataStore =
-                new CommonScenarioDataStore<FakeBootstrapperWithExtensibilityByType>(scenarioContext);
-            _commonScenarioDataStore.Object = new FakeBootstrapperWithExtensibilityByType();
-            var containerAdapter = new ObjectContainerAdapter(objectContainer);
-            _commonScenarioDataStore.IocContainer = containerAdapter;
+                CommonScenarioDataStoreFactory.CreateCommonScenarioDataStore(
+                    scenarioContext, 
+                    objectContainer, 
+                    () => new FakeBootstrapperWithExtensibilityByType());
         }
 
         [Given(@"The creatable middleware can be created")]

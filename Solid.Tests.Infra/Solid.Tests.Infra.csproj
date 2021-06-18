@@ -5,7 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="JetBrains.Annotations" Version="2021.1.0" />
     <PackageReference Include="SpecFlow" Version="3.8.14" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Solid.IoC.Adapters.BoDi\Solid.IoC.Adapters.BoDi.csproj" />
+    <ProjectReference Include="..\Solid.Practices.IoC\Solid.Practices.IoC.csproj" />
   </ItemGroup>
 
 </Project>

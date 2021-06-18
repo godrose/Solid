@@ -1,6 +1,7 @@
-﻿using FluentAssertions;
+﻿using Attest.Testing.SpecFlow;
+using BoDi;
+using FluentAssertions;
 using JetBrains.Annotations;
-using Solid.Practices.IoC;
 using TechTalk.SpecFlow;
 
 namespace Solid.Extensibility.Specs
@@ -9,25 +10,27 @@ namespace Solid.Extensibility.Specs
     [UsedImplicitly]
     internal sealed class MiddlewareTypesSteps
     {
-        private readonly IIocContainer _iocContainer;
-        private readonly ExtensibleByTypeObject _object;
+        private readonly CommonScenarioDataStore<ExtensibleByTypeObject> _commonScenarioDataStore;
         private readonly MiddlewareTypesScenarioDataStore<ExtensibleByTypeObject> _middlewareTypesScenarioDataStore;
 
         public MiddlewareTypesSteps(
-            IIocContainer iocContainer,
-            ExtensibleByTypeObject @object,
-            MiddlewareTypesScenarioDataStore<ExtensibleByTypeObject> middlewareTypesScenarioDataStore)
+            ScenarioContext scenarioContext,
+            ObjectContainer objectContainer)
         {
-            _iocContainer = iocContainer;
-            _object = @object;
-            _middlewareTypesScenarioDataStore = middlewareTypesScenarioDataStore;
+            _commonScenarioDataStore =
+                CommonScenarioDataStoreFactory.CreateCommonScenarioDataStore(
+                    scenarioContext,
+                    objectContainer,
+                    () => new ExtensibleByTypeObject());
+            _middlewareTypesScenarioDataStore =
+                new MiddlewareTypesScenarioDataStore<ExtensibleByTypeObject>(scenarioContext);
         }
 
         [Given(@"The creatable middleware can be created")]
         [UsedImplicitly]
         public void GivenTheCreatableMiddlewareCanBeCreated()
         {
-            _iocContainer
+            _commonScenarioDataStore.IocContainer
                 .RegisterSingleton<ICreatableMiddlewareDependency, CreatableMiddlewareDependency>();
         }
 
@@ -35,7 +38,7 @@ namespace Solid.Extensibility.Specs
         [UsedImplicitly]
         public void GivenTheCreatableMiddlewareCanNotBeCreated()
         {
-            _iocContainer
+            _commonScenarioDataStore.IocContainer
                 .RegisterSingleton<ICreatableMiddlewareDependency, ICreatableMiddlewareDependency>();
         }
 
@@ -44,8 +47,8 @@ namespace Solid.Extensibility.Specs
         public void WhenTheMiddlewareTypesWrapperIsCreated()
         {
             var middlewareTypesWrapper =
-                new MiddlewareTypesWrapper<ExtensibleByTypeObject>(_object,
-                    _iocContainer);
+                new MiddlewareTypesWrapper<ExtensibleByTypeObject>(_commonScenarioDataStore.Object,
+                    _commonScenarioDataStore.IocContainer);
             _middlewareTypesScenarioDataStore.MiddlewareTypesWrapper = middlewareTypesWrapper;
         }
 
