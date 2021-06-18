@@ -20,8 +20,10 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Solid.Bootstrapping\Solid.Bootstrapping.csproj" />
+    <ProjectReference Include="..\Solid.IoC.Adapters.BoDi\Solid.IoC.Adapters.BoDi.csproj" />
     <ProjectReference Include="..\Solid.Practices.Composition\Solid.Practices.Composition.csproj" />
     <ProjectReference Include="..\Solid.Practices.Modularity\Solid.Practices.Modularity.csproj" />
+    <ProjectReference Include="..\Solid.Tests.Infra\Solid.Tests.Infra.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Update="specflow.json">
