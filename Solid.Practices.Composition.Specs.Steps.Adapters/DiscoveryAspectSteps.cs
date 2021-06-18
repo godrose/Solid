@@ -4,11 +4,11 @@ using TechTalk.SpecFlow;
 namespace Solid.Practices.Composition.Specs.Steps.Adapters
 {
     [Binding]
-    internal sealed class DiscoveryAspectStepsAdapter
+    internal sealed class DiscoveryAspectSteps
     {
         private readonly ScenarioContext _scenarioContext;
 
-        public DiscoveryAspectStepsAdapter(ScenarioContext scenarioContext)
+        public DiscoveryAspectSteps(ScenarioContext scenarioContext)
         {
             _scenarioContext = scenarioContext;
         }

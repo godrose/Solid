@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Solid.IoC.Adapters.BoDi\Solid.IoC.Adapters.BoDi.csproj" />
+    <ProjectReference Include="..\Solid.Tests.Infra\Solid.Tests.Infra.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Update="specflow.json">

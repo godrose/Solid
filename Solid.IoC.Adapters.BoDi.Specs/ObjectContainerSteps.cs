@@ -7,27 +7,26 @@ using TechTalk.SpecFlow;
 namespace Solid.IoC.Adapters.BoDi.Specs
 {
     [Binding]
-    internal sealed class ObjectContainerStepsAdapter
+    internal sealed class ObjectContainerSteps
     {
-        //TODO: Use Container
-        private readonly ScenarioContext _scenarioContext;
+        private readonly ContainerScenarioDataStore _scenarioDataStore;
 
-        public ObjectContainerStepsAdapter(ScenarioContext scenarioContext)
+        public ObjectContainerSteps(ScenarioContext scenarioContext)
         {
-            _scenarioContext = scenarioContext;
+            _scenarioDataStore = new ContainerScenarioDataStore(scenarioContext);
         }
 
         [When(@"The new container is created")]
         public void WhenTheNewContainerIsCreated()
         {
             var container = new ObjectContainerAdapter(new ObjectContainer());
-            _scenarioContext.Add("container", container);
+            _scenarioDataStore.Container = container;
         }
 
         [When(@"The services collection is registered")]
         public void WhenTheServicesCollectionIsRegistered()
         {
-            var container = _scenarioContext.Get<IIocContainer>("container");
+            var container = _scenarioDataStore.Container;
             container.RegisterCollection<IDependency>(new[]
                 {typeof(DependencyA), typeof(DependencyB)}, true);
         }
@@ -35,7 +34,7 @@ namespace Solid.IoC.Adapters.BoDi.Specs
         [Then(@"The services collection should be resolved by implementations")]
         public void ThenTheServicesCollectionShouldBeResolvedByImplementations()
         {
-            var container = _scenarioContext.Get<IIocContainer>("container");
+            var container = _scenarioDataStore.Container;
             var dependencies = container.ResolveAll<IDependency>().ToArray();
             dependencies.Select(d => 
                 d.GetType()).Should().BeEquivalentTo(

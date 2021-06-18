@@ -1,25 +1,23 @@
 ﻿using FluentAssertions;
 using Solid.Practices.Composition.IntegrationTests.Contracts;
-using Solid.Practices.IoC;
 using TechTalk.SpecFlow;
 
 namespace Solid.Practices.Composition.IntegrationTests.App
 {
     [Binding]
-    internal sealed class ResolverStepsAdapter
+    internal sealed class ResolverSteps
     {
-        //TODO: Use Container
-        private readonly ScenarioContext _scenarioContext;
+        private readonly CompositionContainerScenarioDataStore _scenarioDataStore;
 
-        public ResolverStepsAdapter(ScenarioContext scenarioContext)
+        public ResolverSteps(ScenarioContext scenarioContext)
         {
-            _scenarioContext = scenarioContext;
+            _scenarioDataStore = new CompositionContainerScenarioDataStore(scenarioContext);
         }
 
         [Then(@"The loaded placeholder type is OK")]
         public void ThenTheLoadedPlaceholderTypeIsOK()
         {
-            var resolver = _scenarioContext.Get<IDependencyResolver>("resolver");
+            var resolver = _scenarioDataStore.Resolver;
             var placeholder = resolver.Resolve<IPlaceholder>();
             var length = placeholder.Length;
             length.Should().Be(5);

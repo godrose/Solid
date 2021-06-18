@@ -7,34 +7,33 @@ using TechTalk.SpecFlow;
 namespace Solid.Bootstrapping.Specs
 {
     [Binding]
-    internal sealed class ContainerStepsAdapter
+    internal sealed class ContainerSteps
     {
-        //TODO: Use Container
-        private readonly ScenarioContext _scenarioContext;
+        private readonly ContainerScenarioDataStore _scenarioDataStore;
 
-        public ContainerStepsAdapter(ScenarioContext scenarioContext)
+        public ContainerSteps(ScenarioContext scenarioContext)
         {
-            _scenarioContext = scenarioContext;
+            _scenarioDataStore = new ContainerScenarioDataStore(scenarioContext);
         }
 
         [When(@"The new container is created")]
         public void WhenTheNewContainerIsCreated()
         {
             var container = new FakeContainer();
-            _scenarioContext.Add("container", container);
+            _scenarioDataStore.Container = container;
         }
 
         [When(@"The new container adapter is created")]
         public void WhenTheNewContainerAdapterIsCreated()
         {
             var containerAdapter = new FakeIocContainer();
-            _scenarioContext.Add("container", containerAdapter);
+            _scenarioDataStore.Container = containerAdapter;
         }
 
         [When(@"The composition modules are registered for the container")]
         public void WhenTheCompositionModulesAreRegisteredForTheContainer()
         {
-            var container = _scenarioContext.Get<FakeContainer>("container");
+            var container = _scenarioDataStore.Container as FakeContainer;
             container.RegisterContainerCompositionModules(new ICompositionModule[]
             {
                 new TransientCompositionModule()
@@ -44,7 +43,7 @@ namespace Solid.Bootstrapping.Specs
         [When(@"The composition modules are registered for the container adapter")]
         public void WhenTheCompositionModulesAreRegisteredForTheContainerAdapter()
         {
-            var containerAdapter = _scenarioContext.Get<FakeIocContainer>("container");
+            var containerAdapter = _scenarioDataStore.Container as FakeIocContainer;
             containerAdapter.RegisterContainerAdapterCompositionModules(new ICompositionModule[]
             {
                 new TransientIocCompositionModule()
@@ -75,7 +74,7 @@ namespace Solid.Bootstrapping.Specs
 
         private ContainerEntry GetDependencyRegistration()
         {
-            var container = _scenarioContext.Get<IRegistrationCollection>("container");
+            var container = _scenarioDataStore.Container;
             var registrations = container.Registrations;
             var dependencyRegistration = registrations.First();
             return dependencyRegistration;

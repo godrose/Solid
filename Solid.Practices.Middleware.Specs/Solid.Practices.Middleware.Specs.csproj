@@ -19,6 +19,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Solid.Practices.Middleware\Solid.Practices.Middleware.csproj" />
+    <ProjectReference Include="..\Solid.Tests.Infra\Solid.Tests.Infra.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Update="specflow.json">

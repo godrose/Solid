@@ -1,20 +1,18 @@
 ﻿using System.Linq;
 using FluentAssertions;
 using Solid.Common;
-using Solid.Practices.Composition.Contracts;
 using TechTalk.SpecFlow;
 
 namespace Solid.Practices.Composition.IntegrationTests.App
 {
     [Binding]
-    internal sealed class AssemblyProviderStepsAdapter
+    internal sealed class AssemblyProviderSteps
     {
-        //TODO: Use Container
-        private readonly ScenarioContext _scenarioContext;
+        private readonly AssemblyProviderScenarioDataStore _scenarioDataStore;
 
-        public AssemblyProviderStepsAdapter(ScenarioContext scenarioContext)
+        public AssemblyProviderSteps(ScenarioContext scenarioContext)
         {
-            _scenarioContext = scenarioContext;
+            _scenarioDataStore = new AssemblyProviderScenarioDataStore(scenarioContext);
         }
 
         [When(@"The assemblies provider loads the assemblies in the current folder")]
@@ -22,13 +20,13 @@ namespace Solid.Practices.Composition.IntegrationTests.App
         {
             var assembliesProvider = new CustomAssemblySourceProvider(PlatformProvider.Current.GetRootPath(), null,
                 new[] { "Solid.Practices.Composition.IntegrationTests" });
-            _scenarioContext.Add("assembliesProvider", assembliesProvider);
+            _scenarioDataStore.AssemblySourceProvider = assembliesProvider;
         }
 
         [Then(@"The loaded implementation type implements the loaded contract type")]
         public void ThenTheLoadedImplementationTypeImplementsTheLoadedContractType()
         {
-            var assembliesProvider = _scenarioContext.Get<IAssemblySourceProvider>("assembliesProvider");
+            var assembliesProvider = _scenarioDataStore.AssemblySourceProvider;
             var assemblies = assembliesProvider.Assemblies.ToArray();
 
             var contractsAssembly = assemblies.FirstOrDefault(t => t.GetName().Name.EndsWith("Contracts"));
@@ -40,8 +38,5 @@ namespace Solid.Practices.Composition.IntegrationTests.App
 
             placeHolderImplementation?.ImplementedInterfaces.Contains(placeHolderContract).Should().BeTrue("Implementation type should implement the contract type");
         }
-
-        
-
     }
 }

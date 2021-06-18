@@ -6,7 +6,7 @@ using TechTalk.SpecFlow;
 namespace Solid.Practices.Composition.Specs.Steps.Adapters
 {
     [Binding]
-    internal sealed class GivenAssemblyLoaderStepsAdapter
+    internal sealed class GivenAssemblyLoaderSteps
     {
         [Given(@"The assemblies loader used default assembly loading strategy")]
         public void GivenTheAssembliesLoaderUsedDefaultAssemblyLoadingStrategy()

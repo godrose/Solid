@@ -8,14 +8,13 @@ using TechTalk.SpecFlow;
 namespace Solid.Practices.Composition.Container.Specs
 {
     [Binding]
-    internal sealed class GivenCompositionContainerStepsAdapter
+    internal sealed class GivenCompositionContainerSteps
     {
-        //TODO: Use Container
-        private readonly ScenarioContext _scenarioContext;
+        private readonly CompositionContainerScenarioDataStore _scenarioDataStore;
 
-        public GivenCompositionContainerStepsAdapter(ScenarioContext scenarioContext)
+        public GivenCompositionContainerSteps(ScenarioContext scenarioContext)
         {
-            _scenarioContext = scenarioContext;
+            _scenarioDataStore = new CompositionContainerScenarioDataStore(scenarioContext);
         }
 
         [Given(@"That any type loading from an assembly would throw an exception")]
@@ -23,7 +22,7 @@ namespace Solid.Practices.Composition.Container.Specs
         {
             var stubTypeInfoExtractionService = A.Fake<ITypeInfoExtractionService>();
             A.CallTo(() => stubTypeInfoExtractionService.GetTypes(A<Assembly>._)).Throws<Exception>();
-            _scenarioContext.Add("typeInfoExtractionService", stubTypeInfoExtractionService);
+            _scenarioDataStore.TypeInfoExtractionService = stubTypeInfoExtractionService;
         }
 
         //TODO: Refactor
@@ -44,10 +43,10 @@ namespace Solid.Practices.Composition.Container.Specs
                 .Returns(A.Fake<ICompositionModule>());
             A.CallTo(() => stubCompositionModuleCreationStrategy.CreateCompositionModule(secondType.AsType()))
                 .Throws<Exception>();
-            _scenarioContext.Add("firstType", firstType);
-            _scenarioContext.Add("secondType", secondType);
-            _scenarioContext.Add("typeInfoExtractionService", stubTypeInfoExtractionService);
-            _scenarioContext.Add("moduleCreationStrategy", stubCompositionModuleCreationStrategy);
+            _scenarioDataStore.FirstType = firstType;
+            _scenarioDataStore.SecondType = secondType;
+            _scenarioDataStore.TypeInfoExtractionService = stubTypeInfoExtractionService;
+            _scenarioDataStore.ModuleCreationStrategy = stubCompositionModuleCreationStrategy;
         }
     }
 }

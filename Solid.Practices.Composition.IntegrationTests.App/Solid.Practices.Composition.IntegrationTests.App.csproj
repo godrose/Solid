@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <TargetFramework>net5.0</TargetFramework>
@@ -30,6 +30,7 @@
     <ProjectReference Include="..\Solid.Practices.Composition\Solid.Practices.Composition.csproj" />
     <ProjectReference Include="..\Solid.Practices.IoC\Solid.Practices.IoC.csproj" />
     <ProjectReference Include="..\Solid.Practices.Modularity\Solid.Practices.Modularity.csproj" />
+    <ProjectReference Include="..\Solid.Tests.Infra\Solid.Tests.Infra.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Update="specflow.json">
