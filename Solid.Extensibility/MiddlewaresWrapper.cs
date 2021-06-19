@@ -15,7 +15,7 @@ namespace Solid.Extensibility
         /// <summary>
         /// Creates new instance of <see cref="MiddlewaresWrapper{T}"/>
         /// </summary>
-        /// <param name="object"></param>
+        /// <param name="object">The extensible object.</param>
         public MiddlewaresWrapper(T @object)
         {
             _object = @object;

@@ -1,9 +1,9 @@
 ﻿namespace Solid.Extensibility
 {
     /// <summary>
-    /// Represents an object which has aspects
+    /// Represents an object which can use aspects.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="T">The type of the object.</typeparam>
     public interface IHaveAspects<T>
     {
         /// <summary>

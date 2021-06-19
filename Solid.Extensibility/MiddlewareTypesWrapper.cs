@@ -8,6 +8,10 @@ using Solid.Practices.Middleware;
 
 namespace Solid.Extensibility
 {
+    /// <summary>
+    /// Wraps collection of middleware types.
+    /// </summary>
+    /// <typeparam name="TExtensible">The type of the extensible object.</typeparam>
     public class MiddlewareTypesWrapper<TExtensible> :
         IExtensibleByType<TExtensible>,
         IBuilder<MiddlewaresProvider<TExtensible>>,
@@ -19,6 +23,11 @@ namespace Solid.Extensibility
         private readonly List<Type> _middlewareTypes = new List<Type>();
         private readonly TExtensible _object;
 
+        /// <summary>
+        /// Creates new instance of <see cref="MiddlewareTypesWrapper{T}"/>
+        /// </summary>
+        /// <param name="object">The extensible object.</param>
+        /// <param name="iocContainer">The IoC container.</param>
         public MiddlewareTypesWrapper(
             TExtensible @object,
             IIocContainer iocContainer)

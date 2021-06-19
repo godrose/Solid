@@ -2,6 +2,9 @@
 
 namespace Solid.Extensibility
 {
+    /// <summary>
+    /// Represents an object which contains aspects.
+    /// </summary>
     public interface IAspectsProvider
     {
         /// <summary>
