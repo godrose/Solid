@@ -12,14 +12,13 @@ using TechTalk.SpecFlow.Assist;
 namespace Solid.Practices.Composition.Specs.Steps.Adapters
 {
     [Binding]
-    internal sealed class CompositionContainerStepsAdapter
+    internal sealed class CompositionContainerSteps
     {
-        //TODO: Use Container
-        private readonly ScenarioContext _scenarioContext;
+        private readonly CompositionContainerScenarioDataStore _scenarioDataStore;
 
-        public CompositionContainerStepsAdapter(ScenarioContext scenarioContext)
+        public CompositionContainerSteps(ScenarioContext scenarioContext)
         {
-            _scenarioContext = scenarioContext;
+            _scenarioDataStore = new CompositionContainerScenarioDataStore(scenarioContext);
         }
 
         [When(@"The composition container is created in the current folder")]
@@ -27,9 +26,11 @@ namespace Solid.Practices.Composition.Specs.Steps.Adapters
         {
             var rootPath = Directory.GetCurrentDirectory();
 
-            ICompositionContainer<ICompositionModule<IDependencyRegistrator>> compositionContainer = new CompositionContainer<ICompositionModule<IDependencyRegistrator>>(new ActivatorCreationStrategy(),
-                new FileSystemBasedAssemblyLoadingStrategy(rootPath, prefixes: new[] { "Solid" }, namespaces: null, extensions: AssemblyLoadingManager.Extensions().ToArray()));
-            _scenarioContext.Add("compositionContainer", compositionContainer);
+            ICompositionContainer<ICompositionModule<IDependencyRegistrator>> compositionContainer =
+                new CompositionContainer<ICompositionModule<IDependencyRegistrator>>(new ActivatorCreationStrategy(),
+                    new FileSystemBasedAssemblyLoadingStrategy(rootPath, new[] {"Solid"}, null,
+                        AssemblyLoadingManager.Extensions().ToArray()));
+            _scenarioDataStore.Container = compositionContainer;
         }
 
         [When(@"The composition container for composition modules is created in the current folder")]
@@ -55,20 +56,20 @@ namespace Solid.Practices.Composition.Specs.Steps.Adapters
             var options = table.CreateInstance<ContainerCreationData>();
             var prefixes = string.IsNullOrWhiteSpace(options.Prefixes)
                 ? new string[] { }
-                : options.Prefixes.Split(new[] { ';' }).ToArray();
+                : options.Prefixes.Split(new[] {';'}).ToArray();
             var rootPath = Directory.GetCurrentDirectory();
 
-            ICompositionContainer<TModule> compositionContainer = new CompositionContainer<TModule>(new ActivatorCreationStrategy(),
-                new FileSystemBasedAssemblyLoadingStrategy(rootPath, prefixes: prefixes, namespaces: null, extensions: AssemblyLoadingManager.Extensions().ToArray()));
-            _scenarioContext.Add("compositionContainer", compositionContainer);
+            ICompositionContainer<TModule> compositionContainer = new CompositionContainer<TModule>(
+                new ActivatorCreationStrategy(),
+                new FileSystemBasedAssemblyLoadingStrategy(rootPath, prefixes, null,
+                    AssemblyLoadingManager.Extensions().ToArray()));
+            _scenarioDataStore.Container = compositionContainer;
         }
 
         [When(@"The composition container is composed")]
         public void WhenTheCompositionContainerIsComposed()
         {
-            var compositionContainer =
-                _scenarioContext.Get<IComposer>(
-                    "compositionContainer");
+            var compositionContainer = _scenarioDataStore.Container;
             compositionContainer?.Compose();
         }
 
@@ -76,13 +77,12 @@ namespace Solid.Practices.Composition.Specs.Steps.Adapters
         public void WhenTheSingleCompositionModuleIsRegistered()
         {
             var compositionContainer =
-                _scenarioContext.Get<ICompositionContainer<ICompositionModule<IDependencyRegistrator>>>(
-                    "compositionContainer");
+                _scenarioDataStore.Container as ICompositionContainer<ICompositionModule<IDependencyRegistrator>>;
             var modules = compositionContainer.Modules;
             var registrator = new ObjectContainerAdapter(new ObjectContainer());
             var singleModule = modules.SingleOrDefault();
             singleModule.RegisterModule(registrator);
-            _scenarioContext.Add("resolver", registrator);
+            _scenarioDataStore.Resolver = registrator;
         }
 
         [Then(@"There should be (.*) composition modules")]
@@ -105,9 +105,7 @@ namespace Solid.Practices.Composition.Specs.Steps.Adapters
 
         private void AssertModulesCount<TModule>(int expectedCount)
         {
-            var compositionContainer =
-                _scenarioContext.Get<ICompositionContainer<TModule>>(
-                    "compositionContainer");
+            var compositionContainer = _scenarioDataStore.Container as ICompositionContainer<TModule>;
             var modules = compositionContainer.Modules;
             var modulesCount = modules.Count();
             modulesCount.Should().Be(expectedCount);

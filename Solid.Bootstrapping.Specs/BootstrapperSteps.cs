@@ -1,25 +1,23 @@
 ﻿using System.Reflection;
-using Solid.Practices.IoC;
 using Solid.Practices.Modularity;
 using TechTalk.SpecFlow;
 
 namespace Solid.Bootstrapping.Specs
 {
     [Binding]
-    internal sealed class BootstrapperStepsAdapter
+    internal sealed class BootstrapperSteps
     {
-        //TODO: UseContainer
-        private readonly ScenarioContext _scenarioContext;
+        private readonly BootstrapperScenarioDataStore _bootstrapperScenarioDataStore;
 
-        public BootstrapperStepsAdapter(ScenarioContext scenarioContext)
+        public BootstrapperSteps(ScenarioContext scenarioContext)
         {
-            _scenarioContext = scenarioContext;
+            _bootstrapperScenarioDataStore = new BootstrapperScenarioDataStore(scenarioContext);
         }
 
         [When(@"The new bootstrapper with composition modules is created")]
         public void WhenTheNewBootstrapperWithCompositionModulesIsCreated()
         {
-            var container = _scenarioContext.Get<IDependencyRegistrator>("container");
+            var container = _bootstrapperScenarioDataStore.Container;
 
             var bootstrapper = new FakeBootstrapper
             {
@@ -29,26 +27,26 @@ namespace Solid.Bootstrapping.Specs
                     new TransientIocCompositionModule()
                 }
             };
-            _scenarioContext.Add("bootstrapper", bootstrapper);
+            _bootstrapperScenarioDataStore.Bootstrapper = bootstrapper;
         }
 
         [When(@"The new bootstrapper with current assembly is created")]
         public void WhenTheNewBootstrapperWithCurrentAssemblyIsCreated()
         {
-            var container = _scenarioContext.Get<IDependencyRegistrator>("container");
+            var container = _bootstrapperScenarioDataStore.Container;
 
             var bootstrapper = new FakeBootstrapper
             {
                 Registrator = container,
                 Assemblies = new[] { typeof(FakeIocContainer).GetTypeInfo().Assembly }
             };
-            _scenarioContext.Add("bootstrapper", bootstrapper);
+            _bootstrapperScenarioDataStore.Bootstrapper = bootstrapper;
         }
 
         [When(@"The composition modules middleware is applied onto the bootstrapper")]
         public void WhenTheCompositionModulesMiddlewareIsAppliedOntoTheBootstrapper()
         {
-            var bootstrapper = _scenarioContext.Get<FakeBootstrapper>("bootstrapper");
+            var bootstrapper = _bootstrapperScenarioDataStore.Bootstrapper;
             var middleware = new RegisterCompositionModulesMiddleware<FakeBootstrapper>();
             middleware.Apply(bootstrapper);
         }
@@ -56,7 +54,7 @@ namespace Solid.Bootstrapping.Specs
         [When(@"The collection registration middleware is applied onto the bootstrapper")]
         public void WhenTheCollectionRegistrationMiddlewareIsAppliedOntoTheBootstrapper()
         {
-            var bootstrapper = _scenarioContext.Get<FakeBootstrapper>("bootstrapper");
+            var bootstrapper = _bootstrapperScenarioDataStore.Bootstrapper;
             var middleware = new RegisterCollectionMiddleware<FakeBootstrapper>(typeof(IServiceContract));
             middleware.Apply(bootstrapper);
         }

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
@@ -6,12 +6,13 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="FluentAssertions" Version="5.10.3" />
+    <PackageReference Include="JetBrains.Annotations" Version="2021.1.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.10.0" />
     <PackageReference Include="Moq" Version="4.16.1" />
-    <PackageReference Include="SpecFlow" Version="3.8.14" />
-    <PackageReference Include="SpecFlow.Plus.LivingDocPlugin" Version="3.8.35" />
-    <PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="3.8.14" />
-    <PackageReference Include="SpecFlow.xUnit" Version="3.8.14" />
+    <PackageReference Include="SpecFlow" Version="3.9.8" />
+    <PackageReference Include="SpecFlow.Plus.LivingDocPlugin" Version="3.9.5" />
+    <PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="3.9.8" />
+    <PackageReference Include="SpecFlow.xUnit" Version="3.9.8" />
     <PackageReference Include="xunit.core" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
       <PrivateAssets>all</PrivateAssets>
@@ -20,10 +21,30 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Solid.Extensibility\Solid.Extensibility.csproj" />
+    <ProjectReference Include="..\Solid.IoC.Adapters.BoDi\Solid.IoC.Adapters.BoDi.csproj" />
+    <ProjectReference Include="..\Solid.Tests.Infra\Solid.Tests.Infra.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Middleware Types.feature.cs">
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Update="Using extensibility by type as Aspect.feature.cs">
+      <DesignTime>True</DesignTime>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Update="specflow.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <SpecFlowFeatureFiles Update="Middleware Types.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Middleware Types.feature.cs</LastGenOutput>
+    </SpecFlowFeatureFiles>
+    <SpecFlowFeatureFiles Update="Using extensibility by type as Aspect.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Using extensibility by type as Aspect.feature.cs</LastGenOutput>
+    </SpecFlowFeatureFiles>
   </ItemGroup>
 </Project>

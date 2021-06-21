@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions;
 using Moq;
@@ -9,14 +8,15 @@ using Xunit;
 namespace Solid.Extensibility.Specs
 {
     [Binding]
-    internal sealed class AspectsStepsAdapter
+    internal sealed class AspectsSteps
     {
-        //TODO: Use Container
-        private readonly ScenarioContext _scenarioContext;
+        private readonly AspectsScenarioDataStore _aspectsScenarioDataStore;
 
-        public AspectsStepsAdapter(ScenarioContext scenarioContext)
+        public AspectsSteps(ScenarioContext scenarioContext)
         {
-            _scenarioContext = scenarioContext;
+            _aspectsScenarioDataStore = new AspectsScenarioDataStore(scenarioContext);
+            _aspectsScenarioDataStore.Aspects = new List<IAspect>();
+            _aspectsScenarioDataStore.Callbacks = new List<string>();
         }
 
         [Given(@"The aspect is created with Id '(.*)' and Dependencies '(.*)'")]
@@ -25,8 +25,8 @@ namespace Solid.Extensibility.Specs
             var deps = string.IsNullOrWhiteSpace(depStr) 
                 ? new string[] { } 
                 : depStr.Split(new[] {';'}).ToArray();
-            var aspects = _scenarioContext.Get<List<IAspect>>("aspects");
-            var callbacks = _scenarioContext.Get<List<string>>("callbacks");
+            var aspects = _aspectsScenarioDataStore.Aspects;
+            var callbacks = _aspectsScenarioDataStore.Callbacks;
             var aspect = new Mock<IAspect>();
             aspect.SetupGet(t => t.Id).Returns(id);
             aspect.SetupGet(t => t.Dependencies).Returns(deps);
@@ -37,14 +37,14 @@ namespace Solid.Extensibility.Specs
         [When(@"The aspects wrapper is created with the aspects and initialized")]
         public void WhenTheAspectsWrapperIsCreatedWithTheAspectsAndInitialized()
         {
-            var aspects = _scenarioContext.Get<List<IAspect>>("aspects");
+            var aspects = _aspectsScenarioDataStore.Aspects;
             var wrapper = new AspectsWrapper();
             foreach (var aspect in aspects)
             {
                 wrapper.UseAspect(aspect);
             }
             var exception = Record.Exception(()=>  wrapper.Initialize());
-            _scenarioContext.Add("exception", exception);
+            _aspectsScenarioDataStore.Error = exception;
         }
 
         [Then(@"the aspects should be invoked in the following order '(.*)'")]
@@ -53,14 +53,14 @@ namespace Solid.Extensibility.Specs
             var expectedOrder = string.IsNullOrWhiteSpace(aspectsInvocationStr)
                 ? new string[] { }
                 : aspectsInvocationStr.Split(new[] {';'}).ToArray();
-            var callbacks = _scenarioContext.Get<List<string>>("callbacks");
+            var callbacks = _aspectsScenarioDataStore.Callbacks;
             callbacks.Should().BeEquivalentTo(expectedOrder, c => c.WithStrictOrdering());
         }
 
         [Then(@"There should be an error with the following message '(.*)'")]
         public void ThenThereShouldBeAnErrorWithTheFollowingMessage(string expectedMessage)
         {
-            var exception = _scenarioContext.Get<Exception>("exception");
+            var exception = _aspectsScenarioDataStore.Error;
             exception.Should().NotBeNull();
             exception.Message.Should().BeEquivalentTo(expectedMessage);
         }

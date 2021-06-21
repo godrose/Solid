@@ -8,7 +8,8 @@ namespace Solid.Extensibility
     /// </summary>
     public class AspectsWrapper :
         IInitializable,
-        IHaveAspects<AspectsWrapper>
+        IHaveAspects<AspectsWrapper>,
+        IAspectsProvider
     {
         private readonly List<IAspect> _coreAspects = new List<IAspect>();
         private readonly List<IAspect> _aspects = new List<IAspect>();
@@ -19,6 +20,9 @@ namespace Solid.Extensibility
             _aspects.Add(aspect);
             return this;
         }
+
+        /// <inheritdoc cref="IAspectsProvider"/>
+        public IEnumerable<IAspect> Aspects => _aspects.ToArray();
 
         /// <summary>
         /// Use this to inject core aspects.

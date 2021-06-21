@@ -2,7 +2,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-    <Version>2.3.0</Version>
+    <Version>2.3.1</Version>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <OutputPath>..\Bin\netstandard\Release</OutputPath>
@@ -16,6 +16,8 @@
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\Solid.Core\Solid.Core.csproj" />
+    <ProjectReference Include="..\Solid.Patterns.Builder\Solid.Patterns.Builder.csproj" />
+    <ProjectReference Include="..\Solid.Practices.IoC\Solid.Practices.IoC.csproj" />
     <ProjectReference Include="..\Solid.Practices.Middleware\Solid.Practices.Middleware.csproj" />
   </ItemGroup>
 </Project>

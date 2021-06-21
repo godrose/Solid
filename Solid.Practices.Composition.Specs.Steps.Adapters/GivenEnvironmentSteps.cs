@@ -4,7 +4,7 @@ using TechTalk.SpecFlow;
 namespace Solid.Practices.Composition.Specs.Steps.Adapters
 {
     [Binding]
-    public sealed class GivenEnvironmentStepsAdapter
+    public sealed class GivenEnvironmentSteps
     {
         [Given(@"I run in \.NETStandard environment")]
         public void GivenIRunIn_NETStandardEnvironment()

@@ -4,12 +4,12 @@ using System.Collections.Generic;
 namespace Solid.Core
 {
     /// <summary>
-    /// Gets the collection of errors that happen during initialization.
+    /// Gets the collection of errors that happened during initialization/build process.
     /// </summary>
     public interface IHaveErrors
     {
         /// <summary>
-        /// The errors.
+        /// The collection of errors.
         /// </summary>
         IEnumerable<Exception> Errors { get; }
     }

@@ -8,4 +8,4 @@ Scenario: Using discovery aspect should discover required assemblies
 	And The assemblies loader used default assembly loading strategy
 	When The discovery aspect is created
 	And The discovery aspect is initialized
-	Then There should be 12 assemblies
+	Then There should be 14 assemblies

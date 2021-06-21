@@ -5,21 +5,20 @@ using TechTalk.SpecFlow;
 namespace Solid.Practices.Middleware.Specs
 {
     [Binding]
-    internal sealed class MiddlewareStepsAdapter
+    internal sealed class MiddlewareSteps
     {
-        //TODO: Use Container
-        private readonly ScenarioContext _scenarioContext;
+        private readonly MiddlewareScenarioDataStore _scenarioDataStore;
 
-        public MiddlewareStepsAdapter(ScenarioContext scenarioContext)
+        public MiddlewareSteps(ScenarioContext scenarioContext)
         {
-            _scenarioContext = scenarioContext;
+            _scenarioDataStore = new MiddlewareScenarioDataStore(scenarioContext);
         }
 
         [Given(@"There are middlewares with internal dependencies only")]
         public void GivenThereAreMiddlewaresWithInternalDependenciesOnly()
         {
             var middlewares = new IMiddleware<StringBuilder>[] { new MiddlewareB(), new MiddlewareA(), new MiddlewareC() };
-            _scenarioContext.Add("middlewares", middlewares);
+            _scenarioDataStore.Middlewares = middlewares;
         }
 
         [Given(@"There are middlewares with dependencies and without dependencies including explicit")]
@@ -27,7 +26,7 @@ namespace Solid.Practices.Middleware.Specs
         {
             var middlewares = new IMiddleware<StringBuilder>[]
                 {new MiddlewareB(), new MiddlewareA(), new IndependentExplicitMiddleware(), new MiddlewareC()};
-            _scenarioContext.Add("middlewares", middlewares);
+            _scenarioDataStore.Middlewares = middlewares;
         }
 
         [Given(@"There are middlewares with dependencies and without dependencies including implicit")]
@@ -35,7 +34,7 @@ namespace Solid.Practices.Middleware.Specs
         {
             var middlewares = new IMiddleware<StringBuilder>[]
                 {new MiddlewareB(), new MiddlewareA(), new IndependentImplicitMiddleware(), new MiddlewareC()};
-            _scenarioContext.Add("middlewares", middlewares);
+            _scenarioDataStore.Middlewares = middlewares;
         }
 
         [Given(@"There are middlewares with internal dependencies only specified by attributes")]
@@ -43,22 +42,22 @@ namespace Solid.Practices.Middleware.Specs
         {
             var middlewares = new IMiddleware<StringBuilder>[]
                 {new MiddlewareAttrB(), new MiddlewareAttrA(), new MiddlewareAttrC()};
-            _scenarioContext.Add("middlewares", middlewares);
+            _scenarioDataStore.Middlewares = middlewares;
         }
 
         [When(@"The middlewares are applied")]
         public void WhenTheMiddlewaresAreApplied()
         {
             var subject = new StringBuilder();
-            var middlewares = _scenarioContext.Get<IMiddleware<StringBuilder>[]>("middlewares");
+            var middlewares = _scenarioDataStore.Middlewares;
             MiddlewareApplier.ApplyMiddlewares(subject, middlewares);
-            _scenarioContext.Add("subject", subject);
+            _scenarioDataStore.Subject = subject;
         }
 
         [Then(@"The result should be '(.*)'")]
         public void ThenTheResultShouldBe(string expectedOrder)
         {
-            var subject = _scenarioContext.Get<StringBuilder>("subject");
+            var subject = _scenarioDataStore.Subject;
             var result = subject.ToString();
             result.Should().Be(expectedOrder);
         }
