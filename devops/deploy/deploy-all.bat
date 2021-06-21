@@ -1,12 +1,12 @@
 rem TODO: Use common source for all version instances
-SET version=2.3.1-rc1
+SET version=2.3.1
 rem TODO: Refactor using loop and automatic discovery
 call deploy-single.bat Solid.Bootstrapping %version% 
 call deploy-single.bat Solid.Common %version% 
 call deploy-single.bat Solid.Common.Core %version% 
 call deploy-single.bat Solid.Core %version% 
 call deploy-single.bat Solid.Extensibility %version% 
-call deploy-single.bat Solid.Ioc.Adapters.BoDi %version% 
+call deploy-single.bat Solid.IoC.Adapters.BoDi %version% 
 call deploy-single.bat Solid.Patterns.Builder %version% 
 call deploy-single.bat Solid.Patterns.ChainOfResponsibility %version% 
 call deploy-single.bat Solid.Patterns.Memento %version% 
