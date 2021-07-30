@@ -38,8 +38,7 @@ namespace Solid.IoC.Registration
         {
             var contractName = $"I{implementationCandidate.Name}";
             return implementationCandidate
-                .GetTypeInfo()
-                .ImplementedInterfaces
+                .GetImplementedInterfaces()
                 .FirstOrDefault(t => t.Name == contractName);
         }
     }

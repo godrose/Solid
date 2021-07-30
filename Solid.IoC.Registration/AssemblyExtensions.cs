@@ -33,7 +33,7 @@ namespace Solid.IoC.Registration
         {
             var allTypes = FindAllTypesImpl(assemblies);
             var matches = allTypes
-                .Where(type => type.GetTypeInfo().ImplementedInterfaces.Contains(contractType));
+                .Where(type => type.GetImplementedInterfaces().Contains(contractType));
             return matches.ToArray();
         }
     }
