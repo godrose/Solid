@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>Solid.Practices.Composition.Core</id>
-    <version>2.3.1-rc1</version>
+    <version>2.3.1</version>
     <title>Solid.Practices.Composition.Core</title>
     <authors>Gennady Verdel</authors>
     <owners>Gennady Verdel</owners>
@@ -16,10 +16,10 @@ composing modular applications.</description>
 composing modular applications.</summary>
     <releaseNotes>Checked compatibility with .NET 5</releaseNotes>
     <dependencies>
-      <dependency id="Solid.Core" version="2.3.1-rc1" />
-      <dependency id="Solid.Common.Core" version="2.3.1-rc1" />
-      <dependency id="Solid.Extensibility" version="2.3.1-rc1" />
-      <dependency id="Solid.Practices.Modularity" version="2.3.1-rc1" />
+      <dependency id="Solid.Core" version="2.3.1" />
+      <dependency id="Solid.Common.Core" version="2.3.1" />
+      <dependency id="Solid.Extensibility" version="2.3.1" />
+      <dependency id="Solid.Practices.Modularity" version="2.3.1" />
     </dependencies>
   </metadata>
 </package>
