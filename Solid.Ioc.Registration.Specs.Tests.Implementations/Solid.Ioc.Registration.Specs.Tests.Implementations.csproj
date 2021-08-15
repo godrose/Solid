@@ -1,0 +1,11 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Solid.IoC.Registration.Specs.Tests.Contracts\Solid.IoC.Registration.Specs.Tests.Contracts.csproj" />
+  </ItemGroup>
+
+</Project>
