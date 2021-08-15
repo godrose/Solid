@@ -5,10 +5,12 @@
 
 Scenario: Registering dependencies automagically by ending should allow successful resolution
 	Given There are valid implementations for all declared dependencies
+	When I use object container
 	When I use registration by ending
 	Then All dependencies can be resolved successfully
 
 Scenario: Registering dependencies automagically by contract should allow successful resolution
 	Given There are valid implementations for all declared dependencies
+	When I use object container
 	When I use registration by contract
 	Then All dependencies can be resolved successfully

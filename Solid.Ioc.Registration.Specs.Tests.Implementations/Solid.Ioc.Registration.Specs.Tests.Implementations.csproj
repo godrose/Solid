@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Solid.Ioc.Registration.Specs.Tests.Contracts\Solid.Ioc.Registration.Specs.Tests.Contracts.csproj" />
+    <ProjectReference Include="..\Solid.IoC.Registration.Specs.Tests.Contracts\Solid.IoC.Registration.Specs.Tests.Contracts.csproj" />
   </ItemGroup>
 
 </Project>

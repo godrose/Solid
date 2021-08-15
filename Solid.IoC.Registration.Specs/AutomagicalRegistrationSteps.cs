@@ -3,9 +3,8 @@ using System.Reflection;
 using BoDi;
 using FluentAssertions;
 using Solid.IoC.Adapters.BoDi;
-using Solid.Ioc.Registration.Specs.Tests.Contracts;
-using Solid.Ioc.Registration.Specs.Tests.Implementations;
-using Solid.Practices.IoC;
+using Solid.IoC.Registration.Specs.Tests.Contracts;
+using Solid.IoC.Registration.Specs.Tests.Implementations;
 using TechTalk.SpecFlow;
 
 namespace Solid.IoC.Registration.Specs
@@ -14,7 +13,12 @@ namespace Solid.IoC.Registration.Specs
     internal class AutomagicalRegistrationSteps
     {
         private string[] _assembliesNames;
-        private IIocContainer _container;
+        private readonly AutomagicalRegistrationScenarioDataStore _scenarioDataStore;
+
+        public AutomagicalRegistrationSteps(ScenarioContext scenarioContext)
+        {
+            _scenarioDataStore = new AutomagicalRegistrationScenarioDataStore(scenarioContext);
+        }
 
         [Given(@"There are valid implementations for all declared dependencies")]
         public void GivenThereAreValidImplementationsForAllDeclaredDependencies()
@@ -24,14 +28,19 @@ namespace Solid.IoC.Registration.Specs
                 "Solid.IoC.Registration.Specs.Tests.Contracts.dll",
                 "Solid.IoC.Registration.Specs.Tests.Implementations.dll"
             };
+            _scenarioDataStore.Assemblies = _assembliesNames.Select(Assembly.LoadFrom).ToArray();
+        }
+
+        [When(@"I use object container")]
+        public void WhenIUseObjectContainer()
+        {
+            _scenarioDataStore.IocContainer = new ObjectContainerAdapter(new ObjectContainer());
         }
 
         [When(@"I use registration by ending")]
         public void WhenIUseRegistrationByEnding()
         {
-            var assemblies = _assembliesNames.Select(Assembly.LoadFrom);
-            _container = new ObjectContainerAdapter(new ObjectContainer());
-            _container.RegisterImplementationsAsContracts(assemblies,
+            _scenarioDataStore.IocContainer.RegisterImplementationsAsContracts(_scenarioDataStore.Assemblies,
                 a => a.FindTypesByEnding("ScenarioDataStore"),
                 (dr, match) => dr.RegisterSingleton(match.ServiceType, match.ImplementationType));
         }
@@ -39,9 +48,7 @@ namespace Solid.IoC.Registration.Specs
         [When(@"I use registration by contract")]
         public void WhenIUseRegistrationByContract()
         {
-            var assemblies = _assembliesNames.Select(Assembly.LoadFrom);
-            _container = new ObjectContainerAdapter(new ObjectContainer());
-            _container.RegisterImplementationsAsContracts(assemblies,
+            _scenarioDataStore.IocContainer.RegisterImplementationsAsContracts(_scenarioDataStore.Assemblies,
                 a => a.FindTypesByContract(typeof(IScenarioDataStore)),
                 (dr, match) => dr.RegisterSingleton(match.ServiceType, match.ImplementationType));
         }
@@ -49,9 +56,8 @@ namespace Solid.IoC.Registration.Specs
         [Then(@"All dependencies can be resolved successfully")]
         public void ThenAllDependenciesCanBeResolvedSuccessfully()
         {
-            var scenarioDataStore = _container.Resolve(typeof(IScenarioDataStore));
+            var scenarioDataStore = _scenarioDataStore.IocContainer.Resolve(typeof(IScenarioDataStore));
             scenarioDataStore.Should().BeOfType<ScenarioDataStore>();
         }
-
     }
 }
