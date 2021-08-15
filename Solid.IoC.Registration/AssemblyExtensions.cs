@@ -21,7 +21,7 @@ namespace Solid.IoC.Registration
             return allTypes;
         }
 
-        public static Type[] FindTypesByName(this IEnumerable<Assembly> assemblies, string ending)
+        public static Type[] FindTypesByEnding(this IEnumerable<Assembly> assemblies, string ending)
         {
             var allTypes = FindAllTypesImpl(assemblies);
             var matches = allTypes
