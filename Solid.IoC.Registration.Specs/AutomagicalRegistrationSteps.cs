@@ -36,6 +36,15 @@ namespace Solid.IoC.Registration.Specs
                 (dr, match) => dr.RegisterSingleton(match.ServiceType, match.ImplementationType));
         }
 
+        [When(@"I use registration by contract")]
+        public void WhenIUseRegistrationByContract()
+        {
+            var assemblies = _assembliesNames.Select(Assembly.LoadFrom);
+            _container = new ObjectContainerAdapter(new ObjectContainer());
+            _container.RegisterImplementationsAsContracts(assemblies,
+                a => a.FindTypesByContract(typeof(IScenarioDataStore)),
+                (dr, match) => dr.RegisterSingleton(match.ServiceType, match.ImplementationType));
+        }
 
         [Then(@"All dependencies can be resolved successfully")]
         public void ThenAllDependenciesCanBeResolvedSuccessfully()
