@@ -45,11 +45,19 @@ namespace Solid.IoC.Registration.Specs
                 (dr, match) => dr.RegisterSingleton(match.ServiceType, match.ImplementationType));
         }
 
-        [When(@"I use registration by contract")]
-        public void WhenIUseRegistrationByContract()
+        [When(@"I use registration by contract which is an interface")]
+        public void WhenIUseRegistrationByContractWhichIsAnInterface()
         {
             _scenarioDataStore.IocContainer.RegisterImplementationsAsContracts(_scenarioDataStore.Assemblies,
                 a => a.FindTypesByContract(typeof(IScenarioDataStore)),
+                (dr, match) => dr.RegisterSingleton(match.ServiceType, match.ImplementationType));
+        }
+
+        [When(@"I use registration by contract which is a class")]
+        public void WhenIUseRegistrationByContractWhichIsAClass()
+        {
+            _scenarioDataStore.IocContainer.RegisterImplementationsAsContracts(_scenarioDataStore.Assemblies,
+                a => a.FindTypesByContract(typeof(ObjectBase)),
                 (dr, match) => dr.RegisterSingleton(match.ServiceType, match.ImplementationType));
         }
 

@@ -52,8 +52,10 @@ namespace Solid.IoC.Registration
         public static Type[] FindTypesByContract(this IEnumerable<Assembly> assemblies, Type contractType)
         {
             var allTypes = FindAllTypesImpl(assemblies);
-            var matches = allTypes
-                .Where(type => type.GetImplementedInterfaces().Contains(contractType));
+            var typeMatchPredicate = contractType.IsInterface
+                ? type => type.GetImplementedInterfaces().Contains(contractType)
+                : (Func<Type, bool>) (type => type.IsClass && type.IsSubclassOf(contractType)); 
+            var matches = allTypes.Where(typeMatchPredicate);
             return matches.ToArray();
         }
     }

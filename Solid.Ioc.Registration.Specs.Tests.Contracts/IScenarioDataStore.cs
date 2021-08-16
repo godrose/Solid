@@ -3,4 +3,9 @@
     public interface IScenarioDataStore
     {
     }
+
+    public abstract class ObjectBase
+    {
+
+    }
 }
