@@ -37,10 +37,7 @@ namespace Solid.IoC.Registration
         /// <returns></returns>
         public static Type[] FindTypesByEnding(this IEnumerable<Assembly> assemblies, string ending)
         {
-            var allTypes = FindAllTypesImpl(assemblies);
-            var matches = allTypes
-                .Where(type => type.Name.EndsWith(ending));
-            return matches.ToArray();
+            return assemblies.FindTypesByCondition(type => type.Name.EndsWith(ending));
         }
 
         /// <summary>
@@ -51,11 +48,16 @@ namespace Solid.IoC.Registration
         /// <returns></returns>
         public static Type[] FindTypesByContract(this IEnumerable<Assembly> assemblies, Type contractType)
         {
-            var allTypes = FindAllTypesImpl(assemblies);
             var typeMatchPredicate = contractType.IsInterface
                 ? type => type.GetImplementedInterfaces().Contains(contractType)
-                : (Func<Type, bool>) (type => type.IsClass && type.IsSubclassOf(contractType)); 
-            var matches = allTypes.Where(typeMatchPredicate);
+                : (Func<Type, bool>)(type => type.IsClass && type.IsSubclassOf(contractType));
+            return assemblies.FindTypesByCondition(typeMatchPredicate);
+        }
+
+        private static Type[] FindTypesByCondition(this IEnumerable<Assembly> assemblies, Func<Type, bool> condition)
+        {
+            var allTypes = FindAllTypesImpl(assemblies);
+            var matches = allTypes.Where(condition);
             return matches.ToArray();
         }
     }
