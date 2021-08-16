@@ -2,7 +2,7 @@
 
 namespace Solid.IoC.Registration.Specs.Tests.Implementations
 {
-    public class ScenarioDataStore : IScenarioDataStore
+    public class ScenarioDataStore : ObjectBase, IScenarioDataStore
     {
     }
 }

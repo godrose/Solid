@@ -9,8 +9,14 @@ Scenario: Registering dependencies automagically by ending should allow successf
 	When I use registration by ending
 	Then All dependencies can be resolved successfully
 
-Scenario: Registering dependencies automagically by contract should allow successful resolution
+Scenario: Registering dependencies automagically by contract which is an interface should allow successful resolution
 	Given There are valid implementations for all declared dependencies
 	When I use object container
-	When I use registration by contract
+	When I use registration by contract which is an interface
+	Then All dependencies can be resolved successfully
+
+Scenario: Registering dependencies automagically by contract which is a class should allow successful resolution
+	Given There are valid implementations for all declared dependencies
+	When I use object container
+	When I use registration by contract which is a class
 	Then All dependencies can be resolved successfully
