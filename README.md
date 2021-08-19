@@ -7,11 +7,11 @@ The **Inversion-Of-Control** aspect is addressed by defining an abstraction of a
 
 The **Modularity** aspect addresses the cases where there's need to add functionality during app initialization without having to include it into the initialization root thus preserving the encapsulation. There are various sorts of functionality that can be added using this approach: registering dependencies into the IoC container, initializing third-party engines, etc.
 
-The **Extensibility** aspect is addressed by defining an abstraction for reusable piece of functionality that is attached to a certain object.This abstraction is represented by the following interface ```IMiddleware<T>``` which defined the ```Apply``` method in a fluent fashion.
+The **Extensibility** aspect is addressed by defining an abstraction for reusable piece of functionality that is attached to a certain object.This abstraction is represented by the following interface ```IMiddleware<T>``` which defines the ```Apply``` method in a fluent fashion.
 
 The **Composition** aspect is the only one that has concrete implementation. In essense, it provides a unified way of composing application blocks, including assemblies and composition modules, for further consumption.
 
-Additionally, the **Solid** library contains various interfaces and implementation for some of the Design Patterns, including ```IAcceptor``` for the **Visitor** pattern, ```IMemento<T>``` for the **Memento** pattern and so on. This saves a lot of duplicate code when such a pattern is used in the app development.
+Additionally, the **Solid** library contains various interfaces and implementation for some of the Design Patterns, including ```IAcceptor``` for the **Visitor** pattern, ```IMemento<T>``` for the **Memento** pattern and so on. This saves a lot of duplicate code when such a pattern is used during app development.
 
 <img src=https://ci.appveyor.com/api/projects/status/github/godrose/solid>
 
@@ -20,7 +20,7 @@ Additionally, the **Solid** library contains various interfaces and implementati
 
 <img src=https://img.shields.io/nuget/dt/Solid.Practices.IoC>
 
-[Living Documentation](https://ci.appveyor.com/api/projects/godrose/Solid/artifacts/Solid.IoC.Adapters.BoDi.Specs/bin/Release/LivingDoc.html)
+[Living Documentation](https://ci.appveyor.com/api/projects/godrose/Solid/artifacts/Solid.IoC.Registration.Specs/bin/Release/LivingDoc.html)
 
 [Get package](https://www.nuget.org/packages/Solid.Practices.IoC/)
 

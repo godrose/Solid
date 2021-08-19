@@ -33,6 +33,8 @@ artifacts:
   path: .\Solid.Extensibility.Specs\bin\Release\LivingDoc.html
 - name: BoDi Adapter Living Documentation
   path: .\Solid.IoC.Adapters.BoDi.Specs\bin\Release\LivingDoc.html
+- name: Registration Living Documentation
+  path: .\Solid.IoC.Registration.Specs\bin\Release\LivingDoc.html
 - name: Composition Container Living Documentation
   path: .\Solid.Practices.Composition.Container.Specs\bin\Release\LivingDoc.html
 - name: Composition Living Documentation
