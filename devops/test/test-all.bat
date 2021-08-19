@@ -2,6 +2,7 @@ call test-specs-single.bat Solid.Bootstrapping.Specs
 call test-specs-single.bat Solid.Extensibility.Specs
 call test-tests-single.bat Solid.Core.Tests
 call test-specs-single.bat Solid.IoC.Adapters.BoDi.Specs
+call test-specs-single.bat Solid.IoC.Registration.Specs
 call test-specs-single.bat Solid.Practices.Composition.Container.Specs
 call test-specs-single.bat Solid.Practices.Composition.Specs
 call test-specs-single.bat Solid.Practices.Middleware.Specs
