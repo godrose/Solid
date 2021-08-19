@@ -6,7 +6,8 @@ call deploy-single.bat Solid.Common %version%
 call deploy-single.bat Solid.Common.Core %version% 
 call deploy-single.bat Solid.Core %version% 
 call deploy-single.bat Solid.Extensibility %version% 
-call deploy-single.bat Solid.IoC.Adapters.BoDi %version% 
+call deploy-single.bat Solid.IoC.Adapters.BoDi %version%
+call deploy-single.bat Solid.IoC.Registration %version%  
 call deploy-single.bat Solid.Patterns.Builder %version% 
 call deploy-single.bat Solid.Patterns.ChainOfResponsibility %version% 
 call deploy-single.bat Solid.Patterns.Memento %version% 
