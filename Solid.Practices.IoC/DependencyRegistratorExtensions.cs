@@ -257,60 +257,6 @@ namespace Solid.Practices.IoC
         }
 
         /// <summary>
-        /// Registers types as their abstractions using singleton lifetime style
-        /// The assemblies are inspected using [IDependency]--[Dependency] naming convention
-        /// </summary>
-        /// <param name="dependencyRegistrator">The dependency registrator.</param>
-        /// <param name="contractsAssembly">The assembly which contains the contracts/abstractions</param>
-        /// <param name="implementationsAssembly">The assembly which contains the implementations.</param>
-        /// <returns></returns>
-        public static IDependencyRegistrator RegisterAutomagically(
-            this IDependencyRegistrator dependencyRegistrator,
-            Assembly contractsAssembly,
-            Assembly implementationsAssembly)
-        {
-            return dependencyRegistrator.RegisterAutomagically(
-                (d, serviceType, implementationType) => d.RegisterSingleton(serviceType, implementationType),
-                contractsAssembly,
-                implementationsAssembly);
-        }
-
-        /// <summary>
-        /// Registers types as their abstractions using provided registration method
-        /// The assemblies are inspected using [IDependency]--[Dependency] naming convention
-        /// </summary>
-        /// <param name="dependencyRegistrator">The dependency registrator.</param>
-        /// <param name="registrationMethod">The registration method.</param>
-        /// <param name="contractsAssembly">The assembly which contains the contracts/abstractions.</param>
-        /// <param name="implementationsAssembly">The assembly which contains the implementations.</param>
-        /// <returns></returns>
-        public static TDependencyRegistrator RegisterAutomagically<TDependencyRegistrator>(
-            this TDependencyRegistrator dependencyRegistrator,
-            Action<TDependencyRegistrator, Type, Type> registrationMethod,
-            Assembly contractsAssembly,
-            Assembly implementationsAssembly)
-        {
-            var contracts =
-                contractsAssembly.DefinedTypes.Where(t => t.IsInterface).Select(t => t.AsType()).ToArray();
-            var implementations =
-                implementationsAssembly.DefinedTypes.Where(
-                        t => t.IsInterface == false)
-                    .ToArray();
-            var contractsInfo = contracts.ToDictionary(t => t.Name, t => t);
-            var implementationsInfo = implementations.Where(t => t.Name.StartsWith("<>") == false)
-                .ToDictionary(t => t.Name, t => t);
-            foreach (var implementationInfo in implementationsInfo)
-            {
-                contractsInfo.TryGetValue("I" + implementationInfo.Key, out Type match);
-                if (match != null)
-                {
-                    registrationMethod.Invoke(dependencyRegistrator, match, implementationInfo.Value.AsType());
-                }
-            }
-            return dependencyRegistrator;
-        }
-
-        /// <summary>
         /// Registers the collection of types that implement the specified contract
         /// into the dependency registrator.
         /// </summary>

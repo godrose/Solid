@@ -17,6 +17,18 @@ namespace Solid.IoC.Registration.Specs
             set => SetValue(value);
         }
 
+        public Assembly ContractsAssembly
+        {
+            get => GetValue<Assembly>();
+            set => SetValue(value);
+        }
+
+        public Assembly ImplementationsAssembly
+        {
+            get => GetValue<Assembly>();
+            set => SetValue(value);
+        }
+
         public IIocContainer IocContainer
         {
             get => GetValue<IIocContainer>();
