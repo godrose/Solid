@@ -113,11 +113,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Registration", "Registratio
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solid.IoC.Registration", "Solid.IoC.Registration\Solid.IoC.Registration.csproj", "{9AB04FA5-CA09-4CD6-BECA-AEE11ECE00A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solid.IoC.Registration.Specs", "Solid.IoC.Registration.Specs\Solid.IoC.Registration.Specs.csproj", "{18472BD6-C832-4D4B-BA1B-3ABD58239EE5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solid.IoC.Registration.Specs", "Solid.IoC.Registration.Specs\Solid.IoC.Registration.Specs.csproj", "{18472BD6-C832-4D4B-BA1B-3ABD58239EE5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solid.IoC.Registration.Specs.Tests.Contracts", "Solid.Ioc.Registration.Specs.Tests.Contracts\Solid.IoC.Registration.Specs.Tests.Contracts.csproj", "{C21F3528-E8D7-4F9A-9B07-87C1F701F04F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solid.IoC.Registration.Specs.Tests.Contracts", "Solid.Ioc.Registration.Specs.Tests.Contracts\Solid.IoC.Registration.Specs.Tests.Contracts.csproj", "{C21F3528-E8D7-4F9A-9B07-87C1F701F04F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solid.Ioc.Registration.Specs.Tests.Implementations", "Solid.Ioc.Registration.Specs.Tests.Implementations\Solid.Ioc.Registration.Specs.Tests.Implementations.csproj", "{D4B29EE9-000C-4A1F-A267-B17787BC426B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Solid.IoC.Registration.Specs.Tests.Implementations", "Solid.Ioc.Registration.Specs.Tests.Implementations\Solid.IoC.Registration.Specs.Tests.Implementations.csproj", "{D4B29EE9-000C-4A1F-A267-B17787BC426B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Adapters", "Adapters", "{54B1398B-D7CB-4207-B538-9E38C17699D4}"
 EndProject

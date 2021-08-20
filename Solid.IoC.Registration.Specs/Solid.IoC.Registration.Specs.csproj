@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="FluentAssertions" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.2" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0" />
     <PackageReference Include="SpecFlow" Version="3.9.22" />
     <PackageReference Include="SpecFlow.Plus.LivingDocPlugin" Version="3.9.42" />
@@ -20,15 +21,34 @@
   <ItemGroup>
     <ProjectReference Include="..\Solid.IoC.Adapters.BoDi\Solid.IoC.Adapters.BoDi.csproj" />
     <ProjectReference Include="..\Solid.IoC.Registration.Specs.Tests.Contracts\Solid.IoC.Registration.Specs.Tests.Contracts.csproj" />
-    <ProjectReference Include="..\Solid.IoC.Registration.Specs.Tests.Implementations\Solid.Ioc.Registration.Specs.Tests.Implementations.csproj" />
+    <ProjectReference Include="..\Solid.Ioc.Registration.Specs.Tests.Implementations\Solid.IoC.Registration.Specs.Tests.Implementations.csproj" />
     <ProjectReference Include="..\Solid.IoC.Registration\Solid.IoC.Registration.csproj" />
     <ProjectReference Include="..\Solid.Tests.Infra\Solid.Tests.Infra.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="CleanRegistrationMethodContextHook.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Registration Method Context.feature.cs">
+      <DesignTime>True</DesignTime>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
     <None Update="specflow.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="xunit.runner.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <SpecFlowFeatureFiles Update="Registration Method Context.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Registration Method Context.feature.cs</LastGenOutput>
+    </SpecFlowFeatureFiles>
   </ItemGroup>
 
 </Project>
