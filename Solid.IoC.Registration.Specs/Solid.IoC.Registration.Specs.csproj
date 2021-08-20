@@ -20,7 +20,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Solid.IoC.Adapters.BoDi\Solid.IoC.Adapters.BoDi.csproj" />
     <ProjectReference Include="..\Solid.IoC.Registration.Specs.Tests.Contracts\Solid.IoC.Registration.Specs.Tests.Contracts.csproj" />
-    <ProjectReference Include="..\Solid.IoC.Registration.Specs.Tests.Implementations\Solid.Ioc.Registration.Specs.Tests.Implementations.csproj" />
+    <ProjectReference Include="..\Solid.Ioc.Registration.Specs.Tests.Implementations\Solid.IoC.Registration.Specs.Tests.Implementations.csproj" />
     <ProjectReference Include="..\Solid.IoC.Registration\Solid.IoC.Registration.csproj" />
     <ProjectReference Include="..\Solid.Tests.Infra\Solid.Tests.Infra.csproj" />
   </ItemGroup>
