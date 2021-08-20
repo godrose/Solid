@@ -1,5 +1,6 @@
 ﻿using System;
 using FluentAssertions;
+using Microsoft.Extensions.DependencyInjection;
 using Solid.Practices.IoC;
 using TechTalk.SpecFlow;
 using Xunit;
@@ -16,32 +17,73 @@ namespace Solid.IoC.Registration.Specs
             _scenarioDataStore = new RegistrationMethodContextScenarioDataStore(scenarioContext);
         }
 
-        [When(@"I get default registration method for an ioc container")]
-        public void WhenIGetDefaultRegistrationMethodForAnIocContainer()
+        [When(@"I get default registration method for '(.*)'")]
+        public void WhenIGetDefaultRegistrationMethodFor(string containerName)
         {
-            var error = Record.Exception(RegistrationMethodContext.GetDefaultRegistrationMethod<IIocContainer>);
+            Exception error = default;
+            switch (containerName)
+            {
+                case Consts.SpecFlowObjectContainerName:
+                    error = Record.Exception(RegistrationMethodContext.GetDefaultRegistrationMethod<IIocContainer>);
+                    break;
+                case Consts.MicrosoftDiContainerName:
+                    error = Record.Exception(RegistrationMethodContext
+                        .GetDefaultRegistrationMethod<IServiceCollection>);
+                    break;
+            }
             _scenarioDataStore.LastError = error;
         }
 
-        [When(@"I set default registration method for an ioc container")]
-        public void WhenISetDefaultRegistrationMethodForAnIocContainer()
+        [When(@"I set default registration method for '(.*)'")]
+        public void WhenISetDefaultRegistrationMethodFor(string containerName)
         {
-            Action<IIocContainer, TypeMatch> defaultRegistrationMethod = (container, match) => { };
-            _scenarioDataStore.LastDefaultRegistrationMethod = defaultRegistrationMethod;
-            RegistrationMethodContext.SetDefaultRegistrationMethod(defaultRegistrationMethod);
+            switch (containerName)
+            {
+                case Consts.SpecFlowObjectContainerName:
+                    Action<IIocContainer, TypeMatch> defaultIocContainerRegistrationMethod = (container, match) => { };
+                    _scenarioDataStore.LastDefaultRegistrationMethod = defaultIocContainerRegistrationMethod;
+                    RegistrationMethodContext.SetDefaultRegistrationMethod(defaultIocContainerRegistrationMethod);
+                    break;
+                case Consts.MicrosoftDiContainerName:
+                    Action<IServiceCollection, TypeMatch> defaultServiceCollectionRegistrationMethod = (container, match) => { };
+                    _scenarioDataStore.LastDefaultRegistrationMethod = defaultServiceCollectionRegistrationMethod;
+                    RegistrationMethodContext.SetDefaultRegistrationMethod(defaultServiceCollectionRegistrationMethod);
+                    break;
+            }
         }
 
-        [Then(@"The default registration method for an ioc container is set")]
-        public void ThenTheDefaultRegistrationMethodForAnIocContainerIsSet()
+        [Then(@"The default registration method for '(.*)' is set")]
+        public void ThenTheDefaultRegistrationMethodForIsSet(string containerName)
         {
-            var defaultRegistrationMethod = RegistrationMethodContext.GetDefaultRegistrationMethod<IIocContainer>();
+            Delegate defaultRegistrationMethod = default;
+            switch (containerName)
+            {
+                case Consts.SpecFlowObjectContainerName:
+                    defaultRegistrationMethod = RegistrationMethodContext.GetDefaultRegistrationMethod<IIocContainer>();
+                    break;
+                case Consts.MicrosoftDiContainerName:
+                    defaultRegistrationMethod =
+                        RegistrationMethodContext.GetDefaultRegistrationMethod<IServiceCollection>();
+                    break;
+            }
+
             defaultRegistrationMethod.Should().NotBeNull();
         }
 
-        [Then(@"The default registration method for an ioc container is overridden")]
-        public void ThenTheDefaultRegistrationMethodForAnIocContainerIsOverridden()
+        [Then(@"The default registration method for '(.*)' is overridden")]
+        public void ThenTheDefaultRegistrationMethodForIsOverridden(string containerName)
         {
-            var defaultRegistrationMethod = RegistrationMethodContext.GetDefaultRegistrationMethod<IIocContainer>();
+            Delegate defaultRegistrationMethod = default;
+            switch (containerName)
+            {
+                case Consts.SpecFlowObjectContainerName:
+                    defaultRegistrationMethod = RegistrationMethodContext.GetDefaultRegistrationMethod<IIocContainer>();
+                    break;
+                case Consts.MicrosoftDiContainerName:
+                    defaultRegistrationMethod =
+                        RegistrationMethodContext.GetDefaultRegistrationMethod<IServiceCollection>();
+                    break;
+            }
             defaultRegistrationMethod.Should().BeSameAs(_scenarioDataStore.LastDefaultRegistrationMethod);
         }
 
@@ -52,12 +94,22 @@ namespace Solid.IoC.Registration.Specs
             lastError.Should().BeNull();
         }
 
-        [Then(@"The correspondent error with details for get default registration method is thrown")]
-        public void ThenTheCorrespondentErrorWithDetailsForGetDefaultRegistrationMethodIsThrown()
+        [Then(@"The correspondent error with details for get default registration method for '(.*)' is thrown")]
+        public void ThenTheCorrespondentErrorWithDetailsForGetDefaultRegistrationMethodForIsThrown(string containerName)
         {
+            string containerType = default;
+            switch (containerName)
+            {
+                case Consts.SpecFlowObjectContainerName:
+                    containerType = "IIocContainer";
+                    break;
+                case Consts.MicrosoftDiContainerName:
+                    containerType = "IServiceCollection";
+                    break;
+            }
             var lastError = _scenarioDataStore.LastError;
             lastError.Should().BeOfType<MissingDefaultRegistrationMethodException>()
-                .Which.Message.Should().Be("Missing default registration method for IIocContainer");
+                .Which.Message.Should().Be($"Missing default registration method for {containerType}");
         }
     }
 }

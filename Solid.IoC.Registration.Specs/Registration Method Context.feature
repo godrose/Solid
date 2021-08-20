@@ -6,25 +6,41 @@
 #TODO: Think about running in parallel
 @cleanRegistrationMethodContext
 Scenario: Setting default registration method for the specific IoC container should be successful
-	When I use object container with default registration method
-	Then The default registration method for an ioc container is set
+	When I use '<container name>' with default registration method
+	Then The default registration method for '<container name>' is set
 	And There are no errors
+Examples:
+	| container name            |
+	| specflow object container |
+	| microsoft di container    |
 
 @cleanRegistrationMethodContext
 Scenario: Getting default registration method for the specific IoC container after setting it should be successful
-	When I use object container with default registration method
-	Then The default registration method for an ioc container is set
+	When I use '<container name>' with default registration method
+	Then The default registration method for '<container name>' is set
 	And There are no errors
+Examples:
+	| container name            |
+	| specflow object container |
+	| microsoft di container    |
 
 @cleanRegistrationMethodContext
 Scenario: Setting default registration method for the specific IoC container more than once should be successful
-	When I use object container with default registration method
-	And I set default registration method for an ioc container
-	Then The default registration method for an ioc container is overridden 
+	When I use '<container name>' with default registration method
+	And I set default registration method for '<container name>'
+	Then The default registration method for '<container name>' is overridden 
 	And There are no errors
+Examples:
+	| container name            |
+	| specflow object container |
+	| microsoft di container    |
 
 @cleanRegistrationMethodContext
-Scenario: Getting default registration method for the specific IoC container without setting it should result in error
-	When I use object container
-	And I get default registration method for an ioc container
-	Then The correspondent error with details for get default registration method is thrown	
+Scenario Outline: Getting default registration method for the specific IoC container without setting it should result in error
+	When I use '<container name>'
+	And I get default registration method for '<container name>'
+	Then The correspondent error with details for get default registration method for '<container name>' is thrown
+Examples:
+	| container name            |
+	| specflow object container |
+	| microsoft di container    |

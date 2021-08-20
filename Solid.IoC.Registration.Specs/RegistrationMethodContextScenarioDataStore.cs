@@ -1,6 +1,5 @@
 ﻿using System;
 using Attest.Testing.SpecFlow;
-using Solid.Practices.IoC;
 using TechTalk.SpecFlow;
 
 namespace Solid.IoC.Registration.Specs
@@ -12,9 +11,9 @@ namespace Solid.IoC.Registration.Specs
         {
         }
 
-        public Action<IIocContainer, TypeMatch> LastDefaultRegistrationMethod
+        public Delegate LastDefaultRegistrationMethod
         {
-            get => GetValue<Action<IIocContainer, TypeMatch>>();
+            get => GetValue<Delegate>();
             set => SetValue(value);
         }
 
