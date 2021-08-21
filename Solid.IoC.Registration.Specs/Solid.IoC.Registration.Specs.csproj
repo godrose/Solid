@@ -1,11 +1,9 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="FluentAssertions" Version="6.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.2" />
@@ -17,7 +15,6 @@
     <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3" />
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\Solid.IoC.Adapters.BoDi\Solid.IoC.Adapters.BoDi.csproj" />
     <ProjectReference Include="..\Solid.IoC.Registration.Specs.Tests.Contracts\Solid.IoC.Registration.Specs.Tests.Contracts.csproj" />
@@ -25,7 +22,6 @@
     <ProjectReference Include="..\Solid.IoC.Registration\Solid.IoC.Registration.csproj" />
     <ProjectReference Include="..\Solid.Tests.Infra\Solid.Tests.Infra.csproj" />
   </ItemGroup>
-
   <ItemGroup>
     <Compile Update="CleanRegistrationMethodContextHook.cs">
       <SubType>Code</SubType>
@@ -34,7 +30,6 @@
       <DesignTime>True</DesignTime>
     </Compile>
   </ItemGroup>
-
   <ItemGroup>
     <None Update="specflow.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -43,12 +38,10 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-
   <ItemGroup>
     <SpecFlowFeatureFiles Update="Registration Method Context.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Registration Method Context.feature.cs</LastGenOutput>
     </SpecFlowFeatureFiles>
   </ItemGroup>
-
 </Project>
