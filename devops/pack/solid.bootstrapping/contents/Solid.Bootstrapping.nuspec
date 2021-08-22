@@ -16,6 +16,7 @@ over different bootstrapping capabilities: having ioc container, etc. as well as
 over different bootstrapping capabilities: having ioc container, etc.</summary>
     <releaseNotes>Checked compatibility with .NET 5</releaseNotes>
     <dependencies>
+	    <dependency id="Solid.IoC.Registration" version="2.3.2-rc1" />
       <dependency id="Solid.Practices.IoC" version="2.3.2-rc1" />
       <dependency id="Solid.Practices.Middleware" version="2.3.2-rc1" />
       <dependency id="Solid.Practices.Modularity" version="2.3.2-rc1" />
