@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>Solid.Bootstrapping</id>
-    <version>2.3.1</version>
+    <version>2.3.2-rc1</version>
     <title>Solid.Bootstrapping</title>
     <authors>Gennady Verdel</authors>
     <owners>Gennady Verdel</owners>
@@ -16,11 +16,12 @@ over different bootstrapping capabilities: having ioc container, etc. as well as
 over different bootstrapping capabilities: having ioc container, etc.</summary>
     <releaseNotes>Checked compatibility with .NET 5</releaseNotes>
     <dependencies>
-      <dependency id="Solid.Practices.IoC" version="2.3.1" />
-      <dependency id="Solid.Practices.Middleware" version="2.3.1" />
-      <dependency id="Solid.Practices.Modularity" version="2.3.1" />
-      <dependency id="Solid.Practices.Composition.Core" version="2.3.1" />
-      <dependency id="Solid.Common.Core" version="2.3.1" />
+	    <dependency id="Solid.IoC.Registration" version="2.3.2-rc1" />
+      <dependency id="Solid.Practices.IoC" version="2.3.2-rc1" />
+      <dependency id="Solid.Practices.Middleware" version="2.3.2-rc1" />
+      <dependency id="Solid.Practices.Modularity" version="2.3.2-rc1" />
+      <dependency id="Solid.Practices.Composition.Core" version="2.3.2-rc1" />
+      <dependency id="Solid.Common.Core" version="2.3.2-rc1" />
     </dependencies>
   </metadata>
 </package>

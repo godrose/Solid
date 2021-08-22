@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Solid.IoC.Registration;
 using Solid.Practices.Composition.Contracts;
 using Solid.Practices.IoC;
 using Solid.Practices.Middleware;
@@ -179,7 +180,7 @@ namespace Solid.Bootstrapping
     /// specified dependency registrator middleware.
     /// </summary>
     /// <typeparam name="TBootstrapper">The type of the bootstrapper.</typeparam>
-    /// <seealso cref="Solid.Practices.Middleware.IMiddleware{TBootstrapper}" />
+    /// <seealso cref="IMiddleware{TBootstrapper}" />
     public class UseDependencyRegistratorMiddleware<TBootstrapper> : IMiddleware<TBootstrapper>
         where TBootstrapper : class, IHaveRegistrator
     {
@@ -199,6 +200,23 @@ namespace Solid.Bootstrapping
             TBootstrapper @object)
         {
             _middleware.Apply(@object.Registrator);
+            return @object;
+        }
+    }
+
+    /// <summary>
+    /// Adds support for default registration method for <see cref="IDependencyRegistrator"/>.
+    /// The default lifetime is singleton.
+    /// </summary>
+    /// <typeparam name="TBootstrapper"></typeparam>
+    public class UseDefaultRegistrationMethodMiddleware<TBootstrapper> : IMiddleware<TBootstrapper>
+        where TBootstrapper : class, IHaveRegistrator
+    {
+        /// <inheritdoc />
+        public TBootstrapper Apply(TBootstrapper @object)
+        {
+            RegistrationMethodContext.SetDefaultRegistrationMethod<IDependencyRegistrator>((dr, match) =>
+                dr.AddSingleton(match.ServiceType, match.ImplementationType));
             return @object;
         }
     }
