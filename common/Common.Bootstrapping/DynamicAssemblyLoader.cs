@@ -2,7 +2,7 @@
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using McMaster.NETCore.Plugins;
+using System.Runtime.Loader;
 
 namespace Common.Bootstrapping
 {
@@ -10,10 +10,9 @@ namespace Common.Bootstrapping
     {
         internal static IEnumerable<Assembly> Get(IEnumerable<string> files)
         {
-            return files.Select(r =>
-                PluginLoader.CreateFromAssemblyFile(Path.Combine(Directory.GetCurrentDirectory(), r),
-                        config => config.PreferSharedTypes = true)
-                    .LoadDefaultAssembly()).ToArray();
+            return files.Select(r => AssemblyLoadContext.Default
+                .LoadFromAssemblyPath(Path.Combine(Directory.GetCurrentDirectory(),r)))
+                .ToArray();
         }
     }
 }
