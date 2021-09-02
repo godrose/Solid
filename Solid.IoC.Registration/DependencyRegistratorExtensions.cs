@@ -11,7 +11,7 @@ namespace Solid.IoC.Registration
     public static class DependencyRegistratorExtensions
     {
         /// <summary>
-        /// Registers matching dependencies in an auto-magical fashion.
+        /// Registers matching dependencies by their contracts in an auto-magical fashion.
         /// </summary>
         /// <typeparam name="TDependencyRegistrator">The type of the dependency registrator.</typeparam>
         /// <param name="dependencyRegistrator">The dependency registrator.</param>
@@ -28,6 +28,32 @@ namespace Solid.IoC.Registration
             var assembliesArray = assemblies as Assembly[] ?? assemblies.ToArray();
             var implementationCandidates = typeExtractionMethod(assembliesArray).Where(t => t.IsClass);
             var matches = implementationCandidates.Select(BuildMatch).Where(t => t != null);
+
+            foreach (var match in matches)
+            {
+                registrationMethod(dependencyRegistrator, match);
+            }
+
+            return dependencyRegistrator;
+        }
+
+        /// <summary>
+        /// Registers matching dependencies as themselves in an auto-magical fashion.
+        /// </summary>
+        /// <typeparam name="TDependencyRegistrator">The type of the dependency registrator.</typeparam>
+        /// <param name="dependencyRegistrator">The dependency registrator.</param>
+        /// <param name="assemblies">The list of assemblies to be inspected for dependency matches.</param>
+        /// <param name="typeExtractionMethod">The strategy for extracting types from the list of assemblies.</param>
+        /// <param name="registrationMethod">The way of registering matching dependencies into the provided registrator.</param>
+        /// <returns></returns>
+        public static TDependencyRegistrator RegisterImplementations<TDependencyRegistrator>(
+            this TDependencyRegistrator dependencyRegistrator,
+            IEnumerable<Assembly> assemblies,
+            Func<IEnumerable<Assembly>, Type[]> typeExtractionMethod,
+            Action<TDependencyRegistrator, Type> registrationMethod)
+        {
+            var assembliesArray = assemblies as Assembly[] ?? assemblies.ToArray();
+            var matches = typeExtractionMethod(assembliesArray).Where(t => t.IsClass);
 
             foreach (var match in matches)
             {

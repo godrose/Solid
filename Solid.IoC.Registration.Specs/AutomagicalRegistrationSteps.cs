@@ -108,14 +108,14 @@ namespace Solid.IoC.Registration.Specs
             switch (_scenarioDataStore.ContainerName)
             {
                 case Consts.SpecFlowObjectContainerName:
-                    _scenarioDataStore.IocContainer.RegisterImplementationsAsContracts(_scenarioDataStore.Assemblies,
+                    _scenarioDataStore.IocContainer.RegisterImplementations(_scenarioDataStore.Assemblies,
                         a => a.FindTypesByContract(typeof(ObjectBase)),
-                        (dr, match) => dr.RegisterSingleton(match.ServiceType, match.ImplementationType));
+                        (dr, match) => dr.RegisterSingleton(match, match));
                     break;
                 case Consts.MicrosoftDiContainerName:
-                    _scenarioDataStore.DiContainer.RegisterImplementationsAsContracts(_scenarioDataStore.Assemblies,
+                    _scenarioDataStore.DiContainer.RegisterImplementations(_scenarioDataStore.Assemblies,
                         a => a.FindTypesByContract(typeof(ObjectBase)),
-                        (dr, match) => dr.AddSingleton(match.ServiceType, match.ImplementationType));
+                        (dr, match) => dr.AddSingleton(match));
                     break;
             }
         }
@@ -139,32 +139,38 @@ namespace Solid.IoC.Registration.Specs
         [Then(@"All dependencies by ending can be resolved successfully")]
         public void ThenAllDependenciesByEndingCanBeResolvedSuccessfully()
         {
-            ScenarioDataStoreShouldBeResolvedSuccessfully();
+            ScenarioDataStoreShouldBeResolvedSuccessfullyByInterface();
         }
 
         [Then(@"All dependencies by contract which is an interface can be resolved successfully")]
         public void ThenAllDependenciesByContractWhichIsAnInterfaceCanBeResolvedSuccessfully()
         {
-            ScenarioDataStoreShouldBeResolvedSuccessfully();
+            ScenarioDataStoreShouldBeResolvedSuccessfullyByInterface();
         }
 
         [Then(@"All dependencies by contract which is a class can be resolved successfully")]
         public void ThenAllDependenciesByContractWhichIsAClassCanBeResolvedSuccessfully()
         {
-            ScenarioDataStoreShouldBeResolvedSuccessfully();
+            ScenarioDataStoreShouldBeResolvedSuccessfullyByClass();
         }
 
         [Then(@"All dependencies can be resolved successfully")]
         public void ThenAllDependenciesCanBeResolvedSuccessfully()
         {
-            ScenarioDataStoreShouldBeResolvedSuccessfully();
+            ScenarioDataStoreShouldBeResolvedSuccessfullyByInterface();
             var dependency = ResolveDependency<IDependency>();
             dependency.Should().BeOfType<Dependency>();
         }
 
-        private void ScenarioDataStoreShouldBeResolvedSuccessfully()
+        private void ScenarioDataStoreShouldBeResolvedSuccessfullyByInterface()
         {
             var scenarioDataStore = ResolveDependency<IScenarioDataStore>();
+            scenarioDataStore.Should().BeOfType<ScenarioDataStore>();
+        }
+
+        private void ScenarioDataStoreShouldBeResolvedSuccessfullyByClass()
+        {
+            var scenarioDataStore = ResolveDependency<ScenarioDataStore>();
             scenarioDataStore.Should().BeOfType<ScenarioDataStore>();
         }
 
