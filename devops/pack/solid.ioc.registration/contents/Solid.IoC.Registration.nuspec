@@ -12,6 +12,6 @@
     <iconUrl>https://github.com/godrose/Solid/blob/master/assets/icon.png?raw=true</iconUrl>
     <description>This package provides means for automagical registration into an IoC container.</description>
     <summary>This package provides means for automagical registration into an IoC container.</summary>
-    <releaseNotes>Added support for default registation method.</releaseNotes>
+    <releaseNotes>Added support for default registration method.</releaseNotes>
   </metadata>
 </package>
