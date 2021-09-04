@@ -23,25 +23,11 @@
     <ProjectReference Include="..\Solid.Tests.Infra\Solid.Tests.Infra.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="CleanRegistrationMethodContextHook.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Registration Method Context.feature.cs">
-      <DesignTime>True</DesignTime>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <None Update="specflow.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="xunit.runner.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <SpecFlowFeatureFiles Update="Registration Method Context.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>Registration Method Context.feature.cs</LastGenOutput>
-    </SpecFlowFeatureFiles>
-  </ItemGroup>
+  </ItemGroup> 
 </Project>

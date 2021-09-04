@@ -23,28 +23,10 @@
     <ProjectReference Include="..\Solid.Extensibility\Solid.Extensibility.csproj" />
     <ProjectReference Include="..\Solid.IoC.Adapters.BoDi\Solid.IoC.Adapters.BoDi.csproj" />
     <ProjectReference Include="..\Solid.Tests.Infra\Solid.Tests.Infra.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Update="Middleware Types.feature.cs">
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Update="Using extensibility by type as Aspect.feature.cs">
-      <DesignTime>True</DesignTime>
-    </Compile>
-  </ItemGroup>
+  </ItemGroup> 
   <ItemGroup>
     <None Update="specflow.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <SpecFlowFeatureFiles Update="Middleware Types.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>Middleware Types.feature.cs</LastGenOutput>
-    </SpecFlowFeatureFiles>
-    <SpecFlowFeatureFiles Update="Using extensibility by type as Aspect.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>Using extensibility by type as Aspect.feature.cs</LastGenOutput>
-    </SpecFlowFeatureFiles>
-  </ItemGroup>
+  </ItemGroup> 
 </Project>
