@@ -2,7 +2,7 @@ cd ../..
 nuget restore
 cd devops/publish
 PowerShell -NoProfile -ExecutionPolicy Bypass -Command "& '../build/build-all.ps1'"
-SET package_version=2.3.2-rc2
+SET package_version=2.3.2
 cd ../test
 call test-all
 cd ../pack
