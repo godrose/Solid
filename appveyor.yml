@@ -5,12 +5,11 @@ configuration: Release
 before_build:
 - cd src
 - nuget restore
-- cd ..
+- cd ../src
 build:
   verbosity: minimal
   project: Solid.sln
 test_script:
-- cd
 - cd .\devops\test
 - test-all.bat
 - cd ..\..\
