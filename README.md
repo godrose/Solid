@@ -20,7 +20,7 @@ Additionally, the **Solid** library contains various interfaces and implementati
 
 <img src=https://img.shields.io/nuget/dt/Solid.Practices.IoC>
 
-[Living Documentation](https://ci.appveyor.com/api/projects/godrose/Solid/artifacts/Solid.IoC.Registration.Specs/bin/Release/LivingDoc.html)
+[Living Documentation](https://ci.appveyor.com/api/projects/godrose/Solid/artifacts/output/Solid.IoC.Registration.Specs.LivingDoc.html)
 
 [Get package](https://www.nuget.org/packages/Solid.Practices.IoC/)
 
@@ -28,7 +28,7 @@ Additionally, the **Solid** library contains various interfaces and implementati
 
 <img src=https://img.shields.io/nuget/dt/Solid.Practices.Middleware>
 
-[Living Documentation](https://ci.appveyor.com/api/projects/godrose/Solid/artifacts/Solid.Practices.Middleware.Specs/bin/Release/LivingDoc.html)
+[Living Documentation](https://ci.appveyor.com/api/projects/godrose/Solid/artifacts/output/Solid.Practices.Middleware.Specs.LivingDoc.html)
 
 [Get package](https://www.nuget.org/packages/Solid.Practices.Middleware/)
 
@@ -36,7 +36,7 @@ Additionally, the **Solid** library contains various interfaces and implementati
 
 <img src=https://img.shields.io/nuget/dt/Solid.Extensibility>
 
-[Living Documentation](https://ci.appveyor.com/api/projects/godrose/Solid/artifacts/Solid.Extensibility.Specs/bin/Release/LivingDoc.html)
+[Living Documentation](https://ci.appveyor.com/api/projects/godrose/Solid/artifacts/output/Solid.Extensibility.Specs.LivingDoc.html)
 
 [Get package](https://www.nuget.org/packages/Solid.Extensibility/)
 
@@ -44,7 +44,7 @@ Additionally, the **Solid** library contains various interfaces and implementati
 
 <img src=https://img.shields.io/nuget/dt/Solid.Practices.Composition.Core>
 
-[Living Documentation](https://ci.appveyor.com/api/projects/godrose/Solid/artifacts/Solid.Practices.Composition.Specs/bin/Release/LivingDoc.html)
+[Living Documentation](https://ci.appveyor.com/api/projects/godrose/Solid/artifacts/output/Solid.Practices.Composition.Specs.LivingDoc.html)
 
 [Get package](https://www.nuget.org/packages/Solid.Practices.Composition.Core/)
 
@@ -52,6 +52,6 @@ Additionally, the **Solid** library contains various interfaces and implementati
 
 <img src=https://img.shields.io/nuget/dt/Solid.Bootstrapping>
 
-[Living Documentation](https://ci.appveyor.com/api/projects/godrose/Solid/artifacts/Solid.Bootstrapping.Specs/bin/Release/LivingDoc.html)
+[Living Documentation](https://ci.appveyor.com/api/projects/godrose/Solid/artifacts/output/Solid.Bootstrapping.Specs.LivingDoc.html)
 
 [Get package](https://www.nuget.org/packages/Solid.Bootstrapping/)

@@ -209,3 +209,6 @@ Solid.Cli/generated
 # Generated packages and intermediate output
 output
 devops/pack/**/contents/lib
+
+#Thumbnail files
+**/Thumbs.db

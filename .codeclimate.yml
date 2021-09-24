@@ -2,5 +2,4 @@
 exclude_patterns:
 - "**/*.Specs*/"
 - "**/*.Tests*/"
-- "**/*.feature.cs"
 - "**/AssemblyInfo.cs"
