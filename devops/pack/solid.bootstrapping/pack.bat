@@ -3,6 +3,6 @@ rmdir /Q /S lib
 mkdir lib
 cd lib
 mkdir netstandard2.0\
-robocopy ../../../../../Bin/netstandard/Release netstandard2.0 Solid.Bootstrapping.* /E
+robocopy ../../../../../src/Bin/netstandard/Release netstandard2.0 Solid.Bootstrapping.* /E
 cd ../../
 nuget pack contents/Solid.Bootstrapping.nuspec -OutputDirectory ../../../output
