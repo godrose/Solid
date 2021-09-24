@@ -28,17 +28,17 @@ artifacts:
 - name: Packages
   path: ./output/*.nupkg
 - name: Bootstrapping Living Documentation
-  path: ./Solid.Bootstrapping.Specs/bin/Release/LivingDoc.html
+  path: ./output/Solid.Bootstrapping.Specs.LivingDoc.html
 - name: Extensibility Living Documentation
-  path: ./Solid.Extensibility.Specs/bin\Release/LivingDoc.html
+  path: ./output/Solid.Extensibility.Specs.LivingDoc.html
 - name: BoDi Adapter Living Documentation
-  path: ./Solid.IoC.Adapters.BoDi.Specs/bin/Release/LivingDoc.html
+  path: ./output/Solid.Ioc.Adapters.BoDi.Specs.LivingDoc.html
 - name: Registration Living Documentation
-  path: ./Solid.IoC.Registration.Specs/bin/Release/LivingDoc.html
+  path: ./output/Solid.IoC.Registration.Specs.LivingDoc.html
 - name: Composition Container Living Documentation
-  path: ./Solid.Practices.Composition.Container.Specs/bin/Release/LivingDoc.html
+  path: ./output/Solid.Practices.Composition.Container.Specs.LivingDoc.html
 - name: Composition Living Documentation
-  path: ./Solid.Practices.Composition.Specs/bin/Release/LivingDoc.html
+  path: ./output/Solid.Practices.Composition.Specs.LivingDoc.html
 - name: Middleware Living Documentation
-  path: ./Solid.Practices.Middleware.Specs/bin/Release/LivingDoc.html
+  path: ./output/Solid.Practices.Middleware.Specs.LivingDoc.html
 ...
