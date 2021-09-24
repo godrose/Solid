@@ -9,7 +9,7 @@ build:
   verbosity: minimal
   project: ./src/Solid.sln
 test_script:
-- cd ./devops/test
+- cd ../devops/test
 - test-all.bat
 - cd ../../
 after_test:
