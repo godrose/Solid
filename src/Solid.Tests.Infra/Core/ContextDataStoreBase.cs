@@ -4,18 +4,20 @@
 namespace Attest.Testing.Context
 {
     /// <summary>
-    /// Base class for scenario data stores.
-    /// It allows storing and retrieving values dynamically.
+    /// Base class for context data stores.
+    /// It allows accessing context-specific data via named properties.
     /// </summary>
-    public abstract class ScenarioDataStoreBase
+    public abstract class ContextDataStoreBase
     {
+        private static readonly string MissingKey = string.Empty;
+
         private readonly IKeyValueDataStore _keyValueDataStore;
 
         /// <summary>
-        /// Creates an instance of <see cref="ScenarioDataStoreBase"/>
+        /// Creates an instance of <see cref="ContextDataStoreBase"/>
         /// </summary>
         /// <param name="keyValueDataStore"></param>
-        protected ScenarioDataStoreBase(IKeyValueDataStore keyValueDataStore)
+        protected ContextDataStoreBase(IKeyValueDataStore keyValueDataStore)
         {
             _keyValueDataStore = keyValueDataStore;
         }
@@ -32,7 +34,17 @@ namespace Attest.Testing.Context
         protected T GetValue<T>(T defaultValue = default, [CallerMemberName] string key = default)
         {
             var coercedKey = Coerce(key);
-            return _keyValueDataStore.ContainsKey(coercedKey) ? _keyValueDataStore.GetValueByKey<T>(coercedKey) : defaultValue;
+            if (coercedKey == MissingKey)
+            {
+                return default;
+            }
+            var containsKey = _keyValueDataStore.ContainsKey(coercedKey);
+            if (containsKey == false)
+            {
+                _keyValueDataStore.SetValueByKey(defaultValue, key);
+            }
+
+            return _keyValueDataStore.GetValueByKey<T>(coercedKey);
         }
 
         /// <summary>
@@ -44,12 +56,16 @@ namespace Attest.Testing.Context
         protected void SetValue<T>(T value, [CallerMemberName] string key = default)
         {
             var coercedKey = Coerce(key);
+            if (coercedKey == MissingKey)
+            {
+                return;
+            }
             _keyValueDataStore.SetValueByKey(value, coercedKey);
         }
 
         private static string Coerce(string key)
         {
-            return key ?? string.Empty;
+            return key ?? MissingKey;
         }
     }
 }
