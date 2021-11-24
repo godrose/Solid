@@ -2,7 +2,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-    <Version>2.3.2</Version>
+    <Version>2.3.3</Version>
     <AssemblyName>Solid.Common.Platform</AssemblyName>
     <RootNamespace>Solid.Common</RootNamespace>
   </PropertyGroup>

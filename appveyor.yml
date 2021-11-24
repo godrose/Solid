@@ -1,4 +1,4 @@
-version: 2.3.2.{build}
+version: 2.3.3.{build}
 init:
 - dotnet tool install --global SpecFlow.Plus.LivingDoc.CLI
 configuration: Release
@@ -16,7 +16,7 @@ after_test:
 - cd devops
 - cd pack
 - pack-all
-image: Visual Studio 2019
+image: Visual Studio 2022
 notifications:
 - provider: Email
   to:

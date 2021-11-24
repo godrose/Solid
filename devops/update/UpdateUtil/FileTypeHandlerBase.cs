@@ -46,7 +46,7 @@ namespace UpdateUtil
                 }
 
                 if (!targetFrameworkElement.InnerText.StartsWith("netcoreapp") &&
-                    !targetFrameworkElement.InnerText.StartsWith("net5") &&
+                    !targetFrameworkElement.InnerText.StartsWith("net6") &&
                     !targetFrameworkElement.InnerText.StartsWith("netstandard"))
                 {
                     continue;
