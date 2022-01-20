@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -25,7 +25,6 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\common\Common.Bootstrapping\Common.Bootstrapping.csproj" />
     <ProjectReference Include="..\Solid.Common\Solid.Common.csproj" />
     <ProjectReference Include="..\Solid.IoC.Adapters.BoDi\Solid.IoC.Adapters.BoDi.csproj" />
     <ProjectReference Include="..\Solid.Practices.Composition\Solid.Practices.Composition.csproj" />
