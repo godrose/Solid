@@ -1,7 +1,4 @@
-﻿using Common.Bootstrapping;
-using Moq;
-using Solid.Core;
-using TechTalk.SpecFlow;
+﻿using TechTalk.SpecFlow;
 
 namespace Solid.Practices.Composition.Specs.Steps.Adapters
 {
@@ -17,8 +14,7 @@ namespace Solid.Practices.Composition.Specs.Steps.Adapters
         [Given(@"The assemblies loader used custom assembly loading strategy")]
         public void GivenTheAssembliesLoaderUsedCustomAssemblyLoadingStrategy()
         {
-            var initializable = new Mock<IInitializable>();
-            initializable.Object.UseDynamicLoad();
+            AssemblyLoader.LoadAssembliesFromPaths = RuntimeAssemblyLoader.Get;
         }
     }
 }
