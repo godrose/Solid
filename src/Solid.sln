@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29311.281
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Practices", "Practices", "{11556FBE-83BE-4B8F-8DC1-17D2B4ED73BE}"
 EndProject
@@ -120,8 +120,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Adapters", "Adapters", "{54B1398B-D7CB-4207-B538-9E38C17699D4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Container", "Container", "{300E0BAB-14CC-4487-8849-399B37790A28}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common.Bootstrapping", "common\Common.Bootstrapping\Common.Bootstrapping.csproj", "{6B7BA1AD-9792-4451-8DE3-A1059AEBBB62}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -897,26 +895,6 @@ Global
 		{D4B29EE9-000C-4A1F-A267-B17787BC426B}.Release|x64.Build.0 = Release|Any CPU
 		{D4B29EE9-000C-4A1F-A267-B17787BC426B}.Release|x86.ActiveCfg = Release|Any CPU
 		{D4B29EE9-000C-4A1F-A267-B17787BC426B}.Release|x86.Build.0 = Release|Any CPU
-		{6B7BA1AD-9792-4451-8DE3-A1059AEBBB62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6B7BA1AD-9792-4451-8DE3-A1059AEBBB62}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6B7BA1AD-9792-4451-8DE3-A1059AEBBB62}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{6B7BA1AD-9792-4451-8DE3-A1059AEBBB62}.Debug|ARM.Build.0 = Debug|Any CPU
-		{6B7BA1AD-9792-4451-8DE3-A1059AEBBB62}.Debug|ARM64.ActiveCfg = Debug|Any CPU
-		{6B7BA1AD-9792-4451-8DE3-A1059AEBBB62}.Debug|ARM64.Build.0 = Debug|Any CPU
-		{6B7BA1AD-9792-4451-8DE3-A1059AEBBB62}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{6B7BA1AD-9792-4451-8DE3-A1059AEBBB62}.Debug|x64.Build.0 = Debug|Any CPU
-		{6B7BA1AD-9792-4451-8DE3-A1059AEBBB62}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{6B7BA1AD-9792-4451-8DE3-A1059AEBBB62}.Debug|x86.Build.0 = Debug|Any CPU
-		{6B7BA1AD-9792-4451-8DE3-A1059AEBBB62}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6B7BA1AD-9792-4451-8DE3-A1059AEBBB62}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6B7BA1AD-9792-4451-8DE3-A1059AEBBB62}.Release|ARM.ActiveCfg = Release|Any CPU
-		{6B7BA1AD-9792-4451-8DE3-A1059AEBBB62}.Release|ARM.Build.0 = Release|Any CPU
-		{6B7BA1AD-9792-4451-8DE3-A1059AEBBB62}.Release|ARM64.ActiveCfg = Release|Any CPU
-		{6B7BA1AD-9792-4451-8DE3-A1059AEBBB62}.Release|ARM64.Build.0 = Release|Any CPU
-		{6B7BA1AD-9792-4451-8DE3-A1059AEBBB62}.Release|x64.ActiveCfg = Release|Any CPU
-		{6B7BA1AD-9792-4451-8DE3-A1059AEBBB62}.Release|x64.Build.0 = Release|Any CPU
-		{6B7BA1AD-9792-4451-8DE3-A1059AEBBB62}.Release|x86.ActiveCfg = Release|Any CPU
-		{6B7BA1AD-9792-4451-8DE3-A1059AEBBB62}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -976,7 +954,6 @@ Global
 		{D4B29EE9-000C-4A1F-A267-B17787BC426B} = {227D7EA7-5EC6-49DF-872B-8D2E8B3726BB}
 		{54B1398B-D7CB-4207-B538-9E38C17699D4} = {C55CA8FA-D249-4EF0-BDA4-CB408A20256D}
 		{300E0BAB-14CC-4487-8849-399B37790A28} = {C55CA8FA-D249-4EF0-BDA4-CB408A20256D}
-		{6B7BA1AD-9792-4451-8DE3-A1059AEBBB62} = {1C712DFC-927F-43C0-B8DF-02ED6077B4A8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DF34B008-79AB-4162-ADC9-E6F970571414}
