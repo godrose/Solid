@@ -1,4 +1,4 @@
-version: 2.3.3.{build}
+version: 2.3.4.{build}
 init:
 - dotnet tool install --global SpecFlow.Plus.LivingDoc.CLI
 configuration: Release

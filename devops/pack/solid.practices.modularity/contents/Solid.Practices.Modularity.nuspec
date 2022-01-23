@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>Solid.Practices.Modularity</id>
-    <version>2.3.3</version>
+    <version>2.3.4</version>
     <title>Solid.Practices.Modularity</title>
     <authors>Gennady Verdel</authors>
     <owners>Gennady Verdel</owners>
@@ -14,9 +14,9 @@
     <summary>This package provides means for composing modular applications.</summary>
     <releaseNotes>Checked compatibility with .NET 5</releaseNotes>
     <dependencies>
-      <dependency id="Solid.Core" version="2.3.3" />
-      <dependency id="Solid.Practices.IoC" version="2.3.3" />
-      <dependency id="Solid.Practices.Middleware" version="2.3.3" />
+      <dependency id="Solid.Core" version="2.3.4" />
+      <dependency id="Solid.Practices.IoC" version="2.3.4" />
+      <dependency id="Solid.Practices.Middleware" version="2.3.4" />
     </dependencies>
   </metadata>
 </package>
