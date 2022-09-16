@@ -1,5 +1,5 @@
 rem TODO: Use common source for all version instances
-SET version=2.3.5
+SET version=2.3.6-rc1
 rem TODO: Refactor using loop and automatic discovery
 call deploy-single.bat Solid.Bootstrapping %version% 
 call deploy-single.bat Solid.Common %version% 
