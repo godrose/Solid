@@ -12,6 +12,7 @@
     <iconUrl>https://github.com/godrose/Solid/blob/master/assets/icon.png?raw=true</iconUrl>
     <description>Contains interface for *Memento* design pattern implementation providing support for Undo-Redo functionality</description>
     <summary>Contains interface for *Memento* design pattern implementation</summary>
-    <releaseNotes>Checked compatibility with .NET 5</releaseNotes>
+    <releaseNotes></releaseNotes>
+    <repository type="Open Source" url="https://github.com/godrose/Solid" />
   </metadata>
 </package>

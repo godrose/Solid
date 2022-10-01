@@ -12,10 +12,11 @@
     <iconUrl>https://github.com/godrose/Solid/blob/master/assets/icon.png?raw=true</iconUrl>
     <description>This package provides interfaces and wrappers for extensible objects</description>
     <summary>This package provides interfaces and wrappers for extensible objects</summary>
-    <releaseNotes>Checked compatibility with .NET 5</releaseNotes>
+    <releaseNotes></releaseNotes>
     <dependencies>
       <dependency id="Solid.Core" version="2.3.6-rc1" />
       <dependency id="Solid.Practices.Middleware" version="2.3.6-rc1" />
     </dependencies>
+    <repository type="Open Source" url="https://github.com/godrose/Solid" />
   </metadata>
 </package>

@@ -14,6 +14,7 @@
 over Inversion-Of-Control container</description>
     <summary>This package provides abstraction
 over Inversion-Of-Control container</summary>
-    <releaseNotes>Checked compatibility with .NET 5</releaseNotes>
+    <releaseNotes></releaseNotes>
+    <repository type="Open Source" url="https://github.com/godrose/Solid" />
   </metadata>
 </package>

@@ -12,9 +12,10 @@
     <iconUrl>https://github.com/godrose/Solid/blob/master/assets/icon.png?raw=true</iconUrl>
     <description>This package contains middleware interface.</description>
     <summary>This package contains middleware interface.</summary>
-    <releaseNotes>Checked compatibility with .NET 5</releaseNotes>
+    <releaseNotes></releaseNotes>
     <dependencies>
       <dependency id="Solid.Core" version="2.3.6-rc1" />
     </dependencies>
+    <repository type="Open Source" url="https://github.com/godrose/Solid" />
   </metadata>
 </package>
