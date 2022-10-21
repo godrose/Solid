@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>Solid.Patterns.ChainOfResponsibility</id>
-    <version>2.3.6-rc1</version>
+    <version>2.3.6</version>
     <title>Solid.Patterns.ChainOfResponsibility</title>
     <authors>Gennady Verdel</authors>
     <owners>Gennady Verdel</owners>
@@ -12,7 +12,8 @@
     <iconUrl>https://github.com/godrose/Solid/blob/master/assets/icon.png?raw=true</iconUrl>
     <description>Contains reusable components for *Chain-Of-Responsibility* design pattern implementation, namely different variations of chain element interfaces and their base implementations.</description>
     <summary>Contains reusable components for *Chain-Of-Responsibility* design pattern implementation.</summary>
-    <releaseNotes></releaseNotes>
+    <releaseNotes>
+    </releaseNotes>
     <repository type="Open Source" url="https://github.com/godrose/Solid" />
   </metadata>
 </package>
