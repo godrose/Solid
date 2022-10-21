@@ -10,7 +10,7 @@
     <OutputPath>..\tests\bin\composition</OutputPath>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Moq" Version="4.17.2" />
+    <PackageReference Include="Moq" Version="4.18.2" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Solid.Practices.Composition.IntegrationTests.Contracts\Solid.Practices.Composition.IntegrationTests.Contracts.csproj" />

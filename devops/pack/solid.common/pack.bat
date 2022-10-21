@@ -4,9 +4,9 @@ mkdir lib
 cd lib
 mkdir net461\
 robocopy ../../../../../src/Bin/netframework/Release net461 Solid.Common.Platform.* /E
-mkdir net5.0
-robocopy ../../../../../src/Bin/net/Release net5.0 Solid.Common.Platform.* /E
-cd net5.0
+mkdir net6.0
+robocopy ../../../../../src/Bin/net/Release net6.0 Solid.Common.Platform.* /E
+cd net6.0
 rmdir /Q /S ref
 cd ..
 mkdir netcoreapp3.1

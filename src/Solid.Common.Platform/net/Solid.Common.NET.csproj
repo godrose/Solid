@@ -2,7 +2,7 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-    <Version>2.3.5</Version>
+    <Version>2.3.6</Version>
     <AssemblyName>Solid.Common.Platform</AssemblyName>
     <RootNamespace>Solid.Common</RootNamespace>
   </PropertyGroup>
