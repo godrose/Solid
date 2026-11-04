@@ -16,10 +16,18 @@ namespace Solid.Practices.Composition
         /// </summary>
         /// <param name="files">The collection of files.</param>
         /// <returns>The collection of assemblies.</returns>
+        /// <remarks>
+        /// The dependencies of the loaded assemblies that the host cannot resolve by itself
+        /// are resolved from the folders of the loaded assemblies.
+        /// </remarks>
         public static IEnumerable<Assembly> Get(IEnumerable<string> files)
         {
             return files.Select(r =>
-                AssemblyLoadContext.Default.LoadFromAssemblyPath(Path.Combine(Directory.GetCurrentDirectory(), r))).ToArray();
+            {
+                var path = Path.Combine(Directory.GetCurrentDirectory(), r);
+                ModuleDependencyResolver.Register(path);
+                return AssemblyLoadContext.Default.LoadFromAssemblyPath(path);
+            }).ToArray();
         }
     }
 }
