@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <Version>2.3.6</Version>
+    <DefineConstants>$(DefineConstants);REQNROLL</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\Bin\netstandard\Release</OutputPath>
+    <DocumentationFile>..\Bin\netstandard\Release\Solid.IoC.Adapters.Reqnroll.xml</DocumentationFile>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="..\Solid.IoC.Adapters.BoDi\ObjectContainerAdapter.cs" Link="ObjectContainerAdapter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Reqnroll">
+      <Version>3.3.4</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Solid.Practices.IoC\Solid.Practices.IoC.csproj" />
+  </ItemGroup>
+</Project>

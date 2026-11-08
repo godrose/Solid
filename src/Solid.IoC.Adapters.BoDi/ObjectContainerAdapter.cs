@@ -1,9 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+#if REQNROLL
+using Reqnroll.BoDi;
+#else
 using BoDi;
+#endif
 using Solid.Practices.IoC;
 
+#if REQNROLL
+namespace Solid.IoC.Adapters.Reqnroll
+#else
 namespace Solid.IoC.Adapters.BoDi
+#endif
 {
     /// <summary>
     /// Represents a container adapter for <see cref="ObjectContainer"/>
