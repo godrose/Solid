@@ -1,8 +1,16 @@
 ﻿using Attest.Testing.Context;
+#if REQNROLL
+using Reqnroll;
+#else
 using TechTalk.SpecFlow;
+#endif
 
 // ReSharper disable once CheckNamespace
+#if REQNROLL
+namespace Attest.Testing.Reqnroll
+#else
 namespace Attest.Testing.SpecFlow
+#endif
 {
     /// <summary>
     /// Implementation of <see cref="IKeyValueDataStore" /> using <see cref="ScenarioContext"/>.

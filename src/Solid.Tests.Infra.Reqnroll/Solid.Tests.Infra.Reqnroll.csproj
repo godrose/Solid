@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <DefineConstants>$(DefineConstants);REQNROLL</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="..\Solid.Tests.Infra\**\*.cs" Exclude="..\Solid.Tests.Infra\obj\**;..\Solid.Tests.Infra\bin\**" Link="%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="JetBrains.Annotations" Version="2022.1.0" />
+    <PackageReference Include="Reqnroll" Version="3.3.4" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Solid.IoC.Adapters.Reqnroll\Solid.IoC.Adapters.Reqnroll.csproj" />
+    <ProjectReference Include="..\Solid.Practices.IoC\Solid.Practices.IoC.csproj" />
+  </ItemGroup>
+</Project>
