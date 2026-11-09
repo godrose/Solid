@@ -1,8 +1,16 @@
 ﻿using Solid.Practices.IoC;
+#if REQNROLL
+using Reqnroll;
+#else
 using TechTalk.SpecFlow;
+#endif
 
 // ReSharper disable once CheckNamespace
+#if REQNROLL
+namespace Attest.Testing.Reqnroll
+#else
 namespace Attest.Testing.SpecFlow
+#endif
 {
     public sealed class CommonScenarioDataStore<TRootObject> : ScenarioDataStoreBase
     {

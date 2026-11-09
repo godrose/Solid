@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Solid.IoC.Adapters.Reqnroll</id>
+    <version>2.3.6</version>
+    <title>Solid.IoC.Adapters.Reqnroll</title>
+    <authors>Gennady Verdel</authors>
+    <owners>Gennady Verdel</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>https://github.com/godrose/Solid/blob/master/License</licenseUrl>
+    <projectUrl>https://github.com/godrose/Solid</projectUrl>
+    <iconUrl>https://github.com/godrose/Solid/blob/master/assets/icon.png?raw=true</iconUrl>
+    <description>This package provides an adapter for Reqnroll.BoDi.ObjectContainer</description>
+    <summary>This package provides an adapter for Reqnroll.BoDi.ObjectContainer</summary>
+    <releaseNotes>
+    </releaseNotes>
+    <dependencies>
+      <dependency id="Reqnroll" version="3.3.4" />
+      <dependency id="Solid.Practices.IoC" version="2.3.6" />
+    </dependencies>
+    <repository type="Open Source" url="https://github.com/godrose/Solid" />
+  </metadata>
+</package>
